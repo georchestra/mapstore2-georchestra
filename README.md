@@ -1,5 +1,8 @@
-GeOrchestra
+geOrchestra
 ==========
 
-MapStore Project for GeOrchestra
+MapStore Project for geOrchestra
 ------------
+
+
+
