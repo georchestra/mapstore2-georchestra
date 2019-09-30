@@ -7,6 +7,7 @@ export VERSION="SNAPSHOT-$GITREV"
 npm install
 npm run compile
 npm run lint
+npm test
 
 if [ $# -eq 0 ]
   then
