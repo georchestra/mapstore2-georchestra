@@ -1,0 +1,15 @@
+dist: xenial
+services:
+  - xvfb
+language: node_js
+node_js:
+  - 8.6.0
+script: npm run travis
+addons:
+  firefox: latest
+before_install:
+    - node -v
+    - npm -v
+branches:
+  only:
+    - master
