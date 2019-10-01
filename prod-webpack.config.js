@@ -21,7 +21,7 @@ module.exports = require('./MapStore2/build/buildConfig')(
     paths,
     extractThemesPlugin,
     true,
-    "/GeOrchestra/dist/",
+    "dist/",
     '.GeOrchestra',
     [
         new HtmlWebpackPlugin({
