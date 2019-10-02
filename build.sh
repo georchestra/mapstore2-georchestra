@@ -4,7 +4,7 @@ set -e
 export GITREV=`git log -1 --format="%H"`
 export VERSION="SNAPSHOT-$GITREV"
 
-npm install
+npm install --no-save
 npm run compile
 npm run lint
 npm test
