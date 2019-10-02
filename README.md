@@ -13,7 +13,7 @@ Building the project
 
 Clone the repository:
 
-`git clone https://github.com/georchestra/mapstore2-georchestra.git`
+`git clone --recursive https://github.com/georchestra/mapstore2-georchestra.git`
 
 Install latest 8.x NodeJS, if needed, from [here](https://nodejs.org/dist/latest-v8.x/).( minimal versions: NodeJS >= 8, npm >= 5 )
 
