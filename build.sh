@@ -7,7 +7,12 @@ export VERSION="SNAPSHOT-$GITREV"
 npm install --no-save
 npm run compile
 npm run lint
-npm test
+
+# running karma tests require chrome
+if [ -n "$(which chrome)" ]
+  then
+    npm test
+fi
 
 if [ $# -eq 0 ]
   then
