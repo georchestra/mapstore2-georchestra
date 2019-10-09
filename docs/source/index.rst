@@ -1,10 +1,9 @@
-.. MapStore - Georchestra documentation master file, created by
-   sphinx-quickstart on Wed Oct  9 12:48:40 2019.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
-Welcome to MapStore - Georchestra's documentation!
+MapStore - Georchestra
 ==================================================
+
+Welcome!
+The official documentationo of MapStore is available  `here
+<https://mapstore.readthedocs.io/en/latest/>`_.
 
 .. toctree::
    :maxdepth: 2
