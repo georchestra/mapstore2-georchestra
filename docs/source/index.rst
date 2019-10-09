@@ -6,6 +6,9 @@
 Welcome to MapStore Georchestra's documentation!
 ================================================
 
+The official MapStore documentation is available `Here
+<https://mapstore.readthedocs.io/en/latest/>`_.
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
