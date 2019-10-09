@@ -2,6 +2,8 @@ node_modules/
 libs/Cesium/
 dist/
 target/
+docs/source/_build
+docs/_build
 *.sublime-*
 npm-debug.log
 coverage/
