@@ -6,7 +6,7 @@ The official documentationo of MapStore is available  `here<https://mapstore.rea
 
 .. toctree::
    :maxdepth: 2
-
+   :caption: Contents:
 
 
 
