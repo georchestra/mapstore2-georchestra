@@ -20,10 +20,9 @@ msgstr ""
 
 #: ../../source/cadastrapp/index.rst:3
 msgid "Cadastrapp"
-msgstr ""
+msgstr "Cadastrapp"
 
 #: ../../source/cadastrapp/index.rst:5
-msgid "Bienvenue dans la documentation Cadastrapp."
-msgstr ""
-
+msgid "Welcome to Cadastrapp documentation."
+msgstr "Bienvenue dans la documentation Cadastrapp."
 

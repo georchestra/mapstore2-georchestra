@@ -19,17 +19,17 @@ msgstr ""
 "Generated-By: Babel 2.7.0\n"
 
 #: ../../source/index.rst:7
-msgid "Bienvenue dans Georchestra - Documentation!"
-msgstr ""
+msgid "Welcome to Georchestra documentation!"
+msgstr "Bienvenue dans Georchestra - Documentation"
 
 #: ../../source/index.rst:18
-msgid "Indices et tableaux"
-msgstr ""
+msgid "Indices and tables"
+msgstr "Indices et tableau"
 
 #: ../../source/index.rst:20
 msgid ":ref:`genindex`"
-msgstr ""
+msgstr ":ref:`genindex`"
 
 #: ../../source/index.rst:21
-msgid ":ref:`chercher`"
-msgstr ""
+msgid ":ref:`search`"
+msgstr ":ref:`search`"

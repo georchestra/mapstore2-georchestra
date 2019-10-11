@@ -20,11 +20,12 @@ msgstr ""
 
 #: ../../source/mapstore/index.rst:3
 msgid "MapStore Guide"
-msgstr ""
+msgstr "Guide de MapStore"
 
 #: ../../source/mapstore/index.rst:5
 msgid ""
-"La documentation officielle de MapStore est `ici "
+"The official documentation of MapStore is available `here "
 "<https://mapstore.readthedocs.io/en/latest/>`_."
-msgstr ""
+msgstr "La documentation officielle de MapStore "
+"est `ici <https://mapstore.readthedocs.io/en/latest/>`_."
 
