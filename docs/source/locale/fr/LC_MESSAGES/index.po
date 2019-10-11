@@ -1,0 +1,42 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, GeoSolutions S.a.s.
+# This file is distributed under the same license as the Georchestra -
+# MapStore package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Georchestra - MapStore \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-10-11 09:41+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/index.rst:7
+msgid "Bienvenue dans Georchestra - Documentation"
+msgstr ""
+
+#: ../../source/index.rst:8
+msgid ""
+"La documentation officielle de MapStore est disponible `ici. "
+"<https://mapstore.readthedocs.io/en/latest/>`_."
+msgstr ""
+
+#: ../../source/index.rst:17
+msgid "Indices et tableaux"
+msgstr ""
+
+#: ../../source/index.rst:19
+msgid ":ref:`genindex`"
+msgstr ""
+
+#: ../../source/index.rst:20
+msgid ":ref:`chercher`"
+msgstr ""
+

@@ -3,13 +3,14 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Georchestra - MapStore's documentation!
-==================================================
-The official documentation of MapStore is available `here <https://mapstore.readthedocs.io/en/latest/>`_.
+Welcome to Georchestra documentation!
+=====================================
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 4
+
+   cadastrapp/index
+   mapstore/index
 
 
 
