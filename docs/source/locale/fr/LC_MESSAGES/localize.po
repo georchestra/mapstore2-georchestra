@@ -34,7 +34,7 @@ msgstr "Chaque fois que vous devez mettre à jour les fichiers de traduction, vo
 "les fichiers .po exécutant les commandes suivantes:"
 
 #: ../../source/localize.rst:19
-msgid "Then you can edit the .po files end commit them"
+msgid "Then you can edit the .po files and commit them"
 msgstr "Ensuite, vous pouvez éditer les fichiers .po et les commettre"
 
 #: ../../source/localize.rst:21

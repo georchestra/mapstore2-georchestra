@@ -16,7 +16,7 @@ Every time you have to update the translation files you have to update the .po f
    make gettext # generates .pot files
    sphinx-intl update -p build/gettext -l fr # generate .po files for fr lang
 
-Then you can edit the .po files end commit them
+Then you can edit the .po files and commit them
 
 To generate the documentation locally for the  you can run (on linux)
 
