@@ -4,6 +4,7 @@ dist/
 target/
 docs/source/_build
 docs/build
+docs/source/locale/**/*.mo
 *.sublime-*
 npm-debug.log
 coverage/
