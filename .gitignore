@@ -3,12 +3,14 @@ libs/Cesium/
 dist/
 target/
 docs/source/_build
-docs/_build
+docs/build
 *.sublime-*
 npm-debug.log
 coverage/
-web/.classpath
-web/.project
+**/.classpath
+**/.project
+**/.settings
+.vscode
 backend/.classpath
 backend/.project
 package-lock.json

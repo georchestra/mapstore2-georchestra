@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Georchestra - MapStore \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-11 09:41+0200\n"
+"POT-Creation-Date: 2019-10-11 10:32+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,25 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.7.0\n"
 
-#: ../../source/index.rst:7
-msgid "Welcome to Georchestra documentation!"
+#: ../../source/cadastrapp/index.rst:3
+msgid "Cadastrapp"
 msgstr ""
 
-#: ../../source/index.rst:8
-msgid ""
-"The official documentation of MapStore is available `here "
-"<https://mapstore.readthedocs.io/en/latest/>`_."
-msgstr ""
-
-#: ../../source/index.rst:17
-msgid "Indices and tables"
-msgstr ""
-
-#: ../../source/index.rst:19
-msgid ":ref:`genindex`"
-msgstr ""
-
-#: ../../source/index.rst:20
-msgid ":ref:`search`"
+#: ../../source/cadastrapp/index.rst:5
+msgid "Bienvenue dans la documentation Cadastrapp."
 msgstr ""
 
