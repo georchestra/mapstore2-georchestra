@@ -20,7 +20,7 @@ msgstr ""
 
 #: ../../source/localize.rst:3
 msgid "Localize this documentation"
-msgstr ""
+msgstr "Localiser cette documentation"
 
 #: ../../source/localize.rst:5
 msgid "To localize this documentation install sphinx-intl:"
