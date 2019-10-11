@@ -11,6 +11,7 @@ Welcome to Georchestra documentation!
 
    cadastrapp/index
    mapstore/index
+   localize
 
 
 
