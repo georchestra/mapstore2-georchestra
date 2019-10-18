@@ -1,0 +1,47 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2019, GeoSolutions S.a.s.
+# This file is distributed under the same license as the Georchestra -
+# MapStore package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Georchestra - MapStore \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-10-11 12:34+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.7.0\n"
+
+#: ../../source/localize.rst:3
+msgid "Localize this documentation"
+msgstr "Localiser cette documentation"
+
+#: ../../source/localize.rst:5
+msgid "To localize this documentation install sphinx-intl:"
+msgstr "Pour localiser cette documentation, installez sphinx-intl:"
+
+#: ../../source/localize.rst:11
+msgid ""
+"Every time you have to update the translation files you have to update "
+"the .po files running the following commands:"
+msgstr "Chaque fois que vous devez mettre à jour les fichiers de traduction, vous devez mettre à jour"
+"les fichiers .po exécutant les commandes suivantes:"
+
+#: ../../source/localize.rst:19
+msgid "Then you can edit the .po files and commit them"
+msgstr "Ensuite, vous pouvez éditer les fichiers .po et les commettre"
+
+#: ../../source/localize.rst:21
+msgid "To generate the documentation locally for the  you can run (on linux)"
+msgstr "Pour générer la documentation localement pour le que vous pouvez exécuter (sous Linux)"
+
+#: ../../source/localize.rst:27
+msgid "This will generate `mo` files that should be ignored in .gitignore"
+msgstr "Cela générera des fichiers `mo` qui devraient être ignorés dans .gitignore"
+
