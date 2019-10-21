@@ -501,6 +501,21 @@
             "FeedbackMask"
         ],
         "common": [],
+        "maps": [
+          "Login",
+          {
+            "name": "Maps",
+            "cfg": {
+              "mapsOptions": {
+                "start": 0,
+                "limit": 12
+              },
+              "fluid": true
+            }
+          },
+          "MapSearch",
+          "CreateNewMap",
+          "FeaturedMaps"],
         "admin": ["OmniBar", "Login"],
         "notallowed": [
           "OmniBar",

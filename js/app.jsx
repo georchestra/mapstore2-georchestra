@@ -49,6 +49,14 @@ const appConfig = assign({}, appCfg, {
         path: "/",
         component: require('@mapstore/product/pages/MapViewer')
     }, {
+        name: "mapviewer",
+        path: "/viewer/:mapType/:mapId",
+        component: require('@mapstore/product/pages/MapViewer')
+    }, {
+        name: "maps",
+        path: "/maps",
+        component: require('@mapstore/product/pages/Maps')
+    }, {
         name: "admin",
         path: "/admin",
         component: require('./pages/Admin').default
