@@ -1,0 +1,8 @@
+{
+    "locale": "fr-FR",
+    "messages": {
+        "georchestra": {
+            "pageNotAllowed": "Accès refusé"
+        }
+    }
+}

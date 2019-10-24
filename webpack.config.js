@@ -1,7 +1,7 @@
 const path = require("path");
 
-const themeEntries = require('./MapStore2/build/themes.js').themeEntries;
-const extractThemesPlugin = require('./MapStore2/build/themes.js').extractThemesPlugin;
+const themeEntries = require('./themes.js').themeEntries;
+const extractThemesPlugin = require('./themes.js').extractThemesPlugin;
 
 module.exports = require('./MapStore2/build/buildConfig')(
     {
@@ -24,5 +24,39 @@ module.exports = require('./MapStore2/build/buildConfig')(
     {
         "@mapstore": path.resolve(__dirname, "MapStore2", "web", "client"),
         "@js": path.resolve(__dirname, "js")
+    },
+    {
+        '/rest/geostore': {
+            target: "http://localhost:8080/mapstore",
+            secure: false,
+            headers: {
+                host: "localhost:8080"
+            }
+        },
+        '/pdf': {
+            target: "http://localhost:8080/mapstore",
+            secure: false,
+            headers: {
+                host: "localhost:8080"
+            }
+        },
+        '/mapstore/pdf': {
+            target: "http://localhost:8080",
+            secure: false,
+            headers: {
+                host: "localhost:8080"
+            }
+        },
+        '/proxy': {
+            target: "http://localhost:8080/mapstore",
+            secure: false,
+            headers: {
+                host: "localhost:8080"
+            }
+        },
+        '/docs': {
+            target: "http://localhost:8081",
+            pathRewrite: { '/docs': '/mapstore/docs' }
+        }
     }
 );
