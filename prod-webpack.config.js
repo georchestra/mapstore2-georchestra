@@ -1,7 +1,7 @@
 const path = require("path");
 
-const themeEntries = require('./MapStore2/build/themes.js').themeEntries;
-const extractThemesPlugin = require('./MapStore2/build/themes.js').extractThemesPlugin;
+const themeEntries = require('./themes.js').themeEntries;
+const extractThemesPlugin = require('./themes.js').extractThemesPlugin;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const paths = {
@@ -13,9 +13,7 @@ const paths = {
 
 module.exports = require('./MapStore2/build/buildConfig')(
     {
-        'GeOrchestra': path.join(__dirname, "js", "app"),
-        'GeOrchestra-embedded': path.join(__dirname, "MapStore2", "web", "client", "product", "embedded"),
-        'GeOrchestra-api': path.join(__dirname, "MapStore2", "web", "client", "product", "api")
+        'GeOrchestra': path.join(__dirname, "js", "app")
     },
     themeEntries,
     paths,
@@ -29,20 +27,6 @@ module.exports = require('./MapStore2/build/buildConfig')(
             chunks: ['GeOrchestra'],
             inject: true,
             hash: true
-        }),
-        new HtmlWebpackPlugin({
-            template: path.join(__dirname, 'embeddedTemplate.html'),
-            chunks: ['GeOrchestra-embedded'],
-            inject: true,
-            hash: true,
-            filename: 'embedded.html'
-        }),
-        new HtmlWebpackPlugin({
-            template: path.join(__dirname, 'apiTemplate.html'),
-            chunks: ['GeOrchestra-api'],
-            inject: 'head',
-            hash: true,
-            filename: 'api.html'
         })
     ],
     {
