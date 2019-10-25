@@ -311,6 +311,25 @@
                         </resources>
                     </configuration>
                 </execution>
+                <execution>
+                    <id>project-translations</id>
+                    <phase>process-classes</phase>
+                    <goals>
+                        <goal>copy-resources</goal>
+                    </goals>
+                    <configuration>
+                        <outputDirectory>${basedir}/target/GeOrchestra</outputDirectory>
+                        <encoding>UTF-8</encoding>
+                        <resources>
+                            <resource>
+                                <directory>${basedir}/..</directory>
+                                <includes>
+                                    <include>translations/*</include>
+                                </includes>
+                            </resource>
+                        </resources>
+                    </configuration>
+                </execution>
 				<execution>
                     <id>printing</id>
                     <phase>process-classes</phase>
