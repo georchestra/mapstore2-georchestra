@@ -56,6 +56,7 @@
             <property name="addEveryOneGroup" value="true"/>
             <property name="usernameHeader" value="sec-username"/>
             <property name="groupsHeader" value="sec-roles"/>
+            <property name="listDelimiter" value=";"/>
             <property name="authoritiesMapper" ref="rolesMapper"/>
 	</bean>
     
@@ -63,7 +64,7 @@
     <bean id="rolesMapper" class="it.geosolutions.geostore.core.security.SimpleGrantedAuthoritiesMapper">
         <constructor-arg>
             <map>
-                <entry key="MAPSTORE_ADMIN" value="ADMIN"/>
+                <entry key="ROLE_MAPSTORE_ADMIN" value="ADMIN"/>
             </map>
         </constructor-arg>
     </bean>
