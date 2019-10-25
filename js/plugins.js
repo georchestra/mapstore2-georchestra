@@ -100,7 +100,8 @@ module.exports = {
         ZoomAllPlugin: require('@mapstore/plugins/ZoomAll'),
         ZoomInPlugin: require('@mapstore/plugins/ZoomIn'),
         ZoomOutPlugin: require('@mapstore/plugins/ZoomOut'),
-        NotAllowedPlugin: require('./plugins/NotAllowed').default
+        NotAllowedPlugin: require('./plugins/NotAllowed').default,
+        HeaderPlugin: require('./plugins/Header').default
     },
     requires: {
         ReactSwipe: require('react-swipeable-views').default,
