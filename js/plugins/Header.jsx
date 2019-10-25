@@ -7,8 +7,9 @@
  */
 import React from "react";
 import { createPlugin } from "@mapstore/utils/PluginsUtils";
-import Message from "@mapstore/components/I18N/Message";
 
-export default createPlugin('NotAllowed', {
-    component: () => <div id="georchestra-notallowed"><Message msgId="georchestra.pageNotAllowed"/></div>
+const Header = () => <iframe id="georchestra-header" src="/header/?active=mapstore" scrolling="no" frameBorder="0" />;
+
+export default createPlugin('Header', {
+    component: Header
 });

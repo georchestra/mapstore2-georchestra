@@ -57,6 +57,13 @@ module.exports = require('./MapStore2/build/buildConfig')(
         '/docs': {
             target: "http://localhost:8081",
             pathRewrite: { '/docs': '/mapstore/docs' }
+        },
+        '/header': {
+            target: "https://georchestra.geo-solutions.it",
+            secure: false,
+            headers: {
+                host: "georchestra.geo-solutions.it"
+            }
         }
     }
 );
