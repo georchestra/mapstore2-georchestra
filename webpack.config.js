@@ -27,39 +27,42 @@ module.exports = require('./MapStore2/build/buildConfig')(
     },
     {
         '/rest/geostore': {
-            target: "http://localhost:8080/mapstore",
+            target: "https://georchestra.geo-solutions.it/mapstore", // TODO: use local URL
             secure: false,
             headers: {
-                host: "localhost:8080"
+                host: "georchestra.geo-solutions.it"
             }
         },
         '/pdf': {
-            target: "http://localhost:8080/mapstore",
+            target: "https://georchestra.geo-solutions.it/mapstore", // TODO: use local URL
             secure: false,
             headers: {
-                host: "localhost:8080"
+                host: "georchestra.geo-solutions.it"
             }
         },
         '/mapstore/pdf': {
-            target: "http://localhost:8080",
+            target: "https://georchestra.geo-solutions.it", // TODO: use local URL
             secure: false,
             headers: {
-                host: "localhost:8080"
+                host: "georchestra.geo-solutions.it"
             }
         },
-        '/proxy': {
-            target: "http://localhost:8080/mapstore",
+        '/proxy': { // proxy of GeOrchestra is already configured
+            target: "https://georchestra.geo-solutions.it/proxy", // TODO: use local URL
             secure: false,
             headers: {
-                host: "localhost:8080"
+                host: "georchestra.geo-solutions.it"
             }
         },
-        '/docs': {
-            target: "http://localhost:8081",
-            pathRewrite: { '/docs': '/mapstore/docs' }
+        '/geonetwork': {
+            target: "https://georchestra.geo-solutions.it/geonetwork", // TODO: use local URL
+            secure: false,
+            headers: {
+                host: "georchestra.geo-solutions.it"
+            }
         },
         '/header': {
-            target: "https://georchestra.geo-solutions.it",
+            target: "https://georchestra.geo-solutions.it", // TODO: use local URL
             secure: false,
             headers: {
                 host: "georchestra.geo-solutions.it"

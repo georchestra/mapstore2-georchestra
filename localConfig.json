@@ -110,23 +110,47 @@
             },
             "selectedService": "gs_stable_csw",
             "services": {
-              "gs_stable_csw": {
-                "url": "https://gs-stable.geo-solutions.it/geoserver/csw",
+              "local": {
+                "url": "/geonetwork/srv/fre/csw",
                 "type": "csw",
-                "title": "GeoSolutions GeoServer CSW",
+                "title": "le catalogue local",
                 "autoload": true
               },
-              "gs_stable_wms": {
-                "url": "https://gs-stable.geo-solutions.it/geoserver/wms",
-                "type": "wms",
-                "title": "GeoSolutions GeoServer WMS",
-                "autoload": false
+              "geobretagne": {
+                "url": "https://geobretagne.fr/geonetwork/srv/fre/csw",
+                "type": "csw",
+                "title": "le catalogue GeoBretagne",
+                "autoload": true
               },
-              "gs_stable_wmts": {
-                "url": "https://gs-stable.geo-solutions.it/geoserver/gwc/service/wmts",
-                "type": "wmts",
-                "title": "GeoSolutions GeoServer WMTS",
-                "autoload": false
+              "PIGMA": {
+                "url": "https://www.pigma.org/geonetwork/srv/fre/csw",
+                "type": "csw",
+                "title": "le catalogue PIGMA",
+                "autoload": true
+              },
+              "sadre": {
+                "url": "http://www.sandre.eaufrance.fr/atlas/srv/fre/csw",
+                "type": "csw",
+                "title": "le catalogue du Sandre",
+                "autoload": true
+              },
+              "webservice_energy": {
+                "url": "http://geocatalog.webservice-energy.org/geonetwork/srv/fre/csw",
+                "type": "csw",
+                "title": "le catalogue de webservice-energy",
+                "autoload": true
+              },
+              "ifremer": {
+                "url": "http://www.ifremer.fr/geonetwork/srv/fre/csw",
+                "type": "csw",
+                "title": "le catalogue de l'Ifremer",
+                "autoload": true
+              },
+              "geograndest": {
+                "url": "https://www.geograndest.fr/geonetwork/srv/fre/csw",
+                "type": "csw",
+                "title": "le catalogue de GéoGrandEst",
+                "autoload": true
               }
             }
           }
@@ -444,7 +468,7 @@
                 "declineUrl" : "http://www.google.com"
                 }
             },
-            "OmniBar", "Login", "Save", "SaveAs", "BurgerMenu", "Expander", "Undo", "Redo", "FullScreen", "GlobeViewSwitcher", "SearchServicesConfig", "WidgetsBuilder", "Widgets",
+            "OmniBar", "Login", "BurgerMenu", "Expander", "Undo", "Redo", "FullScreen", "GlobeViewSwitcher", "SearchServicesConfig", "WidgetsBuilder", "Widgets",
             "WidgetsTray",
             "Timeline",
             "Playback",
