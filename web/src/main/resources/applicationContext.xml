@@ -101,4 +101,16 @@
     <bean id="fileCachingJaiMosaicOutputFactory" class="org.mapfish.print.output.FileCachingJaiMosaicOutputFactory"/>
     <bean id="inMemoryJaiMosaicOutputFactory" class="org.mapfish.print.output.InMemoryJaiMosaicOutputFactory"/>
     <bean id="pdfOutputFactory" class="org.mapfish.print.output.PdfOutputFactory"/>
+    
+    <bean id="georchestra-properties" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="order" value="0"/>
+        <property name="locations">
+            <list>
+                <value>classpath:geostore.properties</value>
+                <value>classpath*:geostore.properties</value>
+                <value>${georchestra-config}</value>
+            </list>
+        </property>
+        <property name="ignoreResourceNotFound" value="false"/>
+	</bean>
 </beans>
