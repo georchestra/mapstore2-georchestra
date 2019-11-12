@@ -108,7 +108,7 @@
                 "isNew": true,
                 "autoload": false
             },
-            "selectedService": "gs_stable_csw",
+            "selectedService": "local",
             "services": {
               "local": {
                 "url": "/geonetwork/srv/fre/csw",
@@ -141,6 +141,7 @@
                 "autoload": true
               },
               "ifremer": {
+                "NOTE": "NOT WORKING, requires login. This is configured on the current viewer but do not provide any response",
                 "url": "http://www.ifremer.fr/geonetwork/srv/fre/csw",
                 "type": "csw",
                 "title": "le catalogue de l'Ifremer",

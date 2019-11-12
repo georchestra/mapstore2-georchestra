@@ -3,6 +3,8 @@ const path = require("path");
 const themeEntries = require('./themes.js').themeEntries;
 const extractThemesPlugin = require('./themes.js').extractThemesPlugin;
 
+const DEV_HOST = "georchestra.geo-solutions.it";
+
 module.exports = require('./MapStore2/build/buildConfig')(
     {
         'GeOrchestra': path.join(__dirname, "js", "app"),
@@ -27,45 +29,45 @@ module.exports = require('./MapStore2/build/buildConfig')(
     },
     {
         '/rest/geostore': {
-            target: "https://georchestra.geo-solutions.it/mapstore", // TODO: use local URL
+            target: `https://${DEV_HOST}/mapstore`,
             secure: false,
             headers: {
-                host: "georchestra.geo-solutions.it"
+                host: `${DEV_HOST}`
             }
         },
         '/pdf': {
-            target: "https://georchestra.geo-solutions.it/mapstore", // TODO: use local URL
+            target: `https://${DEV_HOST}/mapstore`,
             secure: false,
             headers: {
-                host: "georchestra.geo-solutions.it"
+                host: `${DEV_HOST}`
             }
         },
         '/mapstore/pdf': {
-            target: "https://georchestra.geo-solutions.it", // TODO: use local URL
+            target: `https://${DEV_HOST}`,
             secure: false,
             headers: {
-                host: "georchestra.geo-solutions.it"
+                host: `${DEV_HOST}`
             }
         },
         '/proxy': { // proxy of GeOrchestra is already configured
-            target: "https://georchestra.geo-solutions.it/proxy", // TODO: use local URL
+            target: `https://${DEV_HOST}/mapstore`,
             secure: false,
             headers: {
-                host: "georchestra.geo-solutions.it"
+                host: `${DEV_HOST}`
             }
         },
         '/geonetwork': {
-            target: "https://georchestra.geo-solutions.it/geonetwork", // TODO: use local URL
+            target: `https://${DEV_HOST}/geonetwork`,
             secure: false,
             headers: {
-                host: "georchestra.geo-solutions.it"
+                host: `${DEV_HOST}`
             }
         },
         '/header': {
-            target: "https://georchestra.geo-solutions.it", // TODO: use local URL
+            target: `https://${DEV_HOST}`,
             secure: false,
             headers: {
-                host: "georchestra.geo-solutions.it"
+                host: `${DEV_HOST}`
             }
         }
     }
