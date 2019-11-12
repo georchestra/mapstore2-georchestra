@@ -8,7 +8,7 @@
 import React from "react";
 import { createPlugin } from "@mapstore/utils/PluginsUtils";
 
-const Header = () => <iframe id="georchestra-header" src="/header/?active=mapstore" scrolling="no" frameBorder="0" />;
+const Header = ({page = "mapstore"}) => <iframe id="georchestra-header" src={"/header/?active=" + page} scrolling="no" frameBorder="0" />;
 
 export default createPlugin('Header', {
     component: Header

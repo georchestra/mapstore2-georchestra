@@ -26,10 +26,6 @@
     "authenticationRules": [{
         "urlPattern": ".*geostore.*",
         "method": "bearer"
-      }, {
-        "urlPattern": "http(s)?\\:\\/\\/gs-stable\\.geo-solutions\\.it\\/geoserver/.*",
-        "authkeyParamName": "authkey",
-        "method": "authkey"
     }],
     "monitorState": [
       {"name": "router", "path": "router.location.pathname"},
@@ -467,7 +463,12 @@
           "MapSearch",
           "CreateNewMap",
           "FeaturedMaps"],
-        "admin": ["Header", "OmniBar", "Login"],
+        "admin": [{
+          "name": "Header",
+          "cfg": {
+            "page": "msadmin"
+          }
+        }, "OmniBar", "Login"],
         "notallowed": [
           "Header",
           "OmniBar",
