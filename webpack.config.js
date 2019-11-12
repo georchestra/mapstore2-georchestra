@@ -3,6 +3,8 @@ const path = require("path");
 const themeEntries = require('./themes.js').themeEntries;
 const extractThemesPlugin = require('./themes.js').extractThemesPlugin;
 
+const DEV_HOST = "georchestra.geo-solutions.it";
+
 module.exports = require('./MapStore2/build/buildConfig')(
     {
         'GeOrchestra': path.join(__dirname, "js", "app"),
@@ -27,42 +29,45 @@ module.exports = require('./MapStore2/build/buildConfig')(
     },
     {
         '/rest/geostore': {
-            target: "http://localhost:8080/mapstore",
+            target: `https://${DEV_HOST}/mapstore`,
             secure: false,
             headers: {
-                host: "localhost:8080"
+                host: `${DEV_HOST}`
             }
         },
         '/pdf': {
-            target: "http://localhost:8080/mapstore",
+            target: `https://${DEV_HOST}/mapstore`,
             secure: false,
             headers: {
-                host: "localhost:8080"
+                host: `${DEV_HOST}`
             }
         },
         '/mapstore/pdf': {
-            target: "http://localhost:8080",
+            target: `https://${DEV_HOST}`,
             secure: false,
             headers: {
-                host: "localhost:8080"
+                host: `${DEV_HOST}`
             }
         },
-        '/proxy': {
-            target: "http://localhost:8080/mapstore",
+        '/proxy': { // proxy of GeOrchestra is already configured
+            target: `https://${DEV_HOST}/mapstore`,
             secure: false,
             headers: {
-                host: "localhost:8080"
+                host: `${DEV_HOST}`
             }
         },
-        '/docs': {
-            target: "http://localhost:8081",
-            pathRewrite: { '/docs': '/mapstore/docs' }
+        '/geonetwork': {
+            target: `https://${DEV_HOST}/geonetwork`,
+            secure: false,
+            headers: {
+                host: `${DEV_HOST}`
+            }
         },
         '/header': {
-            target: "https://georchestra.geo-solutions.it",
+            target: `https://${DEV_HOST}`,
             secure: false,
             headers: {
-                host: "georchestra.geo-solutions.it"
+                host: `${DEV_HOST}`
             }
         }
     }
