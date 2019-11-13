@@ -85,7 +85,7 @@ This ia also configured in the geostore-security-proxy.xml file:
     <alias name="ldapUserGroupDAO" alias="userGroupDAO"/>
     <alias name="ldapUserDAO" alias="userDAO"/>
 
-LDAP connections settings are taken from the geOrchestra default.properties configuration files, and mapped to
+LDAP connection settings are taken from the geOrchestra default.properties configuration file, and mapped to
 internal configuration variables (e.g. ${ldapHost}).
 
 To configure the default.properties location and environment variable (georchestra-config) needs to be configured for
