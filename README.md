@@ -3,7 +3,7 @@ geOrchestra
 
 MapStore Project for geOrchestra
 ------------
-
+Documentation: https://docs.georchestra.geo-solutions.it/ (domain will change)
 
 See https://georchestra.geo-solutions.it/ (work in progress)
 
