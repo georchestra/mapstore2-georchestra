@@ -8,6 +8,7 @@ Authentication Filter
 ^^^^^^^^^^^^^^^^^^^^^
 The authentication filter intercepts every MapStore backend request to extract the headers forwarded by the geOrchestra security-proxy,
 and use them to properly authenticate and authorize the current user, in particular:
+
  * sec-username is used to authenticate the current user (anonymous access is assigned if the header does not exist)
  * sec-roles is used to assign MapStore groups to the current user (groups will be used by the admin to assign permissions for the MapStore resources, e.g. maps)
  * a particular role (MAPSTORE_ADMIN) is mapped to the MapStore ADMIN role
