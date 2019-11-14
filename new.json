@@ -8,60 +8,41 @@
 			-20037508.34, -20037508.34,
 			20037508.34, 20037508.34
 		],
-		"layers": [
-			{
-				"type": "osm",
-				"title": "Open Street Map",
-				"name": "mapnik",
-        "source": "osm",
-				"group": "background",
-        "visibility": true
-			},
+    "layers": [
       {
-        "type": "tileprovider",
-        "title": "NASAGIBS Night 2012",
-        "provider": "NASAGIBS.ViirsEarthAtNight2012",
-        "name": "Night2012",
-        "source": "nasagibs",
-        "group": "background",
-        "visibility": false
-      },
-      {
-        "type": "tileprovider",
-        "title": "OpenTopoMap",
-        "provider": "OpenTopoMap",
-        "name": "OpenTopoMap",
-        "source": "OpenTopoMap",
-        "group": "background",
-        "visibility": false
-      },
-      {
-        "format": "image/jpeg",
-        "group": "background",
-        "name": "s2cloudless:s2cloudless",
-        "opacity": 1,
-        "title": "Sentinel 2 Cloudless",
         "type": "wms",
-        "url": [
-          "https://1maps.geo-solutions.it/geoserver/wms", "https://2maps.geo-solutions.it/geoserver/wms", "https://3maps.geo-solutions.it/geoserver/wms", "https://4maps.geo-solutions.it/geoserver/wms", "https://5maps.geo-solutions.it/geoserver/wms", "https://6maps.geo-solutions.it/geoserver/wms"
-        ],
-        "source": "s2cloudless",
-        "visibility": false,
-        "singleTile": false
+        "url": "http://osm.geobretagne.fr/gwc01/service/wms",
+        "visibility": true,
+        "group": "background",
+        "thumbURL": "http://osm.geobretagne.fr/gwc01/service/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&LAYERS=osm%3Agoogle&STYLES=&SRS=EPSG%3A3857&CRS=EPSG%3A3857&TILED=true&WIDTH=256&HEIGHT=256&BBOX=-1252344.271424327%2C5009377.085697312%2C6.984919309616089e-10%2C6261721.35712164",
+        "dimensions": [],
+        "name": "osm:google",
+        "title": "OpenStreetMap GeoBretagne",
+        "description": "carte réalisée à partir de la base OpenStreetMap avec un style proche de la carte Google Maps",
+        "bbox": {
+          "crs": "EPSG:2154",
+          "bounds": {
+            "minx": 29.96875,
+            "miny": 20.6046875,
+            "maxx": 57.56640625,
+            "maxy": -15.78203125
+          }
+        },
+        "links": [],
+        "params": {},
+        "allowedSRS": {},
+        "catalogURL": "https://geobretagne.fr/geonetwork/srv/fre/csw?request=GetRecordById&service=CSW&version=2.0.2&elementSetName=full&id=6d5e8af2-070e-45ab-96c0-fe7938a5d853",
+        "loading": false,
+        "loadingError": false
       },
       {
-        "source": "ol",
+        "type": "osm",
+        "title": "Open Street Map",
+        "name": "mapnik",
+        "source": "osm",
         "group": "background",
-        "title": "Empty Background",
-        "fixed": true,
-        "type": "empty",
-        "visibility": false,
-        "args": [
-          "Empty Background", {
-            "visibility": false
-          }
-        ]
+        "visibility": false
       }
-		]
+    ]
 	}
 }
