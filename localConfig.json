@@ -180,17 +180,6 @@
                     "group": "background"
                   },
                   {
-                    "format": "image/jpeg",
-                    "group": "background",
-                    "name": "s2cloudless:s2cloudless",
-                    "opacity": 1,
-                    "title": "Sentinel 2 Cloudless",
-                    "type": "wms",
-                    "url": "https://1maps.geo-solutions.it/geoserver/wms",
-                    "source": "s2cloudless",
-                    "singleTile": false
-                  },
-                  {
                     "source": "ol",
                     "group": "background",
                     "title": "Empty Background",
