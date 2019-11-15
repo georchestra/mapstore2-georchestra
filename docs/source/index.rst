@@ -9,16 +9,7 @@ Welcome to Georchestra documentation!
 .. toctree::
    :maxdepth: 4
 
-   cadastrapp/index
    mapstore/index
    security/index
    database/index
    localize
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`search`
