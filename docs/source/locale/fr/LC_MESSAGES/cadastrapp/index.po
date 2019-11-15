@@ -17,12 +17,3 @@ msgstr ""
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.7.0\n"
-
-#: ../../source/cadastrapp/index.rst:3
-msgid "Cadastrapp"
-msgstr "Cadastrapp"
-
-#: ../../source/cadastrapp/index.rst:5
-msgid "Welcome to Cadastrapp documentation."
-msgstr "Bienvenue dans la documentation Cadastrapp."
-

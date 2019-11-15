@@ -28,3 +28,20 @@ Build the deployable war:
 Where version_identifier is an optional identifier of the generated war that will be shown in the settings panel of the application.
 
 Deploy the generated GeOrchestra.war file (in web/target) to your favourite J2EE container (e.g. Tomcat).
+
+Building the documentation
+--------------------------
+
+To build the documentation you need [sphinx](https://www.sphinx-doc.org/en/master/usage/installation.html) and some extensions (sphinx_rtd_theme and recommonmark), you can install using pip :
+
+```sh
+pip install sphinx_rtd_theme
+pip install recommonmark
+```
+
+than you can build html documentation using :
+
+```sh
+cd docs # enter in the docs folder
+make html # create html documentation
+```
