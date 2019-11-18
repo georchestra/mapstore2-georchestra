@@ -12,6 +12,7 @@ import appCfg from "@mapstore/product/appConfig";
 import plugins from "./plugins";
 import main from "@mapstore/product/main";
 import Login from "./plugins/Login";
+import AuthenticationAPI from '@mapstore/api/GeoStoreDAO';
 
 /**
  * Add custom (overriding) translations with:
@@ -20,7 +21,7 @@ import Login from "./plugins/Login";
  */
 ConfigUtils.setConfigProp('translationsPath', ['./MapStore2/web/client/translations', './translations']);
 ConfigUtils.setConfigProp('themePrefix', 'GeOrchestra');
-
+ConfigUtils.setConfigProp('geoStoreUrl', 'rest/geostore/');
 /**
  * Use a custom plugins configuration file with:
  *
@@ -60,13 +61,19 @@ const appConfig = assign({}, appCfg, {
         name: "admin",
         path: "/admin",
         component: require('./pages/Admin').default
-    }],
-    storeOpts: {
-        persist: {
-            // we don't want security to be persisted, so that we get updated headers for each reload
-            whitelist: []
-        }
-    }
+    }, {
+        name: 'context-creator',
+        path: "/context-creator/context-manager/:contextId/:stepId",
+        component: require('@mapstore/product/pages/ContextCreator').default
+    }, {
+        name: 'context',
+        path: "/context/:contextName",
+        component: require('@mapstore/product/pages/Context').default
+    }, {
+        name: 'context',
+        path: "/context/:contextName/:mapId",
+        component: require('@mapstore/product/pages/Context').default
+    }]
 });
 /**
  * Define a custom list of plugins with:
@@ -81,4 +88,24 @@ const appPlugins = {
     requires: plugins.requires
 };
 
-main(appConfig, appPlugins);
+const start = (userInfo) => {
+    localStorage.setItem('mapstore2.persist.security', JSON.stringify(userInfo));
+    main(appConfig, appPlugins);
+};
+
+AuthenticationAPI.login("", "").then((userDetails) => {
+    const timestamp = new Date() / 1000 | 0;
+    const userInfo = {
+        user: userDetails.User,
+        token: userDetails.access_token,
+        refresh_token: userDetails.refresh_token,
+        expires: (userDetails.expires) ? (timestamp + userDetails.expires) : timestamp + 48 * 60 * 60,
+        authHeader: ""
+    };
+    start(userInfo);
+}).catch((e) => {
+    // anonymous
+    start({
+        loginError: e
+    });
+});

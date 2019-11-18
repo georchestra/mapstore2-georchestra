@@ -325,7 +325,8 @@
             },
             "FeedbackMask"
         ],
-        "desktop": [ "Header", "Details",
+        "desktop": ["Header",
+          "Details",
           {
             "name": "Map",
             "cfg": {
@@ -529,15 +530,48 @@
           "FeaturedMaps"],
         "admin": [{
           "name": "Header",
+            "cfg": {
+              "page": "msadmin"
+            }
+          }, {
           "cfg": {
             "page": "msadmin"
           }
-        }, "OmniBar", "Login"],
-        "notallowed": [
-          "Header",
+        }, "OmniBar", "Login", "ContextManager"],
+        "notallowed": [{
+            "name": "Header",
+            "cfg": {
+              "page": "msadmin"
+            }
+          },
           "OmniBar",
           "Login",
           "NotAllowed"
+        ],
+        "context-creator": [
+          {
+            "name": "Header",
+            "cfg": {
+              "page": "msadmin"
+            }
+          },
+          "OmniBar",
+          "Login",
+          {
+            "name": "BackToPage",
+            "cfg": {
+              "destRoute": "/admin",
+              "confirmMessage": "contextCreator.undo"
+            }
+          },
+          "ContextCreator",
+          "Notifications",
+          {
+            "name": "FeedbackMask",
+            "cfg": {
+              "containerPosition": "header"
+            }
+          }
         ]
     }
 }

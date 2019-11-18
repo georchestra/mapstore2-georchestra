@@ -6,9 +6,8 @@
  * LICENSE file in the root directory of this source tree.
  */
 import {createPlugin} from "@mapstore/utils/PluginsUtils";
-import {login} from "@mapstore/actions/security";
 import {connect} from "react-redux";
-import User, {AutoLogin} from "../components/User";
+import User from "../components/User";
 import security from "@mapstore/reducers/security";
 
 const LoginState = connect((state) => ({
@@ -16,18 +15,15 @@ const LoginState = connect((state) => ({
     error: state.security && state.security.loginError,
     bsStyle: "primary",
     className: "square-button georchestra-login"
-}), {
-    onLogin: login
-})(User);
+}))(User);
 
-const AutoLoginAction = connect(() => ({
-}), {
-    onLogin: login
-})(AutoLogin);
+const Empty = () => {
+    return null;
+};
 
 
 export default createPlugin('Login', {
-    component: AutoLoginAction,
+    component: Empty,
     containers: {
         OmniBar: {
             name: "login",
