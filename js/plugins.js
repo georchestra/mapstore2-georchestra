@@ -100,6 +100,9 @@ module.exports = {
         ZoomAllPlugin: require('@mapstore/plugins/ZoomAll'),
         ZoomInPlugin: require('@mapstore/plugins/ZoomIn'),
         ZoomOutPlugin: require('@mapstore/plugins/ZoomOut'),
+        ContextManagerPlugin: require('@mapstore/plugins/contextmanager/ContextManager').default,
+        ContextCreatorPlugin: require('@mapstore/plugins/ContextCreator').default,
+        ContextPlugin: require('@mapstore/plugins/Context').default,
         NotAllowedPlugin: require('./plugins/NotAllowed').default,
         HeaderPlugin: require('./plugins/Header').default
     },
