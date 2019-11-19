@@ -63,7 +63,7 @@ const appConfig = assign({}, appCfg, {
         component: require('./pages/Admin').default
     }, {
         name: 'context-creator',
-        path: "/context-creator/context-manager/:contextId/:stepId",
+        path: "/context-creator/:contextId/:stepId",
         component: require('@mapstore/product/pages/ContextCreator').default
     }, {
         name: 'context',
@@ -83,6 +83,8 @@ const appConfig = assign({}, appCfg, {
 const appPlugins = {
     plugins: {
         ...plugins.plugins,
+        // to test with a normal geostore (without cas) you can remove this
+        // override and configure the dev-server and security rules accordingly
         LoginPlugin: Login
     },
     requires: plugins.requires
