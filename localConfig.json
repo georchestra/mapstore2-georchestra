@@ -316,7 +316,7 @@
                     }
                 }
             }, "Login",
-            "OmniBar", "BurgerMenu", "Expander", "GlobeViewSwitcher", {
+            "OmniBar", "BurgerMenu", "Expander", {
               "name": "Cookie",
               "cfg": {
                 "externalCookieUrl" : "",
@@ -505,7 +505,7 @@
                 "declineUrl" : "http://www.google.com"
                 }
             },
-            "OmniBar", "Login", "BurgerMenu", "Expander", "Undo", "Redo", "FullScreen", "GlobeViewSwitcher", "SearchServicesConfig", "WidgetsBuilder", "Widgets",
+            "OmniBar", "Login", "BurgerMenu", "Expander", "Undo", "Redo", "FullScreen", "SearchServicesConfig", "WidgetsBuilder", "Widgets",
             "WidgetsTray",
             "Timeline",
             "Playback",
