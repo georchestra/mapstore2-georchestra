@@ -537,14 +537,24 @@
           "cfg": {
             "page": "msadmin"
           }
-        }, "OmniBar", "Login", "ContextManager"],
+        }, {
+          "name": "OmniBar",
+          "cfg": {
+            "className": "navbar shadow navbar-home"
+          }
+        }, "Login", "ContextManager"],
         "notallowed": [{
             "name": "Header",
             "cfg": {
               "page": "msadmin"
             }
           },
-          "OmniBar",
+          {
+            "name": "OmniBar",
+            "cfg": {
+              "className": "navbar shadow navbar-home"
+            }
+          },
           "Login",
           "NotAllowed"
         ],
@@ -555,7 +565,13 @@
               "page": "msadmin"
             }
           },
-          "OmniBar",
+          {
+            "name": "OmniBar",
+            "cfg": {
+              "containerPosition": "header",
+              "className": "navbar shadow navbar-home"
+            }
+          },
           "Login",
           {
             "name": "BackToPage",
@@ -564,7 +580,12 @@
               "confirmMessage": "contextCreator.undo"
             }
           },
-          "ContextCreator",
+          {
+            "name": "ContextCreator",
+            "cfg": {
+              "saveDestLocation": "/admin"
+            }
+          },
           "Notifications",
           {
             "name": "FeedbackMask",

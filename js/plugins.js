@@ -103,6 +103,7 @@ module.exports = {
         ContextManagerPlugin: require('@mapstore/plugins/contextmanager/ContextManager').default,
         ContextCreatorPlugin: require('@mapstore/plugins/ContextCreator').default,
         ContextPlugin: require('@mapstore/plugins/Context').default,
+        BackToPagePlugin: require('@mapstore/plugins/BackToPage').default,
         NotAllowedPlugin: require('./plugins/NotAllowed').default,
         HeaderPlugin: require('./plugins/Header').default
     },
