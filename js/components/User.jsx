@@ -7,10 +7,14 @@
  */
 import React from "react";
 import loadingState from "@mapstore/components/misc/enhancers/loadingState";
-const UserInfo = ({user, error}) => <span>{error && "GUEST" || user.role}</span>;
-const LoadingUser = loadingState(({ user, error }) => !user && !error)(UserInfo);
+import { compose, branch, renderNothing } from 'recompose';
+
+const UserInfo = ({user, error}) => <span >{error && "GUEST" || user.role}</span>;
+const LoadingUser = compose(
+    loadingState(({ user, error }) => !user && !error),
+)(UserInfo);
 const User = ({className, user, error, ...props}) => {
     return <div className={className}><LoadingUser user={user} error={error} {...props} /></div>;
 };
 
-export default User;
+export default branch(({ showUser = false }) => !showUser, renderNothing)(User);
