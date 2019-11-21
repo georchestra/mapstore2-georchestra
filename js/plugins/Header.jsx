@@ -10,7 +10,10 @@ import { createPlugin } from "@mapstore/utils/PluginsUtils";
 
 const Header = ({page = "mapstore"}) => {
     useEffect(() => {
-        document.getElementById("georchestra-header").src = "/header/?active=" + page;
+        const header = document.getElementById("georchestra-header");
+        if (header) {
+            header.src = "/header/?active=" + page;
+        }
     }, [page]);
     return null;
 };
