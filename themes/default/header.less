@@ -1,0 +1,74 @@
+//
+// fixes to fit the iframe header
+// inspired by the integration in geo-node
+//
+
+// tutorial
+.joyride .joyride-overlay {
+    position: fixed; // sets correct displacements of holes and popups, relative to the window
+}
+
+/*
+ * Bottom tools
+ * Bottom tools have absolute position by default.
+ * Anyway the bottom position to shift from the feature grid is % of view, not div
+ * So this fixed position makes the position of the tools to be relative to the window too
+ * and then also the percentage is relative to the same.
+ */
+@geo-bottom-tools-position: fixed;
+.background-plugin-position {
+    position: @geo-bottom-tools-position !important;
+}
+.mapToolbar {
+    position: @geo-bottom-tools-position !important;
+}
+.timeline-plugin {
+    position: fixed !important;
+}
+
+/*
+ * CSS Used in geo-node integration, not yet used
+ *
+.btn-group-vertical > .btn:first-child:not(:last-child){
+    border-top-left-radius: 0px;
+}
+.btn-group-vertical > .btn:last-child:not(:first-child) {
+    border-bottom-right-radius: 0px;
+}
+
+// modals
+.modal-dialog.modal-content.modal-dialog-container.react-draggable{
+    position: fixed;
+    z-index: 100000 !important;
+}
+.gfi-t {
+    float: left;
+    padding: 1px
+}
+
+// full screen
+.fill:not(:-webkit-full-screen){
+    .notifications-tc, .notifications-tl, .notifications-tr {
+        top: 63px !important;
+    }
+}
+
+// catalog
+.catalog-panel > .panel-body form{
+    .form-group:first-child,
+    .form-group:first-child + .form-group {
+        display: none
+    }
+}
+// notifications
+.notifications-tc, .notifications-tl, .notifications-tr {
+    top: 0px !important;
+}
+*/
+
+
+
+
+//
+// end of fixes for header
+//
