@@ -27,7 +27,7 @@ ConfigUtils.setConfigProp('geoStoreUrl', 'rest/geostore/');
  *
  * ConfigUtils.setLocalConfigurationFile('localConfig.json');
  */
-ConfigUtils.setLocalConfigurationFile('localConfig.json');
+ConfigUtils.setLocalConfigurationFile('config');
 
 /**
  * Use a custom application configuration file with:

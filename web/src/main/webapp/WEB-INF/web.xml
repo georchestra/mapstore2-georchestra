@@ -18,13 +18,18 @@
 
     <context-param>
       <param-name>proxyPropPath</param-name>
-      <param-value>/proxy.properties</param-value>
+      <param-value>/proxy.properties,${georchestra.datadir}/mapstore/proxy.properties</param-value>
     </context-param>
 
     <!-- spring context loader -->
     <listener>
 		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
     </listener>
+
+	<context-param>
+		<param-name>log4jConfigLocation</param-name>
+		<param-value>file:${georchestra.datadir}/mapstore/log4j.properties</param-value>
+	</context-param>
 
 	<!--
       - Loads the root application context of this web app at startup.
@@ -63,6 +68,21 @@
 		<url-pattern>*.js</url-pattern>
 	</filter-mapping>
 
+	<!-- ConfigLoader Servlet -->
+	<servlet>
+		<servlet-name>ConfigLoader</servlet-name>
+		<servlet-class>it.geosolutions.georchestra.ConfigLoader</servlet-class>
+		<init-param>
+			<param-name>configLocation</param-name>
+			<param-value>${georchestra.datadir}/mapstore/localConfig.json,localConfig.json</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>ConfigLoader</servlet-name>
+		<url-pattern>/config/*</url-pattern>
+	</servlet-mapping>
+
     <!-- CXF Servlet -->
 	<servlet>
 		<servlet-name>CXFServlet</servlet-name>
@@ -91,7 +111,7 @@
        <servlet-class>org.mapfish.print.servlet.MapPrinterServlet</servlet-class>
        <init-param>
          <param-name>config</param-name>
-         <param-value>printing/config.yaml</param-value>
+         <param-value>${georchestra.datadir}/mapstore/printing/config.yaml</param-value>
        </init-param>
     </servlet>
     <servlet-mapping>
