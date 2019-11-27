@@ -29,7 +29,7 @@
         <!-- Site specific initialization. Please specify a path in the ovr file-->
         <property name="userGroupListInitFile" value="classpath:sample_groups.xml" />
         <!-- The default password encoder -->
-        <property name="passwordEncoder" ref="${passwordEncoderUsed}"></property>	
+        <property name="passwordEncoder" ref="digestPasswordEncoder"></property>	
         
         
     </bean>
@@ -106,9 +106,9 @@
         <property name="order" value="0"/>
         <property name="locations">
             <list>
-                <value>classpath:geostore.properties</value>
                 <value>classpath*:geostore.properties</value>
-                <value>${georchestra-config}</value>
+                <value>file:${georchestra.datadir:}/default.properties</value>
+                <value>file:${georchestra.datadir:}/mapstore/geostore.properties</value>
             </list>
         </property>
         <property name="ignoreResourceNotFound" value="false"/>
@@ -136,7 +136,7 @@
                 <entry key="hibernate.connection.autocommit" value="true"/>
                 <entry key="hibernate.generate_statistics" value="false"/>
                 <entry key="hibernate.hbm2ddl.auto" value="validate" />
-                <entry key="hibernate.default_schema" value="geostore" />
+                <entry key="hibernate.default_schema" value="${pgsqlGeoStoreSchema:geostore}" />
             </map>
         </property>
     </bean>

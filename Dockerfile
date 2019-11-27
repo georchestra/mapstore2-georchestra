@@ -15,9 +15,10 @@ RUN if [ "$TOMCAT_EXTRAS" = false ]; then \
 COPY docker/*.war "${CATALINA_BASE}/webapps/"
 
 # Geostore externalization template. Disabled by default
-COPY docker/geostore-datasource-ovr.properties "${CATALINA_BASE}/conf/"
-ARG GEOSTORE_OVR_OPT=""
-ENV JAVA_OPTS="${JAVA_OPTS} ${GEOSTORE_OVR_OPT}"
+# COPY docker/geostore-datasource-ovr.properties "${CATALINA_BASE}/conf/"
+# ARG GEOSTORE_OVR_OPT=""
+ARG GEORCHESTRA_DATADIR_OPT="-Dgeorchestra.datadir=/etc/georchestra"
+ENV JAVA_OPTS="${JAVA_OPTS} ${GEORCHESTRA_DATADIR_OPT}"
 
 # Set variable to better handle terminal commands
 ENV TERM xterm

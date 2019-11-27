@@ -88,12 +88,12 @@ This ia also configured in the geostore-security-proxy.xml file:
 LDAP connection settings are taken from the geOrchestra default.properties configuration file, and mapped to
 internal configuration variables (e.g. ${ldapHost}).
 
-To configure the default.properties location and environment variable (georchestra-config) needs to be configured for
-the MapStore JVM:
+To configure the default.properties location the default georchestra environment variable is used (georchestra.datadir).
+For local development, this must be configured for the JVM:
 
  .. code-block:: console
 
-    -Dgeorchestra-config=file:/etc/georchestra/default.properties
+    -Dgeorchestra.datadir=/etc/georchestra
 
 Here a diagram of how the various pieces work together:
 

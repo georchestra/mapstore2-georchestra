@@ -12,4 +12,5 @@ Welcome to Georchestra documentation!
    mapstore/index
    security/index
    database/index
+   developer/index
    localize
