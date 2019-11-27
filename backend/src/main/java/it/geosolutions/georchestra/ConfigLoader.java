@@ -44,6 +44,7 @@ public class ConfigLoader extends HttpServlet{
                 // use the first existing file in the list
                 try (FileReader reader = new FileReader(configFile); Writer writer = new OutputStreamWriter(resp.getOutputStream())) { 
                     IOUtils.copy(reader, writer);
+                    resp.setHeader("Content-Type", "application/json");
                     return;
                 }
             }
