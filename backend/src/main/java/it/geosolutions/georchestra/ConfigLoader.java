@@ -42,9 +42,11 @@ public class ConfigLoader extends HttpServlet{
             }
             if (configFile.exists()) {
                 // use the first existing file in the list
-                try (FileReader reader = new FileReader(configFile); Writer writer = new OutputStreamWriter(resp.getOutputStream())) { 
-                    IOUtils.copy(reader, writer);
+                try (FileReader reader = new FileReader(configFile); Writer writer = resp.getWriter()) {
                     resp.setHeader("Content-Type", "application/json");
+                    resp.setCharacterEncoding("UTF-8");
+                    IOUtils.copy(reader, writer);
+                    writer.flush();
                     return;
                 }
             }
