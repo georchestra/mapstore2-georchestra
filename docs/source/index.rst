@@ -10,7 +10,6 @@ Welcome to Georchestra documentation!
    :maxdepth: 4
 
    mapstore/index
-   security/index
-   database/index
    developer/index
+   configuration/index
    localize
