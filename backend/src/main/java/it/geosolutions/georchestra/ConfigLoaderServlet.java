@@ -35,7 +35,6 @@ import java.io.Writer;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Arrays;
 import java.util.Properties;
 import java.util.stream.Stream;
 import javax.servlet.ServletConfig;
@@ -46,8 +45,43 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 import net.sf.json.JSONException;
-import net.sf.json.JSONObject;
 
+/**
+ * Servlet that outputs the MapStore configuration JSON (localConfig.json).
+ * Allows externalizing the localConfig.json position (outside of the MapStore webapp container).
+ * 
+ * Can be configured with one or more config file locations (the servlet will try to load all of them,
+ * in order, until a valid file is found). The location can be an absolute path or a webapp relative one.
+ * 
+ * <init-param>
+ *     <param-name>configLocation</param-name>
+ *     <param-value>${georchestra.datadir}/mapstore/localConfig.json,localConfig.json</param-value>
+ * </init-param>
+ * 
+ * Optionally, the GeOrchestra configuration property file can be read to override / augment the
+ * configuration.
+ * 
+ * <init-param>
+ *     <param-name>georchestraConfigLocation</param-name>
+ *     <param-value>${georchestra.datadir}/default.properties</param-value>
+ * </init-param>
+ * 
+ * Properties in this file will be inserted as JSON properties in the main file, following
+ * a list of mappings. The default mappings are:
+ * 
+ *  header.url=headerUrl (the headerUrl property will be mapped to <root>.header.url)
+ *  header.height=headerHeight (the headerHeight property will be mapped to <root>.header.height)
+ *  
+ * To customize mappings, the following parameter can be used:
+ * 
+ *  <init-param>
+ *     <param-name>georchestraConfigMappings</param-name>
+ *     <param-value>header.url=headerUrl,header.height=headerHeight</param-value>
+ *  </init-param>
+ * 
+ * @author mauro.bartolomeoli at geo-solutions.it
+ *
+ */
 public class ConfigLoaderServlet extends HttpServlet{
     
     private String[] configLocations = new String[] {"localConfig.json"};
@@ -87,7 +121,8 @@ public class ConfigLoaderServlet extends HttpServlet{
             }
             if (configFile.exists()) {
                 // use the first existing file in the list
-                try (Stream<String> stream = Files.lines( Paths.get(configFile.getAbsolutePath()), StandardCharsets.UTF_8); Writer writer = resp.getWriter()) {
+                try (Stream<String> stream =
+                        Files.lines( Paths.get(configFile.getAbsolutePath()), StandardCharsets.UTF_8); Writer writer = resp.getWriter()) {
                     ConfigLoader loader = new ConfigLoader(stream);
                     if (georchestraConfigLocation != null && georchestraConfigMappings.length > 0) {
                         if (new File(georchestraConfigLocation).exists()) {

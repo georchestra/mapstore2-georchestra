@@ -36,6 +36,16 @@ import java.util.stream.Stream;
 import org.apache.log4j.Logger;
 import net.sf.json.JSONObject;
 
+/**
+ * MapStore configuration file loader.
+ * 
+ * Loads a JSON  configuration file from a Stream and optionally
+ *  - applies overrides from a Properties object (with given mappings)
+ *  - outputs the read / processed file to a given Writer
+ * 
+ * @author mauro.bartolomeoli at geo-solutions.it
+ *
+ */
 public class ConfigLoader {
     Stream<String> configSource;
     Properties overrides;
@@ -48,13 +58,23 @@ public class ConfigLoader {
         this.configSource = configSource;
     }
     
+    /**
+     * Apply overrides from the given properties.
+     * 
+     * @param overrides list of key, value pairs
+     * @param mappings list of mappings, in the form <json path> = propertyname
+     */
     public void setOverrides(Properties overrides, String[] mappings) {
         this.overrides = overrides;
         this.overridesMappings = mappings;
     }
 
-
-
+    /**
+     * Writes the final configuration on the given writer.
+     * 
+     * @param writer
+     * @throws IOException
+     */
     public void writeConfig(Writer writer) throws IOException {
         JSONObject jsonObject = readJsonConfig(configSource);
         if (overrides != null) {
