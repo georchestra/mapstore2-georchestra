@@ -71,10 +71,14 @@
 	<!-- ConfigLoader Servlet -->
 	<servlet>
 		<servlet-name>ConfigLoader</servlet-name>
-		<servlet-class>it.geosolutions.georchestra.ConfigLoader</servlet-class>
+		<servlet-class>it.geosolutions.georchestra.ConfigLoaderServlet</servlet-class>
 		<init-param>
 			<param-name>configLocation</param-name>
 			<param-value>${georchestra.datadir}/mapstore/localConfig.json,localConfig.json</param-value>
+		</init-param>
+		<init-param>
+			<param-name>georchestraConfigLocation</param-name>
+			<param-value>${georchestra.datadir}/default.properties</param-value>
 		</init-param>
 	</servlet>
 

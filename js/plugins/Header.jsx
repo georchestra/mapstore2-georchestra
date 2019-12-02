@@ -6,18 +6,26 @@
  * LICENSE file in the root directory of this source tree.
  */
 import {useEffect} from "react";
-import { createPlugin } from "@mapstore/utils/PluginsUtils";
+import { createPlugin, connect } from "@mapstore/utils/PluginsUtils";
 
-const Header = ({page = "mapstore"}) => {
+export const Header = ({url = "/header/", page = "mapstore", height = 90}) => {
     useEffect(() => {
         const header = document.getElementById("georchestra-header");
         if (header) {
-            header.src = "/header/?active=" + page;
+            header.src = url + "?active=" + page;
+            header.style.height = height + "px";
         }
-    }, [page]);
+        const container = document.getElementById("container");
+        if (container) {
+            container.style.top = height + "px";
+        }
+    }, [page, url, height]);
     return null;
 };
 
 export default createPlugin('Header', {
-    component: Header
+    component: connect((state) => ({
+        url: state.localConfig && state.localConfig.header && state.localConfig.header.url,
+        height: state.localConfig && state.localConfig.header && state.localConfig.header.height
+    }))(Header)
 });
