@@ -112,6 +112,12 @@
                 "title": "le catalogue local",
                 "autoload": true
               },
+              "localgs": {
+                "url": "/geoserver/ows",
+                "type": "wms",
+                "title": "le geoserver local",
+                "autoload": true
+              },
               "geobretagne": {
                 "url": "https://geobretagne.fr/geonetwork/srv/fre/csw",
                 "type": "csw",
