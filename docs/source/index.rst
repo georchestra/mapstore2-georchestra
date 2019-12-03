@@ -10,6 +10,7 @@ Welcome to Georchestra documentation!
    :maxdepth: 4
 
    mapstore/index
+   georchestra_integration/index
    security/index
    database/index
    developer/index
