@@ -11,7 +11,6 @@ Welcome to Georchestra documentation!
 
    mapstore/index
    georchestra_integration/index
-   security/index
-   database/index
    developer/index
+   configuration/index
    localize

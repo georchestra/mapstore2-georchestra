@@ -14,6 +14,10 @@
     "ignoreMobileCss": false,
     "useAuthenticationRules": true,
     "loadAfterTheme": true,
+    "header": {
+      "height": 90,
+      "url": "/header/"
+    },
     "defaultMapOptions": {
       "cesium": {
           "flyTo": true,
