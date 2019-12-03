@@ -20,6 +20,23 @@
         display: flex;
         align-items: center;
       }
+      ._ms2_init_center::before {
+          content: 'Loading geOrchestra';
+          position: absolute;
+          left: 50%;
+          height: 1.5em;
+          text-align: center;
+          transform: translateX(-50%) translateY(-50%);
+          -webkit-animation: _ms2_init_text_anim 2s linear 0s infinite normal;
+          animation: _ms2_init_text_anim 2s linear 0s infinite normal;
+          color: #6F6F6f;
+          font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+          font-size: 20px;
+          font-weight: bold;
+          width: 6em;
+          text-align: center;
+          margin: auto;
+      }
       ._ms2_init_spinner {
         height: 176px;
         width: 176px;
@@ -73,6 +90,7 @@
         text-align: center;
         margin: auto;
         z-index: 1000;
+        display: none;
       }
       @keyframes _ms2_init_text_anim {
         0%  {opacity: 0}
@@ -115,7 +133,7 @@
       <iframe id="georchestra-header" src="/header/?active=mapstore" scrolling="no" frameBorder="0"></iframe>
       <div id="container">
           <div class="_ms2_init_spinner _ms2_init_center"><div></div></div>
-          <div class="_ms2_init_text _ms2_init_center">Loading MapStore</div>
+          <div class="_ms2_init_text _ms2_init_center">Loading geOrchestra</div>
       </div>
   </body>
 </html>
