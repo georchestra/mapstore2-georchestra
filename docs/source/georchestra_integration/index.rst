@@ -19,7 +19,7 @@ Add the following snippet to the docker-compose.yml file:
     environment:
       - JAVA_OPTS=-Xms512m -Xmx512m -XX:MaxPermSize=128m -Dgeostore-ovr=file:///etc/georchestra/mapstore/geostore-datasource-ovr.properties
 
-Configure the ’proxy’ container to forward requests to mapstore
+Configure the ’proxy’ container to forward requests to MapStore
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Add the following to the config/security-proxy/targets-mapping.properties file:
 
@@ -35,7 +35,7 @@ Add the following to the config/security-proxy/targets-mapping.properties file:
     mapfishapp=http://mapfishapp:8080/mapfishapp/
     mapstore=http://mapstore:8080/mapstore/
 
-Create config directory for mapstore
+Create config directory for MapStore
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
  .. code-block:: console
@@ -76,7 +76,7 @@ Setup Database
 
 2. Create schemas and tables as per `GeoStore documentation <https://github.com/geosolutions-it/geostore/tree/master/doc>`_
 
-Recreate Mapstore Container to pick up the change
+Recreate MapStore Container to pick up the change
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
  .. code-block:: console
