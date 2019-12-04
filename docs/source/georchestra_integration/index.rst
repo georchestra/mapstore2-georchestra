@@ -35,7 +35,7 @@ Add the following to the config/security-proxy/targets-mapping.properties file:
     mapfishapp=http://mapfishapp:8080/mapfishapp/
     mapstore=http://mapstore:8080/mapstore/
 
-Create config directory for mapstore
+Create config directory for MapStore
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
  .. code-block:: console
