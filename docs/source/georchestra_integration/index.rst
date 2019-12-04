@@ -1,4 +1,4 @@
-MapStore Integration in GeOrchestra
+MapStore Integration in geOrchestra
 ====================================
 This section describes how to include MapStore in your geOrchestra installation.
 
