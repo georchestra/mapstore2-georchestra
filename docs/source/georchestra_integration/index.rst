@@ -19,7 +19,7 @@ Add the following snippet to the docker-compose.yml file:
     environment:
       - JAVA_OPTS=-Xms512m -Xmx512m -XX:MaxPermSize=128m -Dgeostore-ovr=file:///etc/georchestra/mapstore/geostore-datasource-ovr.properties
 
-Configure the ’proxy’ container to forward requests to mapstore
+Configure the ’proxy’ container to forward requests to MapStore
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 Add the following to the config/security-proxy/targets-mapping.properties file:
 
