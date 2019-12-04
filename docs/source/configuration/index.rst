@@ -1,11 +1,11 @@
 Configuration Guide
 ===================
 
-GeOrchestra MapStore can be configuring using `GeOrchestra configuration directory <https://github.com/georchestra/datadir>`_.
+geOrchestra MapStore can be configuring using `geOrchestra configuration directory <https://github.com/georchestra/datadir>`_.
 In particular:
 
- * a lot of shared configuration properties are read from the GeOrchestra default.properties file
- * a mapstore subfolder contains MapStore specific configuration files:
+ * a lot of shared configuration properties are read from the geOrchestra default.properties file
+ * a MapStore subfolder contains MapStore specific configuration files:
 
    * geostore.properties: MapStore specific database configuration properties
    * proxy.properties: MapStore proxy configuration (see here: https://github.com/geosolutions-it/http-proxy/wiki/Configuring-Http-Proxy)   for further details)
