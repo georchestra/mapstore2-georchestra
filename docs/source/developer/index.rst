@@ -1,6 +1,6 @@
 Developer Guide
 ===============
-To start using the MapStore GeOrchestra project as a developer you need the following:
+To start using the MapStore geOrchestra project as a developer you need the following:
  * install the needed requirements:
    * NodeJS (>=8)
    * JDK (>= 8)
@@ -47,9 +47,9 @@ You can either:
 To deploy your local backend you will need to:
 
  * copy the mapstore.war from web/target to your Tomcat webapps folder
- * create a local GeOrchestra datadir anywhere in your PC and copy the following inside it:
-  * a standard GeOrchestra default.properties file with generic configuration (database and LDAP settings for example)
-  * the datadir/mapstore folder from web/target/GeOrchestra with the mapstore specific configuration files
+ * create a local geOrchestra datadir anywhere in your PC and copy the following inside it:
+  * a standard geOrchestra default.properties file with generic configuration (database and LDAP settings for example)
+  * the datadir/mapstore folder from web/target/geOrchestra with the mapstore specific configuration files
  * add the georchestra.datadir environment variable to the Tomcat setenv script to point to your datadir folder
 
  .. code-block:: console
@@ -58,7 +58,7 @@ To deploy your local backend you will need to:
 
  * properly change the configuration files, in particular to set the database and LDAP repository connection settings
 
-If you don't have a local database and LDAP repository properly configured for GeOrchestra you can use remote ones.
+If you don't have a local database and LDAP repository properly configured for geOrchestra you can use remote ones.
 Remember: to use a local backend both a PostgreSQL database and LDAP repository needs to be available and properly populated.
 
 Developing the frontend
