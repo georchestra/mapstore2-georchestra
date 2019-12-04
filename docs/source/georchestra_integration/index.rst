@@ -76,7 +76,7 @@ Setup Database
 
 2. Create schemas and tables as per `GeoStore documentation <https://github.com/geosolutions-it/geostore/tree/master/doc>`_
 
-Recreate Mapstore Container to pick up the change
+Recreate MapStore Container to pick up the change
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
  .. code-block:: console
