@@ -63,7 +63,7 @@ const appConfig = assign({}, appCfg, {
         component: require('./pages/Admin').default
     }, {
         name: 'context-creator',
-        path: "/context-creator/:contextId/:stepId",
+        path: "/context-creator/:contextId",
         component: require('@mapstore/product/pages/ContextCreator').default
     }, {
         name: 'context',
