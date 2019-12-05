@@ -585,34 +585,7 @@
           {
             "name": "ContextCreator",
             "cfg": {
-              "saveDestLocation": "/admin",
-              "viewerPlugins": [
-                "Map",
-                "BackgroundSelector",
-                "MetadataExplorer",
-                "TOC",
-                "TOCItemsSettings",
-                "DrawerMenu",
-                "OmniBar",
-                "BurgerMenu",
-                "AddGroup",
-                "Notifications",
-                "QueryPanel",
-                "FeatureEditor",
-                "MapFooter",
-                "CRSSelector",
-                "MousePosition",
-                "ScaleBox",
-                "Toolbar",
-                "MapLoading",
-                "Identify",
-                "Locate",
-                "ZoomIn",
-                "ZoomOut",
-                "ZoomAll",
-                "Annotations",
-                "MapImport"
-              ]
+              "saveDestLocation": "/admin"
             }
           },
           "Notifications",
