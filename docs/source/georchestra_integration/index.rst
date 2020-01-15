@@ -17,7 +17,7 @@ Add the following snippet to the docker-compose.yml file:
     volumes:
       - ./config:/etc/georchestra
     environment:
-      - JAVA_OPTS=-Xms512m -Xmx512m -XX:MaxPermSize=128m -Dgeostore-ovr=file:///etc/georchestra/mapstore/geostore-datasource-ovr.properties
+      - JAVA_OPTS=-Xms512m -Xmx512m -Dgeorchestra.datadir=/etc/georchestra
 
 Configure the ’proxy’ container to forward requests to MapStore
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
