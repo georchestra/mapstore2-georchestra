@@ -98,7 +98,9 @@ Update “header” application index to link to Mapstore
 
     mapstore=mapstore
 
-3. In the war file, update the WEB-INF/jsp/index.jsp file adding the following:
+3. Repeat for all the other translation files
+
+4. In the war file, update the WEB-INF/jsp/index.jsp file adding the following:
 
  .. code-block:: xml
 
@@ -111,7 +113,7 @@ Update “header” application index to link to Mapstore
         </c:otherwise>
     </c:choose>
 
-4. In the war file, update the WEB-INF/jsp/index.jsp file with the following:
+5. In the war file, update the WEB-INF/jsp/index.jsp file with the following:
 
  .. code-block:: java
 
@@ -149,7 +151,7 @@ Update “header” application index to link to Mapstore
     }
     ...
 
-5. In the war file, update the WEB-INF/jsp/index.jsp file adding the following:
+6. In the war file, update the WEB-INF/jsp/index.jsp file adding the following:
 
  .. code-block:: xml
 
@@ -166,7 +168,7 @@ Update “header” application index to link to Mapstore
         </c:when>
     </c:choose>
 
-6. Finally put the edited war back to the container:
+7. Finally put the edited war back to the container:
 
  .. code-block:: console
 
