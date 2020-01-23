@@ -34,6 +34,7 @@
     "monitorState": [
       {"name": "router", "path": "router.location.pathname"},
       {"name": "browser", "path": "browser"},
+      {"name": "geostorymode", "path": "geostory.mode"},
       {"name": "featuregridmode", "path": "featuregrid.mode"}],
     "projectionDefs": [{
       "code": "EPSG:2154",
@@ -339,22 +340,30 @@
                     "altShiftDragRotate": false
                   },
                   "attribution": {
-                    "container": "#mapstore-map-footer-container"
+                    "container": "#footer-attribution-container"
                   }
                 },
                 "leaflet": {
                   "attribution": {
-                    "container": "#mapstore-map-footer-container"
+                    "container": "#footer-attribution-container"
                   }
                 }
               },
               "toolsOptions": {
                 "scalebar": {
-                  "container" : "#mapstore-map-footer-container"
+                  "container" : "#footer-scalebar-container"
                 }
               }
             }
-          }, "AutoMapUpdate", "HelpLink", "Share", "DrawerMenu", "Version", "Notifications", "BackgroundSelector", "Annotations",
+          }, "AutoMapUpdate", "HelpLink", "DrawerMenu", "Version", "Notifications", "BackgroundSelector", "Annotations",
+            {
+              "name": "Share",
+              "cfg": {
+                "advancedSettings": {
+                  "bbox": true
+                }
+              }
+            },
             {
                 "name": "Identify",
                 "cfg": {
@@ -397,12 +406,10 @@
             }, {
                 "name": "TOC",
                 "cfg": {
-                    "activateQueryTool": true,
-                    "activateAddLayerButton": true,
-                    "activateAddGroupButton": true,
                     "activateMetedataTool": false
                 }
             },
+            "FilterLayer",
             "AddGroup",
             "TOCItemsSettings",
             "Tutorial", "MapFooter", {
