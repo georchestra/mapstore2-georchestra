@@ -585,7 +585,9 @@
           {
             "name": "ContextCreator",
             "cfg": {
-              "saveDestLocation": "/admin"
+              "saveDestLocation": "/admin",
+              "documentationBaseURL": "https://mapstore.geo-solutions.it/mapstore/docs/api/plugins"
+
             }
           },
           "Notifications",
