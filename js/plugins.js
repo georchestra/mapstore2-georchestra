@@ -67,6 +67,7 @@ module.exports = {
         MapPlugin: require('@mapstore/plugins/Map'),
         MapSearchPlugin: require('@mapstore/plugins/MapSearch'),
         MapsPlugin: require('@mapstore/plugins/Maps'),
+        MapTemplatesPlugin: require('@mapstore/plugins/MapTemplates').default,
         MeasurePlugin: require('@mapstore/plugins/Measure'),
         MediaEditorPlugin: require('@mapstore/plugins/MediaEditor').default,
         MetadataExplorerPlugin: require('@mapstore/plugins/MetadataExplorer'),
