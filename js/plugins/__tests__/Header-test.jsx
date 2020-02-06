@@ -34,7 +34,7 @@ describe('Header', () => {
         setTimeout(() => {
             try {
                 expect(document.getElementById("georchestra-header").style.height).toBe("200px");
-            } catch(e) {
+            } catch (e) {
                 done(e);
             }
             done();
@@ -47,7 +47,7 @@ describe('Header', () => {
         setTimeout(() => {
             try {
                 expect(document.getElementById("container").style.top).toBe("200px");
-            } catch(e) {
+            } catch (e) {
                 done(e);
             }
             done();
@@ -60,7 +60,7 @@ describe('Header', () => {
         setTimeout(() => {
             try {
                 expect(document.getElementById("georchestra-header").src).toContain("testurl");
-            } catch(e) {
+            } catch (e) {
                 done(e);
             }
             done();
@@ -73,7 +73,7 @@ describe('Header', () => {
         setTimeout(() => {
             try {
                 expect(document.getElementById("georchestra-header").src).toContain("currentpage");
-            } catch(e) {
+            } catch (e) {
                 done(e);
             }
             done();
