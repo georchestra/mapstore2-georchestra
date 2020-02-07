@@ -50,7 +50,9 @@
         "removeLayersPermissions": true,
         "sortingPermissions": true,
         "addGroupsPermissions": true,
-        "removeGroupsPermissions": true
+        "removeGroupsPermissions": true,
+        "activateWidgetTool": true,
+        "activateMetedataTool": false
       },
       "children": [
         "TOCItemsSettings",
@@ -74,15 +76,21 @@
       "title": "plugins.FeatureEditor.title",
       "description": "plugins.FeatureEditor.description",
       "dependencies": [
-        "QueryPanel"
+        "QueryPanel",
+        "WFSDownload"
       ],
+      "denyUserSelection": true,
       "defaultConfig": {}
     },
     {
       "name": "TOCItemsSettings",
       "glyph": "wrench",
       "title": "plugins.TOCItemsSettings.title",
-      "description": "plugins.TOCItemsSettings.description"
+      "description": "plugins.TOCItemsSettings.description",
+      "children": [
+          "StyleEditor"
+      ],
+      "denyUserSelection": true
     },
     {
       "name": "MapFooter",
@@ -101,6 +109,7 @@
         "WidgetsTray"
       ],
       "dependencies": [
+        "TOC",
         "WidgetsBuilder"
       ]
     },
@@ -108,7 +117,8 @@
       "name": "WidgetsTray",
       "glyph": "import",
       "title": "plugins.WidgetsTray.title",
-      "description": "plugins.WidgetsTray.description"
+      "description": "plugins.WidgetsTray.description",
+      "denyUserSelection": true
     },
     {
       "name": "WidgetsBuilder",
@@ -151,7 +161,7 @@
       "name": "Version",
       "glyph": "info-sign",
       "title": "plugins.Version.title",
-      "description": "plugins.Version.description"
+      "description": "plugins.Version.descriptionGeorchestra"
     },
     {
       "name": "BackgroundSelector",
@@ -242,12 +252,14 @@
       "name": "AddGroup",
       "glyph": "add-folder",
       "title": "plugins.AddGroup.title",
-      "description": "plugins.AddGroup.description"
+      "description": "plugins.AddGroup.description",
+      "denyUserSelection": true
     }, {
       "name": "FilterLayer",
       "glyph": "filter-layer",
       "title": "plugins.FilterLayer.title",
       "description": "plugins.FilterLayer.description",
+      "denyUserSelection": true,
       "dependencies": ["QueryPanel"]
     },
     {
@@ -426,13 +438,15 @@
       "title": "plugins.Save.title",
       "description": "plugins.Save.description",
       "dependencies": [
-        "BurgerMenu"
+        "BurgerMenu",
+        "SaveAs"
       ]
     },
     {
       "name": "SaveAs",
       "glyph": "floppy-open",
       "title": "plugins.SaveAs.title",
+      "hidden": true,
       "description": "plugins.SaveAs.description",
       "dependencies": [
         "BurgerMenu"
@@ -499,7 +513,8 @@
       "name": "StyleEditor",
       "glyph": "1-stilo",
       "title": "plugins.StyleEditor.title",
-      "description": "plugins.StyleEditor.description"
+      "description": "plugins.StyleEditor.description",
+      "mandatory": true
     },
     {
       "name": "MapLoading",

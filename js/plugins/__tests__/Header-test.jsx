@@ -29,37 +29,53 @@ describe('Header', () => {
     });
 
     it('Header changes the header heignt', (done) => {
-        const header = ReactDOM.render(<Header height={200} />, document.getElementById("container"));
+        const header = ReactDOM.render(<Header ignoreIFrame height={200} />, document.getElementById("container"));
         expect(header).toNotExist();
         setTimeout(() => {
-            expect(document.getElementById("georchestra-header").style.height).toBe("200px");
+            try {
+                expect(document.getElementById("georchestra-header").style.height).toBe("200px");
+            } catch (e) {
+                done(e);
+            }
             done();
         });
     });
 
     it('Header changes the container position', (done) => {
-        const header = ReactDOM.render(<Header height={200} />, document.getElementById("container"));
+        const header = ReactDOM.render(<Header ignoreIFrame height={200} />, document.getElementById("container"));
         expect(header).toNotExist();
         setTimeout(() => {
-            expect(document.getElementById("container").style.top).toBe("200px");
+            try {
+                expect(document.getElementById("container").style.top).toBe("200px");
+            } catch (e) {
+                done(e);
+            }
             done();
         });
     });
 
     it('Header changes the header src', (done) => {
-        const header = ReactDOM.render(<Header url="http://testurl" />, document.getElementById("container"));
+        const header = ReactDOM.render(<Header ignoreIFrame url="http://testurl" />, document.getElementById("container"));
         expect(header).toNotExist();
         setTimeout(() => {
-            expect(document.getElementById("georchestra-header").src).toContain("testurl");
+            try {
+                expect(document.getElementById("georchestra-header").src).toContain("testurl");
+            } catch (e) {
+                done(e);
+            }
             done();
         });
     });
 
     it('Header appends the current page id to src', (done) => {
-        const header = ReactDOM.render(<Header page="currentpage" />, document.getElementById("container"));
+        const header = ReactDOM.render(<Header ignoreIFrame page="currentpage" />, document.getElementById("container"));
         expect(header).toNotExist();
         setTimeout(() => {
-            expect(document.getElementById("georchestra-header").src).toContain("currentpage");
+            try {
+                expect(document.getElementById("georchestra-header").src).toContain("currentpage");
+            } catch (e) {
+                done(e);
+            }
             done();
         });
     });
