@@ -76,7 +76,8 @@
       "title": "plugins.FeatureEditor.title",
       "description": "plugins.FeatureEditor.description",
       "dependencies": [
-        "QueryPanel"
+        "QueryPanel",
+        "WFSDownload"
       ],
       "children": [
         "WFSDownload"
@@ -112,6 +113,7 @@
         "WidgetsTray"
       ],
       "dependencies": [
+        "TOC",
         "WidgetsBuilder"
       ]
     },
@@ -151,7 +153,7 @@
       "name": "Version",
       "glyph": "info-sign",
       "title": "plugins.Version.title",
-      "description": "plugins.Version.description"
+      "description": "plugins.Version.descriptionGeorchestra"
     },
     {
       "name": "BackgroundSelector",
@@ -242,12 +244,14 @@
       "name": "AddGroup",
       "glyph": "add-folder",
       "title": "plugins.AddGroup.title",
-      "description": "plugins.AddGroup.description"
+      "description": "plugins.AddGroup.description",
+      "denyUserSelection": true
     }, {
       "name": "FilterLayer",
       "glyph": "filter-layer",
       "title": "plugins.FilterLayer.title",
       "description": "plugins.FilterLayer.description",
+      "denyUserSelection": true,
       "dependencies": ["QueryPanel"]
     },
     {
@@ -504,7 +508,8 @@
       "name": "StyleEditor",
       "glyph": "1-stilo",
       "title": "plugins.StyleEditor.title",
-      "description": "plugins.StyleEditor.description"
+      "description": "plugins.StyleEditor.description",
+      "mandatory": true
     },
     {
       "name": "MapLoading",

@@ -8,18 +8,28 @@
 import {useEffect} from "react";
 import { createPlugin, connect } from "@mapstore/utils/PluginsUtils";
 
-export const Header = ({url = "/header/", page = "mapstore", height = 90}) => {
+export const Header = ({url = "/header/", page = "mapstore", height = 90, ignoreIFrame = false}) => {
     useEffect(() => {
         const header = document.getElementById("georchestra-header");
-        if (header) {
-            header.src = url + "?active=" + page;
-            header.style.height = height + "px";
-        }
         const container = document.getElementById("container");
-        if (container) {
-            container.style.top = height + "px";
+        if (header) {
+            if (!ignoreIFrame && window.location !== window.parent.location) {
+                header.style.display = 'none';
+                if (container) {
+                    container.style.top = '0';
+                }
+            } else {
+                header.style.display = 'block';
+                header.src = url + "?active=" + page;
+                header.style.height = height + "px";
+
+                if (container) {
+                    container.style.top = height + "px";
+                }
+            }
+
         }
-    }, [page, url, height]);
+    }, [page, url, height, window.location, window.parent.location]);
     return null;
 };
 
