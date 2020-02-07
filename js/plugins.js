@@ -34,7 +34,7 @@ module.exports = {
         DetailsPlugin: require('@mapstore/plugins/Details'),
         DrawerMenuPlugin: require('@mapstore/plugins/DrawerMenu'),
         ExpanderPlugin: require('@mapstore/plugins/Expander'),
-        FeatureEditorPlugin: require('@mapstore/plugins/FeatureEditor'),
+        FeatureEditorPlugin: require('@mapstore/plugins/FeatureEditor').default,
         FeaturedMaps: require('@mapstore/plugins/FeaturedMaps'),
         FeedbackMaskPlugin: require('@mapstore/plugins/FeedbackMask'),
         FilterLayerPlugin: require('@mapstore/plugins/FilterLayer').default,
