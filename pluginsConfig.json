@@ -189,15 +189,6 @@
       ]
     },
     {
-      "name": "Home",
-      "glyph": "home",
-      "title": "plugins.Home.title",
-      "description": "plugins.Home.description",
-      "dependencies": [
-        "OmniBar"
-      ]
-    },
-    {
       "name": "WFSDownload",
       "glyph": "features-grid-download",
       "title": "plugins.WFSDownload.title",
