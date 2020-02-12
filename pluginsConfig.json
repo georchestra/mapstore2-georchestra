@@ -315,15 +315,6 @@
       }
     },
     {
-      "name": "About",
-      "glyph": "info-sign",
-      "title": "plugins.About.title",
-      "description": "plugins.About.description",
-      "dependencies": [
-        "BurgerMenu"
-      ]
-    },
-    {
       "name": "MousePosition",
       "glyph": "mouse",
       "title": "plugins.MousePosition.title",
