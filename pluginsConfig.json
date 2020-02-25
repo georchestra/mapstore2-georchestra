@@ -422,6 +422,7 @@
     },
     {
       "name": "Save",
+      "denyUserSelection": true,
       "title": "plugins.Save.title",
       "description": "plugins.Save.description",
       "dependencies": [
@@ -441,6 +442,7 @@
     },
     {
       "name": "BurgerMenu",
+      "hidden": true,
       "glyph": "menu-hamburger",
       "title": "plugins.BurgerMenu.title",
       "description": "plugins.BurgerMenu.description",
