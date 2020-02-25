@@ -220,7 +220,7 @@
       }
     },
     "plugins": {
-        "mobile": [{
+        "mobile": ["Header", {
                 "name": "Map",
                 "cfg": {
                     "mapOptions": {
@@ -267,7 +267,7 @@
                         "alwaysVisible": true
                     }
                 }
-            }, "Home", {
+            }, {
                 "name": "TOC",
                 "cfg": {
                     "activateMetedataTool": false,
