@@ -582,18 +582,11 @@
           },
           "Login",
           {
-            "name": "BackToPage",
-            "cfg": {
-              "destRoute": "/admin",
-              "confirmMessage": "contextCreator.undo"
-            }
-          },
-          {
             "name": "ContextCreator",
             "cfg": {
+              "documentationBaseURL": "https://mapstore.geo-solutions.it/mapstore/docs/api/plugins",
               "saveDestLocation": "/admin",
-              "documentationBaseURL": "https://mapstore.geo-solutions.it/mapstore/docs/api/plugins"
-
+              "backToPageDestRoute": "/admin"
             }
           },
           "Notifications",
