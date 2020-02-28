@@ -17,7 +17,6 @@ module.exports = {
         AutoMapUpdatePlugin: require('@mapstore/plugins/AutoMapUpdate'),
         BackgroundSelectorPlugin: require('@mapstore/plugins/BackgroundSelector'),
         BackgroundSwitcherPlugin: require('@mapstore/plugins/BackgroundSwitcher'),
-        BackToPagePlugin: require('@mapstore/plugins/BackToPage').default,
         BurgerMenuPlugin: require('@mapstore/plugins/BurgerMenu'),
         CRSSelectorPlugin: require('@mapstore/plugins/CRSSelector'),
         ContentTabs: require('@mapstore/plugins/ContentTabs'),
