@@ -35,21 +35,21 @@
 	<bean id="geoStoreUserServiceAuthenticationProvider"
 		class="it.geosolutions.geostore.services.rest.security.UserServiceAuthenticationProvider">
 	</bean>
-	
+
 	<bean class="it.geosolutions.geostore.services.rest.security.UserAttributeTokenAuthenticationFilter"
         id="authenticationTokenProcessingFilter">
 	</bean>
-	
+
 	<bean class="it.geosolutions.geostore.services.rest.security.SessionTokenAuthenticationFilter"
         id="sessionTokenProcessingFilter">
             <property name="validateUserFromService" value="false"/>
 	</bean>
-    
+
     <!-- GeOrchestra header based Auth Provider -->
 	<bean id="georchestraAuthenticationProvider"
 		class="it.geosolutions.geostore.services.rest.security.PreAuthenticatedAuthenticationProvider">
 	</bean>
-    
+
     <!-- GeOrchestra header based Auth Filter -->
     <bean class="it.geosolutions.geostore.services.rest.security.HeadersAuthenticationFilter"
         id="headersProcessingFilter">
@@ -59,7 +59,7 @@
             <property name="listDelimiter" value=";"/>
             <property name="authoritiesMapper" ref="rolesMapper"/>
 	</bean>
-    
+
     <!-- GeOrchestra groups to roles mapper for Headers Auth Filter -->
     <bean id="rolesMapper" class="it.geosolutions.geostore.core.security.SimpleGrantedAuthoritiesMapper">
         <constructor-arg>
@@ -73,19 +73,19 @@
 	<security:authentication-manager>
         <security:authentication-provider ref='georchestraAuthenticationProvider' />
 	</security:authentication-manager>
-    
+
     <!-- SecurityDAO using externals users -->
     <alias name="externalSecurityDAO" alias="securityDAO"/>
 
     <!-- GeOrchestra LDAP DAOs -->
     <bean id="ldap-context" class="org.springframework.security.ldap.DefaultSpringSecurityContextSource">
-		<constructor-arg value="${ldapScheme}://${ldapHost}:${ldapPort}/${ldapBaseDn}" />
-        <property name="userDn" value="${ldapAdminDn}"/>
-        <property name="password" value="${ldapAdminPassword}"/>
+		<constructor-arg value="${ldapScheme:ldap}://${ldapHost:localhost}:${ldapPort:389}/${ldapBaseDn:}" />
+        <property name="userDn" value="${ldapAdminDn:admin}"/>
+        <property name="password" value="${ldapAdminPassword:}"/>
 	</bean>
     <bean id="ldapUserDAO" class="it.geosolutions.geostore.core.dao.ldap.impl.UserDAOImpl">
         <constructor-arg ref="ldap-context"/>
-        <property name="searchBase" value="${ldapUsersRdn}"/>
+        <property name="searchBase" value="${ldapUsersRdn:}"/>
         <property name="memberPattern" value="^uid=([^,]+).*$"/>
         <property name="attributesMapper">
             <map>
@@ -97,7 +97,7 @@
     </bean>
     <bean id="ldapUserGroupDAO" class="it.geosolutions.geostore.core.dao.ldap.impl.UserGroupDAOImpl">
         <constructor-arg ref="ldap-context"/>
-        <property name="searchBase" value="${ldapRolesRdn}"/>
+        <property name="searchBase" value="${ldapRolesRdn:}"/>
         <property name="addEveryOneGroup" value="true"/>
     </bean>
     <alias name="ldapUserGroupDAO" alias="userGroupDAO"/>

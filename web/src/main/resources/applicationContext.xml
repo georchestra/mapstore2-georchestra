@@ -16,9 +16,19 @@
 
     <context:annotation-config />
 
+	<bean id="log4jInitializer" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="targetClass" value="org.springframework.util.Log4jConfigurer" />
+		<property name="targetMethod" value="initLogging" />
+		<property name="arguments">
+			<list>
+				<value>#{(${georchestra.datadir:""} ne "") ? 'file:${georchestra.datadir:""}/mapstore/log4j.properties' : '../webapps/mapstore/WEB-INF/classes/log4j.properties'}</value>
+			</list>
+		</property>
+	</bean>
+
     <bean id="mapPrinter" class="org.mapfish.print.MapPrinter" scope="prototype"></bean>
 	<bean id="configFactory" class="org.mapfish.print.config.ConfigFactory"></bean>
-    
+
     <bean id="geostoreInitializer" class="it.geosolutions.geostore.init.GeoStoreInit" lazy-init="false">
         <!-- Site specific initialization. Please specify a path in the ovr file-->
         <!--<property name="userListInitFile"><null/></property>-->
@@ -29,11 +39,11 @@
         <!-- Site specific initialization. Please specify a path in the ovr file-->
         <property name="userGroupListInitFile" value="classpath:sample_groups.xml" />
         <!-- The default password encoder -->
-        <property name="passwordEncoder" ref="digestPasswordEncoder"></property>	
-        
-        
+        <property name="passwordEncoder" ref="digestPasswordEncoder"></property>
+
+
     </bean>
-      
+
       <!-- Define MapReaderFactories -->
     <bean id="mapReaderFactoryFinder" class="org.mapfish.print.map.readers.MapReaderFactoryFinder"/>
     <bean id="wms-MapReaderFactory" class="org.mapfish.print.map.readers.WMSMapReader$Factory"/>
@@ -49,7 +59,7 @@
     <bean id="kaMapCache-ReaderFactory" class="org.mapfish.print.map.readers.KaMapCacheMapReader$Factory"/>
     <bean id="kaMap-ReaderFactory" class="org.mapfish.print.map.readers.KaMapMapReader$Factory"/>
     <bean id="wmts-ReaderFactory" class="org.mapfish.print.map.readers.WMTSMapReader$Factory"/>
-    
+
     <!-- Define output factories -->
     <bean id="outputFactory" class="org.mapfish.print.output.OutputFactory">
         <property name="formatFactories">
@@ -101,23 +111,24 @@
     <bean id="fileCachingJaiMosaicOutputFactory" class="org.mapfish.print.output.FileCachingJaiMosaicOutputFactory"/>
     <bean id="inMemoryJaiMosaicOutputFactory" class="org.mapfish.print.output.InMemoryJaiMosaicOutputFactory"/>
     <bean id="pdfOutputFactory" class="org.mapfish.print.output.PdfOutputFactory"/>
-    
+
     <bean id="georchestra-properties" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="order" value="0"/>
         <property name="locations">
             <list>
-                <value>classpath*:geostore.properties</value>
+                <value>classpath*:mapstore.properties</value>
                 <value>file:${georchestra.datadir:}/default.properties</value>
                 <value>file:${georchestra.datadir:}/mapstore/geostore.properties</value>
             </list>
         </property>
-        <property name="ignoreResourceNotFound" value="false"/>
+        <property name="ignoreResourceNotFound" value="true"/>
+		<property name="ignoreUnresolvablePlaceholders" value="true"/>
 	</bean>
     <bean id="georchestraDataSource" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value="org.postgresql.Driver" />
-        <property name="url" value="jdbc:postgresql://${pgsqlHost}:${pgsqlPort}/${pgsqlDatabase}" />
-        <property name="username" value="${pgsqlUser}" />
-        <property name="password" value="${pgsqlPassword}" />
+        <property name="url" value="jdbc:postgresql://${pgsqlHost:localhost}:${pgsqlPort:5432}/${pgsqlDatabase:georchestra}" />
+        <property name="username" value="${pgsqlUser:postgres}" />
+        <property name="password" value="${pgsqlPassword:}" />
     </bean>
     <bean id="georchestraEntityManagerFactory"
                 class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
