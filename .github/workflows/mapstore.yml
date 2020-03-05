@@ -8,6 +8,9 @@ jobs:
     - name: "checking out"
       uses: actions/checkout@v2
 
+    - name: "Checking out submodules"
+      uses: textbook/git-checkout-submodule-action@2.0.0
+
     - name: "setting up Java"
       uses: actions/setup-java@v1
       with:
@@ -24,7 +27,7 @@ jobs:
         cache-name: cache-node-modules
       with:
         path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
-        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package.json') }}
         restore-keys: |
           ${{ runner.os }}-build-${{ env.cache-name }}-
           ${{ runner.os }}-build-
