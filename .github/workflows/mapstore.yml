@@ -6,10 +6,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: "checking out"
-      uses: actions/checkout@v2
-
-    - name: "Checking out submodules"
-      uses: textbook/git-checkout-submodule-action@2.0.0
+      uses: actions/checkout@master
+      with:
+        submodules: true
 
     - name: "setting up Java"
       uses: actions/setup-java@v1
