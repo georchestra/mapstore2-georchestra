@@ -32,6 +32,14 @@ jobs:
           ${{ runner.os }}-build-
           ${{ runner.os }}-
 
+    - name: "Maven repository caching"
+      uses: actions/cache@v1
+      with:
+        path: ~/.m2/repository
+        key: mapstore-${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+        restore-keys: |
+          mapstore-${{ runner.os }}-maven-
+
     - name: "install dependencies"
       run: npm install
 
