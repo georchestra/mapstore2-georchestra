@@ -12,22 +12,29 @@ import appCfg from "@mapstore/product/appConfig";
 import plugins from "./plugins";
 import main from "@mapstore/product/main";
 import Login from "./plugins/Login";
-import AuthenticationAPI from '@mapstore/api/GeoStoreDAO';
+import AuthenticationAPI from "@mapstore/api/GeoStoreDAO";
 
 /**
  * Add custom (overriding) translations with:
  *
  * ConfigUtils.setConfigProp('translationsPath', ['./MapStore2/web/client/translations', './translations']);
  */
-ConfigUtils.setConfigProp('translationsPath', ['./MapStore2/web/client/translations', './translations']);
-ConfigUtils.setConfigProp('themePrefix', 'GeOrchestra');
-ConfigUtils.setConfigProp('geoStoreUrl', 'rest/geostore/');
+ConfigUtils.setConfigProp("translationsPath", [
+    "./MapStore2/web/client/translations",
+    "./translations"
+]);
+ConfigUtils.setConfigProp("themePrefix", "GeOrchestra");
+ConfigUtils.setConfigProp("geoStoreUrl", "rest/geostore/");
 /**
  * Use a custom plugins configuration file with:
  *
  * ConfigUtils.setLocalConfigurationFile('localConfig.json');
  */
-ConfigUtils.setLocalConfigurationFile('config/load.json');
+ConfigUtils.setLocalConfigurationFile("rest/config/load/localConfig.json");
+/* ConfigUtils.setConfigProp(
+    "extensionsRegistry",
+    "rest/config/load/extensions.json"
+);*/
 
 /**
  * Use a custom application configuration file with:
@@ -45,35 +52,43 @@ ConfigUtils.setLocalConfigurationFile('config/load.json');
  * });
  */
 const appConfig = assign({}, appCfg, {
-    pages: [{
-        name: "mapviewer",
-        path: "/",
-        component: require('@mapstore/product/pages/MapViewer')
-    }, {
-        name: "mapviewer",
-        path: "/viewer/:mapType/:mapId",
-        component: require('@mapstore/product/pages/MapViewer')
-    }, {
-        name: "maps",
-        path: "/maps",
-        component: require('@mapstore/product/pages/Maps')
-    }, {
-        name: "admin",
-        path: "/admin",
-        component: require('./pages/Admin').default
-    }, {
-        name: 'context-creator',
-        path: "/context-creator/:contextId",
-        component: require('./pages/ContextCreator').default
-    }, {
-        name: 'context',
-        path: "/context/:contextName",
-        component: require('@mapstore/product/pages/Context').default
-    }, {
-        name: 'context',
-        path: "/context/:contextName/:mapId",
-        component: require('@mapstore/product/pages/Context').default
-    }]
+    pages: [
+        {
+            name: "mapviewer",
+            path: "/",
+            component: require("@mapstore/product/pages/MapViewer")
+        },
+        {
+            name: "mapviewer",
+            path: "/viewer/:mapType/:mapId",
+            component: require("@mapstore/product/pages/MapViewer")
+        },
+        {
+            name: "maps",
+            path: "/maps",
+            component: require("@mapstore/product/pages/Maps")
+        },
+        {
+            name: "admin",
+            path: "/admin",
+            component: require("./pages/Admin").default
+        },
+        {
+            name: "context-creator",
+            path: "/context-creator/:contextId",
+            component: require("./pages/ContextCreator").default
+        },
+        {
+            name: "context",
+            path: "/context/:contextName",
+            component: require("@mapstore/product/pages/Context").default
+        },
+        {
+            name: "context",
+            path: "/context/:contextName/:mapId",
+            component: require("@mapstore/product/pages/Context").default
+        }
+    ]
 });
 /**
  * Define a custom list of plugins with:
@@ -90,24 +105,31 @@ const appPlugins = {
     requires: plugins.requires
 };
 
-const start = (userInfo) => {
-    localStorage.setItem('mapstore2.persist.security', JSON.stringify(userInfo));
+const start = userInfo => {
+    localStorage.setItem(
+        "mapstore2.persist.security",
+        JSON.stringify(userInfo)
+    );
     main(appConfig, appPlugins);
 };
 
-AuthenticationAPI.login("", "").then((userDetails) => {
-    const timestamp = new Date() / 1000 | 0;
-    const userInfo = {
-        user: userDetails.User,
-        token: userDetails.access_token,
-        refresh_token: userDetails.refresh_token,
-        expires: (userDetails.expires) ? (timestamp + userDetails.expires) : timestamp + 48 * 60 * 60,
-        authHeader: ""
-    };
-    start(userInfo);
-}).catch((e) => {
-    // anonymous
-    start({
-        loginError: e
+AuthenticationAPI.login("", "")
+    .then(userDetails => {
+        const timestamp = (new Date() / 1000) | 0;
+        const userInfo = {
+            user: userDetails.User,
+            token: userDetails.access_token,
+            refresh_token: userDetails.refresh_token,
+            expires: userDetails.expires
+                ? timestamp + userDetails.expires
+                : timestamp + 48 * 60 * 60,
+            authHeader: ""
+        };
+        start(userInfo);
+    })
+    .catch(e => {
+        // anonymous
+        start({
+            loginError: e
+        });
     });
-});
