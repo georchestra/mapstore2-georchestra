@@ -134,6 +134,9 @@
       "glyph": "question-sign",
       "title": "plugins.HelpLink.title",
       "description": "plugins.HelpLink.description",
+      "defaultConfig": {
+        "docsUrl": "https://georchestra.readthedocs.io/"
+      },
       "dependencies": [
         "BurgerMenu"
       ]

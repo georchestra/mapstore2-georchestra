@@ -12,9 +12,10 @@
             ]
         }
     },
-    "exclude": [
-        "node_modules",
-        "dist",
-        "MapStore2/node_modules/"
+    "include": [
+        "js/**/*",
+        "MapStore2/web/client/**/*",
+        "*.js",
+        "*.jsx"
     ]
 }
