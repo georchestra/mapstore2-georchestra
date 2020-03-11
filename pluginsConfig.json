@@ -134,6 +134,9 @@
       "glyph": "question-sign",
       "title": "plugins.HelpLink.title",
       "description": "plugins.HelpLink.description",
+      "defaultConfig": {
+        "docsUrl": "https://georchestra.readthedocs.io/"
+      },
       "dependencies": [
         "BurgerMenu"
       ]
@@ -184,9 +187,7 @@
       "glyph": "1-position-1",
       "title": "plugins.Locate.title",
       "description": "plugins.Locate.description",
-      "dependencies": [
-        "Toolbar"
-      ]
+      "dependencies": ["Toolbar"]
     },
     {
       "name": "WFSDownload",
@@ -238,15 +239,12 @@
       "glyph": "add-folder",
       "title": "plugins.AddGroup.title",
       "description": "plugins.AddGroup.description"
-    },
-    {
+  }, {
       "name": "FilterLayer",
       "glyph": "filter-layer",
       "title": "plugins.FilterLayer.title",
       "description": "plugins.FilterLayer.description",
-      "dependencies": [
-        "QueryPanel"
-      ]
+      "dependencies": ["QueryPanel"]
     },
     {
       "name": "Tutorial",
@@ -268,6 +266,15 @@
       "glyph": "print",
       "title": "plugins.Print.title",
       "description": "plugins.Print.description",
+      "dependencies": [
+        "BurgerMenu"
+      ]
+    },
+    {
+      "name": "MapCatalog",
+      "glyph": "1-map",
+      "title": "plugins.MapCatalog.title",
+      "description": "plugins.MapCatalog.description",
       "dependencies": [
         "BurgerMenu"
       ]
@@ -295,9 +302,7 @@
       "glyph": "cog",
       "title": "plugins.Settings.title",
       "description": "plugins.Settings.description",
-      "children": [
-        "Version"
-      ],
+      "children": ["Version"],
       "dependencies": [
         "BurgerMenu"
       ],
@@ -319,9 +324,7 @@
       "glyph": "mouse",
       "title": "plugins.MousePosition.title",
       "description": "plugins.MousePosition.description",
-      "dependencies": [
-        "MapFooter"
-      ],
+      "dependencies": ["MapFooter"],
       "defaultConfig": {
         "editCRS": true,
         "showLabels": true,
@@ -338,9 +341,7 @@
       "glyph": "crs",
       "title": "plugins.CRSSelector.title",
       "description": "plugins.CRSSelector.description",
-      "dependencies": [
-        "MapFooter"
-      ],
+      "dependencies": ["MapFooter"],
       "defaultConfig": {
         "additionalCRS": {},
         "filterAllowedCRS": [
@@ -385,9 +386,7 @@
       "name": "ScaleBox",
       "title": "plugins.ScaleBox.title",
       "description": "plugins.ScaleBox.description",
-      "dependencies": [
-        "MapFooter"
-      ]
+      "dependencies": ["MapFooter"]
     },
     {
       "name": "ZoomAll",
@@ -489,9 +488,7 @@
       "glyph": "time",
       "title": "plugins.Timeline.title",
       "description": "plugins.Timeline.description",
-      "dependencies": [
-        "Playback"
-      ]
+       "dependencies": ["Playback"]
     },
     {
       "name": "Playback",
@@ -524,16 +521,13 @@
       "dependencies": [
         "BurgerMenu"
       ]
-    },
-    {
+    }, {
       "name": "UserExtensions",
       "glyph": "1-user-add",
       "title": "plugins.UserExtensions.title",
       "hidden": true,
       "description": "plugins.UserExtensions.description",
-      "dependencies": [
-        "BurgerMenu"
-      ]
+      "dependencies": ["BurgerMenu"]
     }
   ]
 }

@@ -354,7 +354,12 @@
                 }
               }
             }
-          }, "AutoMapUpdate", "HelpLink", "DrawerMenu", "Version", "Notifications", "BackgroundSelector", "Annotations",
+          }, {
+              "name": "HelpLink",
+              "cfg": {
+                "docsUrl": "https://georchestra.readthedocs.io/"
+              }
+            }, "AutoMapUpdate", "DrawerMenu", "Version", "Notifications", "BackgroundSelector", "Annotations",
             {
               "name": "Share",
               "cfg": {
