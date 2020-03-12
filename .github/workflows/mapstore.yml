@@ -1,0 +1,65 @@
+name: "mapstore"
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: "checking out"
+      uses: actions/checkout@v2
+    - name: Checkout submodules
+      run: |
+        auth_header="$(git config --local --get http.https://github.com/.extraheader)"
+        git submodule sync --recursive
+        git -c "http.extraheader=$auth_header" -c protocol.version=2 submodule update --init --force --recursive --depth=1
+
+    - name: "setting up Java"
+      uses: actions/setup-java@v1
+      with:
+        java-version: '8.x'
+
+    - name: "setting up npm"
+      uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+
+    - name: "cache node modules"
+      uses: actions/cache@v1
+      env:
+        cache-name: cache-node-modules
+      with:
+        path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
+        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package.json') }}
+        restore-keys: |
+          ${{ runner.os }}-build-${{ env.cache-name }}-
+          ${{ runner.os }}-build-
+          ${{ runner.os }}-
+
+    - name: "Maven repository caching"
+      uses: actions/cache@v1
+      with:
+        path: ~/.m2/repository
+        key: mapstore-${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+        restore-keys: |
+          mapstore-${{ runner.os }}-maven-
+
+    - name: "install dependencies"
+      run: npm install
+
+    - name: "build"
+      run: npm run compile
+
+    - name: "run lint"
+      run: npm run lint
+
+    - name: "package with Maven"
+      run: mvn -B clean install -Dmapstore2.version=${{ github.sha }}
+
+    - name: "copy resulting war"
+      run: mkdir -p scratch && cp web/target/GeOrchestra.war scratch/mapstore-${{ github.sha }}.war
+
+    - name: "publish war as artifact"
+      uses: actions/upload-artifact@v1
+      with:
+        name: mapstore.war
+        path: scratch/mapstore-${{ github.sha }}.war
