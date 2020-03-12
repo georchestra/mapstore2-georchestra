@@ -69,26 +69,7 @@
         <url-pattern>/rest/config/*</url-pattern>
     </servlet-mapping>
 
-	<!-- ConfigLoader Servlet -->
-	<servlet>
-		<servlet-name>ConfigLoader</servlet-name>
-		<servlet-class>it.geosolutions.georchestra.ConfigLoaderServlet</servlet-class>
-		<init-param>
-			<param-name>configLocation</param-name>
-			<param-value>${georchestra.datadir}/mapstore/localConfig.json,localConfig.json</param-value>
-		</init-param>
-		<init-param>
-			<param-name>georchestraConfigLocation</param-name>
-			<param-value>${georchestra.datadir}/default.properties</param-value>
-		</init-param>
-	</servlet>
-
-	<servlet-mapping>
-		<servlet-name>ConfigLoader</servlet-name>
-		<url-pattern>/config/*</url-pattern>
-	</servlet-mapping>
-
-    <!-- CXF Servlet -->
+	<!-- CXF Servlet -->
 	<servlet>
 		<servlet-name>CXFServlet</servlet-name>
 		<servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>

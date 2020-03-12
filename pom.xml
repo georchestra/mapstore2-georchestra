@@ -18,7 +18,6 @@
 
     <modules>
         <module>web</module>
-        <module>backend</module>
         <module>MapStore2/backend</module>
     </modules>
 

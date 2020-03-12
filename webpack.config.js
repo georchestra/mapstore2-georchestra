@@ -1,7 +1,7 @@
 const path = require("path");
 
-const themeEntries = require('./themes.js').themeEntries;
-const extractThemesPlugin = require('./themes.js').extractThemesPlugin;
+const themeEntries = require("./themes.js").themeEntries;
+const extractThemesPlugin = require("./themes.js").extractThemesPlugin;
 
 const DEV_PROTOCOL = "https";
 const DEV_HOST = "georchestra.geo-solutions.it";
@@ -45,19 +45,12 @@ module.exports = require("./MapStore2/build/buildConfig")(
         "@mapstore": path.resolve(__dirname, "MapStore2", "web", "client"),
         "@js": path.resolve(__dirname, "js"),
         // next libs are added because of this issue https://github.com/geosolutions-it/MapStore2/issues/4569
-        jsonix: '@boundlessgeo/jsonix',
-        proj4: '@geosolutions/proj4',
-        "react-joyride": '@geosolutions/react-joyride'
+        jsonix: "@boundlessgeo/jsonix",
+        proj4: "@geosolutions/proj4",
+        "react-joyride": "@geosolutions/react-joyride"
     },
     {
-        "/rest/geostore": {
-            target: `${DEV_PROTOCOL}://${DEV_HOST}/mapstore`,
-            secure: false,
-            headers: {
-                host: `${DEV_HOST}`
-            }
-        },
-        "/config": {
+        "/rest": {
             target: `${DEV_PROTOCOL}://${DEV_HOST}/mapstore`,
             secure: false,
             headers: {
