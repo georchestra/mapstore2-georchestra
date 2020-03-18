@@ -330,7 +330,9 @@
             },
             "FeedbackMask"
         ],
-        "desktop": ["Header",
+        "desktop": [
+          "UserSession",
+          "Header",
           "Details",
           {
             "name": "Map",

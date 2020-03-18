@@ -3,6 +3,16 @@
     "messages": {
         "georchestra": {
             "pageNotAllowed": "Access Denied"
+        },
+        "plugins": {
+          "UserSession": {
+            "title": "User Session",
+            "description": "Enables an automatically saved user session for every context"
+          },
+          "userSession": {
+            "remove": "Reset User Session",
+            "confirmRemove": "Are you sure you want to restore the default configuration?"
+          }
         }
     }
 }

@@ -13,7 +13,7 @@ import plugins from "./plugins";
 import main from "@mapstore/product/main";
 import Login from "./plugins/Login";
 import AuthenticationAPI from "@mapstore/api/GeoStoreDAO";
-
+import {loadUserSessionBeforeMapEpic} from "./epics/usersession";
 /**
  * Add custom (overriding) translations with:
  *
@@ -87,7 +87,10 @@ const appConfig = assign({}, appCfg, {
             path: "/context/:contextName/:mapId",
             component: require("@mapstore/product/pages/Context").default
         }
-    ]
+    ],
+    appEpics: {
+        loadContextAndMap: loadUserSessionBeforeMapEpic
+    }
 });
 /**
  * Define a custom list of plugins with:
