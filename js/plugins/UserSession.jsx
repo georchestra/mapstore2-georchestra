@@ -10,7 +10,7 @@ import {connect} from "react-redux";
 import {createPlugin} from "@mapstore/utils/PluginsUtils";
 import usersession from "@mapstore/reducers/usersession";
 import {saveUserSessionEpic, autoSaveSessionEpic, loadUserSessionEpic, removeUserSessionEpic,
-    reloadOriginalConfigEpic} from "../epics/usersession";
+    reloadOriginalConfigEpic, stopSaveSessionEpic} from "../epics/usersession";
 import Message from "@mapstore/components/I18N/Message";
 import {Glyphicon} from "react-bootstrap";
 import {toggleControl} from "@mapstore/actions/controls";
@@ -55,6 +55,6 @@ export default createPlugin('UserSession', {
         usersession
     },
     epics: {
-        saveUserSessionEpic, autoSaveSessionEpic, loadUserSessionEpic, removeUserSessionEpic, reloadOriginalConfigEpic
+        saveUserSessionEpic, autoSaveSessionEpic, stopSaveSessionEpic, loadUserSessionEpic, removeUserSessionEpic, reloadOriginalConfigEpic
     }
 });

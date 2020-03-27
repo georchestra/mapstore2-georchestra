@@ -18,11 +18,13 @@ import { loadMapConfig, MAP_CONFIG_LOADED, MAP_CONFIG_LOAD_ERROR } from '@mapsto
 import { pluginsSelectorCreator } from '@mapstore/selectors/localConfig';
 import { clearMapTemplates, setTemplates, setMapTemplatesLoaded } from '@mapstore/actions/maptemplates';
 import {LOAD_CONTEXT, loadFinished, loading, contextLoadError, setContext, setResource} from "@mapstore/actions/context";
-import {loadUserSession, saveMapConfig, USER_SESSION_LOADED, USER_SESSION_REMOVED} from "@mapstore/actions/usersession";
+import {loadUserSession, saveMapConfig, userSessionStartSaving, userSessionStopSaving,
+    USER_SESSION_LOADED, USER_SESSION_REMOVED, USER_SESSION_START_SAVING, USER_SESSION_STOP_SAVING} from "@mapstore/actions/usersession";
 import { Observable } from 'rxjs';
 import { wrapStartStop } from '@mapstore/observables/epics';
 import ConfigUtils from '@mapstore/utils/ConfigUtils';
 import merge from "lodash/merge";
+import { LOCATION_CHANGE } from "connected-react-router";
 
 function MapError(error) {
     this.originalError = error;
@@ -64,9 +66,13 @@ const sessionSelector = createSelector([mapSelector, layersSelector, rawGroupsSe
 const sessionIdSelector = state => state?.usersession?.id;
 const originalConfigSelector = state => state?.usersession?.config;
 export const saveUserSessionEpic = saveUserSessionEpicCreator(sessionNameSelector, sessionSelector, sessionIdSelector);
-export const autoSaveSessionEpic = autoSaveSessionEpicCreator(MAP_CONFIG_LOADED, USER_SESSION_REMOVED, 30 * 1000);
+export const autoSaveSessionEpic = autoSaveSessionEpicCreator(USER_SESSION_START_SAVING, USER_SESSION_STOP_SAVING, 30 * 1000);
 export const loadUserSessionEpic = loadUserSessionEpicCreator(sessionNameSelector);
 export const removeUserSessionEpic = removeUserSessionEpicCreator(sessionIdSelector);
+
+export const stopSaveSessionEpic = (action$) =>
+    action$.ofType(USER_SESSION_REMOVED, LOCATION_CHANGE)
+        .switchMap(() => Observable.of(userSessionStopSaving()));
 
 const createContextFlow = (id, session = {}, action$, getState) =>
     (id !== "default"
@@ -102,7 +108,7 @@ const createMapFlow = (mapId = 'new', mapConfig, session, action$) => {
 export const reloadOriginalConfigEpic = (action$, { getState = () => { } } = {}) =>
     action$.ofType(USER_SESSION_REMOVED).switchMap(() => {
         const mapConfig = originalConfigSelector(getState());
-        return Observable.of(loadMapConfig(null, null, mapConfig));
+        return Observable.of(loadMapConfig(null, null, mapConfig), userSessionStartSaving());
     });
 
 /**
@@ -131,6 +137,7 @@ export const loadUserSessionBeforeMapEpic = (action$, { getState = () => { } } =
                         createContextFlow(id, contextSession, action$, getState).catch(e => {throw new ContextError(e); }),
                         createMapFlow(mapId, data && data.mapConfig, mapSession, action$, getState).catch(e => { throw new MapError(e); }),
                         templates.length > 0 ? Observable.of(setTemplates(templates), setMapTemplatesLoaded(true)) : Observable.empty(),
+                        Observable.of(userSessionStartSaving()),
                         Observable.of(loading(false, "loading")),
                         Observable.of(loadFinished())
                     );
