@@ -410,7 +410,7 @@
             }, {
                 "name": "TOC",
                 "cfg": {
-                    "activateMetedataTool": false
+                    "activateMetedataTool": true
                 }
             },
             "FilterLayer",
