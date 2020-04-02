@@ -55,6 +55,6 @@ export default createPlugin('UserSession', {
         usersession
     },
     epics: {
-        saveUserSessionEpic, autoSaveSessionEpic, stopSaveSessionEpic, loadUserSessionEpic, removeUserSessionEpic, reloadOriginalConfigEpic
+        saveUserSessionEpic, autoSaveSessionEpic: autoSaveSessionEpic(), stopSaveSessionEpic, loadUserSessionEpic, removeUserSessionEpic, reloadOriginalConfigEpic
     }
 });
