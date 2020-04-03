@@ -127,7 +127,8 @@ const createMapFlow = (mapId = 'new', mapConfig, session, action$) => {
 export const reloadOriginalConfigEpic = (action$, { getState = () => { } } = {}) =>
     action$.ofType(USER_SESSION_REMOVED).switchMap(() => {
         const mapConfig = originalConfigSelector(getState());
-        return Observable.of(loadMapConfig(null, null, mapConfig), userSessionStartSaving());
+        const mapId = getState()?.mapInitialConfig?.mapId;
+        return Observable.of(loadMapConfig(null, mapId, mapConfig, undefined, {}), userSessionStartSaving());
     });
 
 /**
@@ -204,11 +205,15 @@ const mapFlowWithSessionLoaded = (configName, mapId, config, mapInfo, store, ove
                     return Observable.of(configureError({messageId: `map.errors.loading.projectionError`, errorMessageParams: {projection}}, mapId));
                 }
                 const mapConfig = merge({}, response.data, overrideConfig);
-                return mapId ? Observable.of(configureMap(mapConfig, mapId), mapInfo ? mapInfoLoaded(mapInfo) : loadMapInfo(mapId)) :
+                return mapId ? Observable.of(
+                    configureMap(mapConfig, mapId),
+                    mapInfo ? mapInfoLoaded(mapInfo) : loadMapInfo(mapId),
+                    ...(response.isContextOrSession ? [] : [saveMapConfig(response.data)])
+                ) :
                     Observable.of(
                         configureMap(mapConfig, mapId),
                         ...(mapInfo ? [mapInfoLoaded(mapInfo)] : []),
-                        ...(response.isContextOrSession ? [] : saveMapConfig(response.data))
+                        ...(response.isContextOrSession ? [] : [saveMapConfig(response.data)])
                     );
             }
             try {
