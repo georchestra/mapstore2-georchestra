@@ -44,6 +44,13 @@
         "source": "osm",
         "group": "background",
         "visibility": false
+      },
+      {
+        "source": "ol",
+        "group": "background",
+        "title": "Empty Background",
+        "fixed": true,
+        "type": "empty"
       }]
   }
 }
