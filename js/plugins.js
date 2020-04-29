@@ -103,6 +103,7 @@ module.exports = {
         UndoPlugin: require('@mapstore/plugins/History'),
         UserManagerPlugin: require('@mapstore/plugins/manager/UserManager'),
         UserExtensionsPlugin: require('@mapstore/plugins/UserExtensions').default,
+        UserSessionPlugin: require('@mapstore/plugins/UserSession').default,
         VersionPlugin: require('@mapstore/plugins/Version'),
         WFSDownloadPlugin: require('@mapstore/plugins/WFSDownload'),
         WidgetsBuilderPlugin: require('@mapstore/plugins/WidgetsBuilder').default,
