@@ -38,14 +38,6 @@ ConfigUtils.setConfigProp("contextPluginsConfiguration", "rest/config/load/plugi
 ConfigUtils.setConfigProp("extensionsFolder", "rest/config/loadasset?resource=");
 
 Providers.georchestra = serverbackup;
-// for GeOrchestra user sessions, we use the serverbackup provider, saving
-// every 5 seconds on the local storage, and every 30 seconds (5 * 6) on a GeoStore resource.
-ConfigUtils.setConfigProp("userSessions", {
-    enabled: true,
-    provider: "georchestra",
-    saveFrequency: 5 * 1000,
-    backupFrequency: 6
-});
 
 /**
  * Use a custom application configuration file with:
