@@ -13,7 +13,9 @@ import plugins from "./plugins";
 import main from "@mapstore/product/main";
 import Login from "./plugins/Login";
 import AuthenticationAPI from "@mapstore/api/GeoStoreDAO";
-import {loadUserSessionBeforeMapEpic, loadUserSessionBeforeContextEpic} from "./epics/usersession";
+import {Providers} from "@mapstore/api/usersession";
+import serverbackup from "@mapstore/api/usersession/serverbackup";
+
 /**
  * Add custom (overriding) translations with:
  *
@@ -34,6 +36,16 @@ ConfigUtils.setLocalConfigurationFile("rest/config/load/localConfig.json");
 ConfigUtils.setConfigProp("extensionsRegistry", "rest/config/load/extensions.json");
 ConfigUtils.setConfigProp("contextPluginsConfiguration", "rest/config/load/pluginsConfig.json");
 ConfigUtils.setConfigProp("extensionsFolder", "rest/config/loadasset?resource=");
+
+Providers.georchestra = serverbackup;
+// for GeOrchestra user sessions, we use the serverbackup provider, saving
+// every 5 seconds on the local storage, and every 30 seconds (5 * 6) on a GeoStore resource.
+ConfigUtils.setConfigProp("userSessions", {
+    enabled: true,
+    provider: "georchestra",
+    saveFrequency: 5 * 1000,
+    backupFrequency: 6
+});
 
 /**
  * Use a custom application configuration file with:
@@ -88,10 +100,7 @@ const appConfig = assign({}, appCfg, {
             component: require("@mapstore/product/pages/Context").default
         }
     ],
-    appEpics: {
-        loadContextAndMap: loadUserSessionBeforeContextEpic,
-        loadMapConfigAndConfigureMap: loadUserSessionBeforeMapEpic
-    }
+    appEpics: {}
 });
 /**
  * Define a custom list of plugins with:

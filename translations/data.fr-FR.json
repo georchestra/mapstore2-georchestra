@@ -3,16 +3,6 @@
     "messages": {
         "georchestra": {
             "pageNotAllowed": "Accès refusé"
-        },
-        "plugins": {
-          "UserSession": {
-            "title": "Session utilisateur",
-            "description": "Active une session utilisateur enregistrée automatiquement pour chaque contexte"
-          }
-        },
-        "userSession": {
-          "remove": "Réinitialiser la session",
-          "confirmRemove": "Êtes-vous sûr de vouloir restaurer la configuration par défaut?"
         }
     }
 }

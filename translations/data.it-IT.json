@@ -3,16 +3,6 @@
     "messages": {
         "georchestra": {
             "pageNotAllowed": "Accesso Negato"
-        },
-        "plugins": {
-          "UserSession": {
-            "title": "Sessione Utente",
-            "description": "Permette di avere una sessione utente per contesto automaticamente salvata"
-          }
-        },
-        "userSession": {
-          "remove": "Reset Sessione Utente",
-          "confirmRemove": "Sei sicuro di voler ripristinare la configurazione di default?"
         }
     }
 }
