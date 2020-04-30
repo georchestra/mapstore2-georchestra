@@ -15,7 +15,8 @@
     "useAuthenticationRules": true,
     "loadAfterTheme": true,
     "userSessions": {
-      "enabled": true
+      "enabled": true,
+      "contextOnly": true
     },
     "header": {
       "height": 90,

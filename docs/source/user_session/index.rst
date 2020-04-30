@@ -5,9 +5,8 @@ so that it can be restored the next time the user will visit the same context / 
 
 A different user session is saved for every:
 
- * context (when the user is visiting a context default map)
+ * context (when the user is visiting a context)
  * map (when the user is visiting a map of the default context)
- * context and map (when the user is visiting a custom map of a given context)
 
 The following information are stored in the session:
 
@@ -29,6 +28,7 @@ userSessions section:
 
     "userSessions": {
         "enabled": true,
+        "contextOnly": true,
         "provider": "georchestra",
         "saveFrequency": 5000,
         "backupFrequency": 6
