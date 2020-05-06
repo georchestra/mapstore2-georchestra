@@ -36,6 +36,7 @@ ConfigUtils.setLocalConfigurationFile("rest/config/load/localConfig.json");
 ConfigUtils.setConfigProp("extensionsRegistry", "rest/config/load/extensions.json");
 ConfigUtils.setConfigProp("contextPluginsConfiguration", "rest/config/load/pluginsConfig.json");
 ConfigUtils.setConfigProp("extensionsFolder", "rest/config/loadasset?resource=");
+ConfigUtils.setConfigProp("configurationFolder", "rest/config/load/");
 
 Providers.georchestra = serverbackup;
 
