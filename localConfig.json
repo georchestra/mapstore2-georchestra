@@ -474,7 +474,15 @@
                     "showAddAsAnnotation": true
                   }
                 }
-            }, "Print", "MapImport", "MapExport", {
+            }, {
+              "name": "Print",
+              "cfg": {
+                "useFixedScales": true,
+                "mapPreviewOptions": {
+                  "enableScalebox": true
+                }
+              }
+            }, "MapImport", "MapExport", {
                 "name": "Settings",
                 "cfg": {
                     "wrap": true
