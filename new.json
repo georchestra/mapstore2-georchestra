@@ -12,7 +12,7 @@
       {
         "type": "wms",
         "url": "http://osm.geobretagne.fr/gwc01/service/wms",
-        "visibility": true,
+        "visibility": false,
         "group": "background",
         "thumbURL": "http://osm.geobretagne.fr/gwc01/service/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&LAYERS=osm%3Agoogle&STYLES=&SRS=EPSG%3A3857&CRS=EPSG%3A3857&TILED=true&WIDTH=256&HEIGHT=256&BBOX=-1252344.271424327%2C5009377.085697312%2C6.984919309616089e-10%2C6261721.35712164",
         "dimensions": [],
@@ -41,7 +41,7 @@
         "name": "mapnik",
         "source": "osm",
         "group": "background",
-        "visibility": false
+        "visibility": true
       },{
         "source": "ol",
         "group": "background",
