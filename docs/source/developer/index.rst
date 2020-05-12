@@ -30,7 +30,7 @@ Configuring the backend
 
 To develop locally you will need to use a proxied backend. To configure your backend of choice you need to properly change the webpack.config.js file,
 in particular you need to change the following variables:
- 
+
  * DEV_PROTOCOL: http or https
  * DEV_HOST: host and port of the backend
 
@@ -84,3 +84,8 @@ Install this extension and configure it to set the following request headers:
  * sec-roles: a semicolon delimited list of roles (e.g. ROLE_MAPSTORE_ADMIN)
 
 Remember to disable the extension when you don't need it.
+
+.. toctree::
+   :maxdepth: 4
+
+   ../user_session/index

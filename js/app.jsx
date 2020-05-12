@@ -13,6 +13,8 @@ import plugins from "./plugins";
 import main from "@mapstore/product/main";
 import Login from "./plugins/Login";
 import AuthenticationAPI from "@mapstore/api/GeoStoreDAO";
+import {Providers} from "@mapstore/api/usersession";
+import serverbackup from "@mapstore/api/usersession/serverbackup";
 
 /**
  * Add custom (overriding) translations with:
@@ -34,6 +36,9 @@ ConfigUtils.setLocalConfigurationFile("rest/config/load/localConfig.json");
 ConfigUtils.setConfigProp("extensionsRegistry", "rest/config/load/extensions.json");
 ConfigUtils.setConfigProp("contextPluginsConfiguration", "rest/config/load/pluginsConfig.json");
 ConfigUtils.setConfigProp("extensionsFolder", "rest/config/loadasset?resource=");
+ConfigUtils.setConfigProp("configurationFolder", "rest/config/load/");
+
+Providers.georchestra = serverbackup;
 
 /**
  * Use a custom application configuration file with:
@@ -87,7 +92,8 @@ const appConfig = assign({}, appCfg, {
             path: "/context/:contextName/:mapId",
             component: require("@mapstore/product/pages/Context").default
         }
-    ]
+    ],
+    appEpics: {}
 });
 /**
  * Define a custom list of plugins with:

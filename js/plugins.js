@@ -113,7 +113,8 @@ module.exports = {
         ZoomOutPlugin: require('@mapstore/plugins/ZoomOut'),
         // georchestra plugins
         NotAllowedPlugin: require('./plugins/NotAllowed').default,
-        HeaderPlugin: require('./plugins/Header').default
+        HeaderPlugin: require('./plugins/Header').default,
+        UserSessionPlugin: require('./plugins/UserSession').default
     },
     requires: {
         ReactSwipe: require('react-swipeable-views').default,
