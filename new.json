@@ -10,32 +10,6 @@
 		],
     "layers": [
       {
-        "type": "wms",
-        "url": "http://osm.geobretagne.fr/gwc01/service/wms",
-        "visibility": true,
-        "group": "background",
-        "thumbURL": "http://osm.geobretagne.fr/gwc01/service/wms?SERVICE=WMS&VERSION=1.3.0&REQUEST=GetMap&FORMAT=image%2Fpng&TRANSPARENT=true&LAYERS=osm%3Agoogle&STYLES=&SRS=EPSG%3A3857&CRS=EPSG%3A3857&TILED=true&WIDTH=256&HEIGHT=256&BBOX=-1252344.271424327%2C5009377.085697312%2C6.984919309616089e-10%2C6261721.35712164",
-        "dimensions": [],
-        "name": "osm:google",
-        "title": "OpenStreetMap GeoBretagne",
-        "description": "carte réalisée à partir de la base OpenStreetMap avec un style proche de la carte Google Maps",
-        "bbox": {
-          "crs": "EPSG:2154",
-          "bounds": {
-            "minx": 29.96875,
-            "miny": 20.6046875,
-            "maxx": 57.56640625,
-            "maxy": -15.78203125
-          }
-        },
-        "links": [],
-        "params": {},
-        "allowedSRS": {},
-        "catalogURL": "https://geobretagne.fr/geonetwork/srv/fre/csw?request=GetRecordById&service=CSW&version=2.0.2&elementSetName=full&id=6d5e8af2-070e-45ab-96c0-fe7938a5d853",
-        "loading": false,
-        "loadingError": false
-      },
-      {
         "type": "osm",
         "title": "Open Street Map",
         "name": "mapnik",
