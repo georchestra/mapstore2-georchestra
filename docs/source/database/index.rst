@@ -11,6 +11,10 @@ In addition to that a geostore.properties file in datadir/mapstore is used for M
 
  * pgsqlGeoStoreSchema: schema used for the MapStore permissions database (Defaults to geostore)
 
+Notice that you can also override other connection properties that are configured in default.properties, by
+putting them in geostore.properties. All the properties that can be overridden are commented in the datadir geostore.properties
+file, so you can just uncomment them and set the desired value.
+
 To configure the default.properties location the default georchestra environment variable is used (georchestra.datadir).
 For local development, this must be configured for the JVM:
 
