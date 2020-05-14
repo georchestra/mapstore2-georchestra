@@ -332,7 +332,6 @@
             "FeedbackMask"
         ],
         "desktop": [
-          "UserSession",
           "Header",
           "Details",
           {
@@ -397,7 +396,6 @@
                     }
                 }
             },
-            "UserSession",
             "FeatureEditor",
             "WFSDownload",
             {
