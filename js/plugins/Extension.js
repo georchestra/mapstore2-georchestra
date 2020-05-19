@@ -1,8 +1,8 @@
 import { connect } from "react-redux";
 
-import Extension from "../components/Extension";
+import Extension from "@js/components/Extension";
 import Rx from "rxjs";
-import { changeZoomLevel } from "../MapStore2/web/client/actions/map";
+import { changeZoomLevel } from "@mapstore/actions/map";
 
 export default {
     name: "Extension",

@@ -1,11 +1,12 @@
 import {connect} from "react-redux";
 
-import Extension from "../components/Extension";
+import Extension from '../../../js/components/Extension';
+
 import Rx from "rxjs";
 import { changeZoomLevel } from "../../../MapStore2/web/client/actions/map";
 
 export default {
-    name: "Extension",
+    name: "SampleExtension",
     component: connect(state => ({
         value: state.extension && state.extension.value
     }), {onIncrease: () => {

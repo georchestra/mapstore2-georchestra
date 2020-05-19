@@ -10,7 +10,8 @@ import Localized from "../../MapStore2/web/client/components/I18N/Localized";
 
 import plugins from "./plugins";
 import rootTranslations from "../../MapStore2/web/client/translations/data.en-US.json";
-import bundleTranslations from "../../MapStore2/build/extensions/bundle/translations/data.en-US.json";
+// add a translation file for every extension
+import bundleTranslations from "./bundle/translations/data.en-US.json";
 
 const pluginsConfig = ["Map", "Toolbar", "ZoomIn", "ZoomOut", "Extension"];
 const LOCALE = "en-US";
@@ -41,7 +42,7 @@ const startApp = (messages) => {
         }
         updateStore({ reducers: { ...getReducers(plugins), ...extensionReducers }, epics: { ...getEpics(plugins), ...extensionEpics } });
     };
-    import(/* webpackChunkName: "extensions/index" */`../../MapStore2/build/extensions/extensions`).then(extensions => {
+    import(/* webpackChunkName: "extensions/index" */`../extensions/extensions`).then(extensions => {
         const Container = connect((state) => ({
             pluginsState: { zoom: state.map && state.map.zoom },
             pluginsConfig: pluginsConfig

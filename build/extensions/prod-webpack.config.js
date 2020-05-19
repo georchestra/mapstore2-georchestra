@@ -8,7 +8,7 @@ const paths = {
     base: path.join(__dirname, "..", ".."),
     dist: path.join(__dirname, "dist"),
     framework: path.join(__dirname, "..", "..", "MapStore2", "web", "client"),
-    code: path.join(__dirname)
+    code: [path.join(__dirname), path.join(__dirname, "plugins"), path.join(__dirname, "..", "..", "MapStore2", "web", "client"), path.join(__dirname, "..", "..", "js")]
 };
 
 const baseConfig = buildConfig(
@@ -31,7 +31,6 @@ const baseConfig = buildConfig(
         "react-joyride": "@geosolutions/react-joyride"
     }
 );
-console.log(JSON.stringify(baseConfig, 2, 2));
 module.exports = assign(baseConfig, {
     output: {
         path: path.join(__dirname, "dist"),

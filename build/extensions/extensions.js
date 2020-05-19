@@ -9,8 +9,8 @@
 import { createPlugin } from "../../MapStore2/web/client/utils/PluginsUtils";
 
 export default {
-    Extension: createPlugin('Extension', {
+    SampleExtension: createPlugin('SampleExtension', {
         lazy: true,
-        loader: () => import(/* webpackChunkName: "extensions/extension" */`../../js/plugins/Extension.js`)
+        loader: () => import(/* webpackChunkName: "extensions/extension" */`./plugins/SampleExtension.jsx`)
     })
 };
