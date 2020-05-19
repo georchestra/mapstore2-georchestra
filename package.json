@@ -29,6 +29,7 @@
         "dynamic-public-path-webpack-plugin": "1.0.4",
         "escope": "3.2.0",
         "eslint": "6.3.0",
+        "eslint-plugin-import": "2.20.2",
         "eslint-plugin-no-only-tests": "2.3.1",
         "eslint-plugin-react": "3.3.2",
         "expect": "1.20.1",
@@ -249,7 +250,8 @@
         "continuoustest": "karma start ./karma.conf.continuous-test.js",
         "mvntest": "karma start ./karma.conf.single-run.js --reporters junit,dots,coverage",
         "lint": "eslint js --ext .jsx,.js",
-        "travis": "eslint js --ext .jsx,.js && karma start ./karma.conf.single-run.js --browsers Firefox --reporters dots,junit,coverage,coveralls"
+        "travis": "eslint js --ext .jsx,.js && karma start ./karma.conf.single-run.js --browsers Firefox --reporters dots,junit,coverage,coveralls",
+        "build-extension": "rimraf ./build/extensions/dist && mkdirp ./build/extensions/dist && webpack --progress  --colors --config build/extensions/prod-webpack.config.js"
     },
     "author": "GeoSolutions",
     "license": "BSD-2-Clause"
