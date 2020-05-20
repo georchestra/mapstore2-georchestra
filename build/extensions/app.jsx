@@ -13,7 +13,7 @@ import rootTranslations from "../../MapStore2/web/client/translations/data.en-US
 // add a translation file for every extension
 import bundleTranslations from "./bundle/translations/data.en-US.json";
 
-const pluginsConfig = ["Map", "Toolbar", "ZoomIn", "ZoomOut", "Extension"];
+const pluginsConfig = ["Map", "Toolbar", "ZoomIn", "ZoomOut", "SampleExtension"];
 const LOCALE = "en-US";
 
 const startApp = (messages) => {

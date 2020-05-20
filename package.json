@@ -251,7 +251,8 @@
         "mvntest": "karma start ./karma.conf.single-run.js --reporters junit,dots,coverage",
         "lint": "eslint js --ext .jsx,.js",
         "travis": "eslint js --ext .jsx,.js && karma start ./karma.conf.single-run.js --browsers Firefox --reporters dots,junit,coverage,coveralls",
-        "build-extension": "rimraf ./build/extensions/dist && mkdirp ./build/extensions/dist && webpack --progress  --colors --config build/extensions/prod-webpack.config.js"
+        "build-extension": "rimraf ./build/extensions/dist && mkdirp ./build/extensions/dist && webpack --progress  --colors --config build/extensions/prod-webpack.config.js",
+        "run-extension": "webpack-dev-server --progress --colors --port 8081 --hot --inline --config build/extensions/webpack.config.js --content-base build/extensions"
     },
     "author": "GeoSolutions",
     "license": "BSD-2-Clause"

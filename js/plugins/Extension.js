@@ -5,7 +5,7 @@ import Rx from "rxjs";
 import { changeZoomLevel } from "@mapstore/actions/map";
 
 export default {
-    name: "Extension",
+    name: "SampleExtension",
     component: connect(state => ({
         value: state.extension && state.extension.value
     }), {

@@ -11,6 +11,6 @@ import { createPlugin } from "../../MapStore2/web/client/utils/PluginsUtils";
 export default {
     SampleExtension: createPlugin('SampleExtension', {
         lazy: true,
-        loader: () => import(/* webpackChunkName: "extensions/extension" */`./plugins/SampleExtension.jsx`)
+        loader: () => import(/* webpackChunkName: "extensions/extension" */`./plugins/SampleExtension`)
     })
 };

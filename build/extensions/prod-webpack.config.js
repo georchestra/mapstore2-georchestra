@@ -1,4 +1,4 @@
-const extractThemesPlugin = require('../../MapStore2/build/themes').extractThemesPlugin;
+const extractThemesPlugin = require('../../themes').extractThemesPlugin;
 
 const path = require("path");
 const assign = require('object-assign');
@@ -20,7 +20,7 @@ const baseConfig = buildConfig(
     extractThemesPlugin,
     true,
     "/dist/",
-    ".GeOrchestra",
+    false,
     [],
     {
         "@mapstore": path.resolve(__dirname, "MapStore2", "web", "client"),
