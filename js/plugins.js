@@ -24,7 +24,6 @@ module.exports = {
         ContextCreatorPlugin: require('@mapstore/plugins/ContextCreator').default,
         ContextManagerPlugin: require('@mapstore/plugins/contextmanager/ContextManager').default,
         CookiePlugin: require('@mapstore/plugins/Cookie'),
-        CreateNewMapPlugin: require('@mapstore/plugins/CreateNewMap'),
         Dashboard: require('@mapstore/plugins/Dashboard'),
         DashboardEditor: require('@mapstore/plugins/DashboardEditor'),
         DashboardsPlugin: require('@mapstore/plugins/Dashboards'),

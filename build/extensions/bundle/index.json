@@ -1,0 +1,10 @@
+{
+    "plugins": [
+        {
+            "name": "SampleExtension",
+            "dependencies": [
+                "Toolbar"
+            ]
+        }
+    ]
+}
