@@ -207,4 +207,7 @@ psql -U georchestra -d georchestra -f 002_create_schema_postgres.sql
     insert into geostore.gs_category (id, name) values (2, 'THUMBNAIL');
     insert into geostore.gs_category (id, name) values (3, 'DETAILS');
     insert into geostore.gs_category (id, name) values (4, 'DASHBOARD');
+    insert into geostore.gs_category (id ,name) values (5,  'TEMPLATE');
+    INSERT into geostore.gs_category (id ,name) values (6,  'USERSESSION');
+    
 
