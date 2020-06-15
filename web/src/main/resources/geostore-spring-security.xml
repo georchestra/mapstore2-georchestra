@@ -58,6 +58,7 @@
             <property name="groupsHeader" value="sec-roles"/>
             <property name="listDelimiter" value=";"/>
             <property name="authoritiesMapper" ref="rolesMapper"/>
+            <property name="groupHeaderPrefix" value="ROLE_"/>
 	</bean>
 
     <!-- GeOrchestra groups to roles mapper for Headers Auth Filter -->
