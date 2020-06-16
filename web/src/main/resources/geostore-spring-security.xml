@@ -69,7 +69,7 @@
     <bean id="rolesMapper" class="it.geosolutions.geostore.core.security.SimpleGrantedAuthoritiesMapper">
         <constructor-arg>
             <map>
-                <entry key="ROLE_MAPSTORE_ADMIN" value="ADMIN"/>
+                <entry key="MAPSTORE_ADMIN" value="ADMIN"/>
             </map>
         </constructor-arg>
     </bean>
