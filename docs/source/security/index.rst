@@ -28,7 +28,7 @@ The filter is configured in the geostore-security-proxy.xml file:
     <bean id="georchestraAuthenticationProvider"
 		class="it.geosolutions.geostore.services.rest.security.PreAuthenticatedAuthenticationProvider">
 	</bean>
-    
+
     <!-- GeOrchestra header based Auth Filter -->
     <bean class="it.geosolutions.geostore.services.rest.security.HeadersAuthenticationFilter"
         id="headersProcessingFilter">
@@ -43,7 +43,7 @@ The filter is configured in the geostore-security-proxy.xml file:
         <constructor-arg>
             <map>
                 <!-- add more entries to map other roles to MapStore ADMIN -->
-                <entry key="ROLE_MAPSTORE_ADMIN" value="ADMIN"/>
+                <entry key="MAPSTORE_ADMIN" value="ADMIN"/>
             </map>
         </constructor-arg>
     </bean>
@@ -56,7 +56,7 @@ and use it in the Admin UI, to assign permissions to MapStore resources and func
 This ia also configured in the geostore-security-proxy.xml file:
 
  .. code-block:: xml
-    
+
     <!-- GeOrchestra LDAP DAOs -->
     <bean id="ldap-context" class="org.springframework.security.ldap.DefaultSpringSecurityContextSource">
 		<constructor-arg value="${ldapScheme}://${ldapHost}:${ldapPort}/${ldapBaseDn}" />

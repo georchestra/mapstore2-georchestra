@@ -58,13 +58,18 @@
             <property name="groupsHeader" value="sec-roles"/>
             <property name="listDelimiter" value=";"/>
             <property name="authoritiesMapper" ref="rolesMapper"/>
+            <property name="groupMapper">
+            	<bean class="it.geosolutions.geostore.services.rest.utils.SpelMapper">
+            		<constructor-arg value="name.replace('ROLE_', '')" />
+            	</bean>
+            </property>
 	</bean>
 
     <!-- GeOrchestra groups to roles mapper for Headers Auth Filter -->
     <bean id="rolesMapper" class="it.geosolutions.geostore.core.security.SimpleGrantedAuthoritiesMapper">
         <constructor-arg>
             <map>
-                <entry key="ROLE_MAPSTORE_ADMIN" value="ADMIN"/>
+                <entry key="MAPSTORE_ADMIN" value="ADMIN"/>
             </map>
         </constructor-arg>
     </bean>
