@@ -581,7 +581,10 @@
             "Timeline",
             "Playback",
             "FeedbackMask",
-            "StyleEditor"
+            "StyleEditor",
+            "Save",
+            "SaveAs",
+            "MapCatalog"
         ],
         "common": [],
         "maps": [
