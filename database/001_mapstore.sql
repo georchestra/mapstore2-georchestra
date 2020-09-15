@@ -3,7 +3,7 @@
 
 BEGIN;
 
-CREATE SCHEMA gmapstore;
+CREATE SCHEMA mapstore;
 
 GRANT USAGE ON SCHEMA mapstore TO georchestra ;
 GRANT ALL ON SCHEMA mapstore TO georchestra ;
