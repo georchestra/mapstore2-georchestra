@@ -71,7 +71,7 @@ jobs:
 
     - name: "Building docker image"
       if: github.repository == 'georchestra/mapstore2-georchestra'
-      run: mvn --no-transfer-progress clean package docker:build -Pdocker,log4j-logstash,sentry-log4j  -DdockerImageName=georchestra/mapstore:${{ steps.version.outputs.VERSION }} -DskipTests
+      run: mvn -B package docker:build -Pdocker,log4j-logstash,sentry-log4j -DdockerImageName=georchestra/mapstore:${{ steps.version.outputs.VERSION }}
 
     - name: "Logging in docker.io"
       if: github.repository == 'georchestra/mapstore2-georchestra'
