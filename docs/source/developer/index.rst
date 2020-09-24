@@ -1,10 +1,11 @@
 Developer Guide
 ===============
 To start using the MapStore geOrchestra project as a developer you need the following:
+
  * install the needed requirements:
-   * NodeJS (>=8)
-   * JDK (>= 8)
-   * Maven (>= 3.x)
+     * NodeJS (>=8)
+     * JDK (>= 8)
+     * Maven (>= 3.x)
 
  * clone the GitHub repository:
 
@@ -26,7 +27,7 @@ To start using the MapStore geOrchestra project as a developer you need the foll
 
 
 Configuring the backend
-^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------
 
 To develop locally you will need to use a proxied backend. To configure your backend of choice you need to properly change the webpack.config.js file,
 in particular you need to change the following variables:
@@ -51,7 +52,7 @@ To deploy your local backend you will need to:
 
   * a standard geOrchestra ``default.properties`` file with generic configuration (database and LDAP settings for example)
   * the datadir/mapstore folder from web/target/geOrchestra with the mapstore specific configuration files
- * add the georchestra.datadir environment variable to the Tomcat setenv script to point to your datadir folder
+  * add the georchestra.datadir environment variable to the Tomcat setenv script to point to your datadir folder
 
  .. code-block:: console
 
@@ -63,7 +64,7 @@ If you don't have a local database and LDAP repository properly configured for g
 Remember: to use a local backend both a PostgreSQL database and LDAP repository needs to be available and properly populated.
 
 Developing the frontend
-^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------
 
 To start the frontend locally, just run:
 
@@ -74,20 +75,21 @@ To start the frontend locally, just run:
 Your application will be available at http://localhost:8081
 
 Mocking security
-^^^^^^^^^^^^^^^^
+----------------
 
 When working locally you won't have the security proxy authentication enabled, but you can simulate it using a specific
 Chrome extension called ModHeader.
 
 Install this extension and configure it to set the following request headers:
 
- * sec-username: the username logged in
- * sec-roles: a semicolon delimited list of roles (e.g. ROLE_MAPSTORE_ADMIN)
+ * ``sec-username``: the username logged in
+ * ``sec-roles``: a semicolon delimited list of roles (e.g. ROLE_MAPSTORE_ADMIN)
 
 Remember to disable the extension when you don't need it.
 
 .. toctree::
    :maxdepth: 4
 
-   ../user_session/index
+   ./georchestra_integration/index
    ./security/index
+   ./user_session/index

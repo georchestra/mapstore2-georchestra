@@ -2,8 +2,6 @@
 Documentation Guide
 ===================
 
-General
-^^^^^^^
 This documentation uses `Sphinx`_. In this section you will find out how to build and localize this documentation.
 
 .. _Sphinx: https://www.sphinx-doc.org/
@@ -13,7 +11,7 @@ It is configured to be deployed in multi-language environment using `read the do
 .. _ readthedocs.org: https://readthedocs.org
 
 Requirements
-^^^^^^^^^^^^
+------------
 
 To build the documentation you need:
 
@@ -28,7 +26,7 @@ To build the documentation you need:
     pip install recommonmark
 
 Building
-^^^^^^^^
+--------
 The main build, multi-language, is made by readthedocs.org. You can build the documentation **in english**, locally for testing, you can run:
 
 .. code-block:: console
@@ -40,7 +38,7 @@ The main build, multi-language, is made by readthedocs.org. You can build the do
 See the next section to see how to build the documentation localized.
 
 Localizing
-^^^^^^^^^^
+----------
 
 To localize this documentation install `sphinx-intl:`
 

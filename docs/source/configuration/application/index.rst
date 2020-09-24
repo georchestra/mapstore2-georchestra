@@ -1,55 +1,104 @@
 Application Configuration
 =========================
 
-In the ``mapstore`` directory inside the configuration dir of geOrchestra you may find several files dedicated to the configuration of various parts of MapStore.
+The ``mapstore`` folder inside the geOrchestra configuration directory contains several files dedicated to the configuration of various parts of MapStore.
+This sections contain information about the configuration files contained and how they are managed by MapStore.
+
+Back End services
+-----------------
+
+MapStore includes some back-end services that provides some special functionalities (printing, proxy). They can be configured by editing some special files the the ``mapstore`` directory.
 
 Printing
 ^^^^^^^^
-In the ``mapstore`` directory ``printing`` is dedicated to the setup of the mapstore printing module, included in geOrchestra by default.
+MapStore provides a printing module, that is an extension of `mapfish print (v2) <http://www.mapfish.org/doc/print/>`__ with many `customizations <https://github.com/geosolutions-it/mapfish-print/wiki>`__, included in geOrchestra by default. The directory ``mapstore/printing`` is dedicated to the setup of this module.
 More information about how to configure these files is available `here <https://mapstore.readthedocs.io/en/latest/developer-guide/printing-module/#print-settings>`__.
 
 Proxy
 ^^^^^
+
 MapStore brings an internal secure proxy to give support request to external services (WMS, WMTS ...).
 The file ``proxy.properties`` contains all the configuration for this file.
 More information about configuring this file is available `here <https://github.com/geosolutions-it/http-proxy/wiki/Configuring-Http-Proxy>`__.
 
-Map Viewer Settings
-^^^^^^^^^^^^^^^^^^^
-To configure the map viewer, there are several files dedicated to different parts of the application.
+Map Viewer
+----------
+To configure the map viewer (plugins, context editor...), there are several files dedicated to different parts of the application:
+
+Main Files
+
+To configure the map viewer, the administrator can edit different files dedicated to the different parts of the application.
 If some of these files are not present the application will take automatically the files from the original `mapstore` webapp.
 
-* ``localConfig.json``: main frontend configuration file, in JSON format (see `here <https://mapstore.readthedocs.io/en/latest/developer-guide/local-config/>`__)
-* ``config.json``: map configuration file for initial viewer map (see `here <https://mapstore.readthedocs.io/en/latest/developer-guide/maps-configuration/#map-options>`__ for the format of this file).
-* ``new.json``: map configuration file for new maps (see `here <https://mapstore.readthedocs.io/en/latest/developer-guide/maps-configuration/#map-options>`__ for the format of this file).
-* ``pluginsConfig.json``: dynamic registry of available plugins (both standard and extensions) for the context editor, in JSON format
+The files are:
 
-Read/Write configuration dir and patch files
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Configuration files with plugins like ``localConfig.json`` and p``pluginsConfig.json`` may change a lot from one update to another.
-Moreover MapStore may need to change configurations when you install an extension. To support both updates and changes applied from the UI and maintain support to manual editing,
-MapStore provides a system of cascading patch application and default file loading for these files.
+``localConfig.json``
+^^^^^^^^^^^^^^^^^^^^
 
-**Patch files**
+This is the main frontend configuration file.
+It contains the main settings of all the whole MapStore viewer, including the list of plugins shown in the main viewer, and the tools of the administration page.
+You can edit the ``plugins`` section of this file to customize the plugins inside the main viewer, as well as you do from the context-editor UI for other contexts.
 
-In the data directory you may add or find some ``.patch`` files. These files contain changes to apply to the default files. This system helps to wrap some modifications applied manually or coming from the application (e.g. extension installation) keeping the original file untouched.
-( see `here <https://mapstore.readthedocs.io/en/latest/developer-guide/externalized-configuration/#patching-front-end-configuration>`__ for more information about patching system in MapStore).
+See `here <https://mapstore.readthedocs.io/en/latest/developer-guide/local-config/>`__ for more detail about the configuration of this file.
 
-**Multiple data directory:**
-In particular you can configure more then one ``georchestra.datadir`` values, separated by comma. (see `here <https://mapstore.readthedocs.io/en/latest/developer-guide/externalized-configuration/#multiple-data-directory-locations>`_ for specific MapStore implementation details about this part).
+``config.json``
+^^^^^^^^^^^^^^^
+This configuration file contains the settings of the default map. The administrator can edit this file to change the default layers (e.g. backgrounds) or initial map position.
 
-* The files will be searched in cascade in each directory of the ones listed.
-* The application will write only in the first directory.
+See `here <https://mapstore.readthedocs.io/en/latest/developer-guide/maps-configuration/#map-options>`__ to learn more about  the format of this file.
 
-geOrchestra can be configured to have a **write** and a **read** configuration directory.
+``new.json``
+^^^^^^^^^^^^
+This is the initial map configuration used for new contexts in the context editor.
 
-Dynamic Files / patch files
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
-From the MapStore allows to install plugins. When a new plugin is installed, several files will appear be written in the data-directory.
+See `here <https://mapstore.readthedocs.io/en/latest/developer-guide/maps-configuration/#map-options>`__ to learn more about the format of this file.
+
+``pluginsConfig.json``
+^^^^^^^^^^^^^^^^^^^^^^
+This is the registry of the available plugins in JSON format.
+The administrator can edit this file to change the default list of plugins in the context editor plugin selection section.
+See `here <https://mapstore.readthedocs.io/en/latest/developer-guide/context-editor-config/>`__ to learn more about the format of  this file).
+
+Advanced Map Viewer Configuration
+---------------------------------
+
+Next sections describe some advanced functionalities that can be applied **only** to the Map Viewer settings (``json`` files) and some information about the extension system and its relation with the configuration directory of MapStore.
+
+Patch Files
+^^^^^^^^^^^
+Configuration files with plugins like ``localConfig.json`` and ``pluginsConfig.json`` may change a lot from one update to another (introducing new plugins, deprecating other, adding or removing old settings).
+To maintain changes (manually applied by administrator or automatically applied by the application) across the versions MapStore provides a *patch system* that allow to preserve configuration files and keep modification in a separate one.
+
+For this reason in the data directory you may add or find some ``.patch`` files (generated by the application, but administrators can edit them on their own) containing only the differences between the original file and the final configuration we want to obtain. ( see `here <https://mapstore.readthedocs.io/en/latest/developer-guide/externalized-configuration/#patching-front-end-configuration>`__ for more information about patching system in MapStore).
+The final version of the file is provided directly by the application via ``http`` when the configuration file is required.
+
+Dynamic Files
+^^^^^^^^^^^^^
+MapStore allows to install extensions from the UI (administration section, when editing a new context).
+When a new plugin is installed, several files will be written in the data-directory.
 
 * ``extensions.json``: dynamic registry of currently installed extensions, in JSON format
-* ``dist`` subfolder: will contain all the dynamically uploaded extensions, one folder for each of them, with all the extension assets (javascript bundle, translations, etc.)
+* ``dist`` subfolder: will contain all the dynamically uploaded extensions, one folder for each of them, with all the extension assets (javascript bundles, translations, etc.)
 * ``pluginsConfig.json.patch``: a **patch** file for new plugins installed from the UI.
+
+These files are all updated and managed by the extensions upload functionality.
+
+To set a different folder for these files, you have to set the ``georchestra.extensions`` JVM option to the desired path.
+If not set, also dynamic files will be stored in the standard configuration directory.
+
+Read/Write configuration directory
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Because MapStore needs to write in the data directory and the administrator may want to edit configuration files on its own, MapStore provides also a system of **multiple configuration directories**, that makes possible to separate the manual changes from the automatic ones.
+
+In particular an administrator can configure more then one ``georchestra.datadir`` values, separated by comma. (see `here <https://mapstore.readthedocs.io/en/latest/developer-guide/externalized-configuration/#multiple-data-directory-locations>`_ for specific MapStore implementation details about this part).
+
+The configuration files read/write rules are the following:
+
+* Reading the configuration, MapStore will search for the first file found, looking in order in every directory provided. If the file is not found in any directory, MapStore will take the one present in the webapp.
+* Writing operation will will applied **only** in the **first** directory of the list.
+
+geOrchestra so can be configured to have a **write** and a **read-only** configuration directory simply by giving 2 directories ind the ``georchestra.datadir`` value.
+MapStore will write in only in the first, the second one will be a read-only configuration dir, that can be edited manually by the administrator.
 
 
 

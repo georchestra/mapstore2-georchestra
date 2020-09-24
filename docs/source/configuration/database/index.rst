@@ -8,9 +8,9 @@ The database connection settings are taken from the geOrchestra ``default.proper
 internal configuration variables (using for instance ``${pgsqlHost}``, etc...).
 
 Overriding Database configuration for MapStore
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+----------------------------------------------
 
-In ``datadir/mapstore/geostore.properties`` there is a dedicated configuration file that contains the settings that can not be loaded from ``default.properties``.
+In ``mapstore/geostore.properties`` there is a dedicated configuration file that contains the settings that can not be loaded from ``default.properties``.
 It contains only one setting that indicates the schema on the database to use for MapStore.
 
  * ``pgsqlGeoStoreSchema``: schema used for the MapStore database (Defaults to ``mapstore``)

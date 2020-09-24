@@ -5,7 +5,7 @@ MapStore is integrated with the geOrchestra security infrastructure. This happen
  * LDAP enabled DAOs to get available roles from the geOrchestra LDAP repository
 
 Authentication Filter
-^^^^^^^^^^^^^^^^^^^^^
+---------------------
 The authentication filter intercepts every MapStore backend request to extract the headers forwarded by the geOrchestra security-proxy,
 and use them to properly authenticate and authorize the current user, in particular:
 
@@ -49,7 +49,7 @@ The filter is configured in the geostore-security-proxy.xml file:
     </bean>
 
 LDAP Integration
-^^^^^^^^^^^^^^^^
+----------------
 MapStore is integrated with the geOrchestra LDAP repository, to be able to fetch users and roles information
 and use it in the Admin UI, to assign permissions to MapStore resources and functionalities (maps, contexts, etc.).
 
@@ -67,7 +67,7 @@ This ia also configured in the geostore-security-proxy.xml file:
         <constructor-arg ref="ldap-context"/>
         <property name="searchBase" value="${ldapUsersRdn}"/>
         <!-- membership attribute (member) has the syntax uid=username,ou=users,... -->
-        <property name="memberPattern" value="^uid=([^,]+).*$"/>
+        <property name="memberPattern" value="-uid=([-,]+).*$"/>
         <property name="attributesMapper">
             <map>
                 <!-- optional, LDAP attribute to internal user attribute -->
