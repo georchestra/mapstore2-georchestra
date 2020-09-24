@@ -73,7 +73,8 @@ jobs:
       if: github.repository == 'georchestra/mapstore2-georchestra'
       run: |
         cp scratch/mapstore-${{ github.sha }}.war docker/MapStore-${{ steps.version.outputs.VERSION }}.war
-        mvn -B package dockerfile:build -Pdocker,log4j-logstash,sentry-log4j -DdockerImageName=georchestra/mapstore:${{ steps.version.outputs.VERSION }} -settings settings.xml
+        docker build . -t georchestra/mapstore:${{ steps.version.outputs.VERSION }}
+        # mvn -B package dockerfile:build -Pdocker,log4j-logstash,sentry-log4j -DdockerImageName=georchestra/mapstore:${{ steps.version.outputs.VERSION }} -settings settings.xml
       working-directory: ${{ github.workspace }} 
     - name: "Logging in docker.io"
       if: github.repository == 'georchestra/mapstore2-georchestra'
