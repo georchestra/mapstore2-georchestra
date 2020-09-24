@@ -1,5 +1,6 @@
 MapStore Integration in geOrchestra
-====================================
+===================================
+
 This section describes how to include MapStore in your geOrchestra installation.
 
 All the steps assumes you are working from the project main directory.

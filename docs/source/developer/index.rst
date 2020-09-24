@@ -48,7 +48,8 @@ To deploy your local backend you will need to:
 
  * copy the mapstore.war from web/target to your Tomcat webapps folder
  * create a local geOrchestra datadir anywhere in your PC and copy the following inside it:
-  * a standard geOrchestra default.properties file with generic configuration (database and LDAP settings for example)
+
+  * a standard geOrchestra ``default.properties`` file with generic configuration (database and LDAP settings for example)
   * the datadir/mapstore folder from web/target/geOrchestra with the mapstore specific configuration files
  * add the georchestra.datadir environment variable to the Tomcat setenv script to point to your datadir folder
 
@@ -89,3 +90,4 @@ Remember to disable the extension when you don't need it.
    :maxdepth: 4
 
    ../user_session/index
+   ./security/index

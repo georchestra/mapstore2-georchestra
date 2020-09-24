@@ -13,4 +13,4 @@ Welcome to geOrchestra documentation!
    georchestra_integration/index
    developer/index
    configuration/index
-   localize
+   documentation

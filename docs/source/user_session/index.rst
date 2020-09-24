@@ -13,15 +13,15 @@ The following information are stored in the session:
  * map position (center and zoom)
  * TOC layers and their status (visible, invisible, etc.)
  * user extensions
- * favourites map templates
+ * favorites map templates
 
 The user session is collected every 5 seconds and persisted in the browser
-localStorage: this means that a differenbt session will be available for every
+localStorage: this means that a different session will be available for every
 device / browser.
 
 It is also possible to use a database persisted session (that will be shared by
 different devices and browsers of the same user).
-To enable database persisted sessions you have to change the localConfig.json
+To enable database persisted sessions you have to change the ``localConfig.json``
 userSessions section:
 
  .. code-block:: javascript
