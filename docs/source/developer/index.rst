@@ -26,6 +26,14 @@ To start using the MapStore geOrchestra project as a developer you need the foll
     ./build.sh
 
 
+.. toctree::
+   :maxdepth: 4
+
+   ./georchestra_integration/index
+   ./security/index
+   ./user_session/index
+
+
 Configuring the backend
 -----------------------
 
@@ -87,9 +95,3 @@ Install this extension and configure it to set the following request headers:
 
 Remember to disable the extension when you don't need it.
 
-.. toctree::
-   :maxdepth: 4
-
-   ./georchestra_integration/index
-   ./security/index
-   ./user_session/index
