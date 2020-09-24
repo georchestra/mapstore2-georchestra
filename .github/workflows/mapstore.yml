@@ -72,7 +72,7 @@ jobs:
     - name: "Building docker image"
       if: github.repository == 'georchestra/mapstore2-georchestra'
       run: mvn -B package dockerfile:build -Pdocker,log4j-logstash,sentry-log4j -DdockerImageName=georchestra/mapstore:${{ steps.version.outputs.VERSION }} -settings settings.xml
-
+      working-directory: ${{ github.workspace }} 
     - name: "Logging in docker.io"
       if: github.repository == 'georchestra/mapstore2-georchestra'
       uses: azure/docker-login@v1
@@ -85,3 +85,4 @@ jobs:
       run: |
         docker tag georchestra/mapstore:${{ steps.version.outputs.VERSION }} georchestra/mapstore:latest
         docker push georchestra/mapstore:latest
+      working-directory: ${{ github.workspace }} 
