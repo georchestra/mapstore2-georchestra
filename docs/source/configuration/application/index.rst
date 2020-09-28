@@ -95,7 +95,7 @@ In particular an administrator can configure more then one ``georchestra.datadir
 The configuration files read/write rules are the following:
 
 * Reading the configuration, MapStore will search for the first file found, looking in order in every directory provided. If the file is not found in any directory, MapStore will take the one present in the webapp.
-* Writing operation will will applied **only** in the **first** directory of the list.
+* Writing operation will be applied **only** in the **first** directory of the list.
 
 geOrchestra so can be configured to have a **write** and a **read-only** configuration directory simply by giving 2 directories ind the ``georchestra.datadir`` value.
 MapStore will write only in the first, the second one will be a read-only configuration dir, that can be edited manually by the administrator.
