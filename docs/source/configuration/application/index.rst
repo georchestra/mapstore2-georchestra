@@ -36,7 +36,7 @@ The files are:
 ^^^^^^^^^^^^^^^^^^^^
 
 This is the main frontend configuration file.
-It contains the main settings of all the whole MapStore viewer, including the list of plugins shown in the main viewer, and the tools of the administration page.
+It contains the main settings of the whole MapStore viewer, including the list of plugins shown in the main viewer, and the tools of the administration page.
 You can edit the ``plugins`` section of this file to customize the plugins inside the main viewer, as well as you do from the context-editor UI for other contexts.
 
 See `here <https://mapstore.readthedocs.io/en/latest/developer-guide/local-config/>`__ for more detail about the configuration of this file.
@@ -99,5 +99,4 @@ The configuration files read/write rules are the following:
 
 geOrchestra so can be configured to have a **write** and a **read-only** configuration directory simply by giving 2 directories ind the ``georchestra.datadir`` value.
 MapStore will write only in the first, the second one will be a read-only configuration dir, that can be edited manually by the administrator.
-
 
