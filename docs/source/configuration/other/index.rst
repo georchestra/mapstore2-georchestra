@@ -12,7 +12,6 @@ The configuration directory is enabled through the MapStore data-dir functionali
 on this, please look at the official MapStore documentation `here <https://mapstore.readthedocs.io/en/latest/developer-guide/externalized-configuration/>`_
 
 If the datadir is not configured / used in a particular environment, default configurations will be applied.
-
 If the datadir is configured, but some of the above mentioned files are missing from it, a default fallback will
 be used. The fallback will look for files in the web application root folder (webapps/mapstore), so the configurations
 from the original mapstore war file will be used.
