@@ -28,7 +28,7 @@ To configure the map viewer (plugins, context editor...), there are several file
 Main Files
 
 To configure the map viewer, the administrator can edit different files dedicated to the different parts of the application.
-If some of these files are not present the application will take automatically the files from the original `mapstore` webapp.
+If some of these files are not present, the application will take automatically the files from the original `mapstore` webapp.
 
 The files are:
 
@@ -99,6 +99,5 @@ The configuration files read/write rules are the following:
 
 geOrchestra so can be configured to have a **write** and a **read-only** configuration directory simply by giving 2 directories ind the ``georchestra.datadir`` value.
 MapStore will write only in the first, the second one will be a read-only configuration dir, that can be edited manually by the administrator.
-
 
 
