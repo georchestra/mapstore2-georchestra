@@ -67,7 +67,7 @@ This ia also configured in the geostore-security-proxy.xml file:
         <constructor-arg ref="ldap-context"/>
         <property name="searchBase" value="${ldapUsersRdn}"/>
         <!-- membership attribute (member) has the syntax uid=username,ou=users,... -->
-        <property name="memberPattern" value="-uid=([-,]+).*$"/>
+        <property name="memberPattern" value="^uid=([^,]+).*$"/>
         <property name="attributesMapper">
             <map>
                 <!-- optional, LDAP attribute to internal user attribute -->
