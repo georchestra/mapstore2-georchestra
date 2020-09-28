@@ -98,8 +98,7 @@ The configuration files read/write rules are the following:
 * Writing operation will will applied **only** in the **first** directory of the list.
 
 geOrchestra so can be configured to have a **write** and a **read-only** configuration directory simply by giving 2 directories ind the ``georchestra.datadir`` value.
-MapStore will write in only in the first, the second one will be a read-only configuration dir, that can be edited manually by the administrator.
-
+MapStore will write only in the first, the second one will be a read-only configuration dir, that can be edited manually by the administrator.
 
 
 
