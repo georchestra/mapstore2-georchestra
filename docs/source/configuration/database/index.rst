@@ -11,9 +11,8 @@ Overriding Database configuration for MapStore
 ----------------------------------------------
 
 In ``mapstore/geostore.properties`` there is a dedicated configuration file that contains the settings that can not be loaded from ``default.properties``.
-It contains only one setting that indicates the schema on the database to use for MapStore.
+It contains only one setting that indicates the database schema to use for MapStore.
 
  * ``pgsqlGeoStoreSchema``: schema used for the MapStore database (Defaults to ``mapstore``)
 
 This file can be used to override connection parameters defined in ``default.properties``, to configure MapStore in a different way from the rest of the infrastructure.
-
