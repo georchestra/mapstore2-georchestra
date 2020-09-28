@@ -88,7 +88,7 @@ If not set, also dynamic files will be stored in the standard configuration dire
 
 Read/Write configuration directory
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-Because MapStore needs to write in the data directory and the administrator may want to edit configuration files on its own, MapStore provides also a system of **multiple configuration directories**, that makes possible to separate the manual changes from the automatic ones.
+Since MapStore needs to write in the data directory and the administrator may want to edit configuration files on its own, MapStore provides also a system of **multiple configuration directories**, that makes possible to separate the manual changes from the automatic ones.
 
 In particular an administrator can configure more then one ``georchestra.datadir`` values, separated by comma. (see `here <https://mapstore.readthedocs.io/en/latest/developer-guide/externalized-configuration/#multiple-data-directory-locations>`_ for specific MapStore implementation details about this part).
 
