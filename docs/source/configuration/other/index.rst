@@ -14,7 +14,7 @@ on this, please look at the official MapStore documentation `here <https://mapst
 If the datadir is not configured / used in a particular environment, default configurations will be applied.
 If the datadir is configured, but some of the above mentioned files are missing from it, a default fallback will
 be used. The fallback will look for files in the web application root folder (webapps/mapstore), so the configurations
-from the original mapstore war file will be used.
+from the original MapStore war file will be used.
 
 This allows the administrator to find a good compromise between two conflicting needs:
  * customizing your geOrchestra MapStore installation
