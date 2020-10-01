@@ -1,11 +1,12 @@
 MapStore Integration in geOrchestra
-====================================
+===================================
+
 This section describes how to include MapStore in your geOrchestra installation.
 
 All the steps assumes you are working from the project main directory.
 
 Edit docker-compose.yml
-^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------
 Add the following snippet to the docker-compose.yml file:
 
  .. code-block:: text
@@ -20,7 +21,7 @@ Add the following snippet to the docker-compose.yml file:
       - JAVA_OPTS=-Xms512m -Xmx512m -Dgeorchestra.datadir=/etc/georchestra
 
 Configure the ’proxy’ container to forward requests to MapStore
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+---------------------------------------------------------------
 Add the following to the config/security-proxy/targets-mapping.properties file:
 
  .. code-block:: text
@@ -36,14 +37,14 @@ Add the following to the config/security-proxy/targets-mapping.properties file:
     mapstore=http://mapstore:8080/mapstore/
 
 Create config directory for MapStore
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+------------------------------------
 
  .. code-block:: console
 
     mkdir config/mapstore/
 
 Add geostore override file to user PostgreSQL
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+---------------------------------------------
 Create the config/mapstore/geostore-datasource-ovr.properties with the following content:
 
  .. code-block:: text
@@ -62,7 +63,7 @@ Create the config/mapstore/geostore-datasource-ovr.properties with the following
 NOTE: update the values to match your environment
 
 Setup Database
-^^^^^^^^^^^^^^
+--------------
 
 1. Jump into the PostgreSQL container and create GeoStore Role and DB
 
@@ -77,14 +78,14 @@ Setup Database
 2. Create schemas and tables as per `GeoStore documentation <https://github.com/geosolutions-it/geostore/tree/master/doc>`_
 
 Recreate MapStore Container to pick up the change
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------------
 
  .. code-block:: console
 
     docker-compose up -d --force-recreate mapstore
 
 Update “header” application index to link to Mapstore
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-----------------------------------------------------
 
 1. Extract the "header" application war from the docker image
 
