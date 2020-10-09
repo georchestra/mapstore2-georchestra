@@ -23,11 +23,8 @@ More information about configuring this file is available `here <https://github.
 
 Map Viewer
 ----------
-To configure the map viewer (plugins, context editor...), there are several files dedicated to different parts of the application:
 
-Main Files
-
-To configure the map viewer, the administrator can edit different files dedicated to the different parts of the application.
+To configure the map viewer(plugins, context editor...), the administrator can edit different files dedicated to the different parts of the application.
 If some of these files are not present, the application will take automatically the files from the original `mapstore` webapp.
 
 The files are:
