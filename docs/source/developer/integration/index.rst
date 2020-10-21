@@ -1,21 +1,13 @@
 Integration
 ===========
 
-MapStore integration inside geOrchestra is realized mainly:
-
-1. **Including it in the build and in the general workflow of geOrchestra**:
-
-Here the list of files involved:
+The MapStore integration inside geOrchestra SDI involves the following parts:
 
  * `Header <https://github.com/georchestra/georchestra/blob/master/header/src/main/webapp/WEB-INF/jsp/index.jsp>`_ (and `header localization <https://github.com/georchestra/georchestra/tree/master/header/src/main/resources/_header/i18n>`_)
  * `Database Creation scripts <https://github.com/georchestra/georchestra/blob/master/postgresql/110-mapstore.sql>`_
  * `Docker <https://github.com/georchestra/docker/blob/master/docker-compose.yml#L153>`_
  * `Data Dir <https://github.com/georchestra/datadir/tree/master/mapstore>`_
  * `Github Workflows <https://github.com/georchestra/mapstore2-georchestra/blob/master/.github/workflows/mapstore.yml>`_
-
-2. **Realizing a custom build that integrates with datadir, security ... and can be integrated in the docker build.**
-
-Here below a detailed explanation of how security integration is realized:
 
 Security Integration
 ^^^^^^^^^^^^^^^^^^^^
