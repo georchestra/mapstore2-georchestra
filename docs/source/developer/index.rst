@@ -29,7 +29,7 @@ To start using the MapStore geOrchestra project as a developer you need the foll
 .. toctree::
    :maxdepth: 4
 
-   ./security/index
+   ./integration/index
 
 
 Configuring the backend
