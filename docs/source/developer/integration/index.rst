@@ -1,5 +1,16 @@
+Integration
+===========
+
+The MapStore integration inside geOrchestra SDI involves the following parts:
+
+ * `Header <https://github.com/georchestra/georchestra/blob/master/header/src/main/webapp/WEB-INF/jsp/index.jsp>`_ (and `header localization <https://github.com/georchestra/georchestra/tree/master/header/src/main/resources/_header/i18n>`_)
+ * `Database Creation scripts <https://github.com/georchestra/georchestra/blob/master/postgresql/110-mapstore.sql>`_
+ * `Docker <https://github.com/georchestra/docker/blob/master/docker-compose.yml#L153>`_
+ * `Data Dir <https://github.com/georchestra/datadir/tree/master/mapstore>`_
+ * `Github Workflows <https://github.com/georchestra/mapstore2-georchestra/blob/master/.github/workflows/mapstore.yml>`_
+
 Security Integration
-====================
+^^^^^^^^^^^^^^^^^^^^
 MapStore is integrated with the geOrchestra security infrastructure. This happens thanks to:
  * an authentication filter using the geOrchestra security proxy headers to authenticate the user and assign proper MapStore groups and roles
  * LDAP enabled DAOs to get available roles from the geOrchestra LDAP repository
@@ -102,3 +113,4 @@ Here a diagram of how the various pieces work together:
 Here some of the most important MapStore workflows and their relation to the security infrastructure:
 
 .. image:: security_flows.svg
+

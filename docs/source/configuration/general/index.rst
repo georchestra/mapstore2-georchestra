@@ -1,7 +1,7 @@
 General
 -------
-To configure the ``default.properties`` location, the default geOrchestra environment variable is used :(``georchestra.datadir``).
-
-geOrchestra MapStore enables the MapStore datadir and in addition, uses the standard geOrchestra ``default.properties`` file
-from the geOrchestra configuration directory to inherit all the shared configuration (e.g. the database
+MapStore uses the default geOrchestra environment variable ``georchestra.datadir`` to identify the ``default.properties`` file location and uses it for it's basic configurations (e.g. the database
 connection settings, LDAP connection settings and so on).
+
+Moreover, MapStore enables it's own datadir inside the ``georchestra.datadir`` sub-folder called ``mapstore``, to handle it's own configuration files.
+
