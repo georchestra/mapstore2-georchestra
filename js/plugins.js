@@ -16,7 +16,6 @@ const config = {
         AnnotationsPlugin: require('@mapstore/plugins/Annotations'),
         AutoMapUpdatePlugin: require('@mapstore/plugins/AutoMapUpdate'),
         BackgroundSelectorPlugin: require('@mapstore/plugins/BackgroundSelector'),
-        BackgroundSwitcherPlugin: require('@mapstore/plugins/BackgroundSwitcher'),
         BurgerMenuPlugin: require('@mapstore/plugins/BurgerMenu'),
         CRSSelectorPlugin: require('@mapstore/plugins/CRSSelector'),
         ContentTabs: require('@mapstore/plugins/ContentTabs'),
@@ -128,4 +127,4 @@ module.exports = {
             curr: config[curr]?.default ?? curr
         };
     }, {})
-}
+};
