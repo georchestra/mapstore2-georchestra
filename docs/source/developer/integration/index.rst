@@ -35,12 +35,12 @@ The filter is configured in the geostore-security-proxy.xml file:
 		...
 	</security:http>
 
-    <!-- GeOrchestra header based Auth Provider -->
+    <!-- geOrchestra header based Auth Provider -->
     <bean id="georchestraAuthenticationProvider"
 		class="it.geosolutions.geostore.services.rest.security.PreAuthenticatedAuthenticationProvider">
 	</bean>
 
-    <!-- GeOrchestra header based Auth Filter -->
+    <!-- geOrchestra header based Auth Filter -->
     <bean class="it.geosolutions.geostore.services.rest.security.HeadersAuthenticationFilter"
         id="headersProcessingFilter">
             <property name="addEveryOneGroup" value="true"/>
@@ -68,7 +68,7 @@ This ia also configured in the geostore-security-proxy.xml file:
 
  .. code-block:: xml
 
-    <!-- GeOrchestra LDAP DAOs -->
+    <!-- geOrchestra LDAP DAOs -->
     <bean id="ldap-context" class="org.springframework.security.ldap.DefaultSpringSecurityContextSource">
 		<constructor-arg value="${ldapScheme}://${ldapHost}:${ldapPort}/${ldapBaseDn}" />
         <property name="userDn" value="${ldapAdminDn}"/>
