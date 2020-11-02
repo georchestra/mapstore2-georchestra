@@ -2,13 +2,13 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
-    <groupId>it.geosolutions.GeOrchestra</groupId>
-    <artifactId>GeOrchestra-root</artifactId>
+    <groupId>it.geosolutions.geOrchestra</groupId>
+    <artifactId>geOrchestra-root</artifactId>
     <version>1.0-SNAPSHOT</version>
   </parent>
-  <artifactId>GeOrchestra-web</artifactId>
+  <artifactId>geOrchestra-web</artifactId>
   <packaging>war</packaging>
-  <name>GeOrchestra - WAR</name>
+  <name>geOrchestra - WAR</name>
   <url>https://github.com/geosolutions-it/MapStore2-C169</url>
 
   <properties>
@@ -146,7 +146,7 @@
   </dependencies>
 
   <build>
-    <finalName>GeOrchestra</finalName>
+    <finalName>mapstore</finalName>
     <plugins>
         <plugin>
             <artifactId>maven-resources-plugin</artifactId>
@@ -159,7 +159,7 @@
                         <goal>copy-resources</goal>
                     </goals>
                     <configuration>
-                        <outputDirectory>${basedir}/target/GeOrchestra</outputDirectory>
+                        <outputDirectory>${basedir}/target/mapstore</outputDirectory>
                         <encoding>UTF-8</encoding>
                         <resources>
                             <resource>
@@ -179,7 +179,7 @@
                         <goal>copy-resources</goal>
                     </goals>
                     <configuration>
-                        <outputDirectory>${basedir}/target/GeOrchestra</outputDirectory>
+                        <outputDirectory>${basedir}/target/mapstore</outputDirectory>
                         <encoding>UTF-8</encoding>
                         <resources>
                             <resource>
@@ -202,7 +202,7 @@
                         <goal>copy-resources</goal>
                     </goals>
                     <configuration>
-                        <outputDirectory>${basedir}/target/GeOrchestra</outputDirectory>
+                        <outputDirectory>${basedir}/target/mapstore</outputDirectory>
                         <encoding>UTF-8</encoding>
                         <resources>
                             <resource>
@@ -225,7 +225,7 @@
                         <goal>copy-resources</goal>
                     </goals>
                     <configuration>
-                        <outputDirectory>${basedir}/target/GeOrchestra</outputDirectory>
+                        <outputDirectory>${basedir}/target/mapstore</outputDirectory>
                         <encoding>UTF-8</encoding>
                         <resources>
                             <resource>
@@ -248,7 +248,7 @@
                         <goal>copy-resources</goal>
                     </goals>
                     <configuration>
-                        <outputDirectory>${basedir}/target/GeOrchestra</outputDirectory>
+                        <outputDirectory>${basedir}/target/mapstore</outputDirectory>
                         <encoding>UTF-8</encoding>
                         <resources>
                             <resource>
@@ -278,7 +278,7 @@
                         <goal>copy-resources</goal>
                     </goals>
                     <configuration>
-                        <outputDirectory>${basedir}/target/GeOrchestra/dist</outputDirectory>
+                        <outputDirectory>${basedir}/target/mapstore/dist</outputDirectory>
                         <encoding>UTF-8</encoding>
                         <resources>
                             <resource>
@@ -294,7 +294,7 @@
                         <goal>copy-resources</goal>
                     </goals>
                     <configuration>
-                        <outputDirectory>${basedir}/target/GeOrchestra/assets</outputDirectory>
+                        <outputDirectory>${basedir}/target/mapstore/assets</outputDirectory>
                         <encoding>UTF-8</encoding>
                         <resources>
                             <resource>
@@ -310,7 +310,7 @@
                         <goal>copy-resources</goal>
                     </goals>
                     <configuration>
-                        <outputDirectory>${basedir}/target/GeOrchestra/MapStore2/web/client</outputDirectory>
+                        <outputDirectory>${basedir}/target/mapstore/MapStore2/web/client</outputDirectory>
                         <encoding>UTF-8</encoding>
                         <resources>
                             <resource>
@@ -335,7 +335,7 @@
                         <goal>copy-resources</goal>
                     </goals>
                     <configuration>
-                        <outputDirectory>${basedir}/target/GeOrchestra</outputDirectory>
+                        <outputDirectory>${basedir}/target/mapstore</outputDirectory>
                         <encoding>UTF-8</encoding>
                         <resources>
                             <resource>
@@ -354,7 +354,7 @@
                         <goal>copy-resources</goal>
                     </goals>
                     <configuration>
-                        <outputDirectory>${basedir}/target/GeOrchestra/printing</outputDirectory>
+                        <outputDirectory>${basedir}/target/mapstore/printing</outputDirectory>
                         <encoding>UTF-8</encoding>
                         <resources>
                             <resource>
@@ -373,7 +373,7 @@
                         <goal>copy-resources</goal>
                     </goals>
                     <configuration>
-                        <outputDirectory>${basedir}/target/GeOrchestra/MapStore2/web/client</outputDirectory>
+                        <outputDirectory>${basedir}/target/mapstore/MapStore2/web/client</outputDirectory>
                         <encoding>UTF-8</encoding>
                         <resources>
                             <resource>
@@ -392,7 +392,7 @@
                         <goal>copy-resources</goal>
                     </goals>
                     <configuration>
-                        <outputDirectory>${basedir}/target/GeOrchestra/MapStore2/web/client/libs/cesium-navigation</outputDirectory>
+                        <outputDirectory>${basedir}/target/mapstore/MapStore2/web/client/libs/cesium-navigation</outputDirectory>
                         <encoding>UTF-8</encoding>
                         <resources>
                             <resource>
@@ -408,7 +408,7 @@
                         <goal>copy-resources</goal>
                     </goals>
                     <configuration>
-                        <outputDirectory>${basedir}/target/GeOrchestra/MapStore2/web/client</outputDirectory>
+                        <outputDirectory>${basedir}/target/mapstore/MapStore2/web/client</outputDirectory>
                         <encoding>UTF-8</encoding>
                         <resources>
                             <resource>
@@ -456,7 +456,7 @@
             <version>6.1.20</version>
             <configuration>
                 <webAppConfig>
-                    <contextPath>/GeOrchestra</contextPath>
+                    <contextPath>/geOrchestra</contextPath>
                 </webAppConfig>
                 <connectors>
                     <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">

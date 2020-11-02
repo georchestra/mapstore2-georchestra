@@ -10,7 +10,7 @@
             classpath*:applicationContext.xml
         </param-value>
 	</context-param>
-    <display-name>GeOrchestra - Web App</display-name>
+    <display-name>geOrchestra - Web App</display-name>
 	<context-param>
         <param-name>webAppRootKey</param-name>
         <param-value>geostore.root</param-value>

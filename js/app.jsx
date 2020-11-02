@@ -25,7 +25,7 @@ ConfigUtils.setConfigProp("translationsPath", [
     "./MapStore2/web/client/translations",
     "./translations"
 ]);
-ConfigUtils.setConfigProp("themePrefix", "GeOrchestra");
+ConfigUtils.setConfigProp("themePrefix", "geOrchestra");
 ConfigUtils.setConfigProp("geoStoreUrl", "rest/geostore/");
 /**
  * Use a custom plugins configuration file with:

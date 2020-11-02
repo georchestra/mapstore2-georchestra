@@ -8,8 +8,8 @@ const DEV_HOST = "georchestra.geo-solutions.it";
 
 module.exports = require("./MapStore2/build/buildConfig")(
     {
-        GeOrchestra: path.join(__dirname, "js", "app"),
-        "GeOrchestra-embedded": path.join(
+        geOrchestra: path.join(__dirname, "js", "app"),
+        "geOrchestra-embedded": path.join(
             __dirname,
             "MapStore2",
             "web",
@@ -17,7 +17,7 @@ module.exports = require("./MapStore2/build/buildConfig")(
             "product",
             "embedded"
         ),
-        "GeOrchestra-api": path.join(
+        "geOrchestra-api": path.join(
             __dirname,
             "MapStore2",
             "web",
@@ -39,7 +39,7 @@ module.exports = require("./MapStore2/build/buildConfig")(
     extractThemesPlugin,
     false,
     "dist/",
-    ".GeOrchestra",
+    ".geOrchestra",
     [],
     {
         "@mapstore": path.resolve(__dirname, "MapStore2", "web", "client"),
@@ -72,7 +72,7 @@ module.exports = require("./MapStore2/build/buildConfig")(
             }
         },
         "/proxy": {
-            // proxy of GeOrchestra is already configured
+            // proxy of geOrchestra is already configured
             target: `${DEV_PROTOCOL}://${DEV_HOST}/mapstore`,
             secure: false,
             headers: {
