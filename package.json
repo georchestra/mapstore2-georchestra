@@ -1,7 +1,7 @@
 {
-    "name": "GeOrchestra",
+    "name": "georchestra",
     "version": "1.0.0",
-    "description": "GeOrchestra",
+    "description": "geOrchestra",
     "repository": "https://github.com/georchestra/mapstore2-georchestra",
     "main": "index.js",
     "devDependencies": {

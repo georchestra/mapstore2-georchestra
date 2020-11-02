@@ -13,18 +13,18 @@ const paths = {
 
 module.exports = require('./MapStore2/build/buildConfig')(
     {
-        'GeOrchestra': path.join(__dirname, "js", "app")
+        'geOrchestra': path.join(__dirname, "js", "app")
     },
     themeEntries,
     paths,
     extractThemesPlugin,
     true,
     "dist/",
-    '.GeOrchestra',
+    '.geOrchestra',
     [
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'indexTemplate.html'),
-            chunks: ['GeOrchestra'],
+            chunks: ['geOrchestra'],
             inject: true,
             hash: true
         })

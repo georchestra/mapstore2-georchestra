@@ -45,12 +45,12 @@
             <property name="validateUserFromService" value="false"/>
 	</bean>
 
-    <!-- GeOrchestra header based Auth Provider -->
+    <!-- geOrchestra header based Auth Provider -->
 	<bean id="georchestraAuthenticationProvider"
 		class="it.geosolutions.geostore.services.rest.security.PreAuthenticatedAuthenticationProvider">
 	</bean>
 
-    <!-- GeOrchestra header based Auth Filter -->
+    <!-- geOrchestra header based Auth Filter -->
     <bean class="it.geosolutions.geostore.services.rest.security.HeadersAuthenticationFilter"
         id="headersProcessingFilter">
             <property name="addEveryOneGroup" value="true"/>
@@ -65,7 +65,7 @@
             </property>
 	</bean>
 
-    <!-- GeOrchestra groups to roles mapper for Headers Auth Filter -->
+    <!-- geOrchestra groups to roles mapper for Headers Auth Filter -->
     <bean id="rolesMapper" class="it.geosolutions.geostore.core.security.SimpleGrantedAuthoritiesMapper">
         <constructor-arg>
             <map>
@@ -74,7 +74,7 @@
         </constructor-arg>
     </bean>
 
-	<!-- Inject into the Authentication Manager the GeOrchestra Auth Provider -->
+	<!-- Inject into the Authentication Manager the geOrchestra Auth Provider -->
 	<security:authentication-manager>
         <security:authentication-provider ref='georchestraAuthenticationProvider' />
 	</security:authentication-manager>
@@ -82,7 +82,7 @@
     <!-- SecurityDAO using externals users -->
     <alias name="externalSecurityDAO" alias="securityDAO"/>
 
-    <!-- GeOrchestra LDAP DAOs -->
+    <!-- geOrchestra LDAP DAOs -->
     <bean id="ldap-context" class="org.springframework.security.ldap.DefaultSpringSecurityContextSource">
 		<constructor-arg value="${ldapScheme:ldap}://${ldapHost:localhost}:${ldapPort:389}/${ldapBaseDn:}" />
         <property name="userDn" value="${ldapAdminDn:admin}"/>

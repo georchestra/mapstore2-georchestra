@@ -56,7 +56,7 @@ jobs:
       run: mvn -B clean install -Dmapstore2.version=${{ github.sha }}
 
     - name: "copy resulting war"
-      run: mkdir -p scratch && cp web/target/GeOrchestra.war scratch/mapstore-${{ github.sha }}.war
+      run: mkdir -p scratch && cp web/target/mapstore.war scratch/mapstore-${{ github.sha }}.war
 
     - name: "publish war as artifact"
       uses: actions/upload-artifact@v1
@@ -75,7 +75,7 @@ jobs:
         cp scratch/mapstore-${{ github.sha }}.war docker/MapStore-${{ steps.version.outputs.VERSION }}.war
         docker build . -t georchestra/mapstore:${{ steps.version.outputs.VERSION }}
         # mvn -B package dockerfile:build -Pdocker,log4j-logstash,sentry-log4j -DdockerImageName=georchestra/mapstore:${{ steps.version.outputs.VERSION }} -settings settings.xml
-      working-directory: ${{ github.workspace }} 
+      working-directory: ${{ github.workspace }}
     - name: "Logging in docker.io"
       if: github.repository == 'georchestra/mapstore2-georchestra'
       uses: azure/docker-login@v1
@@ -88,4 +88,4 @@ jobs:
       run: |
         docker tag georchestra/mapstore:${{ steps.version.outputs.VERSION }} georchestra/mapstore:latest
         docker push georchestra/mapstore:latest
-      working-directory: ${{ github.workspace }} 
+      working-directory: ${{ github.workspace }}
