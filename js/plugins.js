@@ -9,7 +9,7 @@
 /**
   * Please, keep them sorted alphabetically
  */
-module.exports = {
+const config = {
     plugins: {
         // framework plugins
         AddGroupPlugin: require('@mapstore/plugins/AddGroup').default,
@@ -120,3 +120,12 @@ module.exports = {
         SwipeHeader: require('@mapstore/components/data/identify/SwipeHeader')
     }
 };
+module.exports = {
+    ...config,
+    plugins: Object.keys(config).reduce((acc, curr) => {
+        return {
+            ...acc,
+            curr: config[curr]?.default ?? curr
+        };
+    }, {})
+}
