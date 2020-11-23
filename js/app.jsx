@@ -15,6 +15,11 @@ import Login from "./plugins/Login";
 import AuthenticationAPI from "@mapstore/api/GeoStoreDAO";
 import {Providers} from "@mapstore/api/usersession";
 import serverbackup from "@mapstore/api/usersession/serverbackup";
+import MapViewer from "@mapstore/product/pages/MapViewer";
+import Maps from "@mapstore/product/pages/Maps";
+import ContextCreator from "@mapstore/product/pages/ContextCreator";
+import Context from "@mapstore/product/pages/Context";
+import Admin from "./pages/Admin";
 
 /**
  * Add custom (overriding) translations with:
@@ -60,37 +65,37 @@ const appConfig = assign({}, appCfg, {
         {
             name: "mapviewer",
             path: "/",
-            component: require("@mapstore/product/pages/MapViewer")
+            component: MapViewer
         },
         {
             name: "mapviewer",
             path: "/viewer/:mapType/:mapId",
-            component: require("@mapstore/product/pages/MapViewer")
+            component: MapViewer
         },
         {
             name: "maps",
             path: "/maps",
-            component: require("@mapstore/product/pages/Maps")
+            component: Maps
         },
         {
             name: "admin",
             path: "/admin",
-            component: require("./pages/Admin").default
+            component: Admin
         },
         {
             name: "context-creator",
             path: "/context-creator/:contextId",
-            component: require("./pages/ContextCreator").default
+            component: ContextCreator
         },
         {
             name: "context",
             path: "/context/:contextName",
-            component: require("@mapstore/product/pages/Context").default
+            component: Context
         },
         {
             name: "context",
             path: "/context/:contextName/:mapId",
-            component: require("@mapstore/product/pages/Context").default
+            component: Context
         }
     ],
     appEpics: {}
