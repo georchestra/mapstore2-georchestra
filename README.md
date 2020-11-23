@@ -15,7 +15,7 @@ Clone the repository:
 
 `git clone --recursive https://github.com/georchestra/mapstore2-georchestra.git`
 
-Install NodeJS, if needed, from [here](https://nodejs.org/dist/latest-v10.x/).( suggested versions: NodeJS 12.x, npm 6.x, minimal versions: NodeJS >= 10, npm >= 6, for minimal you may need to increase used memory limits )
+Install NodeJS, if needed, from [here](https://nodejs.org/dist/latest-v12.x/).( suggested versions: NodeJS 12.x, npm 6.x, minimal versions: NodeJS >= 10, npm >= 6, for minimal you may need to increase used memory limits )
 
 Install Java SDK, if needed. Java 1.8, 9 and 11 are supported. You can download them from:
 
