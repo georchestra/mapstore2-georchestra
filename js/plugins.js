@@ -104,7 +104,7 @@ module.exports = {
         UserManagerPlugin: require('@mapstore/plugins/manager/UserManager').default,
         UserExtensionsPlugin: require('@mapstore/plugins/UserExtensions').default,
         VersionPlugin: require('@mapstore/plugins/Version').default,
-        WFSDownloadPlugin: require('@mapstore/plugins/WFSDownload').default,
+        LayerDownloadPlugin: require('@mapstore/plugins/LayerDownload').default,
         WidgetsBuilderPlugin: require('@mapstore/plugins/WidgetsBuilder').default,
         WidgetsPlugin: require('@mapstore/plugins/Widgets').default,
         WidgetsTrayPlugin: require('@mapstore/plugins/WidgetsTray').default,

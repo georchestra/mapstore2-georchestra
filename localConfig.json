@@ -398,7 +398,7 @@
                 }
             },
             "FeatureEditor",
-            "WFSDownload",
+            "LayerDownload",
             {
               "name": "QueryPanel",
               "cfg": {
