@@ -79,10 +79,10 @@
         "QueryPanel"
       ],
       "children": [
-        "WFSDownload"
+        "LayerDownload"
       ],
       "autoEnableChildren": [
-        "WFSDownload"
+        "LayerDownload"
       ],
       "defaultConfig": {}
     },
@@ -190,10 +190,10 @@
       "dependencies": ["Toolbar"]
     },
     {
-      "name": "WFSDownload",
+      "name": "LayerDownload",
       "glyph": "features-grid-download",
-      "title": "plugins.WFSDownload.title",
-      "description": "plugins.WFSDownload.description"
+      "title": "plugins.LayerDownload.title",
+      "description": "plugins.LayerDownload.description"
     },
     {
       "name": "QueryPanel",
