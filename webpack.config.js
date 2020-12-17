@@ -4,8 +4,8 @@ const themeEntries = require("./themes.js").themeEntries;
 const extractThemesPlugin = require("./themes.js").extractThemesPlugin;
 const moduleFederationPlugin = require('./MapStore2/build/moduleFederation.js').plugin;
 
-const DEV_PROTOCOL = "https";
-const DEV_HOST = "georchestra.geo-solutions.it";
+const DEV_PROTOCOL = "http";
+const DEV_HOST = "localhost:8080";
 
 module.exports = require("./MapStore2/build/buildConfig")(
     {
