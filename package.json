@@ -90,13 +90,13 @@
         "vusion-webfonts-generator": "0.4.1",
         "webpack": "5.9.0",
         "webpack-bundle-size-analyzer": "2.0.2",
-        "webpack-cli": "4.2.0",
+        "webpack-cli": "4.3.1",
         "webpack-dev-server": "3.11.0"
     },
     "dependencies": {
         "@boundlessgeo/jsonix": "2.4.3",
         "@carnesen/redux-add-action-listener-enhancer": "0.0.1",
-        "@geosolutions/proj4": "2.4.7",
+        "@geosolutions/proj4": "2.4.9",
         "@geosolutions/react-joyride": "1.10.2",
         "@geosolutions/wkt-parser": "1.2.2",
         "@mapbox/geojsonhint": "2.0.1",
@@ -269,7 +269,7 @@
     },
     "scripts": {
         "clean": "rimraf dist",
-        "compile": "npm run clean && mkdirp ./dist && node --max_old_space_size=3092 ./node_modules/webpack/bin/webpack.js --config prod-webpack.config.js",
+        "compile": "npm run clean && mkdirp ./dist && node --max_old_space_size=3072 ./node_modules/webpack/bin/webpack.js --config prod-webpack.config.js",
         "start": "webpack serve --progress --color --port 8081 --hot --inline --content-base .",
         "postinstall": "node MapStore2/utility/build/postInstall.js",
         "test": "karma start ./karma.conf.single-run.js",

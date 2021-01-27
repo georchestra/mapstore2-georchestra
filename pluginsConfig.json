@@ -166,6 +166,9 @@
       "glyph": "comment",
       "title": "plugins.Annotations.title",
       "description": "plugins.Annotations.description",
+      "defaultConfig": {
+        "symbolsPath": "assets/symbols/"
+      },
       "dependencies": [
         "BurgerMenu"
       ]
