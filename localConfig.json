@@ -365,7 +365,12 @@
               "cfg": {
                 "docsUrl": "https://georchestra.readthedocs.io/"
               }
-            }, "AutoMapUpdate", "DrawerMenu", "Version", "Notifications", "BackgroundSelector", "Annotations",
+            }, "AutoMapUpdate", "DrawerMenu", "Version", "Notifications", "BackgroundSelector", {
+              "name": "Annotations",
+              "cfg": {
+                "symbolsPath": "assets/symbols/"
+              }
+            },
             {
               "name": "Share",
               "cfg": {
