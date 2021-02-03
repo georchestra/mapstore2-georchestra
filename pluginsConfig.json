@@ -92,7 +92,7 @@
       "title": "plugins.TOCItemsSettings.title",
       "description": "plugins.TOCItemsSettings.description",
       "children": [
-        "StyleEditor"
+          "StyleEditor"
       ]
     },
     {
@@ -242,7 +242,7 @@
       "glyph": "add-folder",
       "title": "plugins.AddGroup.title",
       "description": "plugins.AddGroup.description"
-  }, {
+    }, {
       "name": "FilterLayer",
       "glyph": "filter-layer",
       "title": "plugins.FilterLayer.title",
@@ -357,6 +357,12 @@
       }
     },
     {
+      "name": "Swipe"
+    },
+    {
+      "name": "SearchByBookmark"
+    },
+    {
       "name": "Search",
       "glyph": "search",
       "title": "plugins.Search.title",
@@ -365,6 +371,7 @@
         "OmniBar",
         "SearchServicesConfig"
       ],
+      "children": ["SearchByBookmark"],
       "defaultConfig": {
         "withToggle": [
           "max-width: 768px",
@@ -390,6 +397,15 @@
       "title": "plugins.ScaleBox.title",
       "description": "plugins.ScaleBox.description",
       "dependencies": ["MapFooter"]
+    },
+    {
+      "name": "GlobeViewSwitcher",
+      "glyph": "globe",
+      "title": "plugins.Globe.title",
+      "description": "plugins.Globe.description",
+      "dependencies": [
+        "Toolbar"
+      ]
     },
     {
       "name": "ZoomAll",
@@ -491,7 +507,7 @@
       "glyph": "time",
       "title": "plugins.Timeline.title",
       "description": "plugins.Timeline.description",
-       "dependencies": ["Playback"]
+      "dependencies": ["Playback"]
     },
     {
       "name": "Playback",
@@ -522,7 +538,7 @@
       "name": "MapTemplates",
       "title": "Map Templates",
       "dependencies": [
-        "BurgerMenu"
+          "BurgerMenu"
       ]
     }, {
       "name": "UserExtensions",
@@ -532,11 +548,11 @@
       "description": "plugins.UserExtensions.description",
       "dependencies": ["BurgerMenu"]
     }, {
-        "name": "UserSession",
-        "glyph": "floppy-save",
-        "title": "plugins.UserSession.title",
-        "description": "plugins.UserSession.description",
-        "dependencies": ["BurgerMenu"]
+      "name": "UserSession",
+      "glyph": "floppy-save",
+      "title": "plugins.UserSession.title",
+      "description": "plugins.UserSession.description",
+      "dependencies": ["BurgerMenu"]
     }
   ]
 }
