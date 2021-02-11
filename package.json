@@ -15,7 +15,7 @@
     }
   },
   "eslintIgnore": [
-      "MapStore2"
+    "MapStore2"
   ],
   "devDependencies": {
     "@babel/core": "7.8.7",
@@ -90,7 +90,7 @@
     "vusion-webfonts-generator": "0.4.1",
     "webpack": "5.9.0",
     "webpack-bundle-size-analyzer": "2.0.2",
-    "webpack-cli": "4.3.1",
+    "webpack-cli": "4.5.0",
     "webpack-dev-server": "3.11.0"
   },
   "dependencies": {
@@ -214,7 +214,7 @@
     "react-nouislider": "2.0.1",
     "react-numeric-input": "2.2.3",
     "react-overlays": "1.2.0",
-    "react-pdf": "4.0.5",
+    "react-pdf": "5.1.0",
     "react-player": "1.15.3",
     "react-plotly.js": "2.5.0",
     "react-quill": "1.1.0",
@@ -268,15 +268,15 @@
     "xpath": "0.0.27"
   },
   "scripts": {
-      "clean": "rimraf dist",
-      "compile": "npm run clean && mkdirp ./dist && node --max_old_space_size=3072 ./node_modules/webpack/bin/webpack.js --config prod-webpack.config.js",
-      "start": "webpack serve --progress --color --port 8081 --hot --inline --content-base .",
-      "postinstall": "node MapStore2/utility/build/postInstall.js",
-      "test": "karma start ./karma.conf.single-run.js",
-      "continuoustest": "karma start ./karma.conf.continuous-test.js",
-      "mvntest": "karma start ./karma.conf.single-run.js --reporters junit,dots,coverage",
-      "lint": "eslint js --ext .jsx,.js",
-      "travis": "eslint js --ext .jsx,.js && karma start ./karma.conf.single-run.js --browsers Firefox --reporters dots,junit,coverage,coveralls"
+    "clean": "rimraf dist",
+    "compile": "npm run clean && mkdirp ./dist && node --max_old_space_size=3072 ./node_modules/webpack/bin/webpack.js --config prod-webpack.config.js",
+    "start": "webpack serve --progress --color --port 8081 --hot --inline --content-base .",
+    "postinstall": "node MapStore2/utility/build/postInstall.js",
+    "test": "karma start ./karma.conf.single-run.js",
+    "continuoustest": "karma start ./karma.conf.continuous-test.js",
+    "mvntest": "karma start ./karma.conf.single-run.js --reporters junit,dots,coverage",
+    "lint": "eslint js --ext .jsx,.js",
+    "travis": "eslint js --ext .jsx,.js && karma start ./karma.conf.single-run.js --browsers Firefox --reporters dots,junit,coverage,coveralls"
   },
   "author": "GeoSolutions",
   "license": "BSD-2-Clause"
