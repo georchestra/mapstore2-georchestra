@@ -1,1 +1,1 @@
-geOrchestra-1.1.0
+geOrchestra-1.2.0
