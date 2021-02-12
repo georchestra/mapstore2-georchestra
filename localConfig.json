@@ -323,7 +323,7 @@
                     }
                 }
             }, "Login",
-            "OmniBar", "BurgerMenu", "Expander", {
+            "OmniBar", "BurgerMenu", "Expander", "GlobeViewSwitcher", {
               "name": "Cookie",
               "cfg": {
                 "externalCookieUrl": "https://docs.georchestra.geo-solutions.it/en/latest/mapstore/index.html",
