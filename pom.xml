@@ -17,8 +17,8 @@
     </build>
 
     <modules>
+        <module>MapStore2/backend</module> <!-- this ensure to build the mapstore-backend module, even if not available on maven repo -->
         <module>web</module>
-        <module>MapStore2/backend</module>
     </modules>
 
 </project>
