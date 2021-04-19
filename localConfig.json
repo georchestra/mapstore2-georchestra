@@ -705,7 +705,13 @@
               }
             }
           },
-          "Cookie",
+          {
+            "name": "Cookie",
+            "cfg": {
+              "externalCookieUrl": "https://docs.georchestra.geo-solutions.it/en/latest/mapstore/index.html",
+              "declineUrl": "https://www.georchestra.org/"
+            }
+          },
           "OmniBar",
           {
             "name": "GoFull",
