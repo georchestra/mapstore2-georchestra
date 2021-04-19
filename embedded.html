@@ -20,6 +20,23 @@
                 display: flex;
                 align-items: center;
             }
+            ._ms2_init_center::before {
+            content: 'Loading';
+                position: absolute;
+                left: 50%;
+                height: 0.5em;
+                text-align: center;
+                transform: translateX(-50%) translateY(-50%);
+                -webkit-animation: _ms2_init_text_anim 2s linear 0s infinite normal;
+                animation: _ms2_init_text_anim 2s linear 0s infinite normal;
+                color: #6F6F6f;
+                font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+                font-size: 20px;
+                font-weight: bold;
+                width: 6em;
+                text-align: center;
+                margin: auto;
+            }
             ._ms2_init_spinner {
                 height: 176px;
                 width: 176px;
@@ -73,6 +90,7 @@
                 text-align: center;
                 margin: auto;
                 z-index: 1000;
+                display: none;
             }
             @keyframes _ms2_init_text_anim {
                 0%  {opacity: 0}
@@ -85,6 +103,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway" type='text/css'>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.3.1/leaflet.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.2/leaflet.draw.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
         <link rel="shortcut icon" type="image/png" href="https://cdn.jslibs.mapstore2.geo-solutions.it/leaflet/favicon.ico" />
         <script src="https://maps.google.com/maps/api/js?v=3"></script>
         <!--script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.10/proj4.js"></script-->
@@ -96,6 +115,6 @@
             <div class="_ms2_init_spinner _ms2_init_center"><div></div></div>
             <div class="_ms2_init_text _ms2_init_center">Loading</div>
         </div>
-        <script src="dist/geOrchestra-embedded.js"></script>
+        <script src="dist/embedded.js"></script>
     </body>
 </html>
