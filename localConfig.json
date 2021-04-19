@@ -373,6 +373,7 @@
             {
               "name": "Share",
               "cfg": {
+                "showAPI": false,
                 "advancedSettings": {
                   "bbox": true
                 }
