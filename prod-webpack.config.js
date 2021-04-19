@@ -14,7 +14,8 @@ const paths = {
 
 module.exports = require('./MapStore2/build/buildConfig')(
     {
-        'geOrchestra': path.join(__dirname, "js", "app")
+        'geOrchestra': path.join(__dirname, "js", "app"),
+        embedded: path.join(__dirname, "js", "embedded")
     },
     themeEntries,
     paths,
@@ -28,6 +29,13 @@ module.exports = require('./MapStore2/build/buildConfig')(
             chunks: ['geOrchestra'],
             inject: true,
             hash: true
+        }),
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, 'embeddedTemplate.html'),
+            chunks: ['embedded'],
+            inject: "body",
+            hash: true,
+            filename: 'embedded.html'
         })
     ],
     {
