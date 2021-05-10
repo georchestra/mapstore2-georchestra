@@ -42,6 +42,8 @@ ConfigUtils.setConfigProp("extensionsRegistry", "rest/config/load/extensions.jso
 ConfigUtils.setConfigProp("contextPluginsConfiguration", "rest/config/load/pluginsConfig.json");
 ConfigUtils.setConfigProp("extensionsFolder", "rest/config/loadasset/");
 ConfigUtils.setConfigProp("configurationFolder", "rest/config/load/");
+import { getApi } from '../MapStore2/web/client/api/userPersistedStorage';
+
 
 Providers.georchestra = serverbackup;
 
@@ -116,7 +118,7 @@ const appPlugins = {
 };
 
 const start = userInfo => {
-    localStorage.setItem(
+    getApi().setItem(
         "mapstore2.persist.security",
         JSON.stringify(userInfo)
     );
