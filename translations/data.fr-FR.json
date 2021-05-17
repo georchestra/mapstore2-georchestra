@@ -3,6 +3,27 @@
     "messages": {
         "georchestra": {
             "pageNotAllowed": "Accès refusé"
+        },
+        "mapCatalog": {
+            "title": "Catalogue d'applications",
+            "tooltip": "Charger une application qui contient des fonctionnalités et des cartes modèles spécifiques.",
+            "filterPlaceholder": "Rechercher des applications...",
+            "deleteConfirmContent": "Voulez-vous vraiment supprimer l'application \"{mapName}\"?",
+            "tooltips": {
+                "edit": "Modifier les propriétés",
+                "delete": "Supprimer la ressource",
+                "share": "Partager"
+            },
+            "deletedMap": {
+                "title": "Application supprimée",
+                "message": "L'application a été supprimée avec succès."
+            },
+            "updatedMap": {
+                "title": "Application sauvegardée",
+                "message": "L'application a été enregistrée avec succès."
+            },
+            "deleteError": "Une erreur inattendue s'est produite lors de la suppression de l'application.",
+            "updateError": "Une erreur inattendue s'est produite lors de l'enregistrement l'application."
         }
     }
 }

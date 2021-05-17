@@ -3,6 +3,27 @@
     "messages": {
         "georchestra": {
             "pageNotAllowed": "Access Denied"
+        },
+        "mapCatalog": {
+            "title": "Applications Catalog",
+            "tooltip": "Load an application with specific functionnalities and map templates.",
+            "filterPlaceholder": "Search applications...",
+            "deleteConfirmContent": "Are you sure you want to delete \"{mapName}\" application?",
+            "tooltips": {
+                "edit": "Edit properties",
+                "delete": "Delete resource",
+                "share": "Share"
+            },
+            "deletedMap": {
+                "title": "Deleted application",
+                "message": "The application was successfully deleted."
+            },
+            "updatedMap": {
+                "title": "Saved application",
+                "message": "The application was successfully saved."
+            },
+            "deleteError": "Unexpected error occurred while deleting the application.",
+            "updateError": "Unexpected error occurred while saving the application."
         }
     }
 }
