@@ -5,7 +5,7 @@
             "pageNotAllowed": "Accesso Negato"
         },
         "mapCatalog": {
-            "title": "Catalogo delle applicazioni",
+            "title": "Applicazioni tematiche",
             "tooltip": "Carica un'applicazione con funzionalità specifiche e modelli di mappa",
             "filterPlaceholder": "Cerca applicazioni ...",
             "deleteConfirmContent": "Sei sicuro di voler eliminare l'applicazione \"{mapName}\"?",
