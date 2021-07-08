@@ -29,11 +29,7 @@ To get more informations about nodejs install :
 * Download source : [here](https://nodejs.org/en/download/)
 * Download a specific version : [here](https://nodejs.org/dist/)
 
-**3. Install Maven**
-
-Install latest Maven, if needed, from [here](https://maven.apache.org/download.cgi) (version 3.5.2 is required).
-
-**4. Install Java SDK**
+**3. Install Java SDK**
 
 Install Java SDK, if needed. Java 1.8, 9 and 11 are supported.
 
@@ -42,6 +38,10 @@ You can download them from :
 * [1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 * [9](https://www.oracle.com/technetwork/java/javase/downloads/java-archive-javase9-3934878.html)
 * [11](https://www.oracle.com/technetwork/java/javase/downloads/java-archive-javase11-5116896.html)
+
+**4. Install Maven**
+
+Install latest Maven, if needed, from [here](https://maven.apache.org/download.cgi) (version 3.5.2 is required).
 
 ### Build 
 
