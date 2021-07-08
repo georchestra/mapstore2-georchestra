@@ -89,3 +89,8 @@ jobs:
         docker tag georchestra/mapstore:${{ steps.version.outputs.VERSION }} georchestra/mapstore:latest
         docker push georchestra/mapstore:latest
       working-directory: ${{ github.workspace }}
+
+    - name: "Pushing tag to docker.io"
+      if: contains(github.ref, 'refs/tags/') && github.repository == 'georchestra/mapstore2-georchestra'
+      run: |
+        docker push georchestra/mapstore:${{ steps.version.outputs.VERSION }}
