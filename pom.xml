@@ -39,15 +39,6 @@
                                 </configuration>
                             </execution>
                             <execution>
-                                <id>npm run build</id>
-                                <goals>
-                                    <goal>npm</goal>
-                                </goals>
-                                <configuration>
-                                    <arguments>run compile</arguments>
-                                </configuration>
-                            </execution>
-                            <execution>
                                 <id>javascript tests</id>
                                 <goals>
                                     <goal>karma</goal>
@@ -55,6 +46,15 @@
                                 <phase>test</phase>
                                 <configuration>
                                     <karmaConfPath>./karma.conf.single-run.js</karmaConfPath>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <id>npm run build</id>
+                                <goals>
+                                    <goal>npm</goal>
+                                </goals>
+                                <configuration>
+                                    <arguments>run compile</arguments>
                                 </configuration>
                             </execution>
                         </executions>
@@ -68,8 +68,8 @@
         </profile>
     </profiles>
     <modules>
-        <module>MapStore2/backend</module>
         <!-- this ensure to build the mapstore-backend module, even if not available on maven repo -->
+        <module>MapStore2/backend</module>
         <module>web</module>
     </modules>
 </project>
