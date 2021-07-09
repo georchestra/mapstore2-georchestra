@@ -12,7 +12,10 @@
   <url>https://github.com/geosolutions-it/MapStore2-C169</url>
 
   <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <skip.installnodenpm>true</skip.installnodenpm>
+      <skip.npm>true</skip.npm>
+      <skip.karma>true</skip.karma>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
   <dependencies>
