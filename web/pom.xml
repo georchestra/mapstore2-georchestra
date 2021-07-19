@@ -395,7 +395,115 @@
       </plugin>
     </plugins>
   </build>
-
+    <profiles>
+        <profile>
+            <id>debianPackage</id>
+            <build>
+                <finalName>mapstore-generic</finalName>
+                <plugins>
+                    <plugin>
+                        <groupId>io.github.git-commit-id</groupId>
+                        <artifactId>git-commit-id-maven-plugin</artifactId>
+                        <version>4.9.9</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>revision</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                        <configuration>
+                            <prefix>build</prefix>
+                            <failOnNoGitDirectory>false</failOnNoGitDirectory>
+                            <skipPoms>false</skipPoms>
+                            <verbose>false</verbose>
+                            <gitDescribe>
+                                <tags>true</tags>
+                            </gitDescribe>
+                            <injectIntoSysProperties>true</injectIntoSysProperties>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-scm-plugin</artifactId>
+                        <version>1.11.2</version>
+                        <configuration>
+                            <checkoutDirectory>${project.build.directory}/deb/etc/georchestra</checkoutDirectory>
+                            <connectionUrl>scm:git:https://github.com/georchestra/datadir.git</connectionUrl>
+                            <pushChanges>false</pushChanges>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>checkout-deb-default-datadir</id>
+                                <phase>process-resources</phase>
+                                <goals>
+                                    <goal>checkout</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>1.7</version>
+                        <executions>
+                            <execution>
+                                <id>remove-useless-directories</id>
+                                <phase>package</phase>
+                                <configuration>
+                                    <target>
+                                        <delete includeemptydirs="true">
+                                            <fileset defaultexcludes="false" dir="${project.build.directory}/deb/etc/georchestra">
+                                                <include name="**/*" />
+                                                <exclude name="mapstore/**" />
+                                            </fileset>
+                                        </delete>
+                                    </target>
+                                </configuration>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                            <execution>
+                                <id>fix-permissions</id>
+                                <phase>package</phase>
+                                <configuration>
+                                    <target>
+                                        <chmod perm="ugo+x">
+                                            <fileset dir="${project.basedir}/target/deb">
+                                                <include name="**/bin/**"/>
+                                                <include name="**/sbin/**"/>
+                                                <include name="DEBIAN/post*"/>
+                                                <include name="DEBIAN/pre*"/>
+                                            </fileset>
+                                        </chmod>
+                                    </target>
+                                </configuration>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>net.sf.debian-maven</groupId>
+                        <artifactId>debian-maven-plugin</artifactId>
+                        <version>1.0.6</version>
+                        <configuration>
+                            <packageName>georchestra-mapstore</packageName>
+                            <packageVersion>${build.closest.tag.name}</packageVersion>
+                            <packageRevision>${build.closest.tag.commit.count}</packageRevision>
+                            <packageDescription>geOrchestra Mapstore</packageDescription>
+                            <projectOrganization>geOrchestra</projectOrganization>
+                            <maintainerName>PSC</maintainerName>
+                            <maintainerEmail>psc@georchestra.org</maintainerEmail>
+                            <excludeAllDependencies>true</excludeAllDependencies>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
   <repositories>
     <!-- GeoSolutions -->
     <repository>
