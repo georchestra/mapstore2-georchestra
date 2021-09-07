@@ -4,6 +4,10 @@
         "georchestra": {
             "pageNotAllowed": "Access Denied"
         },
+        "catalog": {
+            "title": "Add data",
+            "tooltip": "Add data to the map"
+        },
         "mapCatalog": {
             "title": "Thematic applications",
             "tooltip": "Load an application with specific functionalities and map templates.",
