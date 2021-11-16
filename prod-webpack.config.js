@@ -21,17 +21,19 @@ module.exports = require('./MapStore2/build/buildConfig')(
     paths,
     [extractThemesPlugin, moduleFederationPlugin],
     true,
-    "dist/",
+    undefined,
     '.geOrchestra',
     [
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'indexTemplate.html'),
+            publicPath: 'dist/',
             chunks: ['geOrchestra'],
-            inject: true,
+            inject: "body",
             hash: true
         }),
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'embeddedTemplate.html'),
+            publicPath: 'dist/',
             chunks: ['embedded'],
             inject: "body",
             hash: true,
@@ -39,6 +41,7 @@ module.exports = require('./MapStore2/build/buildConfig')(
         })
     ],
     {
+        "@mapstore/patcher": path.resolve(__dirname, "node_modules", "@mapstore", "patcher"),
         "@mapstore": path.resolve(__dirname, "MapStore2", "web", "client"),
         "@js": path.resolve(__dirname, "js")
     }
