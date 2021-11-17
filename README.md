@@ -80,3 +80,8 @@ Now, you can build html documentation using :
 cd docs # enter in the docs folder
 make html # create html documentation
 ```
+## Versioning
+
+Add `MapStore2` submodule version alone to `version.txt`
+
+`MapStore2-geOrchestra` version will be automatically acquired during build
