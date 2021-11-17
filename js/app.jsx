@@ -37,11 +37,6 @@ ConfigUtils.setConfigProp("geoStoreUrl", "rest/geostore/");
  *
  * ConfigUtils.setLocalConfigurationFile('localConfig.json');
  */
-ConfigUtils.setLocalConfigurationFile("rest/config/load/localConfig.json");
-ConfigUtils.setConfigProp("extensionsRegistry", "rest/config/load/extensions.json");
-ConfigUtils.setConfigProp("contextPluginsConfiguration", "rest/config/load/pluginsConfig.json");
-ConfigUtils.setConfigProp("extensionsFolder", "rest/config/loadasset/");
-ConfigUtils.setConfigProp("configurationFolder", "rest/config/load/");
 import { getApi } from '../MapStore2/web/client/api/userPersistedStorage';
 
 
