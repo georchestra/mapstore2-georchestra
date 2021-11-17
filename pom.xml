@@ -69,7 +69,7 @@
     </profiles>
     <modules>
         <!-- this ensure to build the mapstore-backend module, even if not available on maven repo -->
-        <module>MapStore2/backend</module>
+        <module>MapStore2/java</module>
         <module>web</module>
     </modules>
 </project>
