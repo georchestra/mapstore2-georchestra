@@ -23,15 +23,15 @@ import version from "@mapstore/reducers/version";
  *
  */
 const Version = connect((state) => ({
-    version: versionSelector(state),
+    version: versionSelector(state)
 }))(
     class extends React.Component {
         static propTypes = {
-            version: PropTypes.string,
+            version: PropTypes.string
         };
 
         static defaultProps = {
-            version: "DEV",
+            version: "DEV"
         };
 
         renderUrl = (baseUrl, hash, type = "commit") => {
@@ -49,7 +49,8 @@ const Version = connect((state) => ({
                 branchRepo = "",
                 urlRepo = "",
                 hashSubmodule = "",
-                urlSubmodule = "",
+                urlSubmodule = ""
+                // eslint-disable-next-line no-undef
             ] = __VERSIONINFO__ || [];
             const _hashSubmodule = hashSubmodule.trim().split(" ")[0];
             const versionSubmodule = this.props.version || "";
@@ -100,10 +101,10 @@ export default {
     VersionPlugin: assign(Empty, {
         Settings: {
             tool: <Version key="version" />,
-            position: 4,
-        },
+            position: 4
+        }
     }),
     reducers: {
-        version,
-    },
+        version
+    }
 };
