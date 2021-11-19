@@ -149,12 +149,6 @@
                 "title": "IGN essentiels WMTS",
                 "autoload": true
               },
-              "ignwfs": {
-                "url": "https://wxs.ign.fr/essentiels/geoportail/wfs",
-                "type": "wfs",
-                "title": "IGN essentiels WFS",
-                "autoload": true
-              },
               "igndecouvertewmts": {
                 "url": "https://wxs.ign.fr/decouverte/geoportail/wmts",
                 "type": "wmts",
