@@ -28,6 +28,11 @@
             },
             "deleteError": "Une erreur inattendue s'est produite lors de la suppression de l'application.",
             "updateError": "Une erreur inattendue s'est produite lors de l'enregistrement l'application."
+        },
+        "version": {
+            "label": "Version",
+            "repo": "MapStore2-geOrchestra",
+            "submodule": "MapStore2"
         }
     }
 }

@@ -28,6 +28,11 @@
             },
             "deleteError": "Unexpected error occurred while deleting the application.",
             "updateError": "Unexpected error occurred while saving the application."
+        },
+        "version": {
+            "label": "Version",
+            "repo": "MapStore2-geOrchestra",
+            "submodule": "MapStore2"
         }
     }
 }
