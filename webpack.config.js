@@ -3,6 +3,7 @@ const path = require("path");
 const themeEntries = require("./themes.js").themeEntries;
 const extractThemesPlugin = require("./themes.js").extractThemesPlugin;
 const moduleFederationPlugin = require('./MapStore2/build/moduleFederation.js').plugin;
+const gitRevisionPlugin = require('./revision');
 
 const DEV_PROTOCOL = "http";
 const DEV_HOST = "localhost:8080";
@@ -22,7 +23,7 @@ module.exports = require("./MapStore2/build/buildConfig")(
             path.join(__dirname, "MapStore2", "web", "client")
         ]
     },
-    [extractThemesPlugin, moduleFederationPlugin],
+    [extractThemesPlugin, moduleFederationPlugin, gitRevisionPlugin],
     false,
     "dist/",
     ".geOrchestra",

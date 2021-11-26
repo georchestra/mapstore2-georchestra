@@ -103,7 +103,6 @@ module.exports = {
         UndoPlugin: require('@mapstore/plugins/History').default,
         UserManagerPlugin: require('@mapstore/plugins/manager/UserManager').default,
         UserExtensionsPlugin: require('@mapstore/plugins/UserExtensions').default,
-        VersionPlugin: require('@mapstore/plugins/Version').default,
         LayerDownloadPlugin: require('@mapstore/plugins/LayerDownload').default,
         WidgetsBuilderPlugin: require('@mapstore/plugins/WidgetsBuilder').default,
         WidgetsPlugin: require('@mapstore/plugins/Widgets').default,
@@ -114,7 +113,8 @@ module.exports = {
         // georchestra plugins
         NotAllowedPlugin: require('./plugins/NotAllowed').default,
         HeaderPlugin: require('./plugins/Header').default,
-        UserSessionPlugin: require('./plugins/UserSession').default
+        UserSessionPlugin: require('./plugins/UserSession').default,
+        VersionPlugin: require('./plugins/Version').default
     },
     requires: {
         ReactSwipe: require('react-swipeable-views').default,

@@ -4,6 +4,7 @@ const themeEntries = require('./themes.js').themeEntries;
 const extractThemesPlugin = require('./themes.js').extractThemesPlugin;
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const moduleFederationPlugin = require('./MapStore2/build/moduleFederation.js').plugin;
+const gitRevisionPlugin = require('./revision');
 
 const paths = {
     base: __dirname,
@@ -19,7 +20,7 @@ module.exports = require('./MapStore2/build/buildConfig')(
     },
     themeEntries,
     paths,
-    [extractThemesPlugin, moduleFederationPlugin],
+    [extractThemesPlugin, moduleFederationPlugin, gitRevisionPlugin],
     true,
     undefined,
     '.geOrchestra',
