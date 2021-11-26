@@ -20,7 +20,7 @@ setConfigProp('themePrefix', 'geOrchestra');
 // Use a custom plugins configuration file
 // example if localConfig.json is located in the root of the project
 // setLocalConfigurationFile('localConfig.json');
-setLocalConfigurationFile("rest/config/load/localConfig.json");
+setLocalConfigurationFile("configs/localConfig.json");
 
 // async load of the standard embedded bundle
 import('@mapstore/product/embedded');

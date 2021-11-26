@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app id="WebApp_ID" version="2.4"
-	xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:javaee="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
 
 	<!-- pick up all spring application contexts -->
@@ -26,7 +26,7 @@
       - The application context is then available via
       - WebApplicationContextUtils.getWebApplicationContext(servletContext).
     -->
-	<listener>
+    <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
@@ -40,7 +40,7 @@
 		<url-pattern>/rest/*</url-pattern>
 	</filter-mapping>
 
-  <!-- GZip compression -->
+    <!-- GZip compression -->
 	<filter>
 		<filter-name>CompressionFilter</filter-name>
 		<filter-class>net.sf.ehcache.constructs.web.filter.GzipFilter</filter-class>
@@ -58,18 +58,36 @@
 		<url-pattern>*.js</url-pattern>
 	</filter-mapping>
 
-    <!--  Backend Spring MVC controllers -->
+    <!--  Backward compatibility -->
     <servlet>
-        <servlet-name>dispatcher</servlet-name>
+        <servlet-name>loadAssets</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
-    <servlet-mapping>
-        <servlet-name>dispatcher</servlet-name>
-        <url-pattern>/rest/config/*</url-pattern>
-    </servlet-mapping>
+    <!--  Configs -->
+    <servlet>
+        <servlet-name>configs</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>2</load-on-startup>
 
-	<!-- CXF Servlet -->
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>configs</servlet-name>
+        <url-pattern>/configs/*</url-pattern>
+
+    </servlet-mapping>
+    <!-- Extensions -->
+    <servlet>
+        <servlet-name>extensions</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>3</load-on-startup>
+
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>extensions</servlet-name>
+        <url-pattern>/extensions/*</url-pattern>
+    </servlet-mapping>
+    <!-- CXF Servlet -->
 	<servlet>
 		<servlet-name>CXFServlet</servlet-name>
 		<servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
@@ -91,7 +109,7 @@
       <url-pattern>/proxy/*</url-pattern>
     </servlet-mapping>
 
-   <!-- Printing Servlet -->
+    <!-- Printing Servlet -->
     <servlet>
        <servlet-name>mapfish.print</servlet-name>
        <servlet-class>org.mapfish.print.servlet.MapPrinterServlet</servlet-class>

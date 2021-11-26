@@ -12,7 +12,7 @@ import additionalsession from "../reducers/usersession";
  * Override of the standard UserSession plugin,
  * with a saveSessionEpic reconfigured to save the following additional state:
  *  - user extensions status
- *  - map templates favourites
+ *  - map templates favorites
  * We also added the restoreAdditionalSession epic to restore the same on session load
  */
 import UserSessionPlugin from "@mapstore/plugins/UserSession";
