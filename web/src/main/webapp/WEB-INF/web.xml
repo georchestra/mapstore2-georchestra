@@ -64,6 +64,10 @@
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>loadAssets</servlet-name>
+        <url-pattern>/rest/config/*</url-pattern>
+    </servlet-mapping>
     <!--  Configs -->
     <servlet>
         <servlet-name>configs</servlet-name>
