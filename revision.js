@@ -8,7 +8,7 @@ const parseCommand = () => {
         // 'remote get-url origin', // Repository url
         'submodule status' // Submodule info
         // 'submodule foreach -q git config remote.origin.url' // Submodule url
-    ]
+    ];
     return commands.map(command => JSON.stringify(
         new GitRevisionPlugin({
             branchCommand: command
