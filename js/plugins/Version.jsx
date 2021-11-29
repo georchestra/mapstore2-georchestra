@@ -27,11 +27,15 @@ const Version = connect((state) => ({
 }))(
     class extends React.Component {
         static propTypes = {
-            version: PropTypes.string
+            version: PropTypes.string,
+            urlRepo: PropTypes.string,
+            urlSubmodule: PropTypes.string
         };
 
         static defaultProps = {
-            version: "DEV"
+            version: "DEV",
+            urlRepo: "https://github.com/georchestra/mapstore2-georchestra",
+            urlSubmodule: "https://github.com/geosolutions-it/MapStore2"
         };
 
         renderUrl = (baseUrl, hash, type = "commit") => {
@@ -47,11 +51,11 @@ const Version = connect((state) => ({
             const [
                 hashRepo = "",
                 branchRepo = "",
-                urlRepo = "",
-                hashSubmodule = "",
-                urlSubmodule = ""
+                hashSubmodule = ""
                 // eslint-disable-next-line no-undef
             ] = __VERSIONINFO__ || [];
+            const {urlRepo, urlSubmodule} = this.props;
+
             const _hashSubmodule = hashSubmodule.trim().split(" ")[0];
             const versionSubmodule = this.props.version || "";
             return (
