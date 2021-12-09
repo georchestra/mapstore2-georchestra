@@ -91,6 +91,7 @@ module.exports = {
         SettingsPlugin: require('@mapstore/plugins/Settings').default,
         SharePlugin: require('@mapstore/plugins/Share'),
         SnapshotPlugin: require('@mapstore/plugins/Snapshot').default,
+        StreetView: require('@mapstore/plugins/StreetView').default,
         StyleEditorPlugin: require('@mapstore/plugins/StyleEditor').default,
         SwipePlugin: require('@mapstore/plugins/Swipe').default,
         TOCItemsSettingsPlugin: require('@mapstore/plugins/TOCItemsSettings').default,
