@@ -22,6 +22,7 @@ module.exports = {
         ContextPlugin: require('@mapstore/plugins/Context').default,
         ContextCreatorPlugin: require('@mapstore/plugins/ContextCreator').default,
         ContextManagerPlugin: require('@mapstore/plugins/contextmanager/ContextManager').default,
+        CreateNewMapPlugin: require('@mapstore/plugins/CreateNewMap').default,
         CookiePlugin: require('@mapstore/plugins/Cookie').default,
         Dashboard: require('@mapstore/plugins/Dashboard').default,
         DashboardEditor: require('@mapstore/plugins/DashboardEditor').default,
@@ -30,7 +31,6 @@ module.exports = {
         DrawerMenuPlugin: require('@mapstore/plugins/DrawerMenu').default,
         ExpanderPlugin: require('@mapstore/plugins/Expander').default,
         FeatureEditorPlugin: require('@mapstore/plugins/FeatureEditor').default,
-        FeaturedMaps: require('@mapstore/plugins/FeaturedMaps').default,
         FeedbackMaskPlugin: require('@mapstore/plugins/FeedbackMask').default,
         FilterLayerPlugin: require('@mapstore/plugins/FilterLayer').default,
         FloatingLegendPlugin: require('@mapstore/plugins/FloatingLegend').default,
@@ -49,7 +49,6 @@ module.exports = {
         GroupManagerPlugin: require('@mapstore/plugins/manager/GroupManager').default,
         HelpLinkPlugin: require('@mapstore/plugins/HelpLink').default,
         HelpPlugin: require('@mapstore/plugins/Help').default,
-        HomePlugin: require('@mapstore/plugins/Home').default,
         IdentifyPlugin: require('@mapstore/plugins/Identify').default,
         LanguagePlugin: require('@mapstore/plugins/Language').default,
         LayerInfoPlugin: require('@mapstore/plugins/LayerInfo').default,
@@ -111,9 +110,12 @@ module.exports = {
         ZoomAllPlugin: require('@mapstore/plugins/ZoomAll').default,
         ZoomInPlugin: require('@mapstore/plugins/ZoomIn').default,
         ZoomOutPlugin: require('@mapstore/plugins/ZoomOut').default,
-        // georchestra plugins
+        // georchestra plugins2
+        ContextsPlugin: require('./plugins/Contexts').default,
+        FeaturedResources: require('./plugins/FeaturedResources').default,
         NotAllowedPlugin: require('./plugins/NotAllowed').default,
         HeaderPlugin: require('./plugins/Header').default,
+        HomePlugin: require('./plugins/Home').default,
         UserSessionPlugin: require('./plugins/UserSession').default,
         VersionPlugin: require('./plugins/Version').default
     },

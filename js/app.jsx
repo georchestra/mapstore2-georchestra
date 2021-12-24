@@ -17,9 +17,12 @@ import {Providers} from "@mapstore/api/usersession";
 import serverbackup from "@mapstore/api/usersession/serverbackup";
 import MapViewer from "@mapstore/product/pages/MapViewer";
 import Maps from "@mapstore/product/pages/Maps";
+import Dashboard from "@mapstore/product/pages/Dashboard";
+import GeoStory from "@mapstore/product/pages/GeoStory";
 import ContextCreator from "@mapstore/product/pages/ContextCreator";
 import Context from "@mapstore/product/pages/Context";
 import Admin from "./pages/Admin";
+import Home from "./pages/Home";
 
 /**
  * Add custom (overriding) translations with:
@@ -37,7 +40,7 @@ ConfigUtils.setConfigProp("geoStoreUrl", "rest/geostore/");
  *
  * ConfigUtils.setLocalConfigurationFile('localConfig.json');
  */
-import { getApi } from '../MapStore2/web/client/api/userPersistedStorage';
+import { getApi } from '@mapstore/api/userPersistedStorage';
 
 
 Providers.georchestra = serverbackup;
@@ -75,6 +78,11 @@ const appConfig = assign({}, appCfg, {
             component: Maps
         },
         {
+            name: "home",
+            path: "/home",
+            component: Home
+        },
+        {
             name: "admin",
             path: "/admin",
             component: Admin
@@ -93,6 +101,41 @@ const appConfig = assign({}, appCfg, {
             name: "context",
             path: "/context/:contextName/:mapId",
             component: Context
+        },
+        {
+            name: "dashboard",
+            path: "/dashboard",
+            component: Dashboard
+        }, {
+            name: "dashboard",
+            path: "/dashboard/:did",
+            component: Dashboard
+        }, {
+            name: "geostory",
+            path: "/geostory/:gid",
+            component: GeoStory
+        }, {
+            name: "geostory",
+            path: "/geostory/:gid/section/:sectionId",
+            component: GeoStory
+        }, {
+            name: "geostory",
+            path: "/geostory/:gid/section/:sectionId/column/:columnId",
+            component: GeoStory
+        }, {
+            name: "geostory",
+            path: "/geostory/shared/:gid",
+            component: GeoStory
+        },
+        {
+            name: "geostory",
+            path: "/geostory/shared/:gid/section/:sectionId",
+            component: GeoStory
+        },
+        {
+            name: "geostory",
+            path: "/geostory/shared/:gid/section/:sectionId/column/:columnId",
+            component: GeoStory
         }
     ],
     appEpics: {}

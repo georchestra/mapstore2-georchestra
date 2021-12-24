@@ -29,6 +29,12 @@
             "deleteError": "Unexpected error occurred while deleting the application.",
             "updateError": "Unexpected error occurred while saving the application."
         },
+        "resources": {
+          "contexts": {
+            "title": "Contexts ({count})",
+            "noContextAvailable": "No context available"
+          }
+        },
         "version": {
             "label": "Version",
             "repo": "MapStore2-geOrchestra",

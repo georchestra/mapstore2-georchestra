@@ -29,6 +29,12 @@
             "deleteError": "Si è verificato un errore imprevisto durante l'eliminazione dell'applicazione",
             "updateError": "Si è verificato un errore imprevisto durante il salvataggio dell'applicazione"
         },
+        "resources": {
+          "contexts": {
+            "title": "Contexts ({count})",
+            "noContextAvailable": "No context available"
+          }
+        },
         "version": {
             "label": "Versione",
             "repo": "MapStore2-geOrchestra",
