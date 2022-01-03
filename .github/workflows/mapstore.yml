@@ -55,6 +55,18 @@ jobs:
     - name: "package with Maven"
       run: mvn -B clean install -Dmapstore2.version=${{ github.sha }}
 
+    - name: "debian package with Maven"
+      run: mvn -B package deb:package -pl web -PdebianPackage
+
+    - name: "copy resulting deb"
+      run: mkdir -p scratch && cp web/target/georchestra-mapstore*.deb scratch/georchestra-mapstore-${{ github.sha }}.deb
+
+    - name: "publish deb as artifact"
+      uses: actions/upload-artifact@v1
+      with:
+        name: georchestra-mapstore.deb
+        path: scratch/georchestra-mapstore-${{ github.sha }}.deb
+
     - name: "copy resulting war"
       run: mkdir -p scratch && cp web/target/mapstore.war scratch/mapstore-${{ github.sha }}.war
 
