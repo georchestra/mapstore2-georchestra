@@ -15,6 +15,7 @@
     <skip.npm>true</skip.npm>
     <skip.karma>true</skip.karma>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <resources.output.dir>${basedir}/target/mapstore</resources.output.dir>
   </properties>
   <dependencies>
     <!-- MapStore backend -->
@@ -94,7 +95,7 @@
               <goal>copy-resources</goal>
             </goals>
             <configuration>
-              <outputDirectory>${basedir}/target/mapstore</outputDirectory>
+              <outputDirectory>${resources.output.dir}</outputDirectory>
               <encoding>UTF-8</encoding>
               <resources>
                 <resource>
@@ -114,7 +115,7 @@
               <goal>copy-resources</goal>
             </goals>
             <configuration>
-              <outputDirectory>${basedir}/target/mapstore</outputDirectory>
+              <outputDirectory>${resources.output.dir}</outputDirectory>
               <encoding>UTF-8</encoding>
               <resources>
                 <resource>
@@ -137,7 +138,7 @@
               <goal>copy-resources</goal>
             </goals>
             <configuration>
-              <outputDirectory>${basedir}/target/mapstore</outputDirectory>
+              <outputDirectory>${resources.output.dir}</outputDirectory>
               <encoding>UTF-8</encoding>
               <resources>
                 <resource>
@@ -160,7 +161,7 @@
               <goal>copy-resources</goal>
             </goals>
             <configuration>
-              <outputDirectory>${basedir}/target/mapstore</outputDirectory>
+              <outputDirectory>${resources.output.dir}</outputDirectory>
               <encoding>UTF-8</encoding>
               <resources>
                 <resource>
@@ -183,7 +184,7 @@
               <goal>copy-resources</goal>
             </goals>
             <configuration>
-              <outputDirectory>${basedir}/target/mapstore</outputDirectory>
+              <outputDirectory>${resources.output.dir}</outputDirectory>
               <encoding>UTF-8</encoding>
               <resources>
                 <resource>
@@ -196,6 +197,9 @@
                   </includes>
                   <excludes>
                     <exclude>node_modules/*</exclude>
+                    <exclude>node/**/*</exclude>
+                    <exclude>web/**/*</exclude>
+                    <exclude>coverage/**/*</exclude>
                     <exclude>node_modules/**/*</exclude>
                     <exclude>MapStore2/*</exclude>
                     <exclude>MapStore2/**/*</exclude>
@@ -213,7 +217,7 @@
               <goal>copy-resources</goal>
             </goals>
             <configuration>
-              <outputDirectory>${basedir}/target/mapstore/dist</outputDirectory>
+              <outputDirectory>${resources.output.dir}/dist</outputDirectory>
               <encoding>UTF-8</encoding>
               <resources>
                 <resource>
@@ -229,7 +233,7 @@
               <goal>copy-resources</goal>
             </goals>
             <configuration>
-              <outputDirectory>${basedir}/target/mapstore/assets</outputDirectory>
+              <outputDirectory>${resources.output.dir}/assets</outputDirectory>
               <encoding>UTF-8</encoding>
               <resources>
                 <resource>
@@ -245,7 +249,7 @@
               <goal>copy-resources</goal>
             </goals>
             <configuration>
-              <outputDirectory>${basedir}/target/mapstore/MapStore2/web/client</outputDirectory>
+              <outputDirectory>${resources.output.dir}/MapStore2/web/client</outputDirectory>
               <encoding>UTF-8</encoding>
               <resources>
                 <resource>
@@ -270,7 +274,7 @@
               <goal>copy-resources</goal>
             </goals>
             <configuration>
-              <outputDirectory>${basedir}/target/mapstore</outputDirectory>
+              <outputDirectory>${resources.output.dir}</outputDirectory>
               <encoding>UTF-8</encoding>
               <resources>
                 <resource>
@@ -289,7 +293,7 @@
               <goal>copy-resources</goal>
             </goals>
             <configuration>
-              <outputDirectory>${basedir}/target/mapstore/printing</outputDirectory>
+              <outputDirectory>${resources.output.dir}/printing</outputDirectory>
               <encoding>UTF-8</encoding>
               <resources>
                 <resource>
@@ -308,7 +312,7 @@
               <goal>copy-resources</goal>
             </goals>
             <configuration>
-              <outputDirectory>${basedir}/target/mapstore/MapStore2/web/client</outputDirectory>
+              <outputDirectory>${resources.output.dir}/MapStore2/web/client</outputDirectory>
               <encoding>UTF-8</encoding>
               <resources>
                 <resource>
@@ -327,7 +331,7 @@
               <goal>copy-resources</goal>
             </goals>
             <configuration>
-              <outputDirectory>${basedir}/target/mapstore/MapStore2/web/client/libs/cesium-navigation</outputDirectory>
+              <outputDirectory>${resources.output.dir}/MapStore2/web/client/libs/cesium-navigation</outputDirectory>
               <encoding>UTF-8</encoding>
               <resources>
                 <resource>
@@ -343,7 +347,7 @@
               <goal>copy-resources</goal>
             </goals>
             <configuration>
-              <outputDirectory>${basedir}/target/mapstore/MapStore2/web/client</outputDirectory>
+              <outputDirectory>${resources.output.dir}/MapStore2/web/client</outputDirectory>
               <encoding>UTF-8</encoding>
               <resources>
                 <resource>
@@ -365,11 +369,11 @@
           <packagingExcludes>WEB-INF/lib/commons-codec-1.2.jar,
                 WEB-INF/lib/commons-io-1.1.jar,
                 WEB-INF/lib/commons-logging-1.0.4.jar,
-		WEB-INF/lib/commons-pool-1.3.jar,
-		WEB-INF/lib/spring-*-3.1.0*.jar,
+                WEB-INF/lib/commons-pool-1.3.jar,
+                WEB-INF/lib/spring-*-3.1.0*.jar,
                 WEB-INF/classes/geostore-datasource-ovr.properties,
                 WEB-INF/classes/geostore-ovr.properties
-                </packagingExcludes>
+          </packagingExcludes>
           <overlays>
             <overlay>
               <groupId>it.geosolutions.geostore</groupId>
@@ -405,6 +409,9 @@
     <profiles>
         <profile>
             <id>debianPackage</id>
+            <properties>
+                <resources.output.dir>${basedir}/target/mapstore-generic</resources.output.dir>
+            </properties>
             <build>
                 <finalName>mapstore-generic</finalName>
                 <plugins>
