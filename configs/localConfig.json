@@ -726,21 +726,7 @@
           "FeedbackMask"
         ],
         "common": [],
-        "maps": [
-          "Login",
-          {
-            "name": "Maps",
-            "cfg": {
-              "mapsOptions": {
-                "start": 0,
-                "limit": 12
-              },
-              "fluid": true
-            }
-          },
-          "MapSearch",
-          "FeaturedMaps"],
-      "home": [
+      "maps": [
         "Login",
         "HomeDescription", "Fork",
         "MapSearch",

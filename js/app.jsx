@@ -22,7 +22,6 @@ import GeoStory from "@mapstore/product/pages/GeoStory";
 import ContextCreator from "@mapstore/product/pages/ContextCreator";
 import Context from "@mapstore/product/pages/Context";
 import Admin from "./pages/Admin";
-import Home from "./pages/Home";
 
 /**
  * Add custom (overriding) translations with:
@@ -80,7 +79,7 @@ const appConfig = assign({}, appCfg, {
         {
             name: "home",
             path: "/home",
-            component: Home
+            component: Maps
         },
         {
             name: "admin",
