@@ -1,0 +1,11 @@
+{
+  "locale": "es-ES",
+  "messages": {
+    "resources": {
+      "contexts": {
+        "title": "Contextos ({count})",
+        "noContextAvailable": "Sin contexto disponible"
+      }
+    }
+  }
+}
