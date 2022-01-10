@@ -153,9 +153,8 @@ const ContextsPlugin = compose(
 )(Contexts);
 
 /**
- * Plugin for maps resources browsing.
+ * Plugin for context resources browsing.
  * Can be rendered inside {@link #plugins.ContentTabs|ContentTabs} plugin
- * and adds an entry to the {@link #plugins.NavMenu|NavMenu}
  * @name Maps
  * @memberof plugins
  * @class
@@ -188,30 +187,3 @@ export default createPlugin('Contexts', {
         ...contextsEpics
     }
 });
-//
-// export default {
-//     MapsPlugin: assign(MapsPlugin, {
-//         NavMenu: {
-//             position: 2,
-//             label: <Message msgId="manager.maps_title" />,
-//             linkId: '#mapstore-maps-grid',
-//             glyph: '1-map'
-//         },
-//         ContentTabs: {
-//             name: 'maps',
-//             key: 'maps',
-//             TitleComponent:
-//                 connect(mapsCountSelector)(({ count = "" }) => <Message msgId="resources.maps.title" msgParams={{ count: count + "" }} />),
-//             position: 1,
-//             tool: true,
-//             priority: 1
-//         }
-//     }),
-//     epics: {
-//         ...mapsEpics
-//     },
-//     reducers: {
-//         maps: mapsReducer,
-//         maptype: maptypeReducer
-//     }
-// };

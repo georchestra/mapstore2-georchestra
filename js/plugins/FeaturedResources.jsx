@@ -16,7 +16,7 @@ import {NavItem, Glyphicon} from 'react-bootstrap';
 import { setFeaturedMapsEnabled} from '@mapstore/actions/maps';
 
 import Message from "@mapstore/components/I18N/Message";
-import mapsEpics from '@mapstore/epics/maps';
+import mapsEpics from '@js/epics/maps';
 import {userRoleSelector} from '@mapstore/selectors/security';
 import {versionSelector} from '@mapstore/selectors/version';
 import {mapTypeSelector} from '@mapstore/selectors/maptype';
