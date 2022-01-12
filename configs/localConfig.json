@@ -224,6 +224,9 @@
         }
       }
     },
+    "miscSettings": {
+      "homePath": "/home"
+    },
     "plugins": {
         "mobile": ["Header", {
                 "name": "Map",
@@ -731,7 +734,7 @@
         "HomeDescription", "Fork",
         "MapSearch",
         "CreateNewMap",
-        "FeaturedResources", "ContentTabs",
+        "FeaturedMaps", "ContentTabs",
         {
           "name": "Maps",
           "cfg": {
