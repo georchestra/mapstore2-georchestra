@@ -29,12 +29,6 @@
       "deleteError": "Beim Löschen der Anwendung ist ein unerwarteter Fehler aufgetreten.",
       "updateError": "Beim Speichern der Anwendung ist ein unerwarteter Fehler aufgetreten."
     },
-    "resources": {
-      "contexts": {
-        "title": "Kontexte ({count})",
-        "noContextAvailable": "Kein Kontext verfügbar"
-      }
-    },
     "version": {
       "label": "Version",
       "repo": "MapStore2-geOrchestra",

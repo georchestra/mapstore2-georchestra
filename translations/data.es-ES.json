@@ -29,12 +29,6 @@
       "deleteError": "Ocurrió un error inesperado al eliminar la aplicación.",
       "updateError": "Ocurrió un error inesperado al guardar la aplicación."
     },
-    "resources": {
-      "contexts": {
-        "title": "Contextos ({count})",
-        "noContextAvailable": "Sin contexto disponible"
-      }
-    },
     "version": {
       "label": "Versión",
       "repo": "MapStore2-geOrchestra",

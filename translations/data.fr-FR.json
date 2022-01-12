@@ -29,12 +29,6 @@
             "deleteError": "Une erreur inattendue s'est produite lors de la suppression de l'application.",
             "updateError": "Une erreur inattendue s'est produite lors de l'enregistrement l'application."
         },
-        "resources": {
-          "contexts": {
-            "title": "Contexts ({count})",
-            "noContextAvailable": "No context available"
-          }
-        },
         "version": {
             "label": "Version",
             "repo": "MapStore2-geOrchestra",
