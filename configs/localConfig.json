@@ -806,46 +806,10 @@
           "cfg": {
             "selectedService": "GeoSolutions GeoServer CSW",
             "services": {
-              "local": {
-                "url": "/geonetwork/srv/fre/csw",
-                "type": "csw",
-                "title": "le catalogue local",
-                "autoload": true
-              },
               "localgs": {
-                "url": "/geoserver/ows",
-                "type": "wms",
+                "url": "/geoserver/wfs",
+                "type": "wfs",
                 "title": "le geoserver local",
-                "autoload": true
-              },
-              "geobretagne": {
-                "url": "https://geobretagne.fr/geonetwork/srv/fre/csw",
-                "type": "csw",
-                "title": "le catalogue GeoBretagne",
-                "autoload": true
-              },
-              "PIGMA": {
-                "url": "https://www.pigma.org/geonetwork/srv/fre/csw",
-                "type": "csw",
-                "title": "le catalogue PIGMA",
-                "autoload": true
-              },
-              "sadre": {
-                "url": "http://www.sandre.eaufrance.fr/atlas/srv/fre/csw",
-                "type": "csw",
-                "title": "le catalogue du Sandre",
-                "autoload": true
-              },
-              "webservice_energy": {
-                "url": "http://geocatalog.webservice-energy.org/geonetwork/srv/fre/csw",
-                "type": "csw",
-                "title": "le catalogue de webservice-energy",
-                "autoload": true
-              },
-              "geograndest": {
-                "url": "https://www.geograndest.fr/geonetwork/srv/fre/csw",
-                "type": "csw",
-                "title": "le catalogue de GéoGrandEst",
                 "autoload": true
               }
             },
