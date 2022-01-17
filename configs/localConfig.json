@@ -735,6 +735,12 @@
         "CreateNewMap",
         "FeaturedMaps", "ContentTabs",
         {
+          "name": "Header",
+          "cfg": {
+            "page": "mapstore-home"
+          }
+        },
+        {
           "name": "Maps",
           "cfg": {
             "mapsOptions": {
@@ -936,10 +942,6 @@
             "page": "msadmin"
           }
         }, {
-        "cfg": {
-          "page": "msadmin"
-        }
-      }, {
         "name": "OmniBar",
         "cfg": {
           "className": "navbar shadow navbar-home"
