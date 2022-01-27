@@ -507,8 +507,8 @@
                                 <configuration>
                                     <exportAntProperties>true</exportAntProperties>
                                     <target>
-                                        <condition property="branchVersion" value="99.master" else="${build.branch}">
-                                            <matches string="${build.branch}" pattern="master" />
+                                        <condition property="branchVersion" value="${build.branch}" else="99.master">
+                                            <matches string="${build.branch}" pattern="^20\d\d.*" />
                                         </condition>
                                     </target>
                                 </configuration>
