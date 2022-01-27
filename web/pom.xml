@@ -16,6 +16,7 @@
     <skip.karma>true</skip.karma>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <resources.output.dir>${basedir}/target/mapstore</resources.output.dir>
+    <maven.build.timestamp.format>yyyyMMddHHmm</maven.build.timestamp.format>
   </properties>
   <dependencies>
     <!-- MapStore backend -->
@@ -497,6 +498,21 @@
                                     <goal>run</goal>
                                 </goals>
                             </execution>
+                            <execution>
+                                <id>set-project-packageversion</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                                <configuration>
+                                    <exportAntProperties>true</exportAntProperties>
+                                    <target>
+                                        <condition property="branchVersion" value="${build.branch}" else="99.master">
+                                            <matches string="${build.branch}" pattern="^20\d\d.*" />
+                                        </condition>
+                                    </target>
+                                </configuration>
+                            </execution>
                         </executions>
                     </plugin>
                     <plugin>
@@ -505,8 +521,7 @@
                         <version>1.0.6</version>
                         <configuration>
                             <packageName>georchestra-mapstore</packageName>
-                            <packageVersion>${build.closest.tag.name}</packageVersion>
-                            <packageRevision>${build.closest.tag.commit.count}</packageRevision>
+                            <packageVersion>${branchVersion}.${maven.build.timestamp}~${build.commit.id.abbrev}</packageVersion>
                             <packageDescription>geOrchestra Mapstore</packageDescription>
                             <projectOrganization>geOrchestra</projectOrganization>
                             <maintainerName>PSC</maintainerName>
