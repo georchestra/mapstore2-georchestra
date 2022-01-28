@@ -565,7 +565,12 @@
       "glyph": "road",
       "title": "plugins.StreetView.title",
       "description": "plugins.StreetView.description",
-      "dependencies": ["Toolbar"]
+      "dependencies": ["Toolbar"],
+      "defaultConfig": {
+        "panoramaOptions": {
+          "imageDateControl": true
+        }
+      }
     }
   ]
 }
