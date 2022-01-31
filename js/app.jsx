@@ -70,6 +70,10 @@ const appConfig = assign({}, appCfg, {
             name: "mapviewer",
             path: "/viewer/:mapType/:mapId",
             component: MapViewer
+        }, {
+            name: "mapviewer",
+            path: "/viewer/:mapType/:mapId/context/:contextId",
+            component: MapViewer
         },
         {
             name: "maps",
