@@ -11,7 +11,9 @@ const DEV_HOST = "localhost:8080";
 module.exports = require("./MapStore2/build/buildConfig")(
     {
         geOrchestra: path.join(__dirname, "js", "app"),
-        embedded: path.join( __dirname, "js", "embedded" )
+        embedded: path.join( __dirname, "js", "embedded" ),
+        "dashboard-embedded": path.join( __dirname, "js", "dashboardEmbedded" ),
+        "geostory-embedded": path.join( __dirname, "js", "geostoryEmbedded" ),
     },
     themeEntries,
     {
