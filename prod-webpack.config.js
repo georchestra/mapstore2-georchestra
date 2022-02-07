@@ -16,7 +16,9 @@ const paths = {
 module.exports = require('./MapStore2/build/buildConfig')(
     {
         'geOrchestra': path.join(__dirname, "js", "app"),
-        embedded: path.join(__dirname, "js", "embedded")
+        embedded: path.join(__dirname, "js", "embedded"),
+        "dashboard-embedded": path.join( __dirname, "js", "dashboardEmbedded" ),
+        "geostory-embedded": path.join( __dirname, "js", "geostoryEmbedded" ),
     },
     themeEntries,
     paths,
@@ -39,6 +41,22 @@ module.exports = require('./MapStore2/build/buildConfig')(
             inject: "body",
             hash: true,
             filename: 'embedded.html'
+        }),
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, 'dashboard-embedded-template.html'),
+            publicPath: 'dist/',
+            chunks: ['dashboard-embedded'],
+            inject: "body",
+            hash: true,
+            filename: 'dashboard-embedded.html'
+        }),
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, 'geostory-embedded-template.html'),
+            publicPath: 'dist/',
+            chunks: ['geostory-embedded'],
+            inject: "body",
+            hash: true,
+            filename: 'geostory-embedded.html'
         })
     ],
     {
