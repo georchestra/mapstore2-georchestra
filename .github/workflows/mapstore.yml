@@ -88,20 +88,20 @@ jobs:
         # mvn -B package dockerfile:build -Pdocker,log4j-logstash,sentry-log4j -DdockerImageName=georchestra/mapstore:${{ steps.version.outputs.VERSION }} -settings settings.xml
       working-directory: ${{ github.workspace }}
     - name: "Logging in docker.io"
-      if: github.repository == 'georchestra/mapstore2-georchestra'
+      if: github.repository == 'georchestra/mapstore2-georchestra' && github.event_name == 'push'
       uses: azure/docker-login@v1
       with:
         username: '${{ secrets.DOCKER_HUB_USERNAME }}'
         password: '${{ secrets.DOCKER_HUB_PASSWORD }}'
 
     - name: "Pushing latest to docker.io"
-      if: github.ref == 'refs/heads/master' && github.repository == 'georchestra/mapstore2-georchestra'
+      if: github.ref == 'refs/heads/master' && github.repository == 'georchestra/mapstore2-georchestra' && github.event_name == 'push'
       run: |
         docker tag georchestra/mapstore:${{ steps.version.outputs.VERSION }} georchestra/mapstore:latest
         docker push georchestra/mapstore:latest
       working-directory: ${{ github.workspace }}
 
     - name: "Pushing tag to docker.io"
-      if: contains(github.ref, 'refs/tags/') && github.repository == 'georchestra/mapstore2-georchestra'
+      if: contains(github.ref, 'refs/tags/') && github.repository == 'georchestra/mapstore2-georchestra' && github.event_name == 'push'
       run: |
         docker push georchestra/mapstore:${{ steps.version.outputs.VERSION }}
