@@ -96,6 +96,6 @@ jobs:
         docker push georchestra/mapstore:latest
 
     - name: "Pushing release to docker.io"
-      if: startWith(github.ref_name, '20') && github.repository == 'georchestra/mapstore2-georchestra' && github.event_name == 'push'
+      if: startsWith(github.ref_name, '20') && github.repository == 'georchestra/mapstore2-georchestra' && github.event_name == 'push'
       run: |
         docker push georchestra/mapstore:$GITHUB_REF_NAME
