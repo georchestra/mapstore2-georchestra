@@ -76,7 +76,7 @@ jobs:
         path: scratch/mapstore-${{ github.sha }}.war
 
     - name: "Building docker image"
-      if: github.repository == 'georchestra/mapstore2-georchestra'
+      if: github.repository == 'georchestra/mapstore2-georchestra' && github.event_name == 'push'
       run: |
         cp scratch/mapstore-${{ github.sha }}.war docker/MapStore-${GITHUB_REF_NAME}.war
         docker build . -t georchestra/mapstore:$GITHUB_REF_NAME
