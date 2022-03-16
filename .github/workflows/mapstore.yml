@@ -95,7 +95,14 @@ jobs:
         docker tag georchestra/mapstore:$GITHUB_REF_NAME georchestra/mapstore:latest
         docker push georchestra/mapstore:latest
 
+    - name: "Check if branch name matches 20YY.MM.XX release pattern"
+      id: check-branch
+      run: |
+        if [[ ${{ github.ref_name }} =~ ^20[0-9]{2}\.[0-9]{2}\..+$ ]]; then
+            echo "::set-output name=releasematch::true"
+        fi
+
     - name: "Pushing release to docker.io"
-      if: startsWith(github.ref_name, '20') && github.repository == 'georchestra/mapstore2-georchestra' && github.event_name == 'push'
+      if: steps.check-branch.outputs.releasematch == 'true' && github.repository == 'georchestra/mapstore2-georchestra' && github.event_name == 'push'
       run: |
         docker push georchestra/mapstore:$GITHUB_REF_NAME
