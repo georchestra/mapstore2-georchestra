@@ -1,4 +1,5 @@
 FROM jetty:9-jre11
+LABEL maintainers="geosolutions<info@geo-solutions.it>, geOrchestra<psc@georchestra.org>"
 
 RUN java -jar "$JETTY_HOME/start.jar" --create-startd --add-to-start=jmx,jmx-remote,stats,http-forwarded
 
