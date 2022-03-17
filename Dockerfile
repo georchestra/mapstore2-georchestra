@@ -1,26 +1,17 @@
-FROM tomcat:7.0-jre8
-MAINTAINER geosolutions<info@geo-solutions.it>
+FROM jetty:9-jre11
 
-# Tomcat specific options
-ENV CATALINA_BASE "$CATALINA_HOME"
-ENV JAVA_OPTS="${JAVA_OPTS}  -Xms512m -Xmx512m -XX:MaxPermSize=128m"
-
-# Optionally remove Tomcat manager, docs, and examples
-ARG TOMCAT_EXTRAS=false
-RUN if [ "$TOMCAT_EXTRAS" = false ]; then \
-      find "${CATALINA_BASE}/webapps/" -delete; \
-    fi
+RUN java -jar "$JETTY_HOME/start.jar" --create-startd --add-to-start=jmx,jmx-remote,stats,http-forwarded
 
 # Add war files to be deployed
-COPY docker/*.war "${CATALINA_BASE}/webapps/mapstore.war"
+COPY web/target/*.war /var/lib/jetty/webapps/
 
 # Geostore externalization template. Disabled by default
-# COPY docker/geostore-datasource-ovr.properties "${CATALINA_BASE}/conf/"
+# COPY docker/geostore-datasource-ovr.properties "/var/lib/jetty/conf/"
 # ARG GEOSTORE_OVR_OPT=""
-ARG GEORCHESTRA_DATADIR_OPT="-Dgeorchestra.datadir=/etc/georchestra"
-ENV JAVA_OPTS="${JAVA_OPTS} ${GEORCHESTRA_DATADIR_OPT}"
+# georchestra datadir is defaulted to /etc/georchestra
+# might be overriden with -Dgeorchestra.datadir=/etc/georchestra
+# ARG GEORCHESTRA_DATADIR_OPT="-Dgeorchestra.datadir=/etc/georchestra"
 
-# Set variable to better handle terminal commands
-ENV TERM xterm
+# This is usually overriden in the docker-compose
+ENV JAVA_OPTIONS="-Xms512m -Xmx512m -DPRINT_BASE_URL=pdf -Dgeorchestra.datadir=/etc/georchestra"
 
-EXPOSE 8080
