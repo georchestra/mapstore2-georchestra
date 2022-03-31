@@ -193,6 +193,13 @@
       "dependencies": ["Toolbar"]
     },
     {
+      "name": "Home",
+      "glyph": "home",
+      "title": "plugins.Home.title",
+      "description": "plugins.Home.description",
+      "dependencies": ["OmniBar"]
+    },
+    {
       "name": "LayerDownload",
       "glyph": "features-grid-download",
       "title": "plugins.LayerDownload.title",

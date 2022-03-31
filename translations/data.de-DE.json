@@ -1,0 +1,38 @@
+{
+  "locale": "de-DE",
+  "messages": {
+    "georchestra": {
+      "pageNotAllowed": "Zugriff verweigert"
+    },
+    "catalog": {
+      "title": "Daten hinzufügen",
+      "tooltip": "Daten zur Karte hinzufügen"
+    },
+    "mapCatalog": {
+      "title": "Thematische Anwendungen",
+      "tooltip": "Eine Anwendung mit bestimmten Funktionalitäten und Kartenvorlagen laden.",
+      "filterPlaceholder": "Anwendungen suchen...",
+      "deleteConfirmContent": "Möchten Sie die Anwendung \"{mapName}\" wirklich löschen?",
+      "tooltips": {
+        "edit": "Eigenschaften bearbeiten",
+        "delete": "Ressource löschen",
+        "share": "Teilen"
+      },
+      "deletedMap": {
+        "title": "Gelöschte Bewerbung",
+        "message": "Die Anwendung wurde erfolgreich gelöscht."
+      },
+      "updatedMap": {
+        "title": "Gespeicherte Bewerbung",
+        "message": "Der Antrag wurde erfolgreich gespeichert."
+      },
+      "deleteError": "Beim Löschen der Anwendung ist ein unerwarteter Fehler aufgetreten.",
+      "updateError": "Beim Speichern der Anwendung ist ein unerwarteter Fehler aufgetreten."
+    },
+    "version": {
+      "label": "Version",
+      "repo": "MapStore2-geOrchestra",
+      "submodule": "MapStore2"
+    }
+  }
+}
