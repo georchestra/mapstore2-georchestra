@@ -383,19 +383,16 @@
               }
             },
             {
-                "name": "Identify",
+               "name": "Identify",
+               "showIn": ["Settings"],
                 "cfg": {
-                    "showEdit": true,
-                    "showHighlightFeatureButton": true,
+                   "draggable": false,
+                    "dock": true,
                     "viewerOptions": {
-                        "container": "{context.ReactSwipe}"
-                    }
-                },
-                "override": {
-                  "Toolbar": {
-                    "position": 11
+                       "container": "{context.ReactSwipe}",
+                        "header": "{context.SwipeHeader}"
+                        }
                   }
-                }
             },
             {
                 "name": "Locate",
