@@ -382,6 +382,7 @@
                 }
               }
             },
+            {
                 "name": "Identify",
                 "cfg": {
                     "showEdit": true,
