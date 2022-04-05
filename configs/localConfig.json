@@ -382,18 +382,20 @@
                 }
               }
             },
-            {
-               "name": "Identify",
-               "showIn": ["Settings"],
+                "name": "Identify",
                 "cfg": {
-                   "draggable": false,
-                    "dock": true,
-                    "viewerOptions": {
-                       "container": "{context.ReactSwipe}",
-                        "header": "{context.SwipeHeader}"
-                        }
-                  }
-            },
+                    "showEdit": true,
+                     "showHighlightFeatureButton": true,
+                    	"viewerOptions": {
+                        			"container": "{context.ReactSwipe}"
+                    			}
+                		},
+                		"override": {
+                  			"Toolbar": {
+                   				 "position": 11
+                  			}
+                		}
+           	},
             {
                 "name": "Locate",
                 "override": {
