@@ -47,17 +47,21 @@ const Version = connect((state) => ({
             </span>);
         };
 
+        getVersions = () => {
+            const [versionMain = '', versionSubmodule = ''] = this.props.version?.split("\n")?.map(v=> v.trim()) || [];
+            return { versionMain, versionSubmodule };
+        }
+
         render() {
             const [
                 hashRepo = "",
-                branchRepo = "",
                 hashSubmodule = ""
                 // eslint-disable-next-line no-undef
             ] = __VERSIONINFO__ || [];
             const {urlRepo, urlSubmodule} = this.props;
 
             const _hashSubmodule = hashSubmodule.trim().split(" ")[0];
-            const versionSubmodule = this.props.version || "";
+            const { versionMain, versionSubmodule } = this.getVersions();
             return (
                 <table className={"application-version"}>
                     <tr>
@@ -71,7 +75,7 @@ const Version = connect((state) => ({
                         </td>
                         <td>
                             <span>:
-                                {this.renderUrl(urlRepo, branchRepo, "commits")}
+                                {this.renderUrl(urlRepo, versionMain, "commits")}
                                 {this.renderUrl(urlRepo, hashRepo)}
                             </span>
                         </td>

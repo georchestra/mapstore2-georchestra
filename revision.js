@@ -4,7 +4,7 @@ const DefinePlugin = require("webpack/lib/DefinePlugin");
 const parseCommand = () => {
     const commands = [
         'rev-parse HEAD', // Repository commit hash
-        'rev-parse --abbrev-ref HEAD', // Repository branch name
+        // 'rev-parse --abbrev-ref HEAD', // Repository branch name
         // 'remote get-url origin', // Repository url
         'submodule status' // Submodule info
         // 'submodule foreach -q git config remote.origin.url' // Submodule url
