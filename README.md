@@ -81,7 +81,16 @@ cd docs # enter in the docs folder
 make html # create html documentation
 ```
 ## Versioning
+`MapStore2-geOrchestra` and `MapStore2` versions(**_stable branch name_**) are added to `version.txt` one below the other (_order is strictly followed_)
 
-Add `MapStore2` submodule version alone to `version.txt`
+**Example**:
+```
+version-mp2-georchestra
+version-mp2
+```
+---
+**NOTE**
 
-`MapStore2-geOrchestra` version will be automatically acquired during build
+When a stable branch is created, kindly update the `version.txt` with the new stable branch name and the same applies to Mapstore2 submodule
+
+---
