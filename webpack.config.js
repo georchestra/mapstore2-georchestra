@@ -8,15 +8,15 @@ const gitRevisionPlugin = require('./revision');
 const DEV_PROTOCOL = "http";
 const DEV_HOST = "localhost:8080";
 
-module.exports = require("./MapStore2/build/buildConfig")(
-    {
+module.exports = require("./MapStore2/build/buildConfig")({
+    bundles: {
         geOrchestra: path.join(__dirname, "js", "app"),
         embedded: path.join( __dirname, "js", "embedded" ),
         "dashboard-embedded": path.join( __dirname, "js", "dashboardEmbedded" ),
-        "geostory-embedded": path.join( __dirname, "js", "geostoryEmbedded" ),
+        "geostory-embedded": path.join( __dirname, "js", "geostoryEmbedded" )
     },
     themeEntries,
-    {
+    paths: {
         base: __dirname,
         dist: path.join(__dirname, "dist"),
         framework: path.join(__dirname, "MapStore2", "web", "client"),
@@ -25,12 +25,12 @@ module.exports = require("./MapStore2/build/buildConfig")(
             path.join(__dirname, "MapStore2", "web", "client")
         ]
     },
-    [extractThemesPlugin, moduleFederationPlugin, gitRevisionPlugin],
-    false,
-    "dist/",
-    ".geOrchestra",
-    [],
-    {
+    plugins: [extractThemesPlugin, moduleFederationPlugin, gitRevisionPlugin],
+    prod: false,
+    publicPath: "dist/",
+    cssPrefix: ".geOrchestra",
+    prodPlugins: [],
+    alias: {
         "@mapstore/patcher": path.resolve(__dirname, "node_modules", "@mapstore", "patcher"),
         "@mapstore": path.resolve(__dirname, "MapStore2", "web", "client"),
         "@js": path.resolve(__dirname, "js"),
@@ -39,7 +39,7 @@ module.exports = require("./MapStore2/build/buildConfig")(
         proj4: "@geosolutions/proj4",
         "react-joyride": "@geosolutions/react-joyride"
     },
-    {
+    proxy: {
         "/rest": {
             target: `${DEV_PROTOCOL}://${DEV_HOST}/mapstore`,
             secure: false,
@@ -83,5 +83,5 @@ module.exports = require("./MapStore2/build/buildConfig")(
                 host: `${DEV_HOST}`
             }
         }
-    }
+    }}
 );

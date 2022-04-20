@@ -25,6 +25,7 @@
 		<security:custom-filter ref="sessionTokenProcessingFilter" after="FORM_LOGIN_FILTER"/>
 		<security:custom-filter ref="headersProcessingFilter" before="FORM_LOGIN_FILTER"/>
 		<security:anonymous />
+        <security:csrf disabled="true" />
 	</security:http>
 
 	<!-- Entry point -->

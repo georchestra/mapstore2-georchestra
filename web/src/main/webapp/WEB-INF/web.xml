@@ -73,19 +73,16 @@
         <servlet-name>configs</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <load-on-startup>2</load-on-startup>
-
     </servlet>
     <servlet-mapping>
         <servlet-name>configs</servlet-name>
         <url-pattern>/configs/*</url-pattern>
-
     </servlet-mapping>
     <!-- Extensions -->
     <servlet>
         <servlet-name>extensions</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <load-on-startup>3</load-on-startup>
-
     </servlet>
     <servlet-mapping>
         <servlet-name>extensions</servlet-name>
