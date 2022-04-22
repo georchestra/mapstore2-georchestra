@@ -16,7 +16,8 @@
 
     <context:annotation-config />
 
-	<bean id="log4jInitializer" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+	<!-- Still to see how to reproduce the same with Spring 5 where Log4JConfigurer is not longer supported
+	bean id="log4jInitializer" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
 		<property name="targetClass" value="org.springframework.util.Log4jConfigurer" />
 		<property name="targetMethod" value="initLogging" />
 		<property name="arguments">
@@ -25,6 +26,7 @@
 			</list>
 		</property>
 	</bean>
+	-->
 
     <bean id="mapPrinter" class="org.mapfish.print.MapPrinter" scope="prototype"></bean>
 	<bean id="configFactory" class="org.mapfish.print.config.ConfigFactory"></bean>
