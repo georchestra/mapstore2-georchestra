@@ -28,6 +28,7 @@ module.exports = {
         Dashboard: require('@mapstore/plugins/Dashboard').default,
         DashboardEditor: require('@mapstore/plugins/DashboardEditor').default,
         DashboardsPlugin: require('@mapstore/plugins/Dashboards').default,
+        DeleteMapPlugin: require('@mapstore/plugins/DeleteMap').default,
         DetailsPlugin: require('@mapstore/plugins/Details').default,
         DrawerMenuPlugin: require('@mapstore/plugins/DrawerMenu').default,
         ExpanderPlugin: require('@mapstore/plugins/Expander').default,
