@@ -16,17 +16,15 @@
 
     <context:annotation-config />
 
-	<!-- Still to see how to reproduce the same with Spring 5 where Log4JConfigurer is not longer supported
-	bean id="log4jInitializer" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-		<property name="targetClass" value="org.springframework.util.Log4jConfigurer" />
-		<property name="targetMethod" value="initLogging" />
+	<bean id="log4jInitializer" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+        <property name="targetClass" value="org.apache.log4j.PropertyConfigurator"/>
+        <property name="targetMethod" value="configure"/>
 		<property name="arguments">
-			<list>
-				<value>#{("${georchestra.datadir:}" ne "") ? "file:${georchestra.datadir:}/mapstore/log4j.properties" : '../webapps/mapstore/WEB-INF/classes/log4j.properties'}</value>
+            <list>
+                <value>#{("${georchestra.datadir:}" ne "") ? "file:${georchestra.datadir:}/mapstore/log4j.properties" : '../webapps/mapstore/WEB-INF/classes/log4j.properties'}</value>
 			</list>
 		</property>
 	</bean>
-	-->
 
     <bean id="mapPrinter" class="org.mapfish.print.MapPrinter" scope="prototype"></bean>
 	<bean id="configFactory" class="org.mapfish.print.config.ConfigFactory"></bean>
