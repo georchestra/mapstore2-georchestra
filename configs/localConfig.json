@@ -647,6 +647,7 @@
             "DeleteMap",
             "Save",
             "SaveAs",
+            "SearchByBookmark",
             "MapCatalog"
         ],
         "embedded": ["Details",
