@@ -93,3 +93,53 @@ Install this extension and configure it to set the following request headers:
 
 Remember to disable the extension when you don't need it.
 
+Styling and theming
+------------------
+
+MapStore2 allow to `customize default theme or create new one <https://mapstore.readthedocs.io/en/latest/developer-guide/customize-theme/>`_.
+
+You can either:
+ * Custom or create a new theme to style a specific context
+ * Change the default mapstore2 theme
+
+Note that currently, only the webapp build process allow to compile ``themes/foo/foo.less`` files to ``.css`` files (see `lesscss.org <https://lesscss.org/>`_).
+
+
+So, to create a new theme you have to :
+
+ * Create a new folder in ``mapstore2-georchestra/themes`` (e.g ``/themes/foo``)
+ * Copy and rename `dark <https://github.com/geosolutions-it/MapStore2/tree/c87f5fa9e5e744abc209d7a5e33b4682e22f04d9/web/client/themes/dark>`_ (or ``/themes/default``) folder to ``/themes/foo``
+ * Open ``variable.less`` and custom styles rules
+ * Build and deploy the web app (`see above <http://localhost/msdoc/developer/index.html#developer-guide>`_)
+ * ``/dist/themes/{foo.css, foo.js}`` theme's files are fully available in the webapp
+
+To use a theme in the context creator when you create or edit a context, open ``localConfig.json`` and add the theme in the ``contextCreator`` config :
+
+ .. code-block:: json
+
+    {
+        "name": "ContextCreator",
+        "cfg": {
+            "themes":[
+                {"id":"foo","type":"link","href":"dist/themes/foo.css"},
+                {"id":"default","type":"link","href":"dist/themes/default.css"}
+            ]
+        }
+    }
+
+This theme is now available and you can custom it from ``the contextCreator`` UI :
+
+.. image:: ../_img/developer/theme-select.png
+
+
+Next, to change the default theme you have to open the ``localConfig.json`` and change ``defaultState.theme`` config (where ``foo`` is available as ``/dist/themes/foo/foo.css``):
+
+ .. code-block:: json
+
+    "defaultState": {
+        "theme":{
+          "selectedTheme":{
+            "id": "foo"
+          }
+        }
+    }
