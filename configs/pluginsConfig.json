@@ -518,7 +518,7 @@
     },
     {
       "name": "BurgerMenu",
-      "hidden": true,
+      "hidden": false,
       "glyph": "menu-hamburger",
       "title": "plugins.BurgerMenu.title",
       "description": "plugins.BurgerMenu.description",
