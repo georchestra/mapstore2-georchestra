@@ -114,6 +114,7 @@ module.exports = {
         ZoomAllPlugin: require('@mapstore/plugins/ZoomAll').default,
         ZoomInPlugin: require('@mapstore/plugins/ZoomIn').default,
         ZoomOutPlugin: require('@mapstore/plugins/ZoomOut').default,
+        SidebarMenuPlugin: require('@mapstore/plugins/SidebarMenu').default,
         // georchestra plugins2
         NotAllowedPlugin: require('./plugins/NotAllowed').default,
         HeaderPlugin: require('./plugins/Header').default,
