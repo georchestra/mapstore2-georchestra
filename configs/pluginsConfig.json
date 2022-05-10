@@ -138,9 +138,7 @@
         "docsUrl": "https://georchestra.readthedocs.io/"
       },
       "dependencies": [
-        [
-          "SidebarMenu"
-        ]
+        "SidebarMenu"
       ]
     },
     {
@@ -149,9 +147,7 @@
       "title": "plugins.Share.title",
       "description": "plugins.Share.description",
       "dependencies": [
-        [
-          "SidebarMenu"
-        ]
+        "SidebarMenu"
       ]
     },
     {
@@ -174,9 +170,7 @@
         "symbolsPath": "assets/symbols/"
       },
       "dependencies": [
-        [
-          "SidebarMenu"
-        ]
+        "SidebarMenu"
       ]
     },
     {
@@ -281,9 +275,7 @@
       "title": "plugins.Measure.title",
       "description": "plugins.Measure.description",
       "dependencies": [
-        [
-          "SidebarMenu"
-        ]
+        "SidebarMenu"
       ]
     },
     {
@@ -292,9 +284,7 @@
       "title": "plugins.Print.title",
       "description": "plugins.Print.description",
       "dependencies": [
-        [
-          "SidebarMenu"
-        ]
+        "SidebarMenu"
       ]
     },
     {
@@ -303,9 +293,7 @@
       "title": "plugins.MapCatalog.title",
       "description": "plugins.MapCatalog.description",
       "dependencies": [
-        [
-          "SidebarMenu"
-        ]
+        "SidebarMenu"
       ]
     },
     {
@@ -314,9 +302,7 @@
       "title": "plugins.MapImport.title",
       "description": "plugins.MapImport.description",
       "dependencies": [
-        [
-          "SidebarMenu"
-        ]
+        "SidebarMenu"
       ]
     },
     {
@@ -325,9 +311,7 @@
       "title": "plugins.MapExport.title",
       "description": "plugins.MapExport.description",
       "dependencies": [
-        [
-          "SidebarMenu"
-        ]
+        "SidebarMenu"
       ]
     },
     {
@@ -339,9 +323,7 @@
         "Version"
       ],
       "dependencies": [
-        [
-          "SidebarMenu"
-        ]
+        "SidebarMenu"
       ],
       "defaultConfig": {
         "wrap": true
@@ -486,9 +468,7 @@
       "title": "plugins.Save.title",
       "description": "plugins.Save.description",
       "dependencies": [
-        [
-          "SidebarMenu"
-        ],
+        "SidebarMenu",
         "SaveAs"
       ]
     },
@@ -499,9 +479,7 @@
       "hidden": true,
       "description": "plugins.SaveAs.description",
       "dependencies": [
-        [
-          "SidebarMenu"
-        ]
+        "SidebarMenu"
       ]
     },
     {
@@ -511,9 +489,7 @@
       "hidden": true,
       "description": "plugins.DeleteMap.description",
       "dependencies": [
-        [
-          "SidebarMenu"
-        ]
+        "SidebarMenu"
       ]
     },
     {
