@@ -285,7 +285,12 @@
       "description": "plugins.Print.description",
       "dependencies": [
         "SidebarMenu"
-      ]
+      ],
+      "defaultConfig": {
+        "overlayLayersOptions": {
+          "enabled": true
+        }
+      }
     },
     {
       "name": "MapCatalog",
