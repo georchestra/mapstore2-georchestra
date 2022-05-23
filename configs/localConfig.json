@@ -541,6 +541,9 @@
                 "useFixedScales": true,
                 "mapPreviewOptions": {
                   "enableScalebox": true
+                },
+                "overlayLayersOptions": {
+                  "enabled": true
                 }
               }
             }, "MapImport", "MapExport", {
@@ -638,14 +641,16 @@
                 "declineUrl" : "https://www.georchestra.org/"
                 }
             },
-            "OmniBar", "Login", "BurgerMenu", "Expander", "Undo", "Redo", "FullScreen", "GlobeViewSwitcher", "SearchServicesConfig", "WidgetsBuilder", "Widgets",
+            "OmniBar", "Login", "SidebarMenu", "Expander", "Undo", "Redo", "FullScreen", "GlobeViewSwitcher", "SearchServicesConfig", "WidgetsBuilder", "Widgets",
             "WidgetsTray",
             "Timeline",
             "Playback",
             "FeedbackMask",
             "StyleEditor",
+            "DeleteMap",
             "Save",
             "SaveAs",
+            "SearchByBookmark",
             "MapCatalog"
         ],
         "embedded": ["Details",

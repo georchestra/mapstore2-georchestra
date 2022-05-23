@@ -28,6 +28,7 @@ module.exports = {
         Dashboard: require('@mapstore/plugins/Dashboard').default,
         DashboardEditor: require('@mapstore/plugins/DashboardEditor').default,
         DashboardsPlugin: require('@mapstore/plugins/Dashboards').default,
+        DeleteMapPlugin: require('@mapstore/plugins/DeleteMap').default,
         DetailsPlugin: require('@mapstore/plugins/Details').default,
         DrawerMenuPlugin: require('@mapstore/plugins/DrawerMenu').default,
         ExpanderPlugin: require('@mapstore/plugins/Expander').default,
@@ -113,6 +114,7 @@ module.exports = {
         ZoomAllPlugin: require('@mapstore/plugins/ZoomAll').default,
         ZoomInPlugin: require('@mapstore/plugins/ZoomIn').default,
         ZoomOutPlugin: require('@mapstore/plugins/ZoomOut').default,
+        SidebarMenuPlugin: require('@mapstore/plugins/SidebarMenu').default,
         // georchestra plugins2
         NotAllowedPlugin: require('./plugins/NotAllowed').default,
         HeaderPlugin: require('./plugins/Header').default,
