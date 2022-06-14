@@ -21,7 +21,7 @@
         <property name="targetMethod" value="configure"/>
 		<property name="arguments">
             <list>
-                <value>#{("${georchestra.datadir:}" ne "") ? "file:${georchestra.datadir:}/mapstore/log4j.properties" : '../webapps/mapstore/WEB-INF/classes/log4j.properties'}</value>
+                <value>#{("${georchestra.datadir:}" ne "") ? "${georchestra.datadir:}/mapstore/log4j.properties" : '../webapps/mapstore/WEB-INF/classes/log4j.properties'}</value>
 			</list>
 		</property>
 	</bean>
