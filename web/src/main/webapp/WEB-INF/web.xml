@@ -123,6 +123,16 @@
       <servlet-name>mapfish.print</servlet-name>
       <url-pattern>/pdf/*</url-pattern>
     </servlet-mapping>
+    
+    <!-- MsIframe -->
+    <servlet>
+        <servlet-name>msIframe</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>msIframe</servlet-name>
+        <url-pattern>/msiframe/*</url-pattern>
+    </servlet-mapping>
 
 	<!-- Default page to serve -->
 	<welcome-file-list>
