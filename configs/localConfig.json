@@ -845,7 +845,10 @@
           "containerPosition": "header",
           "className": "navbar shadow navbar-home"
         }
-      }, "Login", "Language", "NavMenu", "DashboardSave", "DashboardSaveAs", "Attribution", "Home", {
+      }, "Login", "Language", "NavMenu",
+        "DashboardSave", "DashboardSaveAs",
+        "DashboardExport", "DashboardImport",
+        "Attribution", "Home", {
         "name": "Share",
         "cfg": {
           "showAPI": false,
@@ -939,6 +942,8 @@
         },
         "GeoStorySave",
         "GeoStorySaveAs",
+        "GeoStoryImport",
+        "GeoStoryExport",
         "MapEditor",
         "MediaEditor",
         {
