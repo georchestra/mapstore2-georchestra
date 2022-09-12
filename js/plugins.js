@@ -6,123 +6,31 @@
  * LICENSE file in the root directory of this source tree.
  */
 
+import productPlugins from '@mapstore/product/plugins';
+
+import NotAllowedPlugin from "@js/plugins/NotAllowed";
+import HeaderPlugin from "@js/plugins/Header";
+import UserSessionPlugin from "@js/plugins/UserSession";
+import VersionPlugin from "@js/plugins/Version";
+
+const exclude = [
+    "AboutPlugin", "AttributionPlugin", "FooterPlugin", "ForkPlugin",
+    "HomeDescriptionPlugin", "MadeWithLovePlugin", "MapTypePlugin", "NavMenuPlugin"
+];
+
 /**
   * Please, keep them sorted alphabetically
  */
-module.exports = {
+export default {
     plugins: {
-        // framework plugins
-        AddGroupPlugin: require('@mapstore/plugins/AddGroup').default,
-        AnnotationsPlugin: require('@mapstore/plugins/Annotations').default,
-        AutoMapUpdatePlugin: require('@mapstore/plugins/AutoMapUpdate').default,
-        BackgroundSelectorPlugin: require('@mapstore/plugins/BackgroundSelector').default,
-        BurgerMenuPlugin: require('@mapstore/plugins/BurgerMenu').default,
-        CRSSelectorPlugin: require('@mapstore/plugins/CRSSelector').default,
-        ContentTabs: require('@mapstore/plugins/ContentTabs').default,
-        ContextPlugin: require('@mapstore/plugins/Context').default,
-        ContextsPlugin: require('@mapstore/plugins/Contexts').default,
-        ContextCreatorPlugin: require('@mapstore/plugins/ContextCreator').default,
-        ContextManagerPlugin: require('@mapstore/plugins/contextmanager/ContextManager').default,
-        CreateNewMapPlugin: require('@mapstore/plugins/CreateNewMap').default,
-        CookiePlugin: require('@mapstore/plugins/Cookie').default,
-        Dashboard: require('@mapstore/plugins/Dashboard').default,
-        DashboardEditor: require('@mapstore/plugins/DashboardEditor').default,
-        DashboardsPlugin: require('@mapstore/plugins/Dashboards').default,
-        DeleteMapPlugin: require('@mapstore/plugins/DeleteMap').default,
-        DetailsPlugin: require('@mapstore/plugins/Details').default,
-        DrawerMenuPlugin: require('@mapstore/plugins/DrawerMenu').default,
-        ExpanderPlugin: require('@mapstore/plugins/Expander').default,
-        FeatureEditorPlugin: require('@mapstore/plugins/FeatureEditor').default,
-        FeedbackMaskPlugin: require('@mapstore/plugins/FeedbackMask').default,
-        FilterLayerPlugin: require('@mapstore/plugins/FilterLayer').default,
-        FloatingLegendPlugin: require('@mapstore/plugins/FloatingLegend').default,
-        FullScreenPlugin: require('@mapstore/plugins/FullScreen').default,
-        GeoStoryPlugin: require('@mapstore/plugins/GeoStory').default,
-        GeoStoriesPlugin: require('@mapstore/plugins/GeoStories').default,
-        GeoStoryEditorPlugin: require('@mapstore/plugins/GeoStoryEditor').default,
-        GeoStorySavePlugin: require('@mapstore/plugins/GeoStorySave').GeoStorySave,
-        GeoStorySaveAsPlugin: require('@mapstore/plugins/GeoStorySave').GeoStorySaveAs,
-        DashboardSavePlugin: require('@mapstore/plugins/DashboardSave').DashboardSave,
-        DashboardSaveAsPlugin: require('@mapstore/plugins/DashboardSave').DashboardSaveAs,
-        FeaturedMaps: require('@mapstore/plugins/FeaturedMaps').default,
-        GeoStoryNavigationPlugin: require('@mapstore/plugins/GeoStoryNavigation').default,
-        GlobeViewSwitcherPlugin: require('@mapstore/plugins/GlobeViewSwitcher').default,
-        GoFull: require('@mapstore/plugins/GoFull').default,
-        GridContainerPlugin: require('@mapstore/plugins/GridContainer').default,
-        GroupManagerPlugin: require('@mapstore/plugins/manager/GroupManager').default,
-        HelpLinkPlugin: require('@mapstore/plugins/HelpLink').default,
-        HelpPlugin: require('@mapstore/plugins/Help').default,
-        HomePlugin: require('@mapstore/plugins/Home').default,
-        IdentifyPlugin: require('@mapstore/plugins/Identify').default,
-        LanguagePlugin: require('@mapstore/plugins/Language').default,
-        LayerInfoPlugin: require('@mapstore/plugins/LayerInfo').default,
-        LocatePlugin: require('@mapstore/plugins/Locate').default,
-        LoginPlugin: require('@mapstore/plugins/Login').default,
-        ManagerMenuPlugin: require('@mapstore/plugins/manager/ManagerMenu').default,
-        ManagerPlugin: require('@mapstore/plugins/manager/Manager').default,
-        MapEditorPlugin: require('@mapstore/plugins/MapEditor').default,
-        MapExportPlugin: require('@mapstore/plugins/MapExport').default,
-        MapFooterPlugin: require('@mapstore/plugins/MapFooter').default,
-        MapImportPlugin: require('@mapstore/plugins/MapImport').default,
-        MapLoadingPlugin: require('@mapstore/plugins/MapLoading').default,
-        MapPlugin: require('@mapstore/plugins/Map').default,
-        MapsPlugin: require('@mapstore/plugins/Maps').default,
-        MapSearchPlugin: require('@mapstore/plugins/MapSearch').default,
-        MapCatalogPlugin: require('@mapstore/plugins/MapCatalog').default,
-        MapTemplatesPlugin: require('@mapstore/plugins/MapTemplates').default,
-        MeasurePlugin: require('@mapstore/plugins/Measure').default,
-        MediaEditorPlugin: require('@mapstore/plugins/MediaEditor').default,
-        MetadataExplorerPlugin: require('@mapstore/plugins/MetadataExplorer').default,
-        MousePositionPlugin: require('@mapstore/plugins/MousePosition').default,
-        NotificationsPlugin: require('@mapstore/plugins/Notifications').default,
-        OmniBarPlugin: require('@mapstore/plugins/OmniBar').default,
-        PlaybackPlugin: require('@mapstore/plugins/Playback.jsx').default,
-        PrintPlugin: require('@mapstore/plugins/Print').default,
-        QueryPanelPlugin: require('@mapstore/plugins/QueryPanel').default,
-        RedirectPlugin: require('@mapstore/plugins/Redirect').default,
-        RedoPlugin: require('@mapstore/plugins/History').default,
-        RulesDataGridPlugin: require('@mapstore/plugins/RulesDataGrid').default,
-        RulesEditorPlugin: require('@mapstore/plugins/RulesEditor').default,
-        RulesManagerFooter: require('@mapstore/plugins/RulesManagerFooter').default,
-        SavePlugin: require('@mapstore/plugins/Save').default,
-        SaveAsPlugin: require('@mapstore/plugins/SaveAs').default,
-        ScaleBoxPlugin: require('@mapstore/plugins/ScaleBox').default,
-        ScrollTopPlugin: require('@mapstore/plugins/ScrollTop').default,
-        SearchPlugin: require('@mapstore/plugins/Search').default,
-        SearchServicesConfigPlugin: require('@mapstore/plugins/SearchServicesConfig').default,
-        SearchByBookmarkPlugin: require('@mapstore/plugins/SearchByBookmark').default,
-        SettingsPlugin: require('@mapstore/plugins/Settings').default,
-        SharePlugin: require('@mapstore/plugins/Share'),
-        SnapshotPlugin: require('@mapstore/plugins/Snapshot').default,
-        StreetView: require('@mapstore/plugins/StreetView').default,
-        StyleEditorPlugin: require('@mapstore/plugins/StyleEditor').default,
-        SwipePlugin: require('@mapstore/plugins/Swipe').default,
-        TOCItemsSettingsPlugin: require('@mapstore/plugins/TOCItemsSettings').default,
-        TOCPlugin: require('@mapstore/plugins/TOC').default,
-        ThematicLayerPlugin: require('@mapstore/plugins/ThematicLayer').default,
-        ThemeSwitcherPlugin: require('@mapstore/plugins/ThemeSwitcher').default,
-        TimelinePlugin: require('@mapstore/plugins/Timeline').default,
-        ToolbarPlugin: require('@mapstore/plugins/Toolbar').default,
-        TutorialPlugin: require('@mapstore/plugins/Tutorial').default,
-        UndoPlugin: require('@mapstore/plugins/History').default,
-        UserManagerPlugin: require('@mapstore/plugins/manager/UserManager').default,
-        UserExtensionsPlugin: require('@mapstore/plugins/UserExtensions').default,
-        LayerDownloadPlugin: require('@mapstore/plugins/LayerDownload').default,
-        WidgetsBuilderPlugin: require('@mapstore/plugins/WidgetsBuilder').default,
-        WidgetsPlugin: require('@mapstore/plugins/Widgets').default,
-        WidgetsTrayPlugin: require('@mapstore/plugins/WidgetsTray').default,
-        ZoomAllPlugin: require('@mapstore/plugins/ZoomAll').default,
-        ZoomInPlugin: require('@mapstore/plugins/ZoomIn').default,
-        ZoomOutPlugin: require('@mapstore/plugins/ZoomOut').default,
-        SidebarMenuPlugin: require('@mapstore/plugins/SidebarMenu').default,
+        ...(Object.keys(productPlugins.plugins).reduce(
+            (prev, el) => exclude.includes(el) ? prev : {...prev, [el]: productPlugins.plugins[el]}, {}
+        )),
         // georchestra plugins2
-        NotAllowedPlugin: require('./plugins/NotAllowed').default,
-        HeaderPlugin: require('./plugins/Header').default,
-        UserSessionPlugin: require('./plugins/UserSession').default,
-        VersionPlugin: require('./plugins/Version').default
+        NotAllowedPlugin,
+        HeaderPlugin,
+        UserSessionPlugin,
+        VersionPlugin
     },
-    requires: {
-        ReactSwipe: require('react-swipeable-views').default,
-        SwipeHeader: require('@mapstore/components/data/identify/SwipeHeader').default
-    }
+    requires: productPlugins.requires
 };
