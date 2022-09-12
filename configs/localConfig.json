@@ -873,7 +873,7 @@
         {
           "name": "DashboardEditor",
           "cfg": {
-            "selectedService": "GeoSolutions GeoServer CSW",
+            "selectedService": "localgs",
             "services": {
               "localgs": {
                 "url": "/geoserver/wfs",
