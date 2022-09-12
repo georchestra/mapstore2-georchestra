@@ -114,6 +114,9 @@
     "mapstore": "file:MapStore2"
   },
   "scripts": {
+    "backend:build": "mvn clean install -Pprinting",
+    "backend:dev": "npm run backend:build && mvn cargo:run -f ./web/pom.xml",
+
     "clean": "rimraf dist",
     "compile": "npm run clean && mkdirp ./dist && node ./node_modules/webpack/bin/webpack.js --config prod-webpack.config.js",
     "start": "webpack serve --progress --color --port 8081 --hot --inline --content-base .",
