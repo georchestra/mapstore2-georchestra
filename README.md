@@ -88,9 +88,24 @@ make html # create html documentation
 version-mp2-georchestra
 version-mp2
 ```
----
-**NOTE**
 
-When a stable branch is created, kindly update the `version.txt` with the new stable branch name and the same applies to Mapstore2 submodule
+## Release procedure
 
----
+All the changes are first delivered as release candidates, turned into release after user acceptance
+
+### Creating release candidate:
+- Once changes are ready to be delivered as release candidate, create new branch naming it as following `2022.02.xx-RC1-geOrchestra`,
+where `2022.02` corresponds to the major version of MapStore upstream; `RC1` is the number of release candidate.
+- Create new pre-release and tag for it at [Release creation page](https://github.com/georchestra/mapstore2-georchestra/releases/new),
+using following naming convention: `2022.02.00-RC1-geOrchestra`, where `2022.02` corresponds to the major
+version of MapStore upstream. `00` is the number of release for geOrchestra; `RC1` is the number of release candidate.
+- Add exhaustive description of the pre-release and attach all the binaries: *.war files for geOrchestra build and for corresponding MapStore build.
+
+### Creating release
+- Create new stable branch from the accepted release candidate branch and name it as following: `2022.02.00-geOrchestra`,
+where `2022.02` corresponds to the major version of MapStore upstream; `00` is the number of release.
+- Create new release and tag for it at [Release creation page](https://github.com/georchestra/mapstore2-georchestra/releases/new),
+using following naming convention: `2022.02.00-geOrchestra`, where `2022.02` corresponds to the major
+version of MapStore upstream. `00` is the number of release for geOrchestra.
+- Add exhaustive description of the release (including description from all release candidates) and attach all the binaries: `*.war` files for geOrchestra build and for corresponding MapStore build.
+- Update contents of `version.txt` with the new stable branch name and the same applies to Mapstore2 submodule
