@@ -91,21 +91,37 @@ version-mp2
 
 ## Release procedure
 
-All the changes are first delivered as release candidates, turned into release after user acceptance
+All developments land in master branch first and releases will be created from a stable branch.
+As soon as a new major version is ready to be released (developments on master are completed and tested) a new stable branch will be created from master (YYYY.MM.xx, eg. 2022.02.xx).
+That naming convention has been agreed because typically a stable branch in mapstore2-georchestra refers to the corresponding one in MapStore.
+
+Each stable branch should always report inside the version.txt file the MapStore stable branch used as well as the corresponding release candidate stable version (eg. 2022.02.xx-RCX-geOrchestra).
+
+Given a stable branch in mapstore2-georchestra, further minor releases of the same series (eg. 2022.02) are delivered from it (eg. 2022.02.01).
+These should include the update to the latest stable branch of MapStore of the same series.
+
+All the releases are first delivered as release candidates, turned into release after acceptance.
+
 
 ### Creating release candidate:
-- Once changes are ready to be delivered as release candidate, create new branch naming it as following `2022.02.xx-RC1-geOrchestra`,
-where `2022.02` corresponds to the major version of MapStore upstream; `RC1` is the number of release candidate.
-- Create new pre-release and tag for it at [Release creation page](https://github.com/georchestra/mapstore2-georchestra/releases/new),
-using following naming convention: `2022.02.00-RC1-geOrchestra`, where `2022.02` corresponds to the major
-version of MapStore upstream. `00` is the number of release for geOrchestra; `RC1` is the number of release candidate.
-- Add exhaustive description of the pre-release and attach all the binaries: *.war files for geOrchestra build and for corresponding MapStore build.
+- Given a stable branch in mapstore2-georchestra create a new pre-release and tag for it at
+[Release creation page](https://github.com/georchestra/mapstore2-georchestra/releases/new)
+using the following naming convention: `YYYY.MM.xx-RCX-geOrchestra` (eg. 2022.02.00-RC1-geOrchestra), 
+where `YYYY.MM` corresponds to the major version and xx is the number of the minor release of the same series; `RCX` is the number of release candidate.
+- Add exhaustive description of the pre-release and attach all the needed assets: 
+  - *.war file for mapstore2-georchestra build
+  - Link to the docker image in GeoSolutions Docker Hub
+  - Link to the corresponding release page in MapStore as soon as available
+  - Relevant configuration steps expected for the new version
+- If a new RC should be released simply keep updated the RC number (eg. 2022.02.00-RC2-geOrchestra)
 
 ### Creating release
-- Create new stable branch from the accepted release candidate branch and name it as following: `2022.02.00-geOrchestra`,
-where `2022.02` corresponds to the major version of MapStore upstream; `00` is the number of release.
-- Create new release and tag for it at [Release creation page](https://github.com/georchestra/mapstore2-georchestra/releases/new),
-using following naming convention: `2022.02.00-geOrchestra`, where `2022.02` corresponds to the major
-version of MapStore upstream. `00` is the number of release for geOrchestra.
-- Add exhaustive description of the release (including description from all release candidates) and attach all the binaries: `*.war` files for geOrchestra build and for corresponding MapStore build.
-- Update contents of `version.txt` with the new stable branch name and the same applies to Mapstore2 submodule
+- Given a stable branch in mapstore2-georchestra create a new pre-release and tag for it at
+  [Release creation page](https://github.com/georchestra/mapstore2-georchestra/releases/new)
+  using the following naming convention: `YYYY.MM.xx-RCX-geOrchestra` (eg. 2022.02.00-RC1-geOrchestra),
+  where `YYYY.MM` corresponds to the major version and xx is the number of the minor release of the same series; `RCX` is the number of release candidate.
+- Add exhaustive description of the release (including descriptions from all release candidates) and attach all the needed assets:
+    - *.war file for mapstore2-georchestra build
+    - Link to the docker image in GeoSolutions Docker Hub
+    - Link to the corresponding release page in MapStore as soon as available
+    - Relevant configuration steps expected for the new version
