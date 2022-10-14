@@ -23,7 +23,7 @@
     <dependency>
       <groupId>it.geosolutions.mapstore</groupId>
       <artifactId>mapstore-services</artifactId>
-      <version>1.3-SNAPSHOT</version>
+      <version>1.4-SNAPSHOT</version>
     </dependency>
     <!-- ================================================================ -->
     <!-- GeoStore modules -->
@@ -31,26 +31,38 @@
     <dependency>
       <groupId>it.geosolutions.geostore</groupId>
       <artifactId>geostore-webapp</artifactId>
-      <version>1.8-SNAPSHOT</version>
+      <version>1.9.0</version>
       <type>war</type>
       <scope>runtime</scope>
     </dependency>
     <dependency>
       <groupId>proxy</groupId>
       <artifactId>http_proxy</artifactId>
-      <version>1.1.1</version>
+      <version>1.3.0</version>
       <type>war</type>
       <scope>runtime</scope>
     </dependency>
     <!-- mapfish-print -->
     <dependency>
-      <groupId>org.mapfish.print</groupId>
-      <artifactId>print-lib</artifactId>
-      <version>geosolutions-2.0.1</version>
+        <groupId>org.mapfish.print</groupId>
+        <artifactId>print-lib</artifactId>
+        <version>geosolutions-2.1.0</version>
         <exclusions>
             <exclusion>
                 <groupId>commons-codec</groupId>
                 <artifactId>commons-codec</artifactId>
+            </exclusion>
+            <exclusion>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+            </exclusion>
+            <exclusion>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-core</artifactId>
+            </exclusion>
+            <exclusion>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-databind</artifactId>
             </exclusion>
             <exclusion>
                 <groupId>org.springframework</groupId>
