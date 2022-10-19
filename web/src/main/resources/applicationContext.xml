@@ -28,6 +28,12 @@
 
     <bean id="mapPrinter" class="org.mapfish.print.MapPrinter" scope="prototype"></bean>
 	<bean id="configFactory" class="org.mapfish.print.config.ConfigFactory"></bean>
+    <bean id="threadResources" class="org.mapfish.print.ThreadResources">
+        <property name="connectionTimeout" value="30000"/>
+        <property name="socketTimeout" value="30000" />
+        <property name="globalParallelFetches" value="200"/>
+        <property name="perHostParallelFetches" value="30" />
+	</bean>
 
     <bean id="geostoreInitializer" class="it.geosolutions.geostore.init.GeoStoreInit" lazy-init="false">
         <!-- Site specific initialization. Please specify a path in the ovr file-->
@@ -40,11 +46,9 @@
         <property name="userGroupListInitFile" value="classpath:sample_groups.xml" />
         <!-- The default password encoder -->
         <property name="passwordEncoder" ref="digestPasswordEncoder"></property>
-
-
     </bean>
 
-      <!-- Define MapReaderFactories -->
+    <!-- Define MapReaderFactories -->
     <bean id="mapReaderFactoryFinder" class="org.mapfish.print.map.readers.MapReaderFactoryFinder"/>
     <bean id="wms-MapReaderFactory" class="org.mapfish.print.map.readers.WMSMapReader$Factory"/>
     <bean id="mapServer-MapReaderFactory" class="org.mapfish.print.map.readers.MapServerMapReader$Factory"/>
@@ -111,6 +115,12 @@
     <bean id="fileCachingJaiMosaicOutputFactory" class="org.mapfish.print.output.FileCachingJaiMosaicOutputFactory"/>
     <bean id="inMemoryJaiMosaicOutputFactory" class="org.mapfish.print.output.InMemoryJaiMosaicOutputFactory"/>
     <bean id="pdfOutputFactory" class="org.mapfish.print.output.PdfOutputFactory"/>
+    
+    <bean id="metricRegistry" class="com.codahale.metrics.MetricRegistry" lazy-init="false"/>
+    <bean id="healthCheckRegistry" class="com.codahale.metrics.health.HealthCheckRegistry" lazy-init="false"/>
+    <bean id="loggingMetricsConfigurator" class="org.mapfish.print.metrics.LoggingMetricsConfigurator"  lazy-init="false"/>
+    <bean id="jvmMetricsConfigurator" class="org.mapfish.print.metrics.JvmMetricsConfigurator" lazy-init="false"/>
+    <bean id="jmlMetricsReporter" class="org.mapfish.print.metrics.JmxMetricsReporter" lazy-init="false"/>
 
     <bean id="georchestra-properties" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="order" value="0"/>
