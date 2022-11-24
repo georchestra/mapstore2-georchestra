@@ -142,7 +142,6 @@
         <property name="initialSize" value="${dataSource.initialSize:0}" />
         <property name="minIdle" value="${dataSource.minIdle:0}" />
         <property name="maxIdle" value="${dataSource.maxIdle:8}" />
-        <property name="maxTotal" value="${dataSource.maxTotal:8}" />
         <property name="minEvictableIdleTimeMillis" value="${dataSource.minEvictableIdleTimeMillis:180000}" />
         <property name="timeBetweenEvictionRunsMillis" value="${dataSource.timeBetweenEvictionRunsMillis:3000}" />
     </bean>
