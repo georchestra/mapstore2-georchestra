@@ -12,10 +12,11 @@ import NotAllowedPlugin from "@js/plugins/NotAllowed";
 import HeaderPlugin from "@js/plugins/Header";
 import UserSessionPlugin from "@js/plugins/UserSession";
 import VersionPlugin from "@js/plugins/Version";
-
+import BackgroundSelectorPlugin from '@mapstore/plugins/BackgroundSelector';
 const exclude = [
     "AboutPlugin", "AttributionPlugin", "FooterPlugin", "ForkPlugin",
-    "HomeDescriptionPlugin", "MadeWithLovePlugin", "MapTypePlugin", "NavMenuPlugin"
+    "HomeDescriptionPlugin", "MadeWithLovePlugin", "MapTypePlugin", "NavMenuPlugin",
+    "BackgroundSelectorPlugin"
 ];
 
 /**
@@ -30,7 +31,8 @@ export default {
         NotAllowedPlugin,
         HeaderPlugin,
         UserSessionPlugin,
-        VersionPlugin
+        VersionPlugin,
+        BackgroundSelectorPlugin // This is not lazy loaded because of this issue. https://github.com/georchestra/mapstore2-georchestra/issues/573
     },
     requires: productPlugins.requires
 };
