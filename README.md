@@ -100,7 +100,8 @@ of the corresponding stable MapStore branch: the first line of the file indicate
 second the corresponding MapStore stable branch name used as dependency.
 
 Given a stable branch in mapstore2-georchestra, further minor releases of the same series (e.g. `2022.02`) are delivered from it (e.g. `2022.02.01-geOrchestra`).
-Even if it can be recommended, the MapStore submodule revision can be updated as well or not necessarily according to the project needs.
+Before each release or release candidate and in order to benefit from other bugfixes and feature backports, the MapStore submodule should be updated to the latest
+commit in the MapStore stable branch tracked by mapstore2-georchestra.
 At each release or release candidate the first line of the version.txt is updated with the tag name and restored to the previous version after the tag generation.
 
 All the releases are first delivered as release candidates, turned into release after acceptance.
