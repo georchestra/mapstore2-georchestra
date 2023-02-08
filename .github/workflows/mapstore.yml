@@ -16,6 +16,9 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: '8.x'
+        server-id: geOrchestra-artifactory
+        server-username: ARTIFACTORY_USERNAME_REF
+        server-password: ARTIFACTORY_TOKEN_REF
 
     - name: "setting up npm"
       uses: actions/setup-node@v1
@@ -53,6 +56,12 @@ jobs:
 
     - name: "package with Maven"
       run: mvn -B clean install -Dmapstore2.version=${{ github.sha }}
+
+    - name: "package with Maven"
+      run: cd web && mvn -B deploy -Dmapstore2.version=${{ github.sha }}
+      env:
+        ARTIFACTORY_TOKEN_REF: ${{ secrets.ARTIFACTORY_TOKEN }}
+        ARTIFACTORY_USERNAME_REF: ${{ secrets.ARTIFACTORY_USERNAME }}
 
     - name: "debian package with Maven"
       run: mvn -B package deb:package -pl web -PdebianPackage

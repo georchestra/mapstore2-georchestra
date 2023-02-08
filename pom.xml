@@ -6,8 +6,8 @@
     <artifactId>geOrchestra-root</artifactId>
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>geOrchestra - Root Project</name>
-    <url>https://github.com/geosolutions-it/MapStore2-C169</url>
+    <name>geOrchestra - mapstore Root Project</name>
+    <url>https://github.com/georchestra/mapstore2-georchestra</url>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>

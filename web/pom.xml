@@ -10,6 +10,13 @@
   <packaging>war</packaging>
   <name>geOrchestra - MapStore2 Webapp</name>
   <url>https://github.com/georchestra/mapstore2-georchestra</url>
+  <distributionManagement>
+    <repository>
+      <id>geOrchestra-artifactory</id>
+      <name>geOrchestra Maven repository</name>
+      <url>https://artifactory.georchestra.org/artifactory/georchestra/</url>
+    </repository>
+  </distributionManagement>
   <properties>
     <skip.installnodenpm>true</skip.installnodenpm>
     <skip.npm>true</skip.npm>
@@ -587,6 +594,21 @@
         <snapshots>
             <enabled>true</enabled>
         </snapshots>
+    </repository>
+
+     <!-- Georchestra -->
+     <repository>
+        <id>georchestra</id>
+        <name>geOrchestra Repository</name>
+        <url>https://artifactory.georchestra.org/artifactory/maven</url>
+        <snapshots>
+            <enabled>true</enabled>
+            <updatePolicy>always</updatePolicy>
+        </snapshots>
+        <releases>
+            <enabled>true</enabled>
+            <updatePolicy>always</updatePolicy>
+        </releases>
     </repository>
   </repositories>
 </project>
