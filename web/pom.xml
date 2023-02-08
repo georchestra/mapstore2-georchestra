@@ -389,6 +389,7 @@
                 WEB-INF/lib/slf4j-api-1.5*.jar,
                 WEB-INF/lib/slf4j-log4j12-1.5*.jar,
                 WEB-INF/lib/spring-tx-5.2.15*.jar,
+                WEB-INF/classes/META-INF/cxf/org.apache.cxf.Logger,
                 WEB-INF/classes/geostore-datasource-ovr.properties,
                 WEB-INF/classes/geostore-ovr.properties
           </packagingExcludes>
