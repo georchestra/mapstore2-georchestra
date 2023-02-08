@@ -57,7 +57,7 @@ jobs:
     - name: "package with Maven"
       run: mvn -B clean install -Dmapstore2.version=${{ github.sha }}
 
-    - name: "package with Maven"
+    - name: "deploy war in artifactory"
       run: cd web && mvn -B deploy -Dmapstore2.version=${{ github.sha }}
       env:
         ARTIFACTORY_TOKEN_REF: ${{ secrets.ARTIFACTORY_TOKEN }}
