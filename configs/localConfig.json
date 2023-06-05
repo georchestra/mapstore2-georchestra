@@ -409,13 +409,7 @@
                     }
                 }
             }, "Login",
-            "OmniBar", "BurgerMenu", "Home", "Expander", {
-              "name": "Cookie",
-              "cfg": {
-                "externalCookieUrl": "https://docs.georchestra.geo-solutions.it/en/latest/mapstore/index.html",
-                "declineUrl": "https://www.georchestra.org/"
-              }
-            },
+            "OmniBar", "BurgerMenu", "Home", "Expander",
             "FeedbackMask"
         ],
         "desktop": [
@@ -662,12 +656,6 @@
                         "alwaysVisible": true
                     }
                 }
-            }, {
-              "name": "Cookie",
-              "cfg": {
-                "externalCookieUrl" : "https://docs.georchestra.geo-solutions.it/en/latest/mapstore/index.html",
-                "declineUrl" : "https://www.georchestra.org/"
-                }
             },
             "OmniBar", "Login", "SidebarMenu", "Expander", "Undo", "Redo", "FullScreen", "GlobeViewSwitcher", "SearchServicesConfig", "WidgetsBuilder", "Widgets",
             "WidgetsTray",
@@ -794,13 +782,6 @@
               "Toolbar": {
                 "alwaysVisible": true
               }
-            }
-          },
-          {
-            "name": "Cookie",
-            "cfg": {
-              "externalCookieUrl": "https://docs.georchestra.geo-solutions.it/en/latest/mapstore/index.html",
-              "declineUrl": "https://www.georchestra.org/"
             }
           },
           "OmniBar",
