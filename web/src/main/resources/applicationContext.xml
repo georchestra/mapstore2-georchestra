@@ -16,15 +16,7 @@
 
     <context:annotation-config />
 
-	<bean id="log4jInitializer" class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
-        <property name="targetClass" value="org.apache.log4j.PropertyConfigurator"/>
-        <property name="targetMethod" value="configure"/>
-		<property name="arguments">
-            <list>
-                <value>#{("${georchestra.datadir:}" ne "") ? "${georchestra.datadir:}/mapstore/log4j.properties" : '../webapps/mapstore/WEB-INF/classes/log4j.properties'}</value>
-			</list>
-		</property>
-	</bean>
+
 
     <bean id="mapPrinter" class="org.mapfish.print.MapPrinter" scope="prototype"></bean>
 	<bean id="configFactory" class="org.mapfish.print.config.ConfigFactory"></bean>
@@ -115,7 +107,7 @@
     <bean id="fileCachingJaiMosaicOutputFactory" class="org.mapfish.print.output.FileCachingJaiMosaicOutputFactory"/>
     <bean id="inMemoryJaiMosaicOutputFactory" class="org.mapfish.print.output.InMemoryJaiMosaicOutputFactory"/>
     <bean id="pdfOutputFactory" class="org.mapfish.print.output.PdfOutputFactory"/>
-    
+
     <bean id="metricRegistry" class="com.codahale.metrics.MetricRegistry" lazy-init="false"/>
     <bean id="healthCheckRegistry" class="com.codahale.metrics.health.HealthCheckRegistry" lazy-init="false"/>
     <bean id="loggingMetricsConfigurator" class="org.mapfish.print.metrics.LoggingMetricsConfigurator"  lazy-init="false"/>
@@ -162,7 +154,7 @@
                 <entry key="hibernate.cache.use_second_level_cache" value="true"/>
                 <entry key="hibernate.connection.autocommit" value="true"/>
                 <entry key="hibernate.generate_statistics" value="false"/>
-                <entry key="hibernate.hbm2ddl.auto" value="validate" />
+                <entry key="hibernate.hbm2ddl.auto" value="update" />
                 <entry key="hibernate.default_schema" value="${pgsqlGeoStoreSchema:geostore}" />
             </map>
         </property>
