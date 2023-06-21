@@ -92,6 +92,14 @@ create table gs_usergroup (
     unique (groupName)
 );
 
+create table gs_user_group_attribute (
+    id bigint not null,
+    name varchar(255) not null,
+    string varchar(255),
+    userGroup_id bigint not null,
+    primary key (id)
+);
+
 create table gs_usergroup_members (
     user_id int8 not null,
     group_id int8 not null,
@@ -100,7 +108,7 @@ create table gs_usergroup_members (
 
 alter table gs_usergroup_members
     add constraint FKFDE460DB62224F72
-    foreign key (user_id) 
+    foreign key (user_id)
     references gs_user;
 
 alter table gs_usergroup_members
@@ -120,10 +128,18 @@ create index idx_attribute_date on gs_attribute (attribute_date);
 
 create index idx_attribute_number on gs_attribute (attribute_number);
 
-alter table gs_attribute 
-    add constraint fk_attribute_resource 
-    foreign key (resource_id) 
+alter table gs_attribute
+    add constraint fk_attribute_resource
+    foreign key (resource_id)
     references gs_resource;
+
+create index idx_user_group_attr_name on gs_user_group_attribute (name);
+
+create index idx_user_group_attr_text on gs_user_group_attribute (string);
+
+create index idx_attr_user_group on gs_user_group_attribute (userGroup_id);
+
+alter table gs_user_group_attribute add constraint fk_ugattrib_user_group foreign key (userGroup_id) references gs_usergroup;
 
 create index idx_category_type on gs_category (name);
 
@@ -139,9 +155,9 @@ create index idx_resource_creation on gs_resource (creation);
 
 create index idx_resource_category on gs_resource (category_id);
 
-alter table gs_resource 
-    add constraint fk_resource_category 
-    foreign key (category_id) 
+alter table gs_resource
+    add constraint fk_resource_category
+    foreign key (category_id)
     references gs_category;
 
 create index idx_security_resource on gs_security (resource_id);
@@ -158,24 +174,24 @@ create index idx_security_username on gs_security (username);
 
 create index idx_security_groupname on gs_security (groupname);
 
-alter table gs_security 
-    add constraint fk_security_user 
-    foreign key (user_id) 
+alter table gs_security
+    add constraint fk_security_user
+    foreign key (user_id)
     references gs_user;
 
-alter table gs_security 
-    add constraint fk_security_group 
-    foreign key (group_id) 
+alter table gs_security
+    add constraint fk_security_group
+    foreign key (group_id)
     references gs_usergroup;
 
-alter table gs_security 
-    add constraint fk_security_resource 
-    foreign key (resource_id) 
+alter table gs_security
+    add constraint fk_security_resource
+    foreign key (resource_id)
     references gs_resource;
 
-alter table gs_stored_data 
-    add constraint fk_data_resource 
-    foreign key (resource_id) 
+alter table gs_stored_data
+    add constraint fk_data_resource
+    foreign key (resource_id)
     references gs_resource;
 
 create index idx_user_group on gs_user (group_id);
@@ -186,9 +202,9 @@ create index idx_user_name on gs_user (name);
 
 create index idx_user_role on gs_user (user_role);
 
-alter table gs_user 
-    add constraint fk_user_ugroup 
-    foreign key (group_id) 
+alter table gs_user
+    add constraint fk_user_ugroup
+    foreign key (group_id)
     references gs_usergroup;
 
 create index idx_user_attribute_name on gs_user_attribute (name);
@@ -197,9 +213,9 @@ create index idx_user_attribute_text on gs_user_attribute (string);
 
 create index idx_attribute_user on gs_user_attribute (user_id);
 
-alter table gs_user_attribute 
-    add constraint fk_uattrib_user 
-    foreign key (user_id) 
+alter table gs_user_attribute
+    add constraint fk_uattrib_user
+    foreign key (user_id)
     references gs_user;
 
 create index idx_usergroup_name on gs_usergroup (groupName);
