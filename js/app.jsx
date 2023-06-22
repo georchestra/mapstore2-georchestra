@@ -68,11 +68,11 @@ const appConfig = assign({}, appCfg, {
         },
         {
             name: "mapviewer",
-            path: "/viewer/:mapType/:mapId",
+            path: "/viewer/:mapId",
             component: MapViewer
         }, {
             name: "mapviewer",
-            path: "/viewer/:mapType/:mapId/context/:contextId",
+            path: "/viewer/:mapId/context/:contextId",
             component: MapViewer
         },
         {
