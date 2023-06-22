@@ -8,6 +8,7 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
             classpath*:applicationContext.xml
+            classpath*:applicationContext-print.xml
         </param-value>
 	</context-param>
     <display-name>geOrchestra - Web App</display-name>
