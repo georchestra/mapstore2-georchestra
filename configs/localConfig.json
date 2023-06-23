@@ -110,9 +110,6 @@
           "format": "decimal",
           "defaultTextAnnotation": "New"
         },
-        "maptype": {
-            "mapType": "{context.mode === 'desktop' ? 'openlayers' : 'leaflet'}"
-        },
         "catalog": {
           "default": {
             "newService": {
@@ -421,7 +418,7 @@
               }
             },
             "MetadataExplorer",
-            "MapImport", 
+            "MapImport",
             "MapExport",
             "GlobeViewSwitcher"
         ],
