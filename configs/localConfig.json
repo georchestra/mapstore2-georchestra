@@ -308,19 +308,6 @@
     "miscSettings": {
       "homePath": "/home"
     },
-    "mapType": {
-      "defaultVisualizationMode": "2D",
-      "visualizationModes": {
-        "2D": {
-          "desktop": "openlayers",
-          "mobile": "leaflet"
-        },
-        "3D": {
-          "desktop": "cesium",
-          "mobile": "cesium"
-        }
-      }
-    },
     "plugins": {
         "mobile": ["Header", {
                 "name": "Map",
