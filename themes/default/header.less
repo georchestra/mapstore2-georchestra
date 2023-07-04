@@ -9,37 +9,6 @@
 }
 
 /*
- * Bottom tools
- * Bottom tools have absolute position by default.
- * Anyway the bottom position to shift from the feature grid is % of view, not div
- * So this fixed position makes the position of the tools to be relative to the window too
- * and then also the percentage is relative to the same.
- */
-@geo-bottom-tools-position-fixed: fixed;
-@geo-bottom-tools-position-absolute: absolute;
-.background-plugin-position {
-    position: @geo-bottom-tools-position-fixed;
-}
-.mapToolbar {
-    position: @geo-bottom-tools-position-fixed;
-}
-.timeline-plugin {
-    position: @geo-bottom-tools-position-fixed!important;
-}
-// To fix overlap of bottom tools of map viewer in a modal
-.map-editor-modal-body {
-    .background-plugin-position {
-        position: @geo-bottom-tools-position-absolute;
-    }
-    .mapToolbar {
-        position: @geo-bottom-tools-position-absolute;
-    }
-    .timeline-plugin {
-        position: @geo-bottom-tools-position-absolute;
-    }
-}
-
-/*
  * CSS Used in geo-node integration, not yet used
  *
 .btn-group-vertical > .btn:first-child:not(:last-child){
