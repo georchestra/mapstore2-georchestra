@@ -19,6 +19,7 @@ import MapViewer from "@mapstore/product/pages/MapViewer";
 import Maps from "@mapstore/product/pages/Maps";
 import Dashboard from "@mapstore/product/pages/Dashboard";
 import GeoStory from "@mapstore/product/pages/GeoStory";
+import Permalink from "@mapstore/product/pages/Permalink";
 import ContextCreator from "@mapstore/product/pages/ContextCreator";
 import Context from "@mapstore/product/pages/Context";
 import Admin from "./pages/Admin";
@@ -148,6 +149,11 @@ const appConfig = assign({}, appCfg, {
             name: "geostory",
             path: "/geostory/shared/:gid/section/:sectionId/column/:columnId",
             component: GeoStory
+        },
+        {
+            name: "permalink",
+            path: "/permalink/:pid",
+            component: Permalink
         }
     ],
     appEpics: {}
