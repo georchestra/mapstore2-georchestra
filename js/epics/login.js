@@ -14,7 +14,7 @@ const goToLoginPage = () => {
     const page  = protocol + '//' + host + '/?login';
     window.location.href = page;
 };
-const redirecToLoginPage = (action$) =>
+const redirectToLoginPage = (action$) =>
     action$.ofType(LOGIN_REQUIRED)
         .switchMap(() =>
         /*
@@ -25,5 +25,5 @@ const redirecToLoginPage = (action$) =>
         );
 
 export default {
-    redirecToLoginPage
+    redirectToLoginPage
 };
