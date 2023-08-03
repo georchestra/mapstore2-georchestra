@@ -6,23 +6,21 @@
  * LICENSE file in the root directory of this source tree.
  */
 import {Observable} from "rxjs";
-import URL from 'url';
 import { LOGIN_REQUIRED } from '@mapstore/actions/security';
 
 const goToLoginPage = () => {
-    const { protocol, host } = URL.parse(window.location.href, false);
-    const page  = protocol + '//' + host + '/?login';
-    window.location.href = page;
+    window.location.replace('/?login');
 };
 const redirectToLoginPage = (action$) =>
     action$.ofType(LOGIN_REQUIRED)
-        .switchMap(() =>
+        .switchMap(() => {
         /*
             Note: After login the user is not redirected back to the same resource requested,
             as CAS login currently doesn't support that
         */
-            Observable.of(goToLoginPage())
-        );
+            goToLoginPage();
+            return Observable.empty();
+        });
 
 export default {
     redirectToLoginPage
