@@ -9,6 +9,7 @@ import {createPlugin} from "@mapstore/utils/PluginsUtils";
 import {connect} from "react-redux";
 import User from "../components/User";
 import security from "@mapstore/reducers/security";
+import loginEpic from "@js/epics/login";
 
 const LoginState = connect((state) => ({
     user: state.security && state.security.user,
@@ -33,6 +34,7 @@ export default createPlugin('Login', {
             doNotHide: true
         }
     },
+    epics: loginEpic,
     reducers: {
         security
     }
