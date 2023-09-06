@@ -24,9 +24,8 @@ import {saveContextConfig} from "../actions/usersession";
  */
 const sessionSelector = createSelector([userSessionToSaveSelector, templatesSelector, userPluginsSelector],
     (session, templates = [], userPlugins) => {
-        const {map} = session;
         return {
-            map,
+            ...session,
             context: {
                 userPlugins
             },
