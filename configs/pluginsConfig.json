@@ -58,7 +58,8 @@
         "TOCItemsSettings",
         "FeatureEditor",
         "FilterLayer",
-        "AddGroup"
+        "AddGroup",
+        "Swipe"
       ],
       "autoEnableChildren": [
         "TOCItemsSettings",
@@ -182,7 +183,7 @@
         "symbolsPath": "assets/symbols/"
       },
       "dependencies": [
-        "SidebarMenu"
+        "TOC"
       ]
     },
     {
@@ -630,6 +631,33 @@
     {
       "name": "SidebarMenu",
       "hidden": true
+    },
+    {
+      "name": "MapViews",
+      "glyph": "map-view",
+      "title": "plugins.MapViews.title",
+      "description": "plugins.MapViews.description",
+      "dependencies": [
+        "SidebarMenu"
+      ]
+    },
+    {
+      "name": "LongitudinalProfileTool",
+      "glyph": "1-line",
+      "title": "plugins.LongitudinalProfileTool.title",
+      "description": "plugins.LongitudinalProfileTool.description",
+      "dependencies": [
+        "SidebarMenu"
+      ]
+    },
+    {
+      "name": "GeoProcessing",
+      "glyph": "globe-settings",
+      "title": "plugins.GeoProcessing.title",
+      "description": "plugins.GeoProcessing.description",
+      "dependencies": [
+        "SidebarMenu"
+      ]
     }
   ]
 }
