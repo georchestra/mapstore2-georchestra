@@ -1,3 +1,10 @@
+FROM alpine:latest as alpine
+RUN apk --update add unzip && rm -rf /var/cache/apk/*
+WORKDIR /tmp
+COPY docker/MapStore-*.war mapstore.war
+RUN unzip mapstore.war -d mapstore
+
+
 FROM tomcat:9-jdk11-openjdk
 MAINTAINER geosolutions<info@geo-solutions.it>
 
@@ -11,8 +18,8 @@ RUN if [ "$TOMCAT_EXTRAS" = false ]; then \
       find "${CATALINA_BASE}/webapps/" -delete; \
     fi
 
-# Add war files to be deployed
-COPY docker/*.war "${CATALINA_BASE}/webapps/mapstore.war"
+# Add application from first stage
+COPY --from=alpine /tmp/mapstore "${CATALINA_BASE}/webapps/mapstore"
 
 # Geostore externalization template. Disabled by default
 # COPY docker/geostore-datasource-ovr.properties "${CATALINA_BASE}/conf/"
