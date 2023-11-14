@@ -11,36 +11,21 @@ import { createPlugin, connect } from "@mapstore/utils/PluginsUtils";
 export const Header = ({url = "/header/", page = "mapstore", height = 90, ignoreIFrame = false, script = "https://cdn.jsdelivr.net/gh/georchestra/header@dist/header.js", legacy = false}) => {
     useEffect(() => {
         const header = document.getElementById("georchestra-header");
+        const headerScript = document.getElementById("georchestra-header-script");
         const container = document.getElementById("container");
         if (header) {
-            // Prevent creation of multiple headers
-            const existingGeorHeader = document.getElementsByTagName("geor-header");
-            if (existingGeorHeader?.length > 0) {
-                existingGeorHeader[0].remove();
-            }
-            const existingScript = document.querySelectorAll("script[src='" + script + "']");
-            if (existingScript?.length > 0) {
-                existingScript[0].remove();
-            }
             if (!ignoreIFrame && window.location !== window.parent.location) {
                 header.style.display = 'none';
                 if (container) {
                     container.style.top = '0';
                 }
             } else {
-                const georHeader = document.createElement("geor-header");
-                const georHeaderScript = document.createElement("script");
+                header.setAttribute("active-app", page);
+                header.setAttribute("legacy-url", url);
+                header.setAttribute("legacy-header", legacy);
+                header.setAttribute("style", `height:${height}px`);
+                headerScript.src = script;
 
-                georHeader.setAttribute("active-app", page);
-                georHeader.setAttribute("legacy-header", false);
-                georHeader.setAttribute("legacy-url", url);
-                georHeader.setAttribute("legacy-header", legacy);
-                georHeaderScript.src = script;
-                header.style.height = height + "px";
-
-
-                header.appendChild(georHeader);
-                header.appendChild(georHeaderScript);
                 if (container) {
                     container.style.top = height + "px";
                 }
