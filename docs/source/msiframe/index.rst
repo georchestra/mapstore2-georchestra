@@ -6,10 +6,9 @@ Simples iFrames for MapStore2
 What is msIframe ?
 ------------------
 
-It allow to simplify the use of iframes on external website, an example
+It allows to simplify the use of iframes on external website, an example
 is communication purposes. With it, you can use pretty much the same
-parameters as for sViewer, what make the map iframe’s URL generation
-simpler.
+parameters as for sViewer, so the map iframe’s URL generation is simpler.
 
 KVP parameters
 ==============
@@ -49,7 +48,7 @@ Comma-separated list of geOrchestra layer names with namespace
 extension. This is the fastest way to set up a map because we use
 context’s defined catalogs. It assumes :
 
--  layers are delivered by one of the context’s catalogs
+-  layers are provided by one of the context’s catalogs
 -  layers are queryable with INFO_FORMAT=text/html
 -  layers do have associated HTML templates
 
@@ -90,7 +89,7 @@ use layer*catalog*style*cql_filter examples :
    http://sdi.georchestra.org/mapstore/msIframe/?layers=geor:sdi*localgs*geor_sdi*title%3DPIGMA
    http://sdi.georchestra.org/mapstore/msIframe/?layers=geor:sdi***title%3DPIGMA
 
-**Warming :** CQL_FILTER have to be URL encoded
+**Warning :** CQL_FILTER have to be URL encoded
 
 s {string} (bug with popup not appearing => configure identifier with showInMapPopup to false)
 ----------------------------------------------------------------------------------------------
