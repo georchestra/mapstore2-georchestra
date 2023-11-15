@@ -217,8 +217,13 @@
         layers.forEach(l => {
           let params = l.split('*');
           let layer = {};
-          layer.title = params[0];
-          layer.name = params[0];
+
+          let split_name = params[0].split('~');
+          layer.name = split_name[0];
+          if( split_name.length>1 && split_name[1] ) {
+            layer.title = decodeURI(split_name[1]);
+          }
+
           var catalog;
           if(params.length>1 && params[1]) {
             catalog = catalogsList[params[1]];
