@@ -9,9 +9,10 @@ Welcome to geOrchestra documentation!
 This documentation provides an overview of how to use and configure MapStore inside geOrchestra.
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 5
 
    mapstore/index
    configuration/index
+   msiframe/index
    developer/index
    documentation
