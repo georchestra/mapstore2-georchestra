@@ -20,6 +20,8 @@ RUN if [ "$TOMCAT_EXTRAS" = false ]; then \
 
 # Add application from first stage
 COPY --from=extractwar /tmp/mapstore "${CATALINA_BASE}/webapps/mapstore"
+COPY georchestra-docker-scripts/ /
+
 
 # Geostore externalization template. Disabled by default
 # COPY docker/geostore-datasource-ovr.properties "${CATALINA_BASE}/conf/"
@@ -30,4 +32,7 @@ ENV JAVA_OPTS="${JAVA_OPTS} ${GEORCHESTRA_DATADIR_OPT}"
 # Set variable to better handle terminal commands
 ENV TERM xterm
 
+# Necessary to execute tomcat and custom scripts
+ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD ["catalina.sh", "run"]
 EXPOSE 8080
