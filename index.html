@@ -103,7 +103,7 @@
             width: 100%;
             height: 90px;
             border: none;
-            overflow: hidden;
+            overflow: visible;
             position: absolute;
         }
         #container {
@@ -124,7 +124,8 @@
 
     </head>
     <body>
-        <iframe id="georchestra-header" src="header.html" scrolling="no" frameBorder="0"></iframe>
+        <geor-header id="georchestra-header"></geor-header>
+        <script id="georchestra-header-script"></script>
         <div id="container">
             <div class="_ms2_init_spinner _ms2_init_center"><div></div></div>
             <div class="_ms2_init_text _ms2_init_center">Loading</div>
