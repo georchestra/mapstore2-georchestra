@@ -16,3 +16,4 @@ backend/.classpath
 backend/.project
 package-lock.json
 .idea/
+docker/*.war
