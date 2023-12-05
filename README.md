@@ -9,17 +9,21 @@ See https://georchestra.geo-solutions.it/ (work in progress)
 
 ## Building and install the project
 
-### Prerequisite 
+### Prerequisite
 
-**1. Clone the repository**
+**1. Requirements**
+
+You need to read the relevant requirements documentation according to your installation :
+
+https://docs.mapstore.geosolutionsgroup.com/en/latest/developer-guide/requirements/
+
+To read the appropriate requirements page, open the previous link and select the corresponding MapStore2 release in the bottom right corner.
+
+**2. Clone the repository**
 
 `git clone --recursive https://github.com/georchestra/mapstore2-georchestra.git`
 
-**2. Install NodeJS**
-
-* Suggested NodeJS 12.x, npm 6.x.
-* Minimal version : NodeJS >= 10, npm >= 6. 
-* NodeJS > 14.x is not currently supported
+**3. Install NodeJS**
 
 :warning: For minimal you may need to increase used memory limits.
 
@@ -27,21 +31,19 @@ To get more informations about nodejs install :
 
 * Instructions to install Nodejs from package manager : [here](https://nodejs.org/en/download/package-manager/)
 * Download source : [here](https://nodejs.org/en/download/)
-* Download a specific version : [here](https://nodejs.org/dist/)
+* Download a specific version : [here](https://nodejs.org/dist/) (v16 is recommended)
 
-**3. Install Java SDK**
+**4. Install Java SDK**
 
-Install Java SDK, if needed. Java 1.8, 9 and 11 are supported.
+If needed you can download Java here :
 
-You can download them from :
+* [8 (min)](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [9 (recommended)](https://www.oracle.com/technetwork/java/javase/downloads/java-archive-javase9-3934878.html)
+* [11 (max)](https://www.oracle.com/technetwork/java/javase/downloads/java-archive-javase11-5116896.html)
 
-* [1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-* [9](https://www.oracle.com/technetwork/java/javase/downloads/java-archive-javase9-3934878.html)
-* [11](https://www.oracle.com/technetwork/java/javase/downloads/java-archive-javase11-5116896.html)
+**5. Install Maven**
 
-**4. Install Maven**
-
-Install latest Maven, if needed, from [here](https://maven.apache.org/download.cgi) (version 3.5.2 is required).
+Install latest Maven, if needed, from [here](https://maven.apache.org/download.cgi).
 
 ### Build 
 
