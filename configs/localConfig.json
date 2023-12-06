@@ -127,129 +127,80 @@
               "local": {
                 "url": "/geonetwork/srv/fre/csw",
                 "type": "csw",
-                "title": "le catalogue local",
+                "title": "Catalogue de données de la plateforme",
                 "autoload": true
               },
               "localgs": {
                 "url": "/geoserver/ows",
                 "type": "wms",
-                "title": "le geoserver local",
+                "title": "Service de données de la plateforme",
                 "autoload": true
               },
-              "ignrasterwms": {
-                "url": "https://wxs.ign.fr/essentiels/geoportail/r/wms",
+              "gpfrasterwms": {
+                "url": "https://data.geopf.fr/wms-r/wms",
                 "type": "wms",
-                "title": "IGN essentiels RASTER",
+                "title": "Géoplateforme RASTER",
                 "autoload": true
               },
-              "gpfbetarasterwms": {
-                "url": "https://wms-r.geopf.fr/rok4/wms",
+              "gpfvectorwms": {
+                "url": "https://data.geopf.fr/wms-v/wms",
                 "type": "wms",
-                "title": "Géoplateforme (béta) RASTER",
+                "title": "Géoplateforme VECTOR",
                 "autoload": true
               },
-              "ignvectorwms": {
-                "url": "https://wxs.ign.fr/essentiels/geoportail/v/wms",
-                "type": "wms",
-                "title": "IGN essentiels VECTOR",
-                "autoload": true
-              },
-              "gpfbetavectorwms": {
-                "url": "https://wms-v.geopf.fr/geoserver/ows",
-                "type": "wms",
-                "title": "Géoplateforme (béta) VECTOR",
-                "autoload": true
-              },
-              "gpfbetawfs": {
-                "url": "https://wfs.geopf.fr/geoserver/ows",
+              "gpfwfs": {
+                "url": "https://data.geopf.fr/wfs/ows",
                 "type": "wfs",
-                "title": "Géoplateforme (béta) WFS",
+                "title": "Géoplateforme WFS",
                 "autoload": true
               },
-              "ignwmts": {
-                "url": "https://wxs.ign.fr/essentiels/geoportail/wmts",
+              "gpfwmts": {
+                "url": "https://data.geopf.fr/wmts",
                 "type": "wmts",
-                "title": "IGN essentiels WMTS",
+                "title": "Géoplateforme WMTS",
                 "autoload": true
               },
-              "gpfbetawmts": {
-                "url": "https://wmts.geopf.fr/rok4/wmts",
-                "type": "wmts",
-                "title": "Géoplateforme (béta) WMTS",
-                "autoload": true
-              },
-              "gpfbetatms": {
-                "url": "https://wmts.geopf.fr/rok4/tms/1.0.0/",
+              "gpftms": {
+                "url": "https://data.geopf.fr/tms/1.0.0/",
                 "type": "tms",
                 "provider":"tms",
-                "title": "Géoplateforme (béta) TMS",
+                "title": "Géoplateforme TMS",
                 "autoload": true
               },
-              "igndecouvertewmts": {
-                "url": "https://wxs.ign.fr/decouverte/geoportail/wmts",
-                "type": "wmts",
-                "title": "IGN decouverte WMTS",
+              "gpfcsw": {
+                "url": "https://data.geopf.fr/csw",
+                "type": "csw",
+                "title": "Géoplateforme CSW",
                 "autoload": true
               },
-              "igncartovectowms": {
-                "url": "https://wxs.ign.fr/cartovecto/geoportail/v/wms",
-                "type": "wms",
-                "title": "IGN carto vectorielle",
+              "sandre": {
+                "url": "https://www.sandre.eaufrance.fr/atlas/srv/fre/csw",
+                "type": "csw",
+                "title": "Référentiels de l'Eau en France (Sandre)",
                 "autoload": true
               },
-              "ignadministratifwms": {
-                "url": "https://wxs.ign.fr/administratif/geoportail/r/wms",
-                "type": "wms",
-                "title": "IGN administratif",
-                "autoload": true
-              },
-              "ignadressewms": {
-                "url": "https://wxs.ign.fr/adresse/geoportail/v/wms",
-                "type": "wms",
-                "title": "IGN adresse",
-                "autoload": true
-              },
-              "ignagriculturewms": {
-                "url": "https://wxs.ign.fr/agriculture/geoportail/r/wms",
-                "type": "wms",
-                "title": "IGN agriculture",
-                "autoload": true
-              },
-              "ignaltimetriewmts": {
-                "url": "https://wxs.ign.fr/altimetrie/geoportail/wmts",
-                "type": "wmts",
-                "title": "IGN altimetrie WMTS",
+              "craig": {
+                "url": "https://ids.craig.fr/geocat/srv/fre/csw",
+                "type": "csw",
+                "title": "Région Auvergne-Rhône-Alpes",
                 "autoload": true
               },
               "geobretagne": {
                 "url": "https://geobretagne.fr/geonetwork/srv/fre/csw",
                 "type": "csw",
-                "title": "le catalogue GeoBretagne",
+                "title": "Région Bretagne",
                 "autoload": true
               },
-              "sandre": {
-                "url": "http://www.sandre.eaufrance.fr/atlas/srv/fre/csw",
+              "geo2france": {
+                "url": "https://www.geo2france.fr/geonetwork/srv/fre/csw",
                 "type": "csw",
-                "title": "le catalogue du Sandre",
+                "title": "Région Hauts-de-France",
                 "autoload": true
               },
-              "webservice_energy": {
-                "url": "http://geocatalog.webservice-energy.org/geonetwork/srv/fre/csw",
+              "datagrandest": {
+                "url": "https://www.datagrandest.fr/geonetwork/srv/fre/csw",
                 "type": "csw",
-                "title": "le catalogue de webservice-energy",
-                "autoload": true
-              },
-              "ifremer": {
-                "NOTE": "NOT WORKING, requires login. This is configured on the current viewer but do not provide any response",
-                "url": "http://www.ifremer.fr/geonetwork/srv/fre/csw",
-                "type": "csw",
-                "title": "le catalogue de l'Ifremer",
-                "autoload": true
-              },
-              "geograndest": {
-                "url": "https://www.geograndest.fr/geonetwork/srv/fre/csw",
-                "type": "csw",
-                "title": "le catalogue de GéoGrandEst",
+                "title": "Région Grand Est",
                 "autoload": true
               }
             },
