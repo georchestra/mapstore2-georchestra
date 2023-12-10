@@ -16,4 +16,6 @@ backend/.classpath
 backend/.project
 package-lock.json
 .idea/
+*.iml
+.nvmrc
 docker/*.war
