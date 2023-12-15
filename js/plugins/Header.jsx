@@ -8,7 +8,11 @@
 import {useEffect} from "react";
 import { createPlugin, connect } from "@mapstore/utils/PluginsUtils";
 
-export const Header = ({url = "/header/", page = "mapstore", height = 90, ignoreIFrame = false, script = "https://cdn.jsdelivr.net/gh/georchestra/header@dist/header.js", legacy = false}) => {
+export const Header = ({url = "/header/", page = "mapstore", height = 90, ignoreIFrame = false,
+                           script = "https://cdn.jsdelivr.net/gh/georchestra/header@dist/header.js",
+                           legacy = false,
+                           logo= "https://www.georchestra.org/public/georchestra-logo.svg",
+                           stylesheet= ""}) => {
     useEffect(() => {
         const header = document.getElementById("georchestra-header");
         const headerScript = document.getElementById("georchestra-header-script");
@@ -24,6 +28,8 @@ export const Header = ({url = "/header/", page = "mapstore", height = 90, ignore
                 header.setAttribute("legacy-url", url);
                 header.setAttribute("legacy-header", legacy);
                 header.setAttribute("style", `height:${height}px`);
+                header.setAttribute("logo-url", logo);
+                header.setAttribute("stylesheet", stylesheet);
                 headerScript.src = script;
 
                 if (container) {
@@ -41,6 +47,8 @@ export default createPlugin('Header', {
         url: state.localConfig && state.localConfig.header && state.localConfig.header.url,
         height: state.localConfig && state.localConfig.header && state.localConfig.header.height,
         script: state.localConfig && state.localConfig.header && state.localConfig.header.script,
-        legacy: state.localConfig && state.localConfig.header && state.localConfig.header.legacy
+        legacy: state.localConfig && state.localConfig.header && state.localConfig.header.legacy,
+        logo: state.localConfig && state.localConfig.header && state.localConfig.header.logo,
+        stylesheet: state.localConfig && state.localConfig.header && state.localConfig.header.stylesheet
     }))(Header)
 });
