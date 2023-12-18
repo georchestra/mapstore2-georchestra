@@ -9,10 +9,10 @@ import {useEffect} from "react";
 import { createPlugin, connect } from "@mapstore/utils/PluginsUtils";
 
 export const Header = ({url = "/header/", page = "mapstore", height = 90, ignoreIFrame = false,
-                           script = "https://cdn.jsdelivr.net/gh/georchestra/header@dist/header.js",
-                           legacy = false,
-                           logo= "https://www.georchestra.org/public/georchestra-logo.svg",
-                           stylesheet= ""}) => {
+    script = "https://cdn.jsdelivr.net/gh/georchestra/header@dist/header.js",
+    legacy = false,
+    logo = "https://www.georchestra.org/public/georchestra-logo.svg",
+    stylesheet = ""}) => {
     useEffect(() => {
         const header = document.getElementById("georchestra-header");
         const headerScript = document.getElementById("georchestra-header-script");
