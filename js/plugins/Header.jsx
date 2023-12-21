@@ -11,7 +11,7 @@ import { createPlugin, connect } from "@mapstore/utils/PluginsUtils";
 export const Header = ({url = "/header/", page = "mapstore", height = 90, ignoreIFrame = false,
     script = "https://cdn.jsdelivr.net/gh/georchestra/header@dist/header.js",
     legacy = false,
-    logo = "https://www.georchestra.org/public/georchestra-logo.svg",
+    logoUrl = "https://www.georchestra.org/public/georchestra-logo.svg",
     stylesheet = ""}) => {
     useEffect(() => {
         const header = document.getElementById("georchestra-header");
@@ -28,7 +28,7 @@ export const Header = ({url = "/header/", page = "mapstore", height = 90, ignore
                 header.setAttribute("legacy-url", url);
                 header.setAttribute("legacy-header", legacy);
                 header.setAttribute("style", `height:${height}px`);
-                header.setAttribute("logo-url", logo);
+                header.setAttribute("logo-url", logoUrl);
                 header.setAttribute("stylesheet", stylesheet);
                 headerScript.src = script;
 
@@ -48,7 +48,7 @@ export default createPlugin('Header', {
         height: state.localConfig && state.localConfig.header && state.localConfig.header.height,
         script: state.localConfig && state.localConfig.header && state.localConfig.header.script,
         legacy: state.localConfig && state.localConfig.header && state.localConfig.header.legacy,
-        logo: state.localConfig && state.localConfig.header && state.localConfig.header.logo,
+        logoUrl: state.localConfig && state.localConfig.header && state.localConfig.header.logoUrl,
         stylesheet: state.localConfig && state.localConfig.header && state.localConfig.header.stylesheet
     }))(Header)
 });
