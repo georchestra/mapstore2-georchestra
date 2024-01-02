@@ -31,7 +31,7 @@ To get more informations about nodejs install :
 
 * Instructions to install Nodejs from package manager : [here](https://nodejs.org/en/download/package-manager/)
 * Download source : [here](https://nodejs.org/en/download/)
-* Download a specific version : [here](https://nodejs.org/dist/) (v16 is recommended)
+* Download a specific version : [here](https://nodejs.org/dist/) (v16 is required)
 
 **4. Install Java SDK**
 
