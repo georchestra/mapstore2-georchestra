@@ -374,7 +374,20 @@
               }
             },
             "Permalink",
-            "MetadataExplorer",
+            {
+              "name": "MetadataExplorer",
+              "cfg": {
+                  "serviceTypes": [
+                    { "name": "csw", "label": "CSW" }, 
+                    { "name": "wms", "label": "WMS" }, 
+                    { "name": "wmts", "label": "WMTS" }, 
+                    { "name": "tms", "label": "TMS", "allowedProviders": ["OpenStreetMap", "OpenSeaMap", "Stamen"] }, 
+                    { "name": "wfs", "label": "WFS" }, 
+                    { "name": "3dtiles", "label": "3D Tiles" },
+                    { "name": "cog", "label": "COG" }
+                  ]
+              }
+          },
             "MapImport",
             "MapExport",
             "GlobeViewSwitcher"
@@ -549,7 +562,16 @@
                 "name": "MetadataExplorer",
                 "cfg": {
                     "zoomToLayer": false,
-                    "wrap": true
+                    "wrap": true,
+                    "serviceTypes": [
+                      { "name": "csw", "label": "CSW" }, 
+                      { "name": "wms", "label": "WMS" }, 
+                      { "name": "wmts", "label": "WMTS" }, 
+                      { "name": "tms", "label": "TMS", "allowedProviders": ["OpenStreetMap", "OpenSeaMap", "Stamen"] }, 
+                      { "name": "wfs", "label": "WFS" }, 
+                      { "name": "3dtiles", "label": "3D Tiles" },
+                      { "name": "cog", "label": "COG" }
+                    ]
                 }
             }, {
               "name": "MousePosition",
