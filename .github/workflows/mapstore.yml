@@ -115,3 +115,13 @@ jobs:
       if: contains(github.ref, 'refs/tags/') && github.repository == 'georchestra/mapstore2-georchestra' && github.event_name == 'push'
       run: |
         docker push georchestra/mapstore:${{ steps.version.outputs.VERSION }}
+
+    - name: "Update Docker Hub Description"
+      if: github.ref == 'refs/heads/master' && github.repository == 'georchestra/mapstore2-georchestra' && github.actor != 'dependabot[bot]' && github.event_name != 'pull_request'
+      uses: peter-evans/dockerhub-description@v3
+      with:
+        username: ${{ secrets.DOCKER_HUB_USERNAME }}
+        password: ${{ secrets.DOCKER_HUB_PASSWORD }}
+        repository: georchestra/mapstore
+        readme-filepath: ./DOCKER_HUB.md
+        short-description: 'Mapstore module for geOrchestra SDI'
