@@ -1,11 +1,11 @@
 {
   "map": {
-    "projection": "EPSG:3857",
+    "projection": "EPSG:900913",
     "units": "m",
       "center": {
         "x": 315445.640682,
         "y": 5971955.5,
-        "crs": "EPSG:3857"
+        "crs": "EPSG:900913"
       },
       "zoom": 6,
     "maxExtent": [
