@@ -67,21 +67,7 @@ The latest of each can be donwloaded from:
 * [8.x](https://tomcat.apache.org/download-80.cgi)
 * [9.x](https://tomcat.apache.org/download-90.cgi)
 
-## Building the documentation
 
-To build the documentation you need [sphinx](https://www.sphinx-doc.org/en/master/usage/installation.html) and some extensions (sphinx_rtd_theme and recommonmark), you can install using pip :
-
-```sh
-pip install sphinx_rtd_theme
-pip install recommonmark
-```
-
-Now, you can build html documentation using :
-
-```sh
-cd docs # enter in the docs folder
-make html # create html documentation
-```
 ## Versioning
 `MapStore2-geOrchestra` and `MapStore2` versions(**_stable branch name_**) are added to `version.txt` one below the other (_order is strictly followed_)
 
