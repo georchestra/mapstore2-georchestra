@@ -5,6 +5,8 @@
 
 The online documentation is available here : [https://docs.georchestra.org/mapstore2/](https://docs.georchestra.org/mapstore2/).
 
+The previous documentation (from the beginning of the project) is available here : [https://georchestra-mapstore2.readthedocs.io/en/latest/mapstore/index.html](https://georchestra-mapstore2.readthedocs.io/en/latest/mapstore/index.html).
+
 
 ## Contributing to the documentation
 
