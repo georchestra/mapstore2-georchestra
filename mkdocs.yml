@@ -1,7 +1,7 @@
-site_name: Template pour la documentation d'un composant geOrchestra
+site_name: MapStore2 pour geOrchestra
 
-repo_url: https://github.com/georchestra/georchestra_documentation
-repo_name: georchestra-documentation
+repo_url: https://github.com/georchestra/mapstore2-georchestra
+repo_name: mapstore2-georchestra
 
 docs_dir: docs
 edit_uri: edit/main/docs/
@@ -36,7 +36,7 @@ extra:
       link: https://groups.google.com/group/georchestra-dev?hl=fr
     - icon: fontawesome/regular/comments
       link: https://kiwiirc.com/client/irc.libera.chat/georchestra
-copyright: '© 2023 - geOrchestra'
+copyright: '© 2024 - geOrchestra'
 
 extra_css:
     - css/extra.css
@@ -60,6 +60,7 @@ nav:
         - Administrer:
             - guides_techniques/administrer/index.md
             - guides_techniques/administrer/une_page.md
+            - guides_techniques/administrer/3d.md
         - Installer:
             - guides_techniques/installer/index.md
             - guides_techniques/installer/00_presentation.md
