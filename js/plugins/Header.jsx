@@ -31,6 +31,13 @@ export const Header = ({url = "/header/", page = "mapstore", height = 90, ignore
                 header.setAttribute("logo-url", logoUrl);
                 header.setAttribute("stylesheet", stylesheet);
                 headerScript.src = script;
+                if (stylesheet) {
+                    const link = document.createElement("link");
+                    link.setAttribute("rel", "stylesheet");
+                    link.setAttribute("type", "text/css");
+                    link.setAttribute("href", stylesheet);
+                    document.head.appendChild(link);
+                }
 
                 if (container) {
                     container.style.top = height + "px";
