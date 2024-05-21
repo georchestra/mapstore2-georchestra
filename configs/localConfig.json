@@ -18,6 +18,7 @@
       "enabled": true,
       "contextOnly": true
     },
+    "stylesheetUri": "",
     "header": {
       "height": 90,
       "url": "/header/",
@@ -265,7 +266,7 @@
       "homePath": "/home"
     },
     "plugins": {
-        "mobile": ["Header", {
+        "mobile": ["Header", "Easytheming", {
                 "name": "Map",
                 "cfg": {
                     "mapOptions": {
@@ -378,11 +379,11 @@
               "name": "MetadataExplorer",
               "cfg": {
                   "serviceTypes": [
-                    { "name": "csw", "label": "CSW" }, 
-                    { "name": "wms", "label": "WMS" }, 
-                    { "name": "wmts", "label": "WMTS" }, 
-                    { "name": "tms", "label": "TMS", "allowedProviders": ["OpenStreetMap", "OpenSeaMap", "Stamen"] }, 
-                    { "name": "wfs", "label": "WFS" }, 
+                    { "name": "csw", "label": "CSW" },
+                    { "name": "wms", "label": "WMS" },
+                    { "name": "wmts", "label": "WMTS" },
+                    { "name": "tms", "label": "TMS", "allowedProviders": ["OpenStreetMap", "OpenSeaMap", "Stamen"] },
+                    { "name": "wfs", "label": "WFS" },
                     { "name": "3dtiles", "label": "3D Tiles" },
                     { "name": "cog", "label": "COG" }
                   ]
@@ -393,7 +394,7 @@
             "GlobeViewSwitcher"
         ],
         "desktop": [
-          "Header",
+          "Header", "Easytheming",
           "Details",
           {
             "name": "Map",
@@ -564,11 +565,11 @@
                     "zoomToLayer": false,
                     "wrap": true,
                     "serviceTypes": [
-                      { "name": "csw", "label": "CSW" }, 
-                      { "name": "wms", "label": "WMS" }, 
-                      { "name": "wmts", "label": "WMTS" }, 
-                      { "name": "tms", "label": "TMS", "allowedProviders": ["OpenStreetMap", "OpenSeaMap", "Stamen"] }, 
-                      { "name": "wfs", "label": "WFS" }, 
+                      { "name": "csw", "label": "CSW" },
+                      { "name": "wms", "label": "WMS" },
+                      { "name": "wmts", "label": "WMTS" },
+                      { "name": "tms", "label": "TMS", "allowedProviders": ["OpenStreetMap", "OpenSeaMap", "Stamen"] },
+                      { "name": "wfs", "label": "WFS" },
                       { "name": "3dtiles", "label": "3D Tiles" },
                       { "name": "cog", "label": "COG" }
                     ]
@@ -1072,7 +1073,7 @@
           "ContextExport"
         ],
         "context": [
-          "Header"
+          "Header", "Easytheming"
         ]
     }
 }
