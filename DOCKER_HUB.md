@@ -4,11 +4,11 @@
       [georchestra.org](https://www.georchestra.org/)
 
 -    **Where to get help**:  
-     the [geOrchestra Github repo](https://github.com/georchestra/georchestra), [IRC chat](https://kiwiirc.com/nextclient/irc.libera.chat/georchestra), Stack Overflow
+     the [geOrchestra Github repo](https://github.com/georchestra/georchestra), [IRC chat](https://matrix.to/#/#georchestra:osgeo.org), Stack Overflow
 
 # Featured tags
 
-- `latest`, `2022.02.02-geOrchestra`
+- `latest`, `2023.02.02-geOrchestra`, `2023.02.01-geOrchestra`, `2022.02.02-geOrchestra`
 
 # Quick reference
 
