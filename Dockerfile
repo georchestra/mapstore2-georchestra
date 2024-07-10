@@ -1,7 +1,7 @@
 FROM alpine:latest as extractwar
 RUN apk --no-cache add unzip
 WORKDIR /tmp
-COPY docker/MapStore-*.war mapstore.war
+COPY docker/mapstore.war mapstore.war
 RUN unzip mapstore.war -d mapstore
 
 
@@ -22,6 +22,7 @@ RUN if [ "$TOMCAT_EXTRAS" = false ]; then \
 # Add application from first stage
 COPY --from=extractwar /tmp/mapstore "${CATALINA_BASE}/webapps/mapstore"
 COPY georchestra-docker-scripts/ /
+COPY docker/server.xml "${CATALINA_BASE}/conf/"
 
 
 # Geostore externalization template. Disabled by default
