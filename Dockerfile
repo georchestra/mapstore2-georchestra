@@ -1,7 +1,7 @@
 FROM alpine:latest as extractwar
 RUN apk --no-cache add unzip
 WORKDIR /tmp
-COPY docker/mapstore.war mapstore.war
+COPY docker/MapStore-*.war mapstore.war
 RUN unzip mapstore.war -d mapstore
 
 
