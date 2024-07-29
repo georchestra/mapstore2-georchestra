@@ -22,6 +22,8 @@ RUN if [ "$TOMCAT_EXTRAS" = false ]; then \
 # Add application from first stage
 COPY --from=extractwar /tmp/mapstore "${CATALINA_BASE}/webapps/mapstore"
 COPY georchestra-docker-scripts/ /
+# SHould be override in 2024.xx when a server.xml on 8080 will be available
+COPY docker/server.xml "${CATALINA_BASE}/conf/"
 
 
 # Geostore externalization template. Disabled by default
