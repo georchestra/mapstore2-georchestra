@@ -5,7 +5,6 @@
       "glyph": "1-map",
       "mandatory": true,
       "defaultConfig": {
-        "mapTypeOverride": "openlayers",
         "mapOptions": {
           "openlayers": {
             "interactions": {
@@ -59,7 +58,8 @@
         "FeatureEditor",
         "FilterLayer",
         "AddGroup",
-        "Swipe"
+        "Swipe",
+        "MetadataInfo"
       ],
       "autoEnableChildren": [
         "TOCItemsSettings",
@@ -213,7 +213,8 @@
       "title": "plugins.Home.title",
       "description": "plugins.Home.description",
       "dependencies": [
-        "OmniBar"
+        "OmniBar",
+        "SidebarMenu"
       ]
     },
     {
@@ -398,6 +399,9 @@
       "name": "Swipe"
     },
     {
+      "name": "MetadataInfo"
+    },
+    {
       "name": "SearchByBookmark"
     },
     {
@@ -485,9 +489,14 @@
       "denyUserSelection": true,
       "title": "plugins.Save.title",
       "description": "plugins.Save.description",
-      "dependencies": [
-        "SidebarMenu",
+      "children": [
         "SaveAs"
+      ],
+      "autoEnableChildren": [
+        "SaveAs"
+      ],
+      "dependencies": [
+        "SidebarMenu"
       ]
     },
     {
