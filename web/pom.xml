@@ -600,36 +600,8 @@
                             <excludeAllDependencies>true</excludeAllDependencies>
                         </configuration>
                     </plugin>
-                    <plugin>
-                        <groupId>com.coderplus.maven.plugins</groupId>
-                        <artifactId>copy-rename-maven-plugin</artifactId>
-                        <version>1.0</version>
-                        <executions>
-                            <execution>
-                                <id>rename-context</id>
-                                <phase>prepare-package</phase>
-                                <goals>
-                                    <goal>copy</goal>
-                                </goals>
-                                <configuration>
-                                    <overWrite>true</overWrite>
-                                    <sourceFile>src/printing/applicationContext-print.xml</sourceFile>
-                                    <destinationFile>target/mapstore/WEB-INF/classes/applicationContext-print.xml</destinationFile>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
                 </plugins>
             </build>
-            <dependencyManagement>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.apache.httpcomponents</groupId>
-                        <artifactId>httpclient</artifactId>
-                        <version>${httpclient.version}</version>
-                    </dependency>
-                </dependencies>
-            </dependencyManagement>
         </profile>
     </profiles>
   <repositories>
