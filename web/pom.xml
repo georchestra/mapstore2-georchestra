@@ -625,16 +625,6 @@
         </snapshots>
     </repository>
 
-      <!-- OSGEO snapshot (mapfish-print)-->
-      <repository>
-          <id>osgeo-snapshot</id>
-          <name>Open Source Geospatial Foundation Repository</name>
-          <url>https://repo.osgeo.org/repository/snapshot/</url>
-          <snapshots>
-              <enabled>true</enabled>
-          </snapshots>
-      </repository>
-
      <!-- Georchestra -->
      <repository>
         <id>georchestra</id>
