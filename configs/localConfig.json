@@ -833,17 +833,44 @@
             "fluid": true
           }
         }],
-      "dashboard": [{
-        "name": "OmniBar",
-        "cfg": {
-          "containerPosition": "header",
-          "className": "navbar shadow navbar-home"
-        }
-      }, "Login", "Language", "NavMenu",
+      "dashboard": [
+        {
+          "name": "OmniBar",
+          "cfg": {
+            "containerPosition": "header",
+            "className": "navbar shadow navbar-home"
+          }
+        }, 
+        "Details",
+        "AddWidgetDashboard",
+        "MapConnectionDashboard",
+        {
+          "name": "SidebarMenu",
+          "cfg": {
+            "containerPosition": "columns"
+          }
+        },
+        {
+          "name": "Home",
+          "override": {
+            "OmniBar": {
+              "priority": 5
+            }
+          }
+        },
+        {
+          "name": "Login",
+          "override": {
+            "OmniBar": {
+              "priority": 5
+            }
+          }
+        },
+        "Language", "NavMenu",
         "DashboardSave", "DashboardSaveAs",
         "DashboardExport", "DashboardImport",
         "DeleteDashboard",
-        "Attribution", "Home", {
+        "Attribution", {
         "name": "Share",
         "cfg": {
           "showAPI": false,
@@ -888,7 +915,7 @@
             },
             "containerPosition": "columns"
           }
-        }, "BurgerMenu", "Dashboard", "Notifications", {
+        }, "Dashboard", "Notifications", {
           "name": "Tutorial",
           "cfg": {
             "allowClicksThruHole": false,
