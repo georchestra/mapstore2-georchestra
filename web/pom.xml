@@ -45,7 +45,7 @@
         <groupId>it.geosolutions.mapstore</groupId>
         <artifactId>mapstore-services</artifactId>
         <version>${mapstore-services.version}</version>
-        <!-- Fix issuew with MapStoter 2024.02.00 -->
+        <!-- Fix issuew with MapStore 2024.02.00 spring secuirty duplication. Could be removed for 2024.02.01 -->
         <exclusions>
             <exclusion>
                 <groupId>org.springframework.security</groupId>
