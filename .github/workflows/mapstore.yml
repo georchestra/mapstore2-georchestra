@@ -71,7 +71,7 @@ jobs:
       run: mkdir -p scratch && cp web/target/georchestra-mapstore*.deb scratch/georchestra-mapstore-${{ github.sha }}.deb
 
     - name: "publish deb as artifact"
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v4
       with:
         name: georchestra-mapstore.deb
         path: scratch/georchestra-mapstore-${{ github.sha }}.deb
@@ -80,7 +80,7 @@ jobs:
       run: mkdir -p scratch && cp web/target/mapstore.war scratch/mapstore-${{ github.sha }}.war
 
     - name: "publish war as artifact"
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v4
       with:
         name: mapstore.war
         path: scratch/mapstore-${{ github.sha }}.war

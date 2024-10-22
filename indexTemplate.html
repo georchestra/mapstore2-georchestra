@@ -121,9 +121,10 @@
                 src: local('Noto Sans'), local('NotoSans-Regular'), url(assets/fonts/NotoSans.ttf) format('truetype');
           }
       </style>
-      <link rel="stylesheet" href="assets/css/font-awesome.min.css" />
       <script src="assets/js/proj4.js"></script>
-      <script async type="text/javascript" src="assets/js/es5.js" onload="checkBrowser()"></script>
+      <script src="https://unpkg.com/bowser@2.7.0/es5.js"
+              async integrity="sha384-CWiXbo5RNu6nv9tiCWA2y1DQKjEQDDH+yFQga1FytuIZjOTcVr+4ojw2S2lShj/d" crossorigin="anonymous"
+              onload="checkBrowser()"></script>
       <script type="text/javascript">
           function checkBrowser() {
               var browserInfo = bowser.getParser(window.navigator.userAgent);
