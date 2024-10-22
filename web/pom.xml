@@ -26,7 +26,7 @@
     <maven.build.timestamp.format>yyyyMMddHHmm</maven.build.timestamp.format>
       <tomcat.version>8.5.69</tomcat.version>
       <tomcat.port>8080</tomcat.port>
-      <mapstore-services.version>1.8.0</mapstore-services.version>
+      <mapstore-services.version>1.8-SNAPSHOT</mapstore-services.version>
       <geostore-webapp.version>2.2.0</geostore-webapp.version>
       <http_proxy.version>1.5.0</http_proxy.version>
       <print-lib.version>2.3.1</print-lib.version>
@@ -45,25 +45,6 @@
         <groupId>it.geosolutions.mapstore</groupId>
         <artifactId>mapstore-services</artifactId>
         <version>${mapstore-services.version}</version>
-        <!-- Fix issuew with MapStore 2024.02.00 spring secuirty duplication. Could be removed for 2024.02.01 -->
-        <exclusions>
-            <exclusion>
-                <groupId>org.springframework.security</groupId>
-                <artifactId>spring-security-core</artifactId>
-            </exclusion>
-            <exclusion>
-                <groupId>org.springframework.security</groupId>
-                <artifactId>spring-security-web</artifactId>
-            </exclusion>
-            <exclusion>
-                <groupId>org.springframework.security</groupId>
-                <artifactId>spring-security-config</artifactId>
-            </exclusion>
-            <exclusion>
-                <groupId>org.springframework.security</groupId>
-                <artifactId>spring-security-ldap</artifactId>
-            </exclusion>
-        </exclusions>
     </dependency>
     <!-- ================================================================ -->
     <!-- GeoStore modules -->
