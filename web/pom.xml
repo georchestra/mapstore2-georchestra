@@ -45,6 +45,25 @@
         <groupId>it.geosolutions.mapstore</groupId>
         <artifactId>mapstore-services</artifactId>
         <version>${mapstore-services.version}</version>
+        <!-- Fix issuew with MapStoter 2024.02.00 -->
+        <exclusions>
+            <exclusion>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-core</artifactId>
+            </exclusion>
+            <exclusion>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-web</artifactId>
+            </exclusion>
+            <exclusion>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-config</artifactId>
+            </exclusion>
+            <exclusion>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-ldap</artifactId>
+            </exclusion>
+        </exclusions>
     </dependency>
     <!-- ================================================================ -->
     <!-- GeoStore modules -->
