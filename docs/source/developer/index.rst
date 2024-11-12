@@ -3,9 +3,9 @@ Developer Guide
 To start using the MapStore geOrchestra project as a developer you need the following:
 
  * install the needed requirements:
-     * NodeJS (>=8)
-     * JDK (>= 8)
-     * Maven (>= 3.x)
+     * NodeJS (>=16)
+     * JDK (>= 11)
+     * Maven (>= 3.6)
 
  * clone the GitHub repository:
 
