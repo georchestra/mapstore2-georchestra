@@ -37,6 +37,9 @@ create table gs_resource (
     metadata varchar(30000),
     name varchar(255) not null,
     category_id int8 not null,
+    creator varchar(255),
+    editor varchar(255),
+    advertised bool not null default true,
     primary key (id),
     unique (name)
 );
