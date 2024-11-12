@@ -44,7 +44,10 @@ module.exports = require("./MapStore2/build/buildConfig")({
             target: `${DEV_PROTOCOL}://${DEV_HOST}/mapstore`,
             secure: false,
             headers: {
-                host: `${DEV_HOST}`
+                host: `${DEV_HOST}`,
+                // change those for your local instance
+                "sec-username": 'testadmin',
+                "sec-roles": 'ROLE_MAPSTORE_ADMIN'
             }
         },
         "/pdf": {
@@ -81,6 +84,23 @@ module.exports = require("./MapStore2/build/buildConfig")({
             secure: false,
             headers: {
                 host: `${DEV_HOST}`
+            }
+        },
+        "/cas": {
+            target: `${DEV_PROTOCOL}://${DEV_HOST}`,
+            secure: false,
+            headers: {
+                host: `${DEV_HOST}`
+            }
+        },
+        "/whoami": {
+            target: `${DEV_PROTOCOL}://${DEV_HOST}`,
+            secure: false,
+            headers: {
+                host: `${DEV_HOST}`,
+                // change those for your local instance
+                "sec-username": 'testadmin',
+                "sec-roles": 'ROLE_MAPSTORE_ADMIN'
             }
         }
     }}
