@@ -119,6 +119,23 @@ To start the frontend locally, just run:
 
 Your application will be available at http://localhost:8081
 
+If developing remotely, you can tell webpack to serve the files at a given hostname/ip, eg in `package.json <https://github.com/georchestra/mapstore2-georchestra/blob/master/package.json#L124>`_:
+
+.. code-block:: diff
+    :caption: package.json.diff
+
+    -    "start": "webpack serve --progress --color --port 8081 --hot --inline --content-base .",
+    +    "start": "webpack serve --progress --color --public my.georchestra.org --host 0.0.0.0 --port 8081 --hot --inline --content-base .",
+
+will make it available at http://my.georchestra.org:8081
+
+When doing modifications on the frontend code, ``webpack`` will automatically
+rebundle the source and reload the page, no need to do that manually.
+
+The only way to get *unminified* javascript debugguable via the browser console is to use ``npm start`` which uses the `debug configuration for webpack <https://github.com/georchestra/mapstore2-georchestra/blob/master/webpack.config.js>`_.
+
+The `production configuration <https://github.com/georchestra/mapstore2-georchestra/blob/master/prod-webpack.config.js#L26>`_ minimises the javascript.
+
 Mocking security
 ----------------
 
