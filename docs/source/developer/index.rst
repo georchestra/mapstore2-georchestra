@@ -199,3 +199,19 @@ Next, to change the default theme you have to open the ``localConfig.json`` and 
           }
         }
     }
+
+Managing the branches
+---------------------
+
+When developing a feature or upgrading a local installation, one often switches branches from ``master`` to other stable branches.
+
+in all cases, it is **strongly** advised to run the following when switching branches:
+
+  .. code-block:: shell
+
+    git checkout <branch>
+    git submodule update
+    rm -Rf package-lock.json node_modules/ MapStore2/node_modules # clean up
+    npm install
+
+otherwise you might run into conflicts between various version of the javascript libraries
