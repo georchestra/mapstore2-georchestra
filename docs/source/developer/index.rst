@@ -66,8 +66,47 @@ To deploy your local backend you will need to:
 
  * properly change the configuration files, in particular to set the database and LDAP repository connection settings
 
-If you don't have a local database and LDAP repository properly configured for geOrchestra you can use remote ones.
+If you don't have a local database and LDAP repository properly configured for geOrchestra you can use remote ones,
+by configuring their access in ``web/src/main/resources/mapstore.properties``
+
 Remember: to use a local backend both a PostgreSQL database and LDAP repository needs to be available and properly populated.
+
+If you dont want to have a PostgreSQL database, you can fallback to h2 using this diff:
+
+.. code-block:: diff
+    :caption: web/src/main/resources/applicationContext.xml.diff
+    @@ -127,15 +127,8 @@
+                    <property name="ignoreUnresolvablePlaceholders" value="true"/>
+            </bean>
+         <bean id="georchestraDataSource" class="org.apache.commons.dbcp.BasicDataSource">
+    -        <property name="driverClassName" value="org.postgresql.Driver" />
+    -        <property name="url" value="jdbc:postgresql://${pgsqlHost:localhost}:${pgsqlPort:5432}/${pgsqlDatabase:georchestra}" />
+    -        <property name="username" value="${pgsqlUser:postgres}" />
+    -        <property name="password" value="${pgsqlPassword:}" />
+    -        <property name="initialSize" value="${dataSource.initialSize:0}" />
+    -        <property name="minIdle" value="${dataSource.minIdle:0}" />
+    -        <property name="maxIdle" value="${dataSource.maxIdle:8}" />
+    -        <property name="minEvictableIdleTimeMillis" value="${dataSource.minEvictableIdleTimeMillis:180000}" />
+    -        <property name="timeBetweenEvictionRunsMillis" value="${dataSource.timeBetweenEvictionRunsMillis:3000}" />
+    +        <property name="driverClassName" value="org.h2.Driver" />
+    +        <property name="url" value="jdbc:h2:./test"/>
+         </bean>
+         <bean id="georchestraEntityManagerFactory"
+                     class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+    @@ -155,7 +148,7 @@
+                     <entry key="hibernate.connection.autocommit" value="true"/>
+                     <entry key="hibernate.generate_statistics" value="false"/>
+                     <entry key="hibernate.hbm2ddl.auto" value="update" />
+    -                <entry key="hibernate.default_schema" value="${pgsqlGeoStoreSchema:geostore}" />
+    +<!--                <entry key="hibernate.default_schema" value="${pgsqlGeoStoreSchema:geostore}" /> -->
+                 </map>
+             </property>
+         </bean>
+
+running the local backend with ``npm run backend:dev`` will create a new ``test.h2.db`` database in the tomcat root.
+
+if you start the local backend outside of an existing tomcat instance, you should also set the ``georchestra.datadir``
+property in the ``properties`` `section of web/pom.xml <https://github.com/georchestra/mapstore2-georchestra/blob/master/web/pom.xml#L20>`_, pointing at the full path of your local datadir.
 
 Developing the frontend
 -----------------------
