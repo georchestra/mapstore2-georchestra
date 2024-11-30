@@ -3,9 +3,9 @@ Developer Guide
 To start using the MapStore geOrchestra project as a developer you need the following:
 
  * install the needed requirements:
-     * NodeJS (>=8)
-     * JDK (>= 8)
-     * Maven (>= 3.x)
+     * NodeJS (>=16)
+     * JDK (>= 11)
+     * Maven (>= 3.6)
 
  * clone the GitHub repository:
 
@@ -66,8 +66,47 @@ To deploy your local backend you will need to:
 
  * properly change the configuration files, in particular to set the database and LDAP repository connection settings
 
-If you don't have a local database and LDAP repository properly configured for geOrchestra you can use remote ones.
+If you don't have a local database and LDAP repository properly configured for geOrchestra you can use remote ones,
+by configuring their access in ``web/src/main/resources/mapstore.properties``
+
 Remember: to use a local backend both a PostgreSQL database and LDAP repository needs to be available and properly populated.
+
+If you dont want to have a PostgreSQL database, you can fallback to h2 using this diff:
+
+.. code-block:: diff
+    :caption: web/src/main/resources/applicationContext.xml.diff
+    @@ -127,15 +127,8 @@
+                    <property name="ignoreUnresolvablePlaceholders" value="true"/>
+            </bean>
+         <bean id="georchestraDataSource" class="org.apache.commons.dbcp.BasicDataSource">
+    -        <property name="driverClassName" value="org.postgresql.Driver" />
+    -        <property name="url" value="jdbc:postgresql://${pgsqlHost:localhost}:${pgsqlPort:5432}/${pgsqlDatabase:georchestra}" />
+    -        <property name="username" value="${pgsqlUser:postgres}" />
+    -        <property name="password" value="${pgsqlPassword:}" />
+    -        <property name="initialSize" value="${dataSource.initialSize:0}" />
+    -        <property name="minIdle" value="${dataSource.minIdle:0}" />
+    -        <property name="maxIdle" value="${dataSource.maxIdle:8}" />
+    -        <property name="minEvictableIdleTimeMillis" value="${dataSource.minEvictableIdleTimeMillis:180000}" />
+    -        <property name="timeBetweenEvictionRunsMillis" value="${dataSource.timeBetweenEvictionRunsMillis:3000}" />
+    +        <property name="driverClassName" value="org.h2.Driver" />
+    +        <property name="url" value="jdbc:h2:./test"/>
+         </bean>
+         <bean id="georchestraEntityManagerFactory"
+                     class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+    @@ -155,7 +148,7 @@
+                     <entry key="hibernate.connection.autocommit" value="true"/>
+                     <entry key="hibernate.generate_statistics" value="false"/>
+                     <entry key="hibernate.hbm2ddl.auto" value="update" />
+    -                <entry key="hibernate.default_schema" value="${pgsqlGeoStoreSchema:geostore}" />
+    +<!--                <entry key="hibernate.default_schema" value="${pgsqlGeoStoreSchema:geostore}" /> -->
+                 </map>
+             </property>
+         </bean>
+
+running the local backend with ``npm run backend:dev`` will create a new ``test.h2.db`` database in the tomcat root.
+
+if you start the local backend outside of an existing tomcat instance, you should also set the ``georchestra.datadir``
+property in the ``properties`` `section of web/pom.xml <https://github.com/georchestra/mapstore2-georchestra/blob/master/web/pom.xml#L20>`_, pointing at the full path of your local datadir.
 
 Developing the frontend
 -----------------------
@@ -79,6 +118,23 @@ To start the frontend locally, just run:
     npm start
 
 Your application will be available at http://localhost:8081
+
+If developing remotely, you can tell webpack to serve the files at a given hostname/ip, eg in `package.json <https://github.com/georchestra/mapstore2-georchestra/blob/master/package.json#L124>`_:
+
+.. code-block:: diff
+    :caption: package.json.diff
+
+    -    "start": "webpack serve --progress --color --port 8081 --hot --inline --content-base .",
+    +    "start": "webpack serve --progress --color --public my.georchestra.org --host 0.0.0.0 --port 8081 --hot --inline --content-base .",
+
+will make it available at http://my.georchestra.org:8081
+
+When doing modifications on the frontend code, ``webpack`` will automatically
+rebundle the source and reload the page, no need to do that manually.
+
+The only way to get *unminified* javascript debugguable via the browser console is to use ``npm start`` which uses the `debug configuration for webpack <https://github.com/georchestra/mapstore2-georchestra/blob/master/webpack.config.js>`_.
+
+The `production configuration <https://github.com/georchestra/mapstore2-georchestra/blob/master/prod-webpack.config.js#L26>`_ minimises the javascript.
 
 Mocking security
 ----------------
@@ -143,3 +199,19 @@ Next, to change the default theme you have to open the ``localConfig.json`` and 
           }
         }
     }
+
+Managing the branches
+---------------------
+
+When developing a feature or upgrading a local installation, one often switches branches from ``master`` to other stable branches.
+
+in all cases, it is **strongly** advised to run the following when switching branches:
+
+  .. code-block:: shell
+
+    git checkout <branch>
+    git submodule update
+    rm -Rf package-lock.json node_modules/ MapStore2/node_modules # clean up
+    npm install
+
+otherwise you might run into conflicts between various version of the javascript libraries
