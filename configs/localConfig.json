@@ -21,6 +21,9 @@
     "stylesheetUri": "",
     "header": {
       "height": 80,
+      "url": "/header/",
+      "legacy": false,
+      "logoUrl": "https://www.georchestra.org/public/georchestra-logo.svg",
       "configFile": "",
       "script": "https://cdn.jsdelivr.net/gh/georchestra/header@dist/header.js",
       "stylesheet": ""
