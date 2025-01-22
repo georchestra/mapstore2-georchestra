@@ -30,6 +30,7 @@ export const Header = ({url = "/header/", page = "mapstore", height = 90, ignore
                 header.setAttribute("logo-url", logoUrl);
                 header.setAttribute("stylesheet", stylesheet);
                 header.setAttribute("config-file", configFile);
+                header.setAttribute("height", height);
                 headerScript.src = script;
 
                 if (container) {
