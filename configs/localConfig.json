@@ -20,11 +20,12 @@
     },
     "stylesheetUri": "",
     "header": {
-      "height": 90,
+      "height": 80,
       "url": "/header/",
-      "script": "https://cdn.jsdelivr.net/gh/georchestra/header@dist/header.js",
       "legacy": false,
       "logoUrl": "https://www.georchestra.org/public/georchestra-logo.svg",
+      "configFile": "",
+      "script": "https://cdn.jsdelivr.net/gh/georchestra/header@dist/header.js",
       "stylesheet": ""
     },
     "defaultMapOptions": {
@@ -844,7 +845,7 @@
             "containerPosition": "header",
             "className": "navbar shadow navbar-home"
           }
-        }, 
+        },
         "Details",
         "AddWidgetDashboard",
         "MapConnectionDashboard",
