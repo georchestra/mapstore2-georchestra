@@ -233,6 +233,7 @@ insert into gs_category (id ,name) values (5, 'TEMPLATE');
 INSERT into gs_category (id ,name) values (6, 'USERSESSION');
 INSERT into gs_category (id ,name) values (7, 'GEOSTORY');
 INSERT into gs_category (id ,name) values (8, 'CONTEXT');
+INSERT into gs_category (id ,name) values (9, 'PERMALINK');
 
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA mapstore TO georchestra;
 GRANT USAGE, SELECT ON SEQUENCE hibernate_sequence TO georchestra;
