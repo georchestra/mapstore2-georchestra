@@ -7,9 +7,9 @@ docs_dir: docs
 edit_uri: edit/main/docs/
 
 theme:
-  language: fr
+  language: en 
   features:
-    - toc.integrate
+    # - toc.integrate
     - navigation.indexes
     - navigation.tabs
     - navigation.tabs.sticky
@@ -44,36 +44,36 @@ extra_css:
 extra_javascript:
     - assets/custom_versions.js
 
-# arborescence de 1er et 2e niveau à gérer ici
-# Ces entrées correspondent au modèle de documentation
+# 1st and 2nd level tree structure to manage here
+# These entries match the documentation template
+# Here do not put .fr or .en in the name of the markdown: the i18n plugin manage this for you
 
 nav:
-    - Accueil: index.md 
-    - Guide utilisateur:
-        - Sommaire: guide_utilisateur/index.md
-        - Prendre en main: guide_utilisateur/00_prise_en_main.md
-        - Vue globale: guide_utilisateur/01_vue_globale.md
-        - Barres ou menus d''outils: guide_utilisateur/02_outils.md
-        - Aide syntaxe: guide_utilisateur/aide_syntaxe.md
-    - Guides techniques:
-        - Sommaire: guides_techniques/index.md
-        - Administrer:
-            - guides_techniques/administrer/index.md
-            - guides_techniques/administrer/une_page.md
-            - guides_techniques/administrer/3d.md
-        - Installer:
-            - guides_techniques/installer/index.md
-            - guides_techniques/installer/00_presentation.md
-            - guides_techniques/installer/01_prerequis.md
-            - guides_techniques/installer/02_preparation.md
-            - guides_techniques/installer/03_installation.md
-            - guides_techniques/installer/04_configuration.md
-            - guides_techniques/installer/05_debug.md
-            - guides_techniques/installer/06_tests.md
-        - Développer:
-            - guides_techniques/developper/index.md
-            - guides_techniques/developper/matrice_fonctionnalites.md
-            - guides_techniques/developper/api.md
+    - Home: index.md 
+    - User guide:
+        - Index: user_guide/index.md
+        - Getting started: user_guide/getting_started.md
+        - Global overview: user_guide/global_overview.md
+        - Menus and toolbars: user_guide/tools.md
+        - Syntax help: user_guide/syntax_help.md
+    - Technical guides:
+        - Index: technical_guides/index.md
+        - Administration:
+            - technical_guides/administration/index.md
+            - technical_guides/administration/one_page.md
+        - Installation:
+            - technical_guides/installation/index.md
+            - technical_guides/installation/presentation.md
+            - technical_guides/installation/prerequisites.md
+            - technical_guides/installation/preparation.md
+            - technical_guides/installation/installation.md
+            - technical_guides/installation/configuration.md
+            - technical_guides/installation/debug.md
+            - technical_guides/installation/tests.md
+        - Contribute:
+            - technical_guides/contribute/index.md
+            - technical_guides/contribute/feature_matrix.md
+            - technical_guides/contribute/api.md
 
 markdown_extensions:
   - admonition
@@ -94,6 +94,18 @@ plugins:
         ignore_page_pattern: index.md
         remove_navigation_page_pattern: index.md
         template_dir_path: custom_template
+    - i18n:
+        docs_structure: suffix
+        fallback_to_default: true
+        reconfigure_material: true
+        reconfigure_search: true
+        languages:
+          - locale: en
+            default: true
+            name: English
+            build: true
+            site_name: "Documentation template for a geOrchestra component"
+
     - git-revision-date-localized:
         enable_creation_date: true
 
