@@ -105,6 +105,22 @@ plugins:
             name: English
             build: true
             site_name: "Documentation template for a geOrchestra component"
+          - locale: fr
+            name: Français
+            build: true
+            site_name: "Template pour la documentation d'un composant geOrchestra"
+            nav_translations:
+              Home: "Accueil"
+              User guide: "Guide utilisateur"
+              Index: "Sommaire"
+              Getting started: "Prendre en main"
+              Global overview: "Vue globale"
+              Menus and toolbars: "Barres ou menus d''outils"
+              Syntax help: "Aide syntaxe"
+              Technical guides: "Guides techniques"
+              Administration: "Administrer"
+              Installation: "Installer"
+              Contribute: "Développer"
 
     - git-revision-date-localized:
         enable_creation_date: true
