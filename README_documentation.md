@@ -56,3 +56,5 @@ cd /c/DepotsGit/georchestra/mapstore2-georchestra
 - mettre à jour le dépôt : git pull origin new_documentation
 - activer MkDoc : source venv_mkdocs/Scripts/activate
 - lancer le serveur local : mkdocs serve -a localhost:8002
+
+- pour sortir de l'environnement virtuel : deactivate
