@@ -10,7 +10,7 @@ MAINTAINER geosolutions<info@geo-solutions.it>
 RUN mkdir -p /docker-entrypoint.d
 # Tomcat specific options
 ENV CATALINA_BASE "$CATALINA_HOME"
-ENV JAVA_OPTS="${JAVA_OPTS} -XX:MaxRAMPercentage=75 -XX:+UseParallelGC ${JAVA_OPTIONS}"
+ENV JAVA_OPTS="${JAVA_OPTS} -XX:MaxRAMPercentage=80 -XX:+UseParallelGC ${JAVA_OPTIONS}"
 
 # Optionally remove Tomcat manager, docs, and examples
 ARG TOMCAT_EXTRAS=false
