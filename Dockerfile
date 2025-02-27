@@ -4,14 +4,13 @@ WORKDIR /tmp
 COPY docker/MapStore-*.war mapstore.war
 RUN unzip mapstore.war -d mapstore
 
-
 FROM tomcat:9-jdk11-openjdk
 MAINTAINER geosolutions<info@geo-solutions.it>
 
 RUN mkdir -p /docker-entrypoint.d
 # Tomcat specific options
 ENV CATALINA_BASE "$CATALINA_HOME"
-ENV JAVA_OPTS="${JAVA_OPTS}  -Xms512m -Xmx512m -XX:MaxPermSize=128m"
+ENV JAVA_OPTS="${JAVA_OPTS} -XX:MaxRAMPercentage=80 -XX:+UseParallelGC ${JAVA_OPTIONS}"
 
 # Optionally remove Tomcat manager, docs, and examples
 ARG TOMCAT_EXTRAS=false
