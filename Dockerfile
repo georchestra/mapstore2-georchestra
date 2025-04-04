@@ -10,7 +10,7 @@ MAINTAINER geosolutions<info@geo-solutions.it>
 RUN mkdir -p /docker-entrypoint.d
 # Tomcat specific options
 ENV CATALINA_BASE "$CATALINA_HOME"
-ENV JAVA_OPTS="${JAVA_OPTS} -XX:MaxRAMPercentage=80 -XX:+UseParallelGC ${JAVA_OPTIONS}"
+ENV JAVA_OPTS="${JAVA_OPTS} -XX:MaxRAMPercentage=80 -XX:+UseParallelGC"
 
 # Optionally remove Tomcat manager, docs, and examples
 ARG TOMCAT_EXTRAS=false
@@ -37,7 +37,9 @@ USER tomcat
 # COPY docker/geostore-datasource-ovr.properties "${CATALINA_BASE}/conf/"
 # ARG GEOSTORE_OVR_OPT=""
 ARG GEORCHESTRA_DATADIR_OPT="-Dgeorchestra.datadir=/etc/georchestra"
-ENV JAVA_OPTS="${JAVA_OPTS} ${GEORCHESTRA_DATADIR_OPT}"
+# geOrchestra required parameters for mapstore-geOrchestra to function properly
+ARG GEORCHESTRA_REQUIRED_OPTS="-DPRINT_BASE_URL=pdf -Dgeorchestra.extensions=/mnt/mapstore_extensions"
+ENV JAVA_OPTS="${JAVA_OPTS} ${GEORCHESTRA_DATADIR_OPT} ${GEORCHESTRA_REQUIRED_OPTS}"
 
 # Set variable to better handle terminal commands
 ENV TERM xterm
