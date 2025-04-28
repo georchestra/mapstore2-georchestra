@@ -26,7 +26,7 @@ export const Header = ({url = "/header/", page = "mapstore", height = 90, ignore
             } else {
                 header.setAttribute("active-app", page);
                 header.setAttribute("legacy-url", url);
-                header.setAttribute("legacy-header", legacy);
+                header.setAttribute("legacy-header", legacy ? "true" : "false");
                 header.setAttribute("style", `height:${height}px`);
                 header.setAttribute("logo-url", logoUrl);
                 header.setAttribute("stylesheet", stylesheet);
