@@ -104,11 +104,10 @@ jobs:
         username: '${{ secrets.DOCKER_HUB_USERNAME }}'
         password: '${{ secrets.DOCKER_HUB_PASSWORD }}'
 
-    - name: "Pushing latest to docker.io"
-      if: github.ref == 'refs/heads/master' && github.repository == 'georchestra/mapstore2-georchestra' && github.event_name == 'push'
+    - name: "Pushing 2023.02.xx to docker.io"
+      if: github.ref == 'refs/heads/2023.02.xx' && github.repository == 'georchestra/mapstore2-georchestra' && github.event_name == 'push'
       run: |
-        docker tag georchestra/mapstore:${{ steps.version.outputs.VERSION }} georchestra/mapstore:latest
-        docker push georchestra/mapstore:latest
+        docker push georchestra/mapstore:${{ steps.version.outputs.VERSION }}
       working-directory: ${{ github.workspace }}
 
     - name: "Pushing tag to docker.io"
