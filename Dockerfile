@@ -4,7 +4,8 @@ WORKDIR /tmp
 COPY docker/MapStore-*.war mapstore.war
 RUN unzip mapstore.war -d mapstore
 
-FROM tomcat:9-jdk11-openjdk
+#9-jdk11 uses temurin 11.0.27 and not openjdk 11.0.16
+FROM tomcat:9-jdk11
 MAINTAINER geosolutions<info@geo-solutions.it>
 
 RUN mkdir -p /docker-entrypoint.d
