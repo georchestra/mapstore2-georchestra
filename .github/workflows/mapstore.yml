@@ -4,124 +4,109 @@ on: [push, pull_request]
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
     steps:
-    - name: "checking out"
-      uses: actions/checkout@v2
-      with:
-        # 0 gets tags, needed for debian package
-        fetch-depth: 0
-        submodules: 'recursive'
+      - name: "checking out"
+        uses: actions/checkout@v2
+        with:
+          # 0 gets tags, needed for debian package
+          fetch-depth: 0
+          submodules: 'recursive'
 
-    - name: "setting up Java"
-      uses: actions/setup-java@v1
-      with:
-        java-version: '11'
-        server-id: geOrchestra-artifactory
-        server-username: ARTIFACTORY_USERNAME_REF
-        server-password: ARTIFACTORY_TOKEN_REF
+      - name: "setting up Java"
+        uses: actions/setup-java@v1
+        with:
+          java-version: '11'
+          server-id: geOrchestra-artifactory
+          server-username: ARTIFACTORY_USERNAME_REF
+          server-password: ARTIFACTORY_TOKEN_REF
 
-    - name: "setting up npm"
-      uses: actions/setup-node@v1
-      with:
-        node-version: '16.x'
+      - name: "setting up npm"
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
 
-    - name: "cache node modules"
-      uses: actions/cache@v4
-      env:
-        cache-name: cache-node-modules
-      with:
-        path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
-        key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package.json') }}
-        restore-keys: |
-          ${{ runner.os }}-build-${{ env.cache-name }}-
-          ${{ runner.os }}-build-
-          ${{ runner.os }}-
+      - name: "cache node modules"
+        uses: actions/cache@v4
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm # npm cache files are stored in `~/.npm` on Linux/macOS
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
 
-    - name: "Maven repository caching"
-      uses: actions/cache@v4
-      with:
-        path: ~/.m2/repository
-        key: mapstore-${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-        restore-keys: |
-          mapstore-${{ runner.os }}-maven-
+      - name: "Maven repository caching"
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository
+          key: mapstore-${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            mapstore-${{ runner.os }}-maven-
 
-    - name: "install dependencies"
-      run: npm install
+      - name: "install dependencies"
+        run: npm install
 
-    - name: "build"
-      run: npm run compile
+      - name: "build"
+        run: npm run compile
 
-    - name: "run lint"
-      run: npm run lint
+      - name: "run lint"
+        run: npm run lint
 
-    - name: "package with Maven"
-      run: mvn -B clean install -Dmapstore2.version=${{ github.sha }}
+      - name: "package with Maven"
+        run: mvn -B clean install -Dmapstore2.version=${{ github.sha }}
 
-    - name: "deploy war in artifactory"
-      run: cd web && mvn -B deploy -Dmapstore2.version=${{ github.sha }}
-      continue-on-error: true
-      env:
-        ARTIFACTORY_TOKEN_REF: ${{ secrets.ARTIFACTORY_TOKEN }}
-        ARTIFACTORY_USERNAME_REF: ${{ secrets.ARTIFACTORY_USERNAME }}
+      - name: "debian package with Maven"
+        run: mvn -B package deb:package -pl web -PdebianPackage
 
-    - name: "debian package with Maven"
-      run: mvn -B package deb:package -pl web -PdebianPackage
+      - name: "copy resulting deb"
+        run: mkdir -p scratch && cp web/target/georchestra-mapstore*.deb scratch/georchestra-mapstore-${{ github.sha }}.deb
 
-    - name: "copy resulting deb"
-      run: mkdir -p scratch && cp web/target/georchestra-mapstore*.deb scratch/georchestra-mapstore-${{ github.sha }}.deb
+      - name: "publish deb as artifact"
+        uses: actions/upload-artifact@v4
+        with:
+          name: georchestra-mapstore.deb
+          path: scratch/georchestra-mapstore-${{ github.sha }}.deb
 
-    - name: "publish deb as artifact"
-      uses: actions/upload-artifact@v4
-      with:
-        name: georchestra-mapstore.deb
-        path: scratch/georchestra-mapstore-${{ github.sha }}.deb
+      - name: "copy resulting war"
+        run: mkdir -p scratch && cp web/target/mapstore.war scratch/mapstore-${{ github.sha }}.war
 
-    - name: "copy resulting war"
-      run: mkdir -p scratch && cp web/target/mapstore.war scratch/mapstore-${{ github.sha }}.war
+      - name: "publish war as artifact"
+        uses: actions/upload-artifact@v4
+        with:
+          name: mapstore.war
+          path: scratch/mapstore-${{ github.sha }}.war
 
-    - name: "publish war as artifact"
-      uses: actions/upload-artifact@v4
-      with:
-        name: mapstore.war
-        path: scratch/mapstore-${{ github.sha }}.war
+      - name: Getting image tag
+        if: github.repository == 'geo2france/mapstore2-georchestra'
+        id: version
+        run: echo ::set-output name=VERSION::$(echo $GITHUB_REF | cut -d / -f 3)
 
-    - name: Getting image tag
-      if: github.repository == 'georchestra/mapstore2-georchestra'
-      id: version
-      run: echo ::set-output name=VERSION::$(echo $GITHUB_REF | cut -d / -f 3)
+      - name: "Building docker image"
+        if: github.repository == 'geo2france/mapstore2-georchestra'
+        run: |
+          cp scratch/mapstore-${{ github.sha }}.war docker/MapStore-${{ steps.version.outputs.VERSION }}.war
+          docker build . -t ghcr.io/geo2france/mapstore2-georchestra/mapstore:${{ steps.version.outputs.VERSION }}
+        working-directory: ${{ github.workspace }}
+      - name: Login to GitHub Container Registry
+        if: github.repository == 'geo2france/mapstore2-georchestra' && github.event_name == 'push'
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: "Building docker image"
-      if: github.repository == 'georchestra/mapstore2-georchestra'
-      run: |
-        cp scratch/mapstore-${{ github.sha }}.war docker/MapStore-${{ steps.version.outputs.VERSION }}.war
-        docker build . -t georchestra/mapstore:${{ steps.version.outputs.VERSION }}
-        # mvn -B package dockerfile:build -Pdocker,log4j-logstash,sentry-log4j -DdockerImageName=georchestra/mapstore:${{ steps.version.outputs.VERSION }} -settings settings.xml
-      working-directory: ${{ github.workspace }}
-    - name: "Logging in docker.io"
-      if: github.repository == 'georchestra/mapstore2-georchestra' && github.event_name == 'push'
-      uses: azure/docker-login@v1
-      with:
-        username: '${{ secrets.DOCKER_HUB_USERNAME }}'
-        password: '${{ secrets.DOCKER_HUB_PASSWORD }}'
+      - name: "Pushing ${{ steps.version.outputs.VERSION }} to registry"
+        if: (endsWith(github.ref, 'custom') || endsWith(github.ref, 'custom-dev')) && github.repository == 'geo2france/mapstore2-georchestra' && github.event_name == 'push'
+        run: |
+          docker push ghcr.io/geo2france/mapstore2-georchestra/mapstore:${{ steps.version.outputs.VERSION }}
+        working-directory: ${{ github.workspace }}
 
-    - name: "Pushing latest to docker.io"
-      if: github.ref == 'refs/heads/master' && github.repository == 'georchestra/mapstore2-georchestra' && github.event_name == 'push'
-      run: |
-        docker tag georchestra/mapstore:${{ steps.version.outputs.VERSION }} georchestra/mapstore:latest
-        docker push georchestra/mapstore:latest
-      working-directory: ${{ github.workspace }}
-
-    - name: "Pushing tag to docker.io"
-      if: contains(github.ref, 'refs/tags/') && github.repository == 'georchestra/mapstore2-georchestra' && github.event_name == 'push'
-      run: |
-        docker push georchestra/mapstore:${{ steps.version.outputs.VERSION }}
-
-    - name: "Update Docker Hub Description"
-      if: github.ref == 'refs/heads/master' && github.repository == 'georchestra/mapstore2-georchestra' && github.actor != 'dependabot[bot]' && github.event_name != 'pull_request'
-      uses: peter-evans/dockerhub-description@v3
-      with:
-        username: ${{ secrets.DOCKER_HUB_USERNAME }}
-        password: ${{ secrets.DOCKER_HUB_PASSWORD }}
-        repository: georchestra/mapstore
-        readme-filepath: ./DOCKER_HUB.md
-        short-description: 'Mapstore module for the geOrchestra SDI'
+      - name: "Pushing tag to registry"
+        if: contains(github.ref, 'refs/tags/') && github.repository == 'geo2france/mapstore2-georchestra' && github.event_name == 'push'
+        run: |
+          docker push ghcr.io/geo2france/mapstore2-georchestra/mapstore:${{ steps.version.outputs.VERSION }}
