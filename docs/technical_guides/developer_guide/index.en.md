@@ -1,6 +1,6 @@
 # Table of Contents
 
-Table of Contents for the "Develop" Section
+Table of Contents for the "Developer guide" Section
 
 ![Develop](images/developper.jpg)
 

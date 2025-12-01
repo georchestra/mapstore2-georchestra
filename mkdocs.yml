@@ -58,22 +58,16 @@ nav:
         - Syntax help: user_guide/syntax_help.md
     - Technical guides:
         - Index: technical_guides/index.md
+        - Installation:
+            - technical_guides/installation/index.md
+            - technical_guides/installation/prerequisites.md
+        - Configuration:
+            - technical_guides/configuration/index.md
         - Administration:
             - technical_guides/administration/index.md
             - technical_guides/administration/one_page.md
-        - Installation:
-            - technical_guides/installation/index.md
-            - technical_guides/installation/presentation.md
-            - technical_guides/installation/prerequisites.md
-            - technical_guides/installation/preparation.md
-            - technical_guides/installation/installation.md
-            - technical_guides/installation/configuration.md
-            - technical_guides/installation/debug.md
-            - technical_guides/installation/tests.md
-        - Contribute:
-            - technical_guides/contribute/index.md
-            - technical_guides/contribute/feature_matrix.md
-            - technical_guides/contribute/api.md
+        - Developer guide:
+            - technical_guides/developer_guide/index.md
 
 markdown_extensions:
   - admonition
@@ -121,9 +115,10 @@ plugins:
               Menus and toolbars: "Barres ou menus d''outils"
               Syntax help: "Aide syntaxe"
               Technical guides: "Guides techniques"
-              Administration: "Administrer"
               Installation: "Installer"
-              Contribute: "Développer"
+              Configuration: "Configuration"
+              Administration: "Administrer"
+              Developer guide: "Développer"
 
     - git-revision-date-localized:
         enable_creation_date: true
