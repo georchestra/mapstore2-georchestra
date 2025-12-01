@@ -1,4 +1,4 @@
-site_name: MapStore2 pour geOrchestra
+site_name: MapStore2 for geOrchestra
 
 repo_url: https://github.com/georchestra/mapstore2-georchestra
 repo_name: mapstore2-georchestra
@@ -83,17 +83,17 @@ markdown_extensions:
 plugins:
     - search
     - callouts
-    - toc-md:
-        toc_page_title: Contents
-        toc_page_description: Summary of the section
-        header_level: 3
-        pickup_description_meta: false
-        pickup_description_class: false
-        output_path: tableofcontent.md
-        output_log: true
-        ignore_page_pattern: index.md
-        remove_navigation_page_pattern: index.md
-        template_dir_path: custom_template
+    # - toc-md:
+        # toc_page_title: Contents
+        # toc_page_description: Summary of the section
+        # header_level: 3
+        # pickup_description_meta: false
+        # pickup_description_class: false
+        # output_path: tableofcontent.md
+        # output_log: true
+        # ignore_page_pattern: index.md
+        # remove_navigation_page_pattern: index.md
+        # template_dir_path: custom_template
     - exclude:
         glob:
           - tableofcontent.md
@@ -107,11 +107,11 @@ plugins:
             default: true
             name: English
             build: true
-            site_name: "Documentation template for a geOrchestra component"
+            site_name: "MapStore2 for geOrchestra"
           - locale: fr
             name: Français
             build: true
-            site_name: "Template pour la documentation d'un composant geOrchestra"
+            site_name: "MapStore2 pour geOrchestra"
             nav_translations:
               Home: "Accueil"
               User guide: "Guide utilisateur"
