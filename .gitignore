@@ -19,3 +19,10 @@ package-lock.json
 *.iml
 .nvmrc
 docker/*.war
+
+# documentation MkDocs
+venv_mkdocs/
+.venv_mkdocs/
+docs_modules/
+docs/tableofcontent.md
+
