@@ -63,6 +63,7 @@ nav:
             - technical_guides/installation/prerequisites.md
         - Configuration:
             - technical_guides/configuration/index.md
+            - technical_guides/configuration/catalog.md
         - Administration:
             - technical_guides/administration/index.md
             - technical_guides/administration/one_page.md
