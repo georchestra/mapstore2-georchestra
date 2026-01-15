@@ -35,8 +35,6 @@ module.exports = require("./MapStore2/build/buildConfig")({
         "@mapstore": path.resolve(__dirname, "MapStore2", "web", "client"),
         "@js": path.resolve(__dirname, "js"),
         // next libs are added because of this issue https://github.com/geosolutions-it/MapStore2/issues/4569
-        jsonix: "@boundlessgeo/jsonix",
-        proj4: "@geosolutions/proj4",
         "react-joyride": "@geosolutions/react-joyride"
     },
     proxy: {
