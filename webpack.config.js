@@ -4,9 +4,7 @@ const themeEntries = require("./themes.js").themeEntries;
 const extractThemesPlugin = require("./themes.js").extractThemesPlugin;
 const moduleFederationPlugin = require('./MapStore2/build/moduleFederation.js').plugin;
 const gitRevisionPlugin = require('./revision');
-
-const DEV_PROTOCOL = "http";
-const DEV_HOST = "localhost:8080";
+const {devServer} = require('./devServer.js');
 
 module.exports = require("./MapStore2/build/buildConfig")({
     bundles: {
@@ -37,69 +35,5 @@ module.exports = require("./MapStore2/build/buildConfig")({
         // next libs are added because of this issue https://github.com/geosolutions-it/MapStore2/issues/4569
         "react-joyride": "@geosolutions/react-joyride"
     },
-    proxy: {
-        "/rest": {
-            target: `${DEV_PROTOCOL}://${DEV_HOST}/mapstore`,
-            secure: false,
-            headers: {
-                host: `${DEV_HOST}`,
-                // change those for your local instance
-                "sec-username": 'testadmin',
-                "sec-roles": 'ROLE_MAPSTORE_ADMIN'
-            }
-        },
-        "/pdf": {
-            target: `${DEV_PROTOCOL}://${DEV_HOST}/mapstore`,
-            secure: false,
-            headers: {
-                host: `${DEV_HOST}`
-            }
-        },
-        "/mapstore/pdf": {
-            target: `${DEV_PROTOCOL}://${DEV_HOST}`,
-            secure: false,
-            headers: {
-                host: `${DEV_HOST}`
-            }
-        },
-        "/proxy": {
-            // proxy of geOrchestra is already configured
-            target: `${DEV_PROTOCOL}://${DEV_HOST}/mapstore`,
-            secure: false,
-            headers: {
-                host: `${DEV_HOST}`
-            }
-        },
-        "/geonetwork": {
-            target: `${DEV_PROTOCOL}://${DEV_HOST}/geonetwork`,
-            secure: false,
-            headers: {
-                host: `${DEV_HOST}`
-            }
-        },
-        "/header": {
-            target: `${DEV_PROTOCOL}://${DEV_HOST}`,
-            secure: false,
-            headers: {
-                host: `${DEV_HOST}`
-            }
-        },
-        "/cas": {
-            target: `${DEV_PROTOCOL}://${DEV_HOST}`,
-            secure: false,
-            headers: {
-                host: `${DEV_HOST}`
-            }
-        },
-        "/whoami": {
-            target: `${DEV_PROTOCOL}://${DEV_HOST}`,
-            secure: false,
-            headers: {
-                host: `${DEV_HOST}`,
-                // change those for your local instance
-                "sec-username": 'testadmin',
-                "sec-roles": 'ROLE_MAPSTORE_ADMIN'
-            }
-        }
-    }}
-);
+    proxy: devServer.proxy
+});

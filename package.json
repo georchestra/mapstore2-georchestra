@@ -101,18 +101,20 @@
     "mapstore": "file:MapStore2"
   },
   "scripts": {
+    "start": "npm run app:start",
+    "app:start": "concurrently -n frontend,backend -c green,blue \"npm:fe:start\" \"npm:be:start\"",
+    "fe:start": "webpack serve --progress --color --port 8081 --hot --inline --content-base .",
+    "fe:build": "npm run clean && mkdirp ./dist && node ./node_modules/webpack/bin/webpack.js --config prod-webpack.config.js",
+    "compile": "npm run fe:build",
     "backend:build": "mvn clean install -Pprinting",
-    "backend:dev": "npm run backend:build && mvn cargo:run -f ./web/pom.xml",
-
+    "be:start": "npm run backend:build && mvn cargo:run -f ./web/pom.xml",
     "clean": "rimraf dist",
-    "compile": "npm run clean && mkdirp ./dist && node ./node_modules/webpack/bin/webpack.js --config prod-webpack.config.js",
-    "start": "webpack serve --progress --color --port 8081 --hot --inline --content-base .",
     "postinstall": "node MapStore2/utility/build/postInstall.js",
     "test": "karma start ./karma.conf.single-run.js",
     "continuoustest": "karma start ./karma.conf.continuous-test.js",
     "mvntest": "karma start ./karma.conf.single-run.js --reporters junit,dots,coverage",
+    "backend:dev": "npm run be:start",
     "lint": "eslint js --ext .jsx,.js",
-    "travis": "eslint js --ext .jsx,.js && karma start ./karma.conf.single-run.js --browsers Firefox --reporters dots,junit,coverage,coveralls",
     "updateDevDeps": "node updateDevDependencies.js"
   },
   "author": "GeoSolutions",
