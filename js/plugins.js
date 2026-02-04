@@ -13,6 +13,7 @@ import HeaderPlugin from "@js/plugins/Header";
 import EasyTheming from "@js/plugins/EasyTheming";
 import UserSessionPlugin from "@js/plugins/UserSession";
 import VersionPlugin from "@js/plugins/Version";
+import MapStoreLogin from '@mapstore/plugins/Login';
 import BackgroundSelectorPlugin from '@mapstore/plugins/BackgroundSelector';
 const exclude = [
     "AboutPlugin", "AttributionPlugin", "FooterPlugin", "ForkPlugin",
@@ -29,6 +30,7 @@ export default {
             (prev, el) => exclude.includes(el) ? prev : {...prev, [el]: productPlugins.plugins[el]}, {}
         )),
         // georchestra plugins2
+        MapStoreLogin,
         NotAllowedPlugin,
         HeaderPlugin,
         EasyTheming,

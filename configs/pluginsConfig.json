@@ -38,6 +38,11 @@
       "hidden": true
     },
     {
+      "name": "SecurityPopup",
+      "mandatory": true,
+      "hidden": true
+    },
+    {
       "name": "TOC",
       "glyph": "1-layer",
       "symbol": "layers",
@@ -99,7 +104,10 @@
     {
       "name": "MapFooter",
       "mandatory": true,
-      "hidden": true
+      "hidden": true,
+      "defaultConfig": {
+        "containerPosition": "footer"
+      }
     },
     {
       "name": "Widgets",
@@ -129,6 +137,12 @@
         "QueryPanel"
       ],
       "hidden": true
+    },
+    {
+      "name": "Details",
+      "glyph": "sheet",
+      "title": "plugins.Details.title",
+      "description": "plugins.Details.description"
     },
     {
       "name": "HelpLink",
@@ -503,17 +517,17 @@
       "name": "SaveAs",
       "glyph": "floppy-open",
       "title": "plugins.SaveAs.title",
-      "hidden": true,
+      "hidden": false,
       "description": "plugins.SaveAs.description",
       "dependencies": [
         "SidebarMenu"
       ]
     },
     {
-      "name": "DeleteMap",
+      "name": "DeleteResource",
       "glyph": "trash",
       "title": "plugins.DeleteMap.title",
-      "hidden": true,
+      "hidden": false,
       "description": "plugins.DeleteMap.description",
       "dependencies": [
         "SidebarMenu"
@@ -667,6 +681,37 @@
       "dependencies": [
         "SidebarMenu"
       ]
+    },
+    {
+      "name": "BrandNavbar",
+      "title": "plugins.BrandNavbar.title",
+      "description": "plugins.BrandNavbar.description",
+      "children": ["ResourceDetails", "Language"],
+      "defaultConfig": {
+        "containerPosition": "header"
+      }
+    },
+    {
+      "name": "ResourceDetails",
+      "title": "plugins.ResourceDetails.title",
+      "description": "plugins.ResourceDetails.description",
+      "defaultConfig": {
+        "resourceType": "MAP"
+      }
+    },
+    {
+      "name": "Itinerary",
+      "glyph": "route",
+      "title": "plugins.Itinerary.title",
+      "description": "plugins.Itinerary.description",
+      "dependencies": ["SidebarMenu"]
+    },
+    {
+      "name": "Isochrone",
+      "glyph": "1-point-dashed",
+      "title": "plugins.Isochrone.title",
+      "description": "plugins.Isochrone.description",
+      "dependencies": ["SidebarMenu"]
     }
   ]
 }

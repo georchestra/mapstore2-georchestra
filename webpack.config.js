@@ -4,9 +4,13 @@ const themeEntries = require("./themes.js").themeEntries;
 const extractThemesPlugin = require("./themes.js").extractThemesPlugin;
 const moduleFederationPlugin = require('./MapStore2/build/moduleFederation.js').plugin;
 const gitRevisionPlugin = require('./revision');
-
-const DEV_PROTOCOL = "http";
-const DEV_HOST = "localhost:8080";
+const {devServer} = require('./devServer.js');
+const paths = {
+    base: path.join(__dirname, "."),
+    dist: path.join(__dirname, "dist"),
+    framework: path.join(__dirname, "MapStore2", "web", "client"),
+    code: [path.join(__dirname, "js"), path.join(__dirname, "MapStore2", "web", "client")]
+};
 
 module.exports = require("./MapStore2/build/buildConfig")({
     bundles: {
@@ -16,15 +20,7 @@ module.exports = require("./MapStore2/build/buildConfig")({
         "geostory-embedded": path.join( __dirname, "js", "geostoryEmbedded" )
     },
     themeEntries,
-    paths: {
-        base: __dirname,
-        dist: path.join(__dirname, "dist"),
-        framework: path.join(__dirname, "MapStore2", "web", "client"),
-        code: [
-            path.join(__dirname, "js"),
-            path.join(__dirname, "MapStore2", "web", "client")
-        ]
-    },
+    paths,
     plugins: [extractThemesPlugin, moduleFederationPlugin, gitRevisionPlugin],
     prod: false,
     publicPath: "dist/",
@@ -33,75 +29,7 @@ module.exports = require("./MapStore2/build/buildConfig")({
     alias: {
         "@mapstore/patcher": path.resolve(__dirname, "node_modules", "@mapstore", "patcher"),
         "@mapstore": path.resolve(__dirname, "MapStore2", "web", "client"),
-        "@js": path.resolve(__dirname, "js"),
-        // next libs are added because of this issue https://github.com/geosolutions-it/MapStore2/issues/4569
-        jsonix: "@boundlessgeo/jsonix",
-        proj4: "@geosolutions/proj4",
-        "react-joyride": "@geosolutions/react-joyride"
+        "@js": path.resolve(__dirname, "js")
     },
-    proxy: {
-        "/rest": {
-            target: `${DEV_PROTOCOL}://${DEV_HOST}/mapstore`,
-            secure: false,
-            headers: {
-                host: `${DEV_HOST}`,
-                // change those for your local instance
-                "sec-username": 'testadmin',
-                "sec-roles": 'ROLE_MAPSTORE_ADMIN'
-            }
-        },
-        "/pdf": {
-            target: `${DEV_PROTOCOL}://${DEV_HOST}/mapstore`,
-            secure: false,
-            headers: {
-                host: `${DEV_HOST}`
-            }
-        },
-        "/mapstore/pdf": {
-            target: `${DEV_PROTOCOL}://${DEV_HOST}`,
-            secure: false,
-            headers: {
-                host: `${DEV_HOST}`
-            }
-        },
-        "/proxy": {
-            // proxy of geOrchestra is already configured
-            target: `${DEV_PROTOCOL}://${DEV_HOST}/mapstore`,
-            secure: false,
-            headers: {
-                host: `${DEV_HOST}`
-            }
-        },
-        "/geonetwork": {
-            target: `${DEV_PROTOCOL}://${DEV_HOST}/geonetwork`,
-            secure: false,
-            headers: {
-                host: `${DEV_HOST}`
-            }
-        },
-        "/header": {
-            target: `${DEV_PROTOCOL}://${DEV_HOST}`,
-            secure: false,
-            headers: {
-                host: `${DEV_HOST}`
-            }
-        },
-        "/cas": {
-            target: `${DEV_PROTOCOL}://${DEV_HOST}`,
-            secure: false,
-            headers: {
-                host: `${DEV_HOST}`
-            }
-        },
-        "/whoami": {
-            target: `${DEV_PROTOCOL}://${DEV_HOST}`,
-            secure: false,
-            headers: {
-                host: `${DEV_HOST}`,
-                // change those for your local instance
-                "sec-username": 'testadmin',
-                "sec-roles": 'ROLE_MAPSTORE_ADMIN'
-            }
-        }
-    }}
-);
+    proxy: devServer.proxy
+});
