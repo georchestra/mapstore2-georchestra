@@ -4,10 +4,10 @@
         <meta charset="UTF-8">
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>geOrchestra</title>
+        <title>Page with MapStore API</title>
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
-        <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
+        <!--script src="https://maps.google.com/maps/api/js?v=3"></script-->
         <!--script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.3.10/proj4.js"></script-->
         <style>
         #container {
@@ -25,11 +25,11 @@
     </head>
     <body onload="init()">
         <div id="container" class="ms2"></div>
-        <script id="ms2-api" src="dist/geOrchestra-api.js"></script>
+        <script id="ms2-api" src="dist/ms2-api.js"></script>
         <script type="text/javascript">
         function init() {
             MapStore2.create('container', {
-                originalUrl: "./#viewer/leaflet/0"
+                originalUrl: "./#viewer/0"
             });
         }
         </script>

@@ -16,8 +16,8 @@ const devServer = {
             headers: {
                 host: `${domain}`,
                 // change those for your local instance
-                "sec-username": 'testadmin',
-                "sec-roles": 'ROLE_MAPSTORE_ADMIN'
+                "sec-username": 'admin',
+                "sec-roles": 'ADMIN'
             }
         },
         "/?login": {
@@ -91,10 +91,10 @@ const devServer = {
             target: `${GEORCHESTRA_BACKEND_BASE_URL}`,
             secure: false,
             headers: {
-                host: `${domain}`
+                host: `${domain}`,
                 // change those for your local instance
-                // "sec-username": 'testadmin',
-                // "sec-roles": 'ROLE_MAPSTORE_ADMIN'
+                "sec-username": 'testadmin',
+                "sec-roles": 'ROLE_MAPSTORE_ADMIN'
             }
         }
     }

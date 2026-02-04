@@ -7,12 +7,12 @@ const moduleFederationPlugin = require('./MapStore2/build/moduleFederation.js').
 const gitRevisionPlugin = require('./revision');
 
 const paths = {
-    base: __dirname,
+    base: path.join(__dirname),
     dist: path.join(__dirname, "dist"),
     framework: path.join(__dirname, "MapStore2", "web", "client"),
     code: [path.join(__dirname, "js"), path.join(__dirname, "MapStore2", "web", "client")]
 };
-
+const favicon = path.resolve("./favicon.ico");
 module.exports = require('./MapStore2/build/buildConfig')({
     bundles: {
         'geOrchestra': path.join(__dirname, "js", "app"),
@@ -28,35 +28,48 @@ module.exports = require('./MapStore2/build/buildConfig')({
     cssPrefix: '.geOrchestra',
     prodPlugins: [
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, 'indexTemplate.html'),
+            template: path.join(paths.framework, 'indexTemplate.html'),
             publicPath: 'dist/',
             chunks: ['geOrchestra'],
             inject: "body",
-            hash: true
+            hash: true,
+            favicon
         }),
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, 'embeddedTemplate.html'),
+            template: path.join(paths.framework, 'embeddedTemplate.html'),
             publicPath: 'dist/',
             chunks: ['embedded'],
             inject: "body",
             hash: true,
-            filename: 'embedded.html'
+            filename: 'embedded.html',
+            favicon
         }),
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, 'dashboard-embedded-template.html'),
+            template: path.join(paths.framework, 'dashboard-embedded-template.html'),
             publicPath: 'dist/',
-            chunks: ['dashboard-embedded'],
+            chunks: ['ms2-api'],
             inject: "body",
             hash: true,
-            filename: 'dashboard-embedded.html'
+            filename: 'api.html',
+            favicon
         }),
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, 'geostory-embedded-template.html'),
+            template: path.join(paths.framework, 'geostory-embedded-template.html'),
             publicPath: 'dist/',
             chunks: ['geostory-embedded'],
             inject: "body",
             hash: true,
-            filename: 'geostory-embedded.html'
+            filename: 'geostory-embedded.html',
+            favicon
+        }),
+        new HtmlWebpackPlugin({
+            template: path.join(paths.framework, 'dashboard-embedded-template.html'),
+            publicPath: 'dist/',
+            chunks: ['dashboard-embedded'],
+            inject: "body",
+            hash: true,
+            filename: 'dashboard-embedded.html',
+            favicon
         })
     ],
     alias: {
