@@ -7,7 +7,6 @@
  */
 import React, { useEffect } from "react";
 import {connect} from "react-redux";
-import Page from "@mapstore/containers/Page";
 
 const AdminPage = () => {
     // redirect to manager page
