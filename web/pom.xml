@@ -661,7 +661,7 @@
                                 </goals>
                                 <configuration>
                                 <overWrite>true</overWrite>
-                                <sourceFile>src/printing/applicationContext-print.xml</sourceFile>
+                                <sourceFile>../MapStore2/java/printing/webapp/applicationContext-print.xml</sourceFile>
                                 <destinationFile>target/mapstore/WEB-INF/classes/applicationContext-print.xml</destinationFile>
                                 </configuration>
                             </execution>
