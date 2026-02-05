@@ -23,6 +23,7 @@ import Permalink from "@mapstore/product/pages/Permalink";
 import ContextCreator from "@mapstore/product/pages/ContextCreator";
 import Context from "@mapstore/product/pages/Context";
 import Admin from "./pages/Admin";
+import Manager from "@mapstore/product/pages/Manager";
 
 /**
  * Add custom (overriding) translations with:
@@ -99,6 +100,14 @@ const appConfig = assign({}, appCfg, {
             name: "admin",
             path: "/admin",
             component: Admin
+        }, {
+            name: "manager",
+            path: "/manager",
+            component: Manager
+        }, {
+            name: "manager",
+            path: "/manager/:tool",
+            component: Manager
         },
         {
             name: "context-creator",

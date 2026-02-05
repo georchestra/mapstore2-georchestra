@@ -680,6 +680,7 @@
               "name": "ResourceDetails",
               "cfg": {
                 "headerNodeSelector": null,
+                "disablePluginIf": "{!state('resourceCanEdit')}",
                 "resourceType": "MAP"
               }
             },
@@ -1277,6 +1278,15 @@
         ],
         "context": [
           "Header", "Easytheming"
+        ],
+        "manager": [
+          "Redirect",
+          "Manager",
+          "TagsManager",
+          "ContextManager",
+          "IPManager",
+          "Footer",
+          { "name": "About" }
         ]
     }
 }

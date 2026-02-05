@@ -14,8 +14,9 @@
         <maven.compiler.target>11</maven.compiler.target>
         <!-- platform BOM versions -->
         <tomcat.port>8080</tomcat.port>
-        <tomcat.version>9.0.90</tomcat.version>
+        <tomcat.version>9.0.108</tomcat.version>
         <maven-resources-plugin.version>2.6</maven-resources-plugin.version>
+        <maven-war-plugin.version>3.4.0</maven-war-plugin.version>
         <!-- Spring Framework & Security (aligned) -->
         <spring.security.version>5.7.13</spring.security.version>
         <spring.version>5.3.39</spring.version>
@@ -27,88 +28,13 @@
         <jaxws-api.version>2.3.1</jaxws-api.version>
         <junit.version>4.13.2</junit.version>
         <mockito-core.version>4.0.0</mockito-core.version>
+        <cargo.version>1.10.2</cargo.version>
         <!-- MapStore‑specific -->
-        <mapstore-services.version>1.9-SNAPSHOT</mapstore-services.version>
-        <geostore-webapp.version>2.3.0</geostore-webapp.version>
+        <mapstore-services.version>1.10.0</mapstore-services.version>
+        <geostore-webapp.version>2.4.0</geostore-webapp.version>
         <http_proxy.version>1.5.0</http_proxy.version>
         <print-lib.version>2.3.4</print-lib.version>
     </properties>
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-core</artifactId>
-                <version>2.16.1</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-annotations</artifactId>
-                <version>2.16.1</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-databind</artifactId>
-                <version>2.16.1</version>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-
-    <profiles>
-        <profile>
-            <id>frontend</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>com.github.eirslett</groupId>
-                        <artifactId>frontend-maven-plugin</artifactId>
-                        <version>1.12.0</version>
-                        <executions>
-                            <execution>
-                                <id>install node and npm</id>
-                                <goals>
-                                    <goal>install-node-and-npm</goal>
-                                </goals>
-                                <phase>generate-resources</phase>
-                            </execution>
-                            <execution>
-                                <id>npm install</id>
-                                <goals>
-                                    <goal>npm</goal>
-                                </goals>
-                                <phase>generate-resources</phase>
-                                <configuration>
-                                    <arguments>install</arguments>
-                                </configuration>
-                            </execution>
-                            <execution>
-                                <id>javascript tests</id>
-                                <goals>
-                                    <goal>karma</goal>
-                                </goals>
-                                <phase>test</phase>
-                                <configuration>
-                                    <karmaConfPath>./karma.conf.single-run.js</karmaConfPath>
-                                </configuration>
-                            </execution>
-                            <execution>
-                                <id>npm run build</id>
-                                <goals>
-                                    <goal>npm</goal>
-                                </goals>
-                                <configuration>
-                                    <arguments>run compile</arguments>
-                                </configuration>
-                            </execution>
-                        </executions>
-                        <configuration>
-                            <nodeVersion>v12.22.1</nodeVersion>
-                            <workingDirectory>${project.basedir}</workingDirectory>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
     <modules>
         <!-- this ensure to build the mapstore-backend module, even if not available on maven repo -->
         <module>MapStore2/java</module>
