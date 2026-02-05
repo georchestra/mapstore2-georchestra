@@ -40,6 +40,7 @@
                 <value>file:${datadir.location:}/mapstore.properties</value>
                 <value>file:${datadir.location:}/ldap.properties</value>
                 <value>file:${georchestra.datadir:}/default.properties</value>
+                <value>file:${georchestra.datadir:}/mapstore/geostore.properties</value>
             </list>
         </property>
         <property name="ignoreResourceNotFound" value="true"/>
