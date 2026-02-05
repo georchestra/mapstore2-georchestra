@@ -1,55 +1,50 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-
-	xmlns:security="http://www.springframework.org/schema/security"
-
-	xmlns:cxf="http://cxf.apache.org/core" xmlns:jaxws="http://cxf.apache.org/jaxws"
-	xmlns:jaxrs="http://cxf.apache.org/jaxrs"
-
-	xsi:schemaLocation="
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:security="http://www.springframework.org/schema/security"
+    xmlns:cxf="http://cxf.apache.org/core"
+    xmlns:jaxws="http://cxf.apache.org/jaxws"
+    xmlns:jaxrs="http://cxf.apache.org/jaxrs" xsi:schemaLocation="
             http://www.springframework.org/schema/beans     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
             http://cxf.apache.org/jaxws                     http://cxf.apache.org/schemas/jaxws.xsd
             http://cxf.apache.org/jaxrs                     http://cxf.apache.org/schemas/jaxrs.xsd
             http://cxf.apache.org/core                      http://cxf.apache.org/schemas/core.xsd
             http://www.springframework.org/schema/security  http://www.springframework.org/schema/security/spring-security.xsd
-            http://www.springframework.org/schema/context   http://www.springframework.org/schema/context/spring-context-3.0.xsd"
-	default-autowire="byName">
+            http://www.springframework.org/schema/context   http://www.springframework.org/schema/context/spring-context-3.0.xsd" default-autowire="byName">
 
-	<!-- ==================================================================== -->
-	<!-- === REST Security ================================================== -->
-	<!-- ==================================================================== -->
-	<security:global-method-security secured-annotations="enabled" />
+    <!-- ==================================================================== -->
+    <!-- === REST Security ================================================== -->
+    <!-- ==================================================================== -->
+    <security:global-method-security secured-annotations="enabled" />
 
-	<security:http auto-config="true" create-session="never" >
-		<security:http-basic entry-point-ref="restAuthenticationEntryPoint"/>
-		<security:custom-filter ref="sessionTokenProcessingFilter" after="FORM_LOGIN_FILTER"/>
-		<security:custom-filter ref="headersProcessingFilter" before="FORM_LOGIN_FILTER"/>
-		<security:anonymous />
-        <security:csrf disabled="true" />
-	</security:http>
+    <security:http auto-config="true" create-session="never">
+        <security:http-basic entry-point-ref="restAuthenticationEntryPoint"/>
+        <security:csrf disabled="true"/>
+        <security:custom-filter ref="sessionTokenProcessingFilter" after="FORM_LOGIN_FILTER"/>
+        <security:custom-filter ref="headersProcessingFilter" before="FORM_LOGIN_FILTER"/>
+        <security:anonymous />
 
-	<!-- Entry point -->
-	<bean id="restAuthenticationEntryPoint" class="it.geosolutions.geostore.services.rest.security.RestAuthenticationEntryPoint" >
-		<property name="realmName" value="GeoStore"></property>
-	</bean>
-	<!-- GeoStore Auth Provider -->
-	<bean id="geoStoreUserServiceAuthenticationProvider"
-		class="it.geosolutions.geostore.services.rest.security.UserServiceAuthenticationProvider">
-	</bean>
+    </security:http>
 
-	<bean class="it.geosolutions.geostore.services.rest.security.UserAttributeTokenAuthenticationFilter"
-        id="authenticationTokenProcessingFilter">
-	</bean>
+    <!-- Entry point -->
+    <bean id="restAuthenticationEntryPoint" class="it.geosolutions.geostore.services.rest.security.RestAuthenticationEntryPoint">
+        <property name="realmName" value="GeoStore"></property>
+    </bean>
+    <!-- GeoStore Auth Provider -->
+    <bean id="geoStoreUserServiceAuthenticationProvider" class="it.geosolutions.geostore.services.rest.security.UserServiceAuthenticationProvider">
+    </bean>
 
-	<bean class="it.geosolutions.geostore.services.rest.security.SessionTokenAuthenticationFilter"
-        id="sessionTokenProcessingFilter">
+    <bean class="it.geosolutions.geostore.services.rest.security.UserAttributeTokenAuthenticationFilter" id="authenticationTokenProcessingFilter">
+    </bean>
+
+    <bean class="it.geosolutions.geostore.services.rest.security.SessionTokenAuthenticationFilter" id="sessionTokenProcessingFilter">
             <property name="validateUserFromService" value="false"/>
-	</bean>
+    </bean>
 
     <!-- geOrchestra header based Auth Provider -->
-	<bean id="georchestraAuthenticationProvider"
-		class="it.geosolutions.geostore.services.rest.security.PreAuthenticatedAuthenticationProvider">
-	</bean>
+    <bean id="georchestraAuthenticationProvider"
+        class="it.geosolutions.geostore.services.rest.security.PreAuthenticatedAuthenticationProvider">
+    </bean>
 
     <!-- geOrchestra header based Auth Filter -->
     <bean class="it.geosolutions.geostore.services.rest.security.HeadersAuthenticationFilter"
@@ -60,11 +55,11 @@
             <property name="listDelimiter" value=";"/>
             <property name="authoritiesMapper" ref="rolesMapper"/>
             <property name="groupMapper">
-            	<bean class="it.geosolutions.geostore.services.rest.utils.SpelMapper">
-            		<constructor-arg value="name.replace('ROLE_', '')" />
-            	</bean>
+                <bean class="it.geosolutions.geostore.services.rest.utils.SpelMapper">
+                    <constructor-arg value="name.replace('ROLE_', '')" />
+                </bean>
             </property>
-	</bean>
+    </bean>
 
     <!-- geOrchestra groups to roles mapper for Headers Auth Filter -->
     <bean id="rolesMapper" class="it.geosolutions.geostore.core.security.SimpleGrantedAuthoritiesMapper">
@@ -75,20 +70,20 @@
         </constructor-arg>
     </bean>
 
-	<!-- Inject into the Authentication Manager the geOrchestra Auth Provider -->
-	<security:authentication-manager>
+    <!-- Inject into the Authentication Manager the geOrchestra Auth Provider -->
+    <security:authentication-manager>
         <security:authentication-provider ref='georchestraAuthenticationProvider' />
-	</security:authentication-manager>
+    </security:authentication-manager>
 
     <!-- SecurityDAO using externals users -->
     <alias name="externalSecurityDAO" alias="securityDAO"/>
 
     <!-- geOrchestra LDAP DAOs -->
     <bean id="ldap-context" class="org.springframework.security.ldap.DefaultSpringSecurityContextSource">
-		<constructor-arg value="${ldapScheme:ldap}://${ldapHost:localhost}:${ldapPort:389}/${ldapBaseDn:}" />
+        <constructor-arg value="${ldapScheme:ldap}://${ldapHost:localhost}:${ldapPort:389}/${ldapBaseDn:}" />
         <property name="userDn" value="${ldapAdminDn:admin}"/>
         <property name="password" value="${ldapAdminPassword:}"/>
-	</bean>
+    </bean>
     <bean id="ldapUserDAO" class="it.geosolutions.geostore.core.dao.ldap.impl.UserDAOImpl">
         <constructor-arg ref="ldap-context"/>
         <property name="searchBase" value="${ldapUsersRdn:}"/>
@@ -108,4 +103,21 @@
     </bean>
     <alias name="ldapUserGroupDAO" alias="userGroupDAO"/>
     <alias name="ldapUserDAO" alias="userDAO"/>
+    <!-- OAuth2 beans -->
+
+    <!-- Generic OIDC -->
+    <bean id="oidcSecurityConfiguration" class="it.geosolutions.geostore.services.rest.security.oauth2.openid_connect.OpenIdConnectSecurityConfiguration"/>
+
+    <!-- Google -->
+    <bean id="googleSecurityConfiguration" class="it.geosolutions.geostore.services.rest.security.oauth2.google.OAuthGoogleSecurityConfiguration"/>
+
+    <!-- Keycloak -->
+
+    <bean id="keycloakConfig" class="it.geosolutions.geostore.services.rest.security.keycloak.KeyCloakSecurityConfiguration"/>
+
+    <!-- END OAuth2 beans-->
+
+    <!--  security itegration inclusions  -->
+    <import resource="classpath*:security-integration-${security.integration:default}.xml"/>
+
 </beans>

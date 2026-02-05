@@ -68,14 +68,14 @@
 		<filter-name>CompressionFilter</filter-name>
 		<url-pattern>*.js</url-pattern>
 	</filter-mapping>
-
+    <!--
      <filter>
         <filter-name>noCacheFilter</filter-name>
         <filter-class>it.geosolutions.mapstore.filters.NoCacheFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>noCacheFilter</filter-name>
-        <url-pattern>/</url-pattern> <!-- index.html -->
+        <url-pattern>/</url-pattern>
     </filter-mapping>
     <filter-mapping>
         <filter-name>noCacheFilter</filter-name>
@@ -89,7 +89,7 @@
         <filter-name>noCacheFilter</filter-name>
         <url-pattern>*.txt</url-pattern>
     </filter-mapping>
-
+    -->
     <!--  Backward compatibility -->
     <servlet>
         <servlet-name>loadAssets</servlet-name>

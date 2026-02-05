@@ -107,7 +107,7 @@
     "fe:build": "npm run clean && mkdirp ./dist && node ./node_modules/webpack/bin/webpack.js --config prod-webpack.config.js",
     "compile": "npm run fe:build",
     "backend:build": "mvn clean install -Pprinting",
-    "be:start": "npm run backend:build && mvn cargo:run -f ./web/pom.xml",
+    "be:start": "npm run backend:build -Pprinting && mvn cargo:run -f ./web/pom.xml -Pprinting",
     "clean": "rimraf dist",
     "postinstall": "node MapStore2/utility/build/postInstall.js",
     "test": "karma start ./karma.conf.single-run.js",

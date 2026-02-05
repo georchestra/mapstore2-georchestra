@@ -49,47 +49,6 @@
       <type>war</type>
       <scope>runtime</scope>
     </dependency>
-    <!-- mapfish-print -->
-    <dependency>
-        <groupId>org.mapfish.print</groupId>
-        <artifactId>print-lib</artifactId>
-        <version>${print-lib.version}</version>
-        <exclusions>
-            <exclusion>
-                <groupId>commons-codec</groupId>
-                <artifactId>commons-codec</artifactId>
-            </exclusion>
-            <exclusion>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-annotations</artifactId>
-            </exclusion>
-            <exclusion>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-core</artifactId>
-            </exclusion>
-            <exclusion>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-databind</artifactId>
-            </exclusion>
-            <exclusion>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-web</artifactId>
-            </exclusion>
-            <exclusion>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-context</artifactId>
-            </exclusion>
-            <!-- drop the HTTP Client and Core jar -->
-            <exclusion>
-                <groupId>org.apache.httpcomponents</groupId>
-                <artifactId>httpclient</artifactId>
-            </exclusion>
-            <exclusion>
-                <groupId>org.apache.httpcomponents</groupId>
-                <artifactId>httpcore</artifactId>
-            </exclusion>
-        </exclusions>
-    </dependency>
     <!-- JUnit -->
     <dependency>
       <groupId>junit</groupId>
@@ -101,20 +60,20 @@
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-core</artifactId>
-      <scope>test</scope>
       <version>${mockito-core.version}</version>
+      <scope>test</scope>
     </dependency>
     <!-- servlet -->
     <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>javax.servlet-api</artifactId>
-      <version>${javax.servlet-api.version}</version>
+        <groupId>javax.servlet</groupId>
+        <artifactId>javax.servlet-api</artifactId>
+        <version>${javax.servlet-api.version}</version>
     </dependency>
     <!-- gzip compression filter -->
     <dependency>
-      <groupId>net.sf.ehcache</groupId>
-      <artifactId>ehcache-web</artifactId>
-      <version>${ehcache-web.version}</version>
+        <groupId>net.sf.ehcache</groupId>
+        <artifactId>ehcache-web</artifactId>
+        <version>${ehcache-web.version}</version>
     </dependency>
     <!-- misc -->
     <dependency>
@@ -129,7 +88,7 @@
     <plugins>
       <plugin>
         <artifactId>maven-resources-plugin</artifactId>
-        <version>2.6</version>
+        <version>${maven-resources-plugin.version}</version>
         <executions>
           <execution>
             <id>version</id>
@@ -286,9 +245,6 @@
                   </includes>
                   <excludes>
                     <exclude>node_modules/*</exclude>
-                    <exclude>node/**/*</exclude>
-                    <exclude>web/**/*</exclude>
-                    <exclude>coverage/**/*</exclude>
                     <exclude>node_modules/**/*</exclude>
                     <exclude>MapStore2/*</exclude>
                     <exclude>MapStore2/**/*</exclude>
@@ -419,11 +375,11 @@
               <goal>copy-resources</goal>
             </goals>
             <configuration>
-              <outputDirectory>${resources.output.dir}/MapStore2/web/client</outputDirectory>
+              <outputDirectory>${resources.output.dir}/MapStore2/web/client/configs</outputDirectory>
               <encoding>UTF-8</encoding>
               <resources>
                 <resource>
-                  <directory>${basedir}/../MapStore2/web/client</directory>
+                  <directory>${basedir}/../MapStore2/web/client/configs</directory>
                   <includes>
                     <include>localConfig.json</include>
                   </includes>
@@ -433,93 +389,89 @@
           </execution>
         </executions>
       </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-war-plugin</artifactId>
-        <version>3.4.0</version>
-        <configuration>
-          <packagingExcludes>
-                WEB-INF/lib/*spring*5.3.18*.jar,
-                WEB-INF/lib/json-lib-2.4-jdk15.jar,
-                WEB-INF/lib/msg-simple-1.1.jar,
-                WEB-INF/lib/btf-1.2.jar,
-                WEB-INF/lib/commons-io-2.1.jar,
-                WEB-INF/lib/commons-beanutils-1.8.0.jar,
-                WEB-INF/lib/commons-logging-1.1.1.jar,
-                WEB-INF/lib/jackson-coreutils-1.6.jar,
-                WEB-INF/lib/stax-ex-1.8.jar,
+
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-war-plugin</artifactId>
+            <version>${maven-war-plugin.version}</version>
+            <configuration>
+                <packagingExcludes>
+                    WEB-INF/lib/*spring*5.3.18*.jar,
+                    WEB-INF/lib/json-lib-2.4-jdk15.jar,
+                    WEB-INF/lib/msg-simple-1.1.jar,
+                    WEB-INF/lib/btf-1.2.jar,
+                    WEB-INF/lib/commons-io-2.1.jar,
+                    WEB-INF/lib/commons-beanutils-1.8.0.jar,
+                    WEB-INF/lib/commons-logging-1.1.1.jar,
+                    WEB-INF/lib/jackson-coreutils-1.6.jar,
+                    WEB-INF/lib/stax-ex-1.8.jar,
                 <!-- these 2 where not present in MS project, added to georchestra project, so keeping them -->
                 WEB-INF/classes/geostore-datasource-ovr.properties,
                 WEB-INF/classes/geostore-ovr.properties
-          </packagingExcludes>
-          <overlays>
-            <overlay>
-              <groupId>it.geosolutions.geostore</groupId>
-              <artifactId>geostore-webapp</artifactId>
-            </overlay>
-            <overlay>
-              <groupId>proxy</groupId>
-              <artifactId>http_proxy</artifactId>
-            </overlay>
-          </overlays>
-        </configuration>
-      </plugin>
+                </packagingExcludes>
+                <overlays>
+                    <overlay>
+                        <groupId>it.geosolutions.geostore</groupId>
+                        <artifactId>geostore-webapp</artifactId>
+                    </overlay>
+                    <overlay>
+                        <groupId>proxy</groupId>
+                        <artifactId>http_proxy</artifactId>
+                    </overlay>
+                </overlays>
+            </configuration>
+        </plugin>
 
-    <plugin>
-        <groupId>org.codehaus.cargo</groupId>
-        <artifactId>cargo-maven3-plugin</artifactId>
-        <configuration>
-            <container>
-                <containerId>tomcat9x</containerId>
-                <zipUrlInstaller>
-                    <url>
+        <plugin>
+            <groupId>org.codehaus.cargo</groupId>
+            <artifactId>cargo-maven3-plugin</artifactId>
+            <version>${cargo.version}</version>
+            <configuration>
+                <container>
+                    <containerId>tomcat9x</containerId>
+                    <zipUrlInstaller>
+                        <url>
                             https://repo.maven.apache.org/maven2/org/apache/tomcat/tomcat/${tomcat.version}/tomcat-${tomcat.version}.zip
                         </url>
-                </zipUrlInstaller>
-            </container>
-            <configuration>
-                <type>standalone</type>
-                <home>
-                    ${project.build.directory}/apache-tomcat-${tomcat.version}
-                </home>
-                <properties>
-                    <cargo.servlet.port>${tomcat.port}</cargo.servlet.port>
-                    <cargo.logging>low</cargo.logging>
-                </properties>
-            </configuration>
-            <deployables>
-                <deployable>
-                    <groupId>${project.groupId}</groupId>
-                    <artifactId>${project.artifactId}</artifactId>
-                    <type>war</type>
+                    </zipUrlInstaller>
+                </container>
+                <configuration>
+                    <type>standalone</type>
+                    <home>
+                        ${project.build.directory}/apache-tomcat-${tomcat.version}
+                    </home>
                     <properties>
-                        <context>/mapstore</context>
+                        <cargo.servlet.port>${tomcat.port}</cargo.servlet.port>
+                        <cargo.logging>low</cargo.logging>
                     </properties>
-                </deployable>
-            </deployables>
-        </configuration>
-    </plugin>
-      <!-- Run the application using "mvn jetty:run" -->
-      <plugin>
-        <groupId>org.mortbay.jetty</groupId>
-        <artifactId>maven-jetty-plugin</artifactId>
-        <version>6.1.20</version>
-        <configuration>
-          <webAppConfig>
-            <contextPath>/geOrchestra</contextPath>
-          </webAppConfig>
-          <connectors>
-            <connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
-              <port>9191</port>
-              <maxIdleTime>60000</maxIdleTime>
-            </connector>
-          </connectors>
-          <reload>manual</reload>
-        </configuration>
-      </plugin>
+                </configuration>
+                <deployables>
+                    <deployable>
+                        <groupId>${project.groupId}</groupId>
+                        <artifactId>${project.artifactId}</artifactId>
+                        <type>war</type>
+                        <properties>
+                            <context>/mapstore</context>
+                        </properties>
+                    </deployable>
+                </deployables>
+            </configuration>
+        </plugin>
     </plugins>
   </build>
     <profiles>
+        <profile>
+            <id>dev-custom-port</id>
+            <activation>
+                <property>
+                    <name>env.MAPSTORE_BACKEND_PORT</name>
+                </property>
+            </activation>
+            <properties>
+                <!-- Override only if necessary -->
+                <tomcat.port>${env.MAPSTORE_BACKEND_PORT}</tomcat.port>
+            </properties>
+        </profile>
         <profile>
             <id>debianPackage</id>
             <properties>
@@ -692,7 +644,7 @@
         <profile>
             <id>printing</id>
             <activation>
-                <activeByDefault>false</activeByDefault>
+                <activeByDefault>true</activeByDefault>
             </activation>
             <build>
                 <plugins>
@@ -705,12 +657,12 @@
                                 <id>rename-context</id>
                                 <phase>prepare-package</phase>
                                 <goals>
-                                    <goal>copy</goal>
+                                <goal>copy</goal>
                                 </goals>
                                 <configuration>
-                                    <overWrite>true</overWrite>
-                                    <sourceFile>src/printing/applicationContext-print.xml</sourceFile>
-                                    <destinationFile>target/mapstore/WEB-INF/classes/applicationContext-print.xml</destinationFile>
+                                <overWrite>true</overWrite>
+                                <sourceFile>src/printing/applicationContext-print.xml</sourceFile>
+                                <destinationFile>target/mapstore/WEB-INF/classes/applicationContext-print.xml</destinationFile>
                                 </configuration>
                             </execution>
                         </executions>
@@ -805,42 +757,51 @@
                     </exclusions>
                 </dependency>
             </dependencies>
-        </profile>
+            </profile>
     </profiles>
-  <repositories>
-    <!-- GeoSolutions -->
-    <repository>
-        <id>geosolutions</id>
-        <name>GeoSolutions Repository</name>
-        <url>https://maven.geo-solutions.it</url>
-        <snapshots>
-            <enabled>true</enabled>
-        </snapshots>
-    </repository>
 
-    <!-- Osgeo -->
-    <repository>
-        <id>osgeo</id>
-        <name>Open Source Geospatial Foundation Repository</name>
-        <url>https://repo.osgeo.org/repository/release/</url>
-        <snapshots>
-            <enabled>true</enabled>
-        </snapshots>
-    </repository>
+    <repositories>
+        <!-- GeoSolutions -->
+        <repository>
+            <id>geosolutions</id>
+            <name>GeoSolutions Repository</name>
+            <url>https://maven.geo-solutions.it</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
 
-     <!-- Georchestra -->
-     <repository>
-        <id>georchestra</id>
-        <name>geOrchestra Repository</name>
-        <url>https://artifactory.georchestra.org/artifactory/maven</url>
-        <snapshots>
-            <enabled>true</enabled>
-            <updatePolicy>always</updatePolicy>
-        </snapshots>
-        <releases>
-            <enabled>true</enabled>
-            <updatePolicy>always</updatePolicy>
-        </releases>
-    </repository>
-  </repositories>
+        <!-- Osgeo -->
+        <repository>
+            <id>osgeo</id>
+            <name>Open Source Geospatial Foundation Repository</name>
+            <url>https://repo.osgeo.org/repository/release/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <!-- OSGEO snapshot (mapfish-print)-->
+        <repository>
+            <id>osgeo-snapshot</id>
+            <name>Open Source Geospatial Foundation Repository</name>
+            <url>https://repo.osgeo.org/repository/snapshot/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <!-- Georchestra -->
+        <repository>
+            <id>georchestra</id>
+            <name>geOrchestra Repository</name>
+            <url>https://artifactory.georchestra.org/artifactory/maven</url>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </releases>
+        </repository>
+    </repositories>
 </project>

@@ -17,6 +17,7 @@ import MapStoreLogin from '@mapstore/plugins/Login';
 import BackgroundSelectorPlugin from '@mapstore/plugins/BackgroundSelector';
 const exclude = [
     "AboutPlugin", "AttributionPlugin", "FooterPlugin", "ForkPlugin",
+    "LoginPlugin",
     "HomeDescriptionPlugin", "MadeWithLovePlugin", "MapTypePlugin", "NavMenuPlugin",
     "BackgroundSelectorPlugin"
 ];
