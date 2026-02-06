@@ -44,9 +44,17 @@
 #ms-brand-navbar {
     z-index: 1900;
 }
+// makes the header always
 geor-header {
     z-index: 2000;
 }
+#page-maps geor-header, div#page-manager geor-header {
+    position: relative;
+}
+// hides
 ._ms2_init_text {
     display: none !important;
+}
+.mapstore-print-panel.modal-dialog {
+    z-index: 2000 !important;
 }
