@@ -411,7 +411,10 @@
                     WEB-INF/lib/commons-beanutils-1.8.0.jar,
                     WEB-INF/lib/commons-logging-1.1.1.jar,
                     WEB-INF/lib/jackson-coreutils-1.6.jar,
-                    WEB-INF/lib/stax-ex-1.8.jar
+                    WEB-INF/lib/stax-ex-1.8.jar,
+                <!-- these 2 where not present in MS project, added to georchestra project, so keeping them -->
+                WEB-INF/classes/geostore-datasource-ovr.properties,
+                WEB-INF/classes/geostore-ovr.properties
                 </packagingExcludes>
                 <overlays>
                     <overlay>
