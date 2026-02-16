@@ -680,7 +680,7 @@
               "name": "ResourceDetails",
               "cfg": {
                 "headerNodeSelector": null,
-                "disablePluginIf": "{!state('resourceCanEdit')}",
+                "disableIf": "{!state('userrole')}",
                 "resourceType": "MAP"
               }
             },
