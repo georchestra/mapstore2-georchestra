@@ -918,6 +918,7 @@
       {
         "name": "ResourcesFiltersForm",
         "cfg": {
+          "headerNodeSelector": null,
           "resourcesGridId": "catalog"
         }
       },
