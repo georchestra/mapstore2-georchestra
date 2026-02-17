@@ -357,7 +357,7 @@
                     }
                 }
             }, "Login",
-            "OmniBar", "BurgerMenu", "Home", "Expander",
+            "OmniBar", "BurgerMenu", "Expander",
             "FeedbackMask",
             {
               "name": "Share",
@@ -680,7 +680,7 @@
               "name": "ResourceDetails",
               "cfg": {
                 "headerNodeSelector": null,
-                "disableIf": "{!state('userrole')}",
+                "disablePluginIf": "{!state('userrole')}",
                 "resourceType": "MAP"
               }
             },
@@ -845,7 +845,8 @@
           {
               "name": "BrandNavbar",
               "cfg": {
-                "logo": null
+                "logo": null,
+                "containerPosition": "header"
               }
           },
           "Login",
@@ -980,16 +981,24 @@
           }
       }
       ],
-      "dashboard": [
+      "dashboard": [{
+        "name": "Header",
+          "cfg": {
+            "containerPosition": "header",
+            "page": "msadmin"
+          }
+        },
         {
             "name": "BrandNavbar",
             "cfg": {
-                "containerPosition": "header"
+                "containerPosition": "header",
+                "logo": null
             }
         },
         {
             "name": "ResourceDetails",
             "cfg": {
+                "headerNodeSelector":":has(geor-header)",
                 "resourceType": "DASHBOARD"
             }
         },
@@ -1019,14 +1028,6 @@
           "name": "SidebarMenu",
           "cfg": {
             "containerPosition": "columns"
-          }
-        },
-        {
-          "name": "Home",
-          "override": {
-            "OmniBar": {
-              "priority": 5
-            }
           }
         },
         {
@@ -1116,10 +1117,20 @@
             "preset": "geostory_view_tutorial"
           }
         },
+
+        {
+            "name": "Header",
+            "cfg": {
+                "containerPosition": "header",
+                "logo": null,
+                "disablePluginIf": "{(state('router') && state('router').includes('/geostory/shared') && state('geostorymode') !== 'edit')}"
+            }
+        },
         {
             "name": "BrandNavbar",
             "cfg": {
                 "containerPosition": "header",
+                "logo": null,
                 "disablePluginIf": "{(state('router') && state('router').includes('/geostory/shared') && state('geostorymode') !== 'edit')}"
             }
         },
@@ -1127,6 +1138,8 @@
             "name": "ResourceDetails",
             "cfg": {
                 "resourceType": "GEOSTORY",
+                "headerNodeSelector":":has(geor-header)",
+                "disablePluginIf": "{!state('userrole')}",
                 "containerPosition": "columns"
             }
         },
@@ -1151,7 +1164,6 @@
         },
         "Login",
         "BurgerMenu",
-        "Home",
         {
           "name": "GeoStory"
         },
@@ -1248,14 +1260,9 @@
          {
             "name": "Header",
             "cfg": {
+              "containerPosition": "header",
               "page": "msadmin"
             }
-          },
-          {
-              "name": "BrandNavbar",
-              "cfg": {
-                  "containerPosition": "header"
-              }
           },
           "Login",
           "Tutorial",
