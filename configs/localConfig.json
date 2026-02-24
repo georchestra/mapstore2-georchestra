@@ -427,7 +427,7 @@
               "cfg": {
                 "docsUrl": "https://georchestra.readthedocs.io/"
               }
-            }, "AutoMapUpdate", "DrawerMenu", "Version", "Notifications", "BackgroundSelector", {
+            }, "AutoMapUpdate", "DrawerMenu", "Version", "Notifications", "BackgroundSelector", "Swipe", {
               "name": "Annotations",
               "cfg": {
                 "symbolsPath": "assets/symbols/",
