@@ -52,4 +52,11 @@ geor-header {
 #mapstore-print-panel.modal-dialog {
     z-index: 2000 !important;
 }
-
+// workaround for widgets on map to avoid they overflow because of the header
+.react-grid-layout.widget-container.on-map {
+    bottom: -18px !important;
+    height: calc(100% - 30px) !important;
+    .react-grid-item {
+        max-height: 100% !important;
+    }
+}
