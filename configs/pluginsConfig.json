@@ -27,6 +27,11 @@
           }
         }
       }
+    },{
+      "name": "Header",
+      "cfg": {
+        "containerPosition": "header"
+      }
     },
     {
       "name": "Notifications",
