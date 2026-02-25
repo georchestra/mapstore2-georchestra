@@ -1270,8 +1270,8 @@
             "name": "ContextCreator",
             "cfg": {
               "documentationBaseURL": "https://mapstore.geo-solutions.it/mapstore/docs/api/plugins",
-              "saveDestLocation": "/",
-              "backToPageDestRoute": "/"
+              "saveDestLocation": "/#/home",
+              "backToPageDestRoute": "/#/home"
             }
           },
           "Notifications",
