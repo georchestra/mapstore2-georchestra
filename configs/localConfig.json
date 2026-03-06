@@ -850,7 +850,6 @@
               }
           },
           "Login",
-          "MapStoreLogin","<<--This Is for test",
           "ScrollTop",
           "Notifications"
         ],
