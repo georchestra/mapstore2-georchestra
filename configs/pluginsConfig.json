@@ -127,7 +127,10 @@
       ],
       "dependencies": [
         "WidgetsBuilder"
-      ]
+      ],
+      "cfg": {
+        "rowHeightGap": 35
+      }
     },
     {
       "name": "WidgetsTray",

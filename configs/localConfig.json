@@ -281,13 +281,13 @@
                 "cfg": {
                     "bottom": 25,
                     "dimensions": {
-                      "side": 65,
-                      "sidePreview": 65,
-                      "frame": 3,
-                      "margin": 5,
-                      "label": false,
-                      "vertical": true
-                    }
+                    "side": 65,
+                    "sidePreview": 65,
+                    "frame": 3,
+                    "margin": 5,
+                    "label": false,
+                    "vertical": true
+                  }
                 }
             },
             {
@@ -562,6 +562,13 @@
                 "mapPreviewOptions": {
                   "enableScalebox": true
                 },
+                "outputFormatOptions": {
+                  "allowedFormats": [
+                    { "name": "PDF", "value": "pdf" },
+                    { "name": "PNG", "value": "png" },
+                    { "name": "JPG", "value": "jpg" }
+                  ]
+                },
                 "overlayLayersOptions": {
                   "enabled": true
                 }
@@ -663,7 +670,13 @@
                     }
                 }
             },
-            "OmniBar", "Login", "SidebarMenu", "Expander", "Undo", "Redo", "FullScreen", "GlobeViewSwitcher", "SearchServicesConfig", "WidgetsBuilder", "Widgets",
+            "OmniBar", "Login", "SidebarMenu", "Expander", "Undo", "Redo", "FullScreen", "GlobeViewSwitcher", "SearchServicesConfig", "WidgetsBuilder",
+            {
+              "name": "Widgets",
+              "cfg": {
+                "rowHeightGap": 35
+              }
+            },
             "WidgetsTray",
             "Timeline",
             "Playback",
