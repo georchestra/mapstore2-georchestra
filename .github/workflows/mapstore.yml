@@ -65,7 +65,7 @@ jobs:
         ARTIFACTORY_USERNAME_REF: ${{ secrets.ARTIFACTORY_USERNAME }}
 
     - name: "debian package with Maven"
-      run: mvn -B package deb:package -pl web -PdebianPackage
+      run: mvn -B package deb:package -pl web -PdebianPackage,printing
 
     - name: "copy resulting deb"
       run: mkdir -p scratch && cp web/target/georchestra-mapstore*.deb scratch/georchestra-mapstore-${{ github.sha }}.deb
