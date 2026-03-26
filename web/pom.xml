@@ -669,7 +669,7 @@
                                 <configuration>
                                 <overWrite>true</overWrite>
                                 <sourceFile>../MapStore2/java/printing/webapp/applicationContext-print.xml</sourceFile>
-                                <destinationFile>target/mapstore/WEB-INF/classes/applicationContext-print.xml</destinationFile>
+                                <destinationFile>target/${project.build.finalName}/WEB-INF/classes/applicationContext-print.xml</destinationFile>
                                 </configuration>
                             </execution>
                         </executions>
