@@ -1,5 +1,10 @@
-# Technical Guides Index
+# Technical Guides
 
-## Table of Contents
+This section documents how MapStore2 is installed, configured and integrated in geOrchestra.
 
-Table of contents.
+It covers:
+
+- installation prerequisites and deployment entry points
+- configuration through the geOrchestra data directory
+- administration topics specific to the component
+- local development and security integration details

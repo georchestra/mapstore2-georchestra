@@ -1,22 +1,22 @@
-# User guide index
+# User Guide
 
-This page is dedicated to the summary of the component's user guide, that is to say the reference documentation which describes all the functionalities and tools of the component intended for **users**.
-The table of contents for the guide is embedded here.
+MapStore is a framework used to build WebGIS applications with advanced map and geospatial data viewing tools.
+geOrchestra includes MapStore as its main map viewer for data visualization and sharing.
 
-**Recommendations**:
+The official MapStore documentation is available here:
+[mapstore.readthedocs.io](https://mapstore.readthedocs.io/en/latest/).
+It provides general information about tools and pages available in the upstream product.
 
-- After this page, start with a "Global View" part of the tool which presents the main window of the component.
-- Add as many screenshots as possible to illustrate. Images are stored in the `images` directory.
+Because geOrchestra uses MapStore only for its own map viewer and administration interfaces, and not for the full upstream product surface, some information from the official documentation may differ from what is available here.
 
-Example of guide tree for Mapstore2:
+The following upstream sections remain especially useful:
 
-- Global view of the component
-- Manage layer settings
-- The attribute table
-- The menu bar
-- Print a card
-...
+- [Exploring maps](https://mapstore.readthedocs.io/en/latest/user-guide/exploring-maps/)
+- [Managing contexts](https://mapstore.readthedocs.io/en/latest/user-guide/managing-contexts/)
 
+Use this section for the geOrchestra-specific user-facing pages:
 
-
-
+- [Getting started](getting_started.en.md)
+- [Global overview](global_overview.en.md)
+- [Menus and toolbars](tools.en.md)
+- [msIframe](msiframe.en.md)

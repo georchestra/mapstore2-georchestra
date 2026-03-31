@@ -50,25 +50,32 @@ extra_javascript:
 
 nav:
     - Home: index.md 
-    - User guide:
+    - MapStore Guide:
         - Index: user_guide/index.md
         - Getting started: user_guide/getting_started.md
         - Global overview: user_guide/global_overview.md
         - Menus and toolbars: user_guide/tools.md
+        - msIframe: user_guide/msiframe.md
         - Syntax help: user_guide/syntax_help.md
-    - Technical guides:
-        - Index: technical_guides/index.md
+    - Configuration Guide:
         - Installation:
             - technical_guides/installation/index.md
             - technical_guides/installation/prerequisites.md
-        - Configuration:
-            - technical_guides/configuration/index.md
-            - technical_guides/configuration/catalog.md
         - Administration:
             - technical_guides/administration/index.md
             - technical_guides/administration/one_page.md
-        - Developer guide:
-            - technical_guides/developer_guide/index.md
+        - Configuration:
+            - technical_guides/configuration/index.md
+            - technical_guides/configuration/general.md
+            - technical_guides/configuration/database.md
+            - technical_guides/configuration/application.md
+            - technical_guides/configuration/other.md
+            - technical_guides/configuration/catalog.md
+    - Developer Guide:
+        - Index: technical_guides/developer_guide/index.md
+        - Integration with geOrchestra: technical_guides/developer_guide/integration.md
+    - Documentation Guide:
+        - Documentation Maintenance: technical_guides/developer_guide/documentation.md
 
 markdown_extensions:
   - admonition
@@ -109,17 +116,28 @@ plugins:
             site_name: "MapStore2 pour geOrchestra"
             nav_translations:
               Home: "Accueil"
+              MapStore Guide: "Guide MapStore"
               User guide: "Guide utilisateur"
               Index: "Sommaire"
               Getting started: "Prendre en main"
               Global overview: "Vue globale"
               Menus and toolbars: "Barres ou menus d''outils"
+              msIframe: "msIframe"
               Syntax help: "Aide syntaxe"
               Technical guides: "Guides techniques"
               Installation: "Installer"
+              Configuration Guide: "Guide de configuration"
               Configuration: "Configuration"
+              General Configuration Principles: "Principes généraux de configuration"
+              Database Configuration: "Configuration de la base de données"
+              Application Configuration: "Configuration applicative"
+              Other Configuration Notes: "Autres notes de configuration"
               Administration: "Administrer"
+              Developer Guide: "Guide développeur"
+              Documentation Guide: "Guide de documentation"
               Developer guide: "Développer"
+              Integration with geOrchestra: "Intégration avec geOrchestra"
+              Documentation Maintenance: "Maintenance de la documentation"
 
     - git-revision-date-localized:
         enable_creation_date: true

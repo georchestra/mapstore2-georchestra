@@ -1,6 +1,14 @@
-# Toolbar or Menu
+# Menus and Toolbars
 
-Introduction to a first set of tools, often accompanied by screenshots to guide the user effectively.
-Images are stored in the `images` directory.
+The main viewer exposes standard MapStore tools through its menus and toolbars.
 
-Depending on the product, there may be a page for each group of tools, with sub-levels if necessary.
+For a complete functional overview, refer to the upstream user guide:
+
+- [Exploring maps](https://mapstore.readthedocs.io/en/latest/user-guide/exploring-maps/)
+
+In geOrchestra, the exact set of tools may vary depending on:
+
+- the current context configuration
+- enabled plugins
+- user permissions
+- whether you are in the standard viewer or in the context editor

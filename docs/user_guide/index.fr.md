@@ -1,23 +1,22 @@
-# Sommaire du guide utilisateur
+# Guide utilisateur
 
-Cette page est dédiée au sommaire du guide utilisateur du composant, c'est-à-dire à la documentation de référence qui décrit toutes les fonctionnalités et outils du composant à destination des **utilisateurs**.
-La table des matières pour le guide est intégrée ici.
+MapStore est un framework utilisé pour construire des applications WebGIS avec des outils avancés de visualisation de cartes et de données géospatiales.
+geOrchestra intègre MapStore comme visualiseur principal pour la visualisation et le partage des données.
 
-**Recommandations**:
+La documentation officielle de MapStore est disponible ici :
+[mapstore.readthedocs.io](https://mapstore.readthedocs.io/en/latest/).
+Elle fournit des informations générales sur les outils et les pages disponibles dans le produit amont.
 
-- Après cette page, commencer par une partie "Vue globale" de l'outil qui présente la fenêtre principale du composant.
-- Ajouter un maximum de captures d'écran pour illustrer. Les images sont stockées dans le répertoire `images`.
+Comme geOrchestra n'utilise MapStore que pour son visualiseur cartographique et ses interfaces d'administration, et non pour tout le périmètre fonctionnel du produit amont, certaines informations de la documentation officielle peuvent différer de ce qui est disponible ici.
 
-Exemple d'arborescence du guide pour Mapstore2 :
+Les sections amont suivantes restent particulièrement utiles :
 
-- Vue globale du composant
-- Gérer les paramètres des couches
-- La table attributaire
-- La barre de menus
-- Imprimer une carte
-...
+- [Exploring maps](https://mapstore.readthedocs.io/en/latest/user-guide/exploring-maps/)
+- [Managing contexts](https://mapstore.readthedocs.io/en/latest/user-guide/managing-contexts/)
 
+Utilisez cette section pour les pages orientées usage spécifiques à geOrchestra :
 
-
-
-
+- [Prendre en main](getting_started.fr.md)
+- [Vue globale](global_overview.fr.md)
+- [Barres ou menus d'outils](tools.fr.md)
+- [msIframe](msiframe.fr.md)
