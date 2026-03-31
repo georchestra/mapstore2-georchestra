@@ -58,13 +58,11 @@ nav:
         - Menus and toolbars: user_guide/tools.md
         - msIframe: user_guide/msiframe.md
         - Syntax help: user_guide/syntax_help.md
-    - Configuration Guide:
+    - Technical Guide:
+        - Index: technical_guides/index.md
         - Installation:
             - technical_guides/installation/index.md
             - technical_guides/installation/prerequisites.md
-        - Administration:
-            - technical_guides/administration/index.md
-            - technical_guides/administration/one_page.md
         - Configuration:
             - technical_guides/configuration/index.md
             - technical_guides/configuration/general.md
@@ -72,11 +70,11 @@ nav:
             - technical_guides/configuration/application.md
             - technical_guides/configuration/other.md
             - technical_guides/configuration/catalog.md
-    - Developer Guide:
-        - Index: technical_guides/developer_guide/index.md
-        - Integration with geOrchestra: technical_guides/developer_guide/integration.md
-    - Documentation Guide:
-        - Documentation Maintenance: technical_guides/developer_guide/documentation.md
+        - Developer Guide:
+            - technical_guides/developer_guide/index.md
+            - technical_guides/developer_guide/integration.md
+        - Documentation Guide:
+            - technical_guides/developer_guide/documentation.md
 
 markdown_extensions:
   - admonition
@@ -126,8 +124,8 @@ plugins:
               msIframe: "msIframe"
               Syntax help: "Aide syntaxe"
               Technical guides: "Guides techniques"
+              Technical Guide: "Guide technique"
               Installation: "Installer"
-              Configuration Guide: "Guide de configuration"
               Configuration: "Configuration"
               General Configuration Principles: "Principes généraux de configuration"
               Database Configuration: "Configuration de la base de données"
