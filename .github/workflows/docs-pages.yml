@@ -1,0 +1,68 @@
+name: docs-pages
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - docs/**
+      - mkdocs.yml
+      - mkdocs_requirements.txt
+      - .github/workflows/docs-pages.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: docs-pages
+  cancel-in-progress: true
+
+jobs:
+  publish:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout source branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install MkDocs dependencies
+        run: pip install -r mkdocs_requirements.txt
+
+      - name: Build documentation
+        run: mkdocs build --clean
+
+      - name: Checkout publication branch
+        uses: actions/checkout@v4
+        with:
+          ref: gh_page
+          path: gh_page_branch
+          fetch-depth: 0
+
+      - name: Publish site into gh_page/docs
+        run: |
+          rm -rf gh_page_branch/docs
+          mkdir -p gh_page_branch/docs
+          cp -a site/. gh_page_branch/docs/
+          touch gh_page_branch/docs/.nojekyll
+
+      - name: Commit published site
+        working-directory: gh_page_branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f docs
+          if git diff --cached --quiet; then
+            echo "No documentation changes to publish."
+            exit 0
+          fi
+          git commit -m "docs: publish GitHub Pages site"
+          git push origin HEAD:gh_page

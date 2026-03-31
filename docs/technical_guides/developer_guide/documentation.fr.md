@@ -29,6 +29,23 @@ ou pour un build de type production :
 mkdocs build
 ```
 
+## Publication GitHub Pages
+
+La publication GitHub Pages repose sur une branche de sortie dédiée :
+
+- la source documentaire reste dans `docs/` sur la branche de travail
+- le workflow GitHub Actions `docs-pages` construit le site MkDocs
+- le site généré est copié dans `docs/` sur la branche `gh_page`
+
+Le paramétrage attendu dans GitHub est :
+
+- `Settings > Pages`
+- `Source`: `Deploy from a branch`
+- `Branch`: `gh_page`
+- `Folder`: `/docs`
+
+Ce mode correspond à une publication statique du site généré, et non à l'affichage direct des fichiers Markdown source.
+
 ## Traductions
 
 Cette documentation est organisée avec des suffixes de langue comme `.en.md` et `.fr.md`, et le plugin MkDocs `i18n` assemble le site localisé.

@@ -27,9 +27,9 @@ venv_mkdocs/
 docs_modules/
 docs/tableofcontent.md
 *venv*
-*docs*
-*site*
+site/
+.site/
+!.github/workflows/docs-pages.yml
 
 # mac OS
 .DS_Store
-
