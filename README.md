@@ -4,7 +4,7 @@
 
 Documentation: <https://docs.georchestra.geo-solutions.it/> (domain will change)
 
-See <https://georchestra.geo-solutions.it/> (work in progress)
+See <[site de dev](https://georchestra.geosolutionsgroup.com/datahub/news)> (work in progress) restricted by IP
 
 ## Building and install the project
 
