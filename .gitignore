@@ -26,7 +26,9 @@ venv_mkdocs/
 .venv_mkdocs/
 docs_modules/
 docs/tableofcontent.md
-
+*venv*
+*docs*
+*site*
 
 # mac OS
 .DS_Store
