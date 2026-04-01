@@ -1,4 +1,4 @@
-# Vue globale
+## Vue globale
 
 la vue globale apparaît lorsque l'on ouvre Mapstore, avec encards ou numéros localisant et nommant les différents outils décrits dans les différentes parties.
 
@@ -23,7 +23,7 @@ Exemple de vue globale Mapstore2 :
 8. Contenu de la carte
 
 
-# Menus et barres d'outils
+## Menus et barres d'outils
 
 Le visualiseur principal expose les outils standards de MapStore via ses menus et ses barres d'outils.
 

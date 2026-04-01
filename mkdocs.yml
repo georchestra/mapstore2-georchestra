@@ -57,6 +57,7 @@ nav:
         - Administration fonctionnelle: user_guide/fonctionnal_administration.md
         - Tutoriels : 
               - user_guide/tuto/create_maptemplate.md
+              - user_guide/tuto/iframe.md
     - Technical Guide:
         - Index: technical_guides/index.md
         - Installer:
