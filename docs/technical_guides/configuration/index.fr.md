@@ -2,7 +2,7 @@
 
 MapStore2 pour geOrchestra se configure via le [répertoire de données geOrchestra](https://github.com/georchestra/datadir).
 
-Les paramètres de base pour la base de données et LDAP sont généralement fournis par `default.properties` à la racine du répertoire déclaré. Les fichiers spécifiques à MapStore se trouvent dans le sous-répertoire `mapstore/` et couvrent les services backend, la configuration JSON du frontend et certains comportements avancés à l'exécution.
+Les paramètres de base pour la base de données et le LDAP sont généralement fournis par `default.properties` à la racine du répertoire déclaré. Les fichiers spécifiques à MapStore se trouvent dans le sous-répertoire `mapstore/` et couvrent les services backend, la configuration JSON du frontend et certains comportements avancés à l'exécution.
 
 Cette section décrit :
 

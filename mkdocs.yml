@@ -60,20 +60,21 @@ nav:
         - Syntax help: user_guide/syntax_help.md
     - Technical Guide:
         - Index: technical_guides/index.md
-        - Installation:
+        - Installer:
             - technical_guides/installation/index.md
             - technical_guides/installation/prerequisites.md
-        - Configuration:
+        - Configurer:
             - technical_guides/configuration/index.md
             - technical_guides/configuration/general.md
             - technical_guides/configuration/database.md
+            - technical_guides/configuration/ldap.md
             - technical_guides/configuration/application.md
             - technical_guides/configuration/other.md
             - technical_guides/configuration/catalog.md
-        - Developer Guide:
+        - Développer:
             - technical_guides/developer_guide/index.md
             - technical_guides/developer_guide/integration.md
-        - Documentation Guide:
+        - Documenter:
             - technical_guides/developer_guide/documentation.md
 
 markdown_extensions:

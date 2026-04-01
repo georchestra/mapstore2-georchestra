@@ -1,4 +1,4 @@
-# Guides techniques
+# Guides de configuration
 
 Cette section documente l'installation, la configuration et l'intégration de MapStore2 dans geOrchestra.
 
