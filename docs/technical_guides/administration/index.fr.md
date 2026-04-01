@@ -1,14 +1,15 @@
 # Sommaire
 
-
+A REPORTER dans les guides utilisateurs ( utilisateur administrateur de contenu)
 Sommaire de la partie Administrer
 
 Cette partie de la documentation est dédiée à l'administration du contenu:
 
 
--  gestion des données
--  mise à jour des données
--  gestion des utilisateurs
+-  gestion des catalogues
+-  gestion des cartes modèles
+-  gestion des contextes
+-  
 -  ...
 
 

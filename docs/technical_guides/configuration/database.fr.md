@@ -17,3 +17,30 @@ La propriété principale est :
 - `pgsqlGeoStoreSchema` : schéma utilisé par MapStore, `mapstore` par défaut
 
 Ce fichier peut aussi servir à surcharger les paramètres de connexion si MapStore doit utiliser une configuration de base différente du reste de la plateforme.
+```
+### MapStore backend (GeoStore) properties
+# PostgreSQL schema used by the backend
+pgsqlGeoStoreSchema=mapstore
+
+### The following properties are inherited from the geOrchestra default.properties,
+### if you want to override them for mapstore, uncomment them.
+# PostgreSQL server domain name
+# Domain name, or IP address, of the PostgreSQL server
+# pgsqlHost=localhost
+
+# PostgreSQL server port
+# Listening port of the PostgreSQL server
+# pgsqlPort=5432
+
+# PostgreSQL database name
+# Default common PostgreSQL database for all geOrchestra modules
+# pgsqlDatabase=georchestra
+
+# User to connect to PostgreSQL server
+# Default common PostgreSQL user for all geOrchestra modules
+# pgsqlUser=xxxxxxxxx
+
+# Password to connect to PostgreSQL server
+# Default common password of PostgreSQL user for all geOrchestra modules
+# pgsqlPassword=xxxxxx
+```
