@@ -1,12 +1,16 @@
-# msIframe
+# Comment ajouter une carte Mapstore dans une site internet ?
+
+L'intégration d'une carte dans un site internet est possible via l'intégration d'un contexte Mapstore sous la forme d'un iFrame.
+
+## Créer une iFrame avec MapStore : msIframe
 
 `msIframe` est un mécanisme de mapping d'URL GET simples utilisé pour configurer MapStore2 dans une iframe.
 
 Il simplifie l'usage des iframes sur des sites externes, par exemple pour des pages de communication. Il reprend une logique de paramètres proche de `sViewer`, ce qui rend les URL d'iframe plus simples à produire.
 
-## Paramètres KVP
+### Paramètres KVP
 
-### `c` `{string}`
+#### `c` `{string}`
 
 Nom du contexte à utiliser pour l'iframe. S'il n'est pas fourni, la valeur configurée dans `defaultContext` est utilisée.
 
@@ -16,7 +20,7 @@ Exemple :
 http://sdi.georchestra.org/mapstore/msIframe/?c=Iframe
 ```
 
-### `x` `{integer}`, `y` `{integer}`, `z` `{integer}`
+#### `x` `{integer}`, `y` `{integer}`, `z` `{integer}`
 
 Centre la carte sur `x,y` dans les unités du SRS du contexte et applique le facteur de zoom `z`.
 
@@ -26,7 +30,7 @@ Exemple :
 http://sdi.georchestra.org/mapstore/msIframe/?x=-366959&y=2951352&z=5
 ```
 
-### `lb` `{integer}`
+#### `lb` `{integer}`
 
 Affiche la couche de fond correspondant à son index. Par exemple, `lb=0` affiche la première couche de fond configurée.
 Si ce paramètre n'est pas fourni, la couche de fond par défaut du contexte est utilisée.
@@ -37,7 +41,7 @@ Exemple :
 http://sdi.georchestra.org/mapstore/msIframe/?lb=1
 ```
 
-### `layers` `{string}`
+#### `layers` `{string}`
 
 Liste de noms de couches geOrchestra séparés par des virgules, avec leur namespace.
 C'est la manière la plus rapide d'initialiser une carte car elle s'appuie sur les catalogues définis dans le contexte.
@@ -81,7 +85,7 @@ http://sdi.georchestra.org/mapstore/msIframe/?layers=geor:sdi***title%3DPIGMA
 
 Les valeurs de `CQL_FILTER` doivent être encodées dans l'URL.
 
-### `s` `{string}`
+#### `s` `{string}`
 
 Ce paramètre exécute une requête `GetFeature` sur la couche indiquée, puis une requête `GetFeatureInfo` en utilisant un point extrait de la géométrie de l'entité récupérée.
 
@@ -100,7 +104,7 @@ http://sdi.georchestra.org/mapstore/msIframe/?layers=geor:sdi&s=geor:sdi*INCLUDE
 
 Des problèmes d'affichage de popup peuvent survenir selon la configuration de l'identifiant de couche. Si nécessaire, configurer l'identifiant avec `showInMapPopup` positionné à `false`.
 
-## Dépannage
+### Dépannage
 
 Si la console développeur du navigateur affiche un message proche de :
 
