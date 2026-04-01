@@ -54,10 +54,7 @@ nav:
     - User guide:
         - Index: user_guide/index.md
         - Getting started: user_guide/getting_started.md
-        - Global overview: user_guide/global_overview.md
-        - Menus and toolbars: user_guide/tools.md
-        - msIframe: user_guide/msiframe.md
-        - Syntax help: user_guide/syntax_help.md
+        - Administration fonctionnelle: user_guide/fonctionnal_administration.md
     - Technical Guide:
         - Index: technical_guides/index.md
         - Installer:
