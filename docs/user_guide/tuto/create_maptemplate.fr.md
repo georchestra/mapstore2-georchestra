@@ -48,13 +48,19 @@ Depuis n'importe quel contexte, intégrer la carte pour qu'elle soit promue en t
 
 ![](./images/maptemplate24.png)
 
-**_Résultat_**: la carte est chargée dans la base de données mapstore, elle apparaiat dans la liste des cartes modèles  et peut être utilisée dans n'importe quel contexte, et/ou dansle visualiseur standard (/mapstore).
+**_Résultat_** : la carte est chargée dans la base de données mapstore, elle apparait dans la liste des cartes modèles  et peut être utilisée dans n'importe quel contexte, et/ou dansle visualiseur standard (/mapstore).
 
 ![](./images/maptemplate25.png)
 
 ## Etape 3: la rendre accessible aux utilisateurs
 
 ### Depuis un contexte
+
+Dans un contexte donné, on peut ajouter la carte dans le plugin "Map Template" en glissant simplement la carte modèle que l'on vient de créer dans la liste des cartes modèles utilisées par le contexte.
+
+**_Noter_** : une mise à jour de la carte modèle s'appliquera automatiquement sur tous les contextes où elle est chargée.
+
+![](./images/maptemplate31.png)
 
 ### Depuis le visualiseur standard
 
