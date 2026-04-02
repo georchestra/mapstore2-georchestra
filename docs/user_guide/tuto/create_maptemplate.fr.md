@@ -54,13 +54,19 @@ Depuis n'importe quel contexte, intégrer la carte pour qu'elle soit promue en t
 
 ## Etape 3: la rendre accessible aux utilisateurs
 
-### Depuis un contexte
+### 3.a  Depuis un contexte
 
 Dans un contexte donné, on peut ajouter la carte dans le plugin "Map Template" en glissant simplement la carte modèle que l'on vient de créer dans la liste des cartes modèles utilisées par le contexte.
-
-**_Noter_** : une mise à jour de la carte modèle s'appliquera automatiquement sur tous les contextes où elle est chargée.
+Enregistrer le contexte.
 
 ![](./images/maptemplate31.png)
 
-### Depuis le visualiseur standard
+**_Noter_** : une mise à jour de la carte modèle s'appliquera automatiquement sur tous les contextes où elle est chargée.
+**_Résultat_** :  la carte modèle est disponible aux utilisateurs dans le contexte où on vient  de l'ajouter.
 
+![](./images/maptemplate32.png)
+
+
+### 3.b Depuis le visualiseur standard
+
+Pour que la carte modèle soit disponible 
