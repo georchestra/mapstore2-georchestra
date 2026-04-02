@@ -62,6 +62,7 @@ Enregistrer le contexte.
 ![](./images/maptemplate31.png)
 
 **_Noter_** : une mise à jour de la carte modèle s'appliquera automatiquement sur tous les contextes où elle est chargée.
+
 **_Résultat_** :  la carte modèle est disponible aux utilisateurs dans le contexte où on vient  de l'ajouter.
 
 ![](./images/maptemplate32.png)
@@ -69,4 +70,173 @@ Enregistrer le contexte.
 
 ### 3.b Depuis le visualiseur standard
 
-Pour que la carte modèle soit disponible 
+Pour que la carte modèle soit disponible dans le visualiseur standard de Mapstore (/mapstore), il est nécessaire d'ajouter son identifiant dans la section desktop du fichier localConfig.json.
+
+#### Comment récupérer son identifiant ?
+
+ Il est possible de le récupérer dans la console du navigateur en suivant les étapes suivantes:
+ - ouvrir le contexte où on a rajouté la carte modèle en tant qu'utilisateur,
+ - ouvrir la console du navigateur en mode "Réseau" pour voir passer les flux
+ - charger la carte modèle et identifier le numéro du flux qui passe pour charger la carte (dans l'exemple ci-dessous c'est le numéro 9133)
+  Exemple:
+
+![](./images/maptemplate33.png)
+
+![](./images/maptemplate34.png)
+
+#### Comment l'ajouter dans le localConfig.json ?
+
+Le fichier localConfig.json de Mapstore contient les paramétrages des plugins du visualiseur Mapstore standard (/mapstore).
+Il faut donc le modifier. 
+
+Les étapes sont donc :
+
+- ouvrir localConfig.json en mise à jour
+- se déplacer sur la section Desttop dans le plugin Maptemplate (l'ajouter si il est absent) et ajouter l'identifiant de la carte modèle en fin de paramètre.
+
+
+Ex:
+```
+           {
+
+                    "name": "MapTemplates",
+                    "cfg": {
+                        "allowedTemplates": [{
+
+                                "id": 1035
+                            }, {
+
+                                "id": 1080
+                            }, {
+
+                                "id": 1456
+                            }, {
+
+                                "id": 1466
+                            }, {
+
+                                "id": 1496
+                            }, {
+
+                                "id": 1510
+                            }, {
+
+                                "id": 1520
+                            }, {
+
+                                "id": 1530
+                            }, {
+
+                                "id": 1540
+                            }, {
+
+                                "id": 1550
+                            }, {
+
+                                "id": 1560
+                            }, {
+
+                                "id": 1570
+                            }, {
+
+                                "id": 1587
+                            }, {
+
+                                "id": 1630
+                            }, {
+
+                                "id": 1726
+                            }, {
+
+                                "id": 1736
+                            }, {
+
+                                "id": 1937
+                            }, {
+
+                                "id": 1983
+                            }, {
+
+                                "id": 2023
+                            }, {
+
+                                "id": 2039
+                            }, {
+
+                                "id": 2211
+                            }, {
+
+                                "id": 2311
+                            }, {
+
+                                "id": 2529
+                            }, {
+
+                                "id": 2778
+                            }, {
+
+                                "id": 4120
+                            }, {
+
+                                "id": 5523
+                            }, {
+
+                                "id": 5583
+                            }, {
+
+                                "id": 5596
+                            }, {
+
+                                "id": 5628
+                            }, {
+
+                                "id": 6900
+                            }, {
+
+                                "id": 6931
+                            }, {
+
+                                "id": 7096
+                            }, {
+
+                                "id": 7155
+                            }, {
+
+                                "id": 7703
+                            }, {
+
+                                "id": 7868
+                            }, {
+
+                                "id": 8093
+                            }, {
+
+                                "id": 8369
+                            }, {
+
+                                "id": 8379
+                            }, {
+
+                                "id": 8389
+                            }, {
+
+                                "id": 8952
+                            }, {
+
+                                "id": 9077
+                            },{
+
+                                "id": 9055
+                            },{
+
+                                "id": 9133
+                            }
+
+
+                        ]
+                    }
+                },
+
+```
+
+
