@@ -4,7 +4,7 @@ L'intégration d'une carte dans un site internet est possible via l'intégration
 
 ## Créer une iFrame avec MapStore : msIframe
 
-`msIframe` est un mécanisme de mapping d'URL GET simples utilisé pour configurer MapStore2 dans une iframe.
+`msIframe` est un mécanisme de mapping d'URL GET simple utilisé pour configurer MapStore2 dans une iframe.
 
 Il simplifie l'usage des iframes sur des sites externes, par exemple pour des pages de communication. Il reprend une logique de paramètres proche de `sViewer`, ce qui rend les URL d'iframe plus simples à produire.
 
