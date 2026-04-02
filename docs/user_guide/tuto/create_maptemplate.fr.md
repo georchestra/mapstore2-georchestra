@@ -13,19 +13,44 @@ On propose de créer la carte modèle en 3 étapes:
 
 ![](./images/maptemplate1.png)
 
-Depuis le visualiseur standard /mapstore, créer une carte en ajoutant ou supprimant :
+Depuis le visualiseur standard /mapstore, créer une carte :
 
-- les données souhaitées dans la TOC (liste des couches) et les groupes de couches désirés,
-- les fonds de plans utiles (backgroundlayers).
-
-Se positionner dans la carte à l'endroit voulu (emprise).
+- ajouter les données souhaitées dans la TOC (liste des couches),
+- les organiser comme souhaitées : création de groupes de couches, ...
+- ajouter les fonds de plans nécessaires (backgroundlayers).
+- se positionner dans la carte à l'endroit voulu (emprise).
 Une fois la carte prête l'exporter au format JSON.
 
 ![](./images/maptemplate12.png)
 
-
+**_Résultat_** : on dispose d'un fichier map.json
 
 ## Etape 2: la promouvoir en carte modèle
+
+Depuis n'importe quel contexte, intégrer la carte pour qu'elle soit promue en tant que carte modèle (map template).
+
+- aller dans l'onglet "Applications",
+- filtrer les objets pour ne voir que les contextes,
+
+![](./images/maptemplate21.png)
+
+- ouvrir n'importe quel contexte ( de préférence un contexte où l'on souhaite charger la carte modèle) en modification,
+- sélectionner le plugin "Map Template"
+- ouvrir la liste des cartes modèles
+
+![](./images/maptemplate22.png)
+
+- charger le fichier map.json,
+
+![](./images/maptemplate23.png)
+
+- renseigner les paramètres de la carte modèle et enregistrer 
+
+![](./images/maptemplate24.png)
+
+**_Résultat_**: la carte est chargée dans la base de données mapstore, elle apparaiat dans la liste des cartes modèles  et peut être utilisée dans n'importe quel contexte, et/ou dansle visualiseur standard (/mapstore).
+
+![](./images/maptemplate25.png)
 
 ## Etape 3: la rendre accessible aux utilisateurs
 
