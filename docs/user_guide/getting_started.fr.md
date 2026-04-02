@@ -1,6 +1,6 @@
 ## Vue globale
 
-la vue globale apparaît lorsque l'on ouvre Mapstore, avec encards ou numéros localisant et nommant les différents outils décrits dans les différentes parties.
+La vue globale apparaît lorsque l'on ouvre Mapstore, avec encards ou numéros localisant et nommant les différents outils décrits dans les différentes parties.
 
 Exemple de vue globale Mapstore2 :
 

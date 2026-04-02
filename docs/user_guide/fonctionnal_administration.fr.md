@@ -1,8 +1,10 @@
 # Administration fonctionnelle
 
+Afin d'apporter un environnement de travail adapté pour les utilisateurs, l'administateur fonctionnel doit connaître certains concepts : contexte, cartes, catalogue.
+
 ## Contexte 
 
-Afin de répondre aux besoins de utilisateurs, il est possible de proposer des envrionnements de travail cartographique prédéfinis, ce sont les **contextes**.
+Afin de répondre aux besoins de utilisateurs, il est possible de proposer des envrionnements de travail cartographiques prédéfinis, ce sont les **contextes**.
 
 
 Dans MapStore, un **contexte** est défini comme un **document JSON** qui regroupe trois éléments fondamentaux :
@@ -96,5 +98,7 @@ Il est possible de configurer plusieurs catalogues.
 #### 4. Rôle dans la structure de la carte
 Techniquement, une carte (document JSON) contient une **liste des catalogues autorisés**, permettant le chargement dynamique des données par l’utilisateur.
 
-> **En résumé** : Le catalogue est la **porte d’entrée vers le patrimoine de données géographiques** disponibles sur le portail, facilitant leur découverte via les métadonnées avant intégration sur la carte.
+> **En résumé** : Le catalogue est la **porte d’entrée vers le patrimoine de données géographiques** disponibles sur le portail, facilitant leur découverte via les métadonnées avant intégration sur la carte. 
+
+> [Consulter la documentation relative à l'utilisation du catalogue](https://docs.mapstore.geosolutionsgroup.com/en/latest/user-guide/catalog/)
 
