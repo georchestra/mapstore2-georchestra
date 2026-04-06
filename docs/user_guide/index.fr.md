@@ -23,5 +23,5 @@ Les sections amont suivantes restent particulièrement utiles :
 
 Utilisez cette section pour les pages orientées usage spécifiques à geOrchestra :
 
-- [Prendre en main](getting_started.fr.md)
+- [Prendre en main](getting_started.md)
 - [Administration fonctionnelle](fonctionnal_administration.md)

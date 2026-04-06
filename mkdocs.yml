@@ -54,16 +54,16 @@ nav:
     - User guide:
         - Index: user_guide/index.md
         - Getting started: user_guide/getting_started.md
-        - Administration fonctionnelle: user_guide/fonctionnal_administration.md
-        - Tutoriels : 
+        - Fonctionnal Administration: user_guide/fonctionnal_administration.md
+        - Tutorials: 
               - user_guide/tuto/create_maptemplate.md
               - user_guide/tuto/iframe.md
     - Technical Guide:
         - Index: technical_guides/index.md
-        - Installer:
+        - Install:
             - technical_guides/installation/index.md
             - technical_guides/installation/prerequisites.md
-        - Configurer:
+        - Configure:
             - technical_guides/configuration/index.md
             - technical_guides/configuration/general.md
             - technical_guides/configuration/database.md
@@ -71,7 +71,7 @@ nav:
             - technical_guides/configuration/application.md
             - technical_guides/configuration/other.md
             - technical_guides/configuration/catalog.md
-        - Développer:
+        - Develop:
             - technical_guides/developer_guide/index.md
             - technical_guides/developer_guide/integration.md
         - Documenter:
@@ -120,6 +120,11 @@ plugins:
               User guide: "Guide utilisateur"
               Index: "Sommaire"
               Getting started: "Prendre en main"
+              Fonctionnal Administration: "Administration fonctionnelle"
+              Tutorials: "Tutoriels"
+              Install: "Installer"
+              Configure: "Configurer"
+              Develop: "Développer"
               Global overview: "Vue globale"
               Menus and toolbars: "Barres ou menus d''outils"
               msIframe: "msIframe"
