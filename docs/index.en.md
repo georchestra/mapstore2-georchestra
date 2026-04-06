@@ -6,39 +6,35 @@ hide:
 
 # Home
 
-Welcome to the MapStore2 for geOrchestra documentation.
+Welcome to the MapStore2 documentation for geOrchestra.
 
-This documentation provides an overview of how to use, configure and integrate MapStore inside a geOrchestra SDI.
+This documentation provides an overview of usage, configuration, and integration of MapStore within a geOrchestra SDI.
 
-## Start With The Right Section
 
-### [User guide](user_guide/index.en.md)
+## User and Functional Administrator Guide
 
-For getting started with the viewer, understanding the interface, exploring the available tools and sharing maps or contexts.
+To get started with the viewer, understand the interface, explore available tools, and share maps or contexts.
 
-- [Getting started](user_guide/getting_started.en.md)
-- [Global overview](user_guide/global_overview.en.md)
-- [Menus and toolbars](user_guide/tools.en.md)
-- [msIframe](user_guide/msiframe.en.md)
+[View the user and functional administrator guide](user_guide/index.md)
 
-### [Technical guides](technical_guides/index.en.md)
+## [Technical Guides](technical_guides/index.md)
 
-For installing, configuring and administering MapStore2 in geOrchestra, with the specifics of this integration.
+To install, configure, and administer MapStore2 in geOrchestra, including key considerations specific to this integration.
 
-- [Installation](technical_guides/installation/index.en.md)
-- [Configuration](technical_guides/configuration/index.en.md)
-- [Administration](technical_guides/administration/index.en.md)
+- [Installation](technical_guides/installation/index.md)
+- [Configuration](technical_guides/configuration/index.md)
+- [Administration](technical_guides/administration/index.md)
 
-### [Developer guide](technical_guides/developer_guide/index.en.md)
+### [Developer Guide](technical_guides/developer_guide/index.fr.md)
 
-For local development, geOrchestra integration details and documentation maintenance.
+For local development, integration with geOrchestra, and maintenance of this documentation.
 
-- [Integration with geOrchestra](technical_guides/developer_guide/integration.en.md)
-- [Documentation maintenance](technical_guides/developer_guide/documentation.en.md)
+- [Integration with geOrchestra](technical_guides/developer_guide/integration.md)
+- [Documentation maintenance](technical_guides/developer_guide/documentation.md)
 
-## About This Documentation
+## About this documentation
 
-The upstream MapStore documentation maintained by GeoSolutions remains useful for generic product features:
+The official MapStore documentation maintained by GeoSolutions remains a useful complement for the product’s generic features:
 [mapstore2.readthedocs.io](https://mapstore2.readthedocs.io/).
 
-geOrchestra uses only part of the full MapStore product. Some screens, features or behaviors may therefore differ from the upstream documentation.
+geOrchestra only uses part of the full MapStore product. Therefore, some interfaces, screens, or behaviors may differ from the upstream documentation.
