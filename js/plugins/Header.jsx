@@ -14,6 +14,9 @@ export const Header = ({url = "/header/", page = "mapstore", height = 90,
     logoUrl = "https://www.georchestra.org/public/georchestra-logo.svg",
     stylesheet = "", configFile = ""}) => {
     useEffect(() => {
+        if (customElements.get('geor-header')) {
+            return () => {};
+        }
         const scriptTag = document.createElement('script');
         scriptTag.src = script;
         scriptTag.async = true;
