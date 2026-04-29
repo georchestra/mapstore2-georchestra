@@ -61,3 +61,10 @@ geor-header {
         max-height: 100% !important;
     }
 }
+// workaround for button position of thumbnail. It places them to the bottom of the
+// thumbnail section, to make the tooltip visible
+.ms-details-thumbnail .ms-flex-box:has(button .glyphicon-upload),
+.ms-details-thumbnail .ms-flex-box:has(button .glyphicon-trash){
+    top: auto !important;
+    bottom: 0;
+}
