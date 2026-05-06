@@ -8,7 +8,8 @@ docs_dir: docs
 edit_uri: edit/main/docs/
 
 theme:
-  language: en 
+  language: en
+  custom_dir: docs/overrides
   features:
     # - toc.integrate
     - navigation.indexes
@@ -20,9 +21,6 @@ theme:
   name: material
 
 extra:
-  version:
-    provider: mike
-
   generator: false
   social:
     - icon: fontawesome/solid/paper-plane
@@ -43,7 +41,7 @@ extra_css:
     - css/extra.css
 
 extra_javascript:
-    - assets/custom_versions.js
+    - assets/readthedocs.js
 
 # 1st and 2nd level tree structure to manage here
 # These entries match the documentation template
@@ -81,6 +79,9 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+
+hooks:
+    - hooks.py
 
 plugins:
     - search
