@@ -37,7 +37,7 @@ extra:
       link: https://groups.google.com/group/georchestra-dev?hl=fr
     - icon: fontawesome/regular/comments
       link: https://kiwiirc.com/client/irc.libera.chat/georchestra
-copyright: '© 2024 - geOrchestra'
+copyright: '© 2026 - geOrchestra'
 
 extra_css:
     - css/extra.css
@@ -147,5 +147,3 @@ plugins:
     - git-revision-date-localized:
         enable_creation_date: true
 
-
-# TODO Documenter comment simplifier l'arborescence pour un petit projet
