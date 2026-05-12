@@ -27,9 +27,9 @@
           }
         }
       }
-    },{
+    }, {
       "name": "Header",
-      "cfg": {
+      "defaultConfig": {
         "containerPosition": "header"
       }
     },
