@@ -66,21 +66,40 @@ The latest of each can be downloaded from:
 * [8.x](https://tomcat.apache.org/download-80.cgi)
 * [9.x](https://tomcat.apache.org/download-90.cgi)
 
-## Building the documentation
+## Contributing to the documentation
 
-To build the documentation you need [sphinx](https://www.sphinx-doc.org/en/master/usage/installation.html) and some extensions (sphinx_rtd_theme and recommonmark), you can install using pip :
+The documentation is based on [the geOrchestra documentation template](https://github.com/georchestra/georchestra_documentation_template/).
 
-```sh
-pip install sphinx_rtd_theme
-pip install recommonmark
-```
+### Prerequisites
 
-Now, you can build html documentation using :
+- Python 3.11
+- A bash terminal: Linux system terminal or Git Bash on Windows
 
-```sh
-cd docs # enter in the docs folder
-make html # create html documentation
-```
+### Install MkDocs
+
+Just launch :
+
+`bash mkdocs_installation.sh` and trust the template maintenairs.
+
+ ### Preview the Documentation
+
+MkDocs includes a complete system for compiling your documentation source files and allows real-time previewing with every modification.
+
+Run `bash mkdocs_run.sh` in the terminal and open a browser at [http://localhost:8000/](http://localhost:8000/).
+
+### Edit the documentation files
+
+- Go to the `docs` folder
+- edit some files in markdown, save
+- preview in your browser
+
+
+### Contribute
+
+We recommend to work on a specific branch in your git repository clone of this project. Then propose a pull request to the mainteners of the documentation.
+
+Help will be provided on the mailing list or the matrix channel (see the geOrchestra website).
+
 
 ## Versioning
 
