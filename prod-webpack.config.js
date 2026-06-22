@@ -12,7 +12,7 @@ const paths = {
     framework: path.join(__dirname, "MapStore2", "web", "client"),
     code: [path.join(__dirname, "js"), path.join(__dirname, "MapStore2", "web", "client")]
 };
-const favicon = path.resolve("./favicon.ico");
+const favicon = "/favicon.ico";
 module.exports = require('./MapStore2/build/buildConfig')({
     bundles: {
         'geOrchestra': path.join(__dirname, "js", "app"),
