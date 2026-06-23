@@ -12,7 +12,6 @@ const paths = {
     framework: path.join(__dirname, "MapStore2", "web", "client"),
     code: [path.join(__dirname, "js"), path.join(__dirname, "MapStore2", "web", "client")]
 };
-const favicon = "/favicon.ico";
 module.exports = require('./MapStore2/build/buildConfig')({
     bundles: {
         'geOrchestra': path.join(__dirname, "js", "app"),
@@ -32,8 +31,7 @@ module.exports = require('./MapStore2/build/buildConfig')({
             publicPath: 'dist/',
             chunks: ['geOrchestra'],
             inject: "body",
-            hash: true,
-            favicon
+            hash: true
         }),
         new HtmlWebpackPlugin({
             template: path.join(paths.framework, 'embeddedTemplate.html'),
@@ -41,8 +39,7 @@ module.exports = require('./MapStore2/build/buildConfig')({
             chunks: ['embedded'],
             inject: "body",
             hash: true,
-            filename: 'embedded.html',
-            favicon
+            filename: 'embedded.html'
         }),
         new HtmlWebpackPlugin({
             template: path.join(paths.framework, 'dashboard-embedded-template.html'),
@@ -50,8 +47,7 @@ module.exports = require('./MapStore2/build/buildConfig')({
             chunks: ['ms2-api'],
             inject: "body",
             hash: true,
-            filename: 'api.html',
-            favicon
+            filename: 'api.html'
         }),
         new HtmlWebpackPlugin({
             template: path.join(paths.framework, 'geostory-embedded-template.html'),
@@ -59,8 +55,7 @@ module.exports = require('./MapStore2/build/buildConfig')({
             chunks: ['geostory-embedded'],
             inject: "body",
             hash: true,
-            filename: 'geostory-embedded.html',
-            favicon
+            filename: 'geostory-embedded.html'
         }),
         new HtmlWebpackPlugin({
             template: path.join(paths.framework, 'dashboard-embedded-template.html'),
@@ -68,8 +63,7 @@ module.exports = require('./MapStore2/build/buildConfig')({
             chunks: ['dashboard-embedded'],
             inject: "body",
             hash: true,
-            filename: 'dashboard-embedded.html',
-            favicon
+            filename: 'dashboard-embedded.html'
         })
     ],
     alias: {
