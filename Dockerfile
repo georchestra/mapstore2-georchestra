@@ -48,3 +48,12 @@ ENTRYPOINT ["/docker-entrypoint.sh"]
 CMD ["catalina.sh", "run"]
 
 EXPOSE 8080
+
+# OCI image labels (https://github.com/opencontainers/image-spec/blob/main/annotations.md)
+LABEL org.opencontainers.image.title="MapStore for geOrchestra"
+LABEL org.opencontainers.image.description="MapStore integration for the geOrchestra SDI"
+LABEL org.opencontainers.image.vendor="geOrchestra"
+LABEL org.opencontainers.image.licenses="GPL-3.0"
+LABEL org.opencontainers.image.url="https://www.georchestra.org/"
+LABEL org.opencontainers.image.documentation="https://docs.georchestra.org/"
+LABEL org.opencontainers.image.source="https://github.com/georchestra/mapstore2-georchestra"
