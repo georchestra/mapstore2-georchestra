@@ -1,6 +1,6 @@
 {
   "name": "georchestra",
-  "version": "1.5.1",
+  "version": "1.5.2",
   "description": "geOrchestra",
   "repository": "https://github.com/georchestra/mapstore2-georchestra",
   "main": "index.js",
