@@ -44,11 +44,13 @@
         <property name="ignoreResourceNotFound" value="true"/>
         <property name="ignoreUnresolvablePlaceholders" value="true"/>
     </bean>
-    <!-- External bean overrides are applied after geOrchestra connection placeholders. -->
+    <!-- External bean overrides run before the placeholder configurers, so the values of
+         the datadir files can use placeholders such as ${PGHOST}, resolved like the ones
+         of default.properties. -->
     <bean class="org.springframework.beans.factory.config.PropertyOverrideConfigurer">
         <property name="ignoreResourceNotFound" value="true"/>
         <property name="ignoreInvalidKeys" value="true"/>
-        <property name="order" value="10"/>
+        <property name="order" value="-20"/>
         <property name="locations">
             <list>
                 <value>classpath:mapstore-ovr.properties</value>
