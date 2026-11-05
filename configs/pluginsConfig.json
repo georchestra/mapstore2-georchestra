@@ -460,11 +460,7 @@
     {
       "name": "Cookie",
       "mandatory": true,
-      "hidden": true,
-      "defaultConfig": {
-        "externalCookieUrl": "https://docs.georchestra.geo-solutions.it/en/latest/mapstore/index.html",
-        "declineUrl": "https://www.georchestra.org/"
-      }
+      "hidden": true
     },
     {
       "name": "Toolbar",
