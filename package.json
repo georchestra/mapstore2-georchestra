@@ -122,6 +122,6 @@
   "author": "GeoSolutions",
   "license": "BSD-2-Clause",
   "engines": {
-    "node": ">=22 <25"
+    "node": ">=22"
   }
 }
