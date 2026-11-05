@@ -61,11 +61,11 @@ Deploy on **Tomcat 11 / Java 17** (Tomcat 10.1 is the minimum supported). Cargo 
 Use a dedicated compatible container when other geOrchestra applications still
 require Tomcat 9. Enable compression in the Tomcat connector or reverse proxy.
 
-This checkout targets **2026.03.xx preview**, pinned to MapStore commit
-`3705010121b05029e321f1297f89c0e1a6eca296`; it is not a published 2026.03.00 release.
-Read [the upgrade checklist](docs/technical_guides/installation/upgrade-2026.03.en.md)
-and [database migration instructions](db-migrations.md) before deployment.
-The database instructions are manual; builds never execute migrations.
+This version is based on [MapStore 2026.03.00](https://github.com/geosolutions-it/MapStore2/releases/tag/v2026.03.00).
+Before upgrading an existing installation, read the release notes on the
+[releases page](https://github.com/georchestra/mapstore2-georchestra/releases): they list the
+database scripts to apply before the first start, and the changes needed in the datadir.
+The build never runs database migrations.
 
 ## Contributing to the documentation
 
