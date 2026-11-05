@@ -14,8 +14,10 @@
         <maven.compiler.target>17</maven.compiler.target>
         <!-- platform BOM versions -->
         <tomcat.port>8080</tomcat.port>
-        <tomcat.version>10.1.55</tomcat.version>
+        <tomcat.version>11.0.27</tomcat.version>
         <jackson.version>2.22.3</jackson.version>
+        <guava.version>32.0.0-jre</guava.version>
+        <jsr305.version>3.0.2</jsr305.version>
         <log4j.version>2.26.1</log4j.version>
         <georchestra.datadir>/etc/georchestra</georchestra.datadir>
         <backend.debug.args>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=localhost:8989</backend.debug.args>
@@ -31,10 +33,10 @@
         <mockito-core.version>4.0.0</mockito-core.version>
         <cargo.version>1.10.27</cargo.version>
         <!-- MapStore‑specific -->
-        <mapstore-services.version>1.13-SNAPSHOT</mapstore-services.version>
-        <geostore-webapp.version>2.7-SNAPSHOT</geostore-webapp.version>
-        <http_proxy.version>1.7-SNAPSHOT</http_proxy.version>
-        <print-lib.version>2.5-SNAPSHOT</print-lib.version>
+        <mapstore-services.version>1.13.0</mapstore-services.version>
+        <geostore-webapp.version>2.7.0</geostore-webapp.version>
+        <http_proxy.version>1.7.0</http_proxy.version>
+        <print-lib.version>2.5.2</print-lib.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -66,6 +68,17 @@
                 <version>${jackson.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <!-- same versions GeoStore ships, so print-lib and json-patch do not add a second one -->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.code.findbugs</groupId>
+                <artifactId>jsr305</artifactId>
+                <version>${jsr305.version}</version>
             </dependency>
             </dependencies>
     </dependencyManagement>
