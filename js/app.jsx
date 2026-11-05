@@ -41,7 +41,7 @@ ConfigUtils.setConfigProp("geoStoreUrl", "rest/geostore/");
  *
  * ConfigUtils.setLocalConfigurationFile('localConfig.json');
  */
-import { getApi } from '@mapstore/api/userPersistedStorage';
+import { getApi, getItemKey } from '@mapstore/api/userPersistedStorage';
 
 
 Providers.georchestra = serverbackup;
@@ -182,9 +182,11 @@ const appPlugins = {
     requires: plugins.requires
 };
 
+// The user authenticated by geOrchestra is stored where the store reads the persisted
+// security state at startup.
 const start = userInfo => {
     getApi().setItem(
-        "mapstore2.persist.security",
+        getItemKey("persistence", "security"),
         JSON.stringify(userInfo)
     );
     main(appConfig, appPlugins);
