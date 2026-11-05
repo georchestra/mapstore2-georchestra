@@ -44,9 +44,11 @@
         <property name="ignoreResourceNotFound" value="true"/>
         <property name="ignoreUnresolvablePlaceholders" value="true"/>
     </bean>
-    <!-- External bean overrides run before the placeholder configurers, so the values of
-         the datadir files can use placeholders such as ${PGHOST}, resolved like the ones
-         of default.properties. -->
+    <!-- External bean overrides (e.g. oidc_providers) run before the placeholder configurers,
+         so their values can use placeholders, resolved like the ones of default.properties.
+         The database connection is not read from here: as for the other geOrchestra
+         applications it comes from the pgsql* properties of default.properties, and the
+         schema from mapstore/geostore.properties. -->
     <bean class="org.springframework.beans.factory.config.PropertyOverrideConfigurer">
         <property name="ignoreResourceNotFound" value="true"/>
         <property name="ignoreInvalidKeys" value="true"/>
@@ -54,7 +56,6 @@
         <property name="locations">
             <list>
                 <value>classpath:mapstore-ovr.properties</value>
-                <value>file:${georchestra.datadir:}/mapstore/geostore-datasource-ovr.properties</value>
                 <value>file:${georchestra.datadir:}/mapstore/mapstore-ovr.properties</value>
             </list>
         </property>
