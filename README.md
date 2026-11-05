@@ -57,7 +57,7 @@ Where *version_identifier* is an optional identifier of the generated war that w
 
 Deploy the generated `mapstore.war` file (in web/target) to your favorite J2EE container (e.g. Tomcat).
 
-Deploy on **Tomcat 10.1 / Java 17**. Cargo and Docker use Tomcat 10.1.55.
+Deploy on **Tomcat 11 / Java 17** (Tomcat 10.1 is the minimum supported). Cargo uses Tomcat 11.0.27, Docker the `tomcat:11.0-jdk17` image.
 Use a dedicated compatible container when other geOrchestra applications still
 require Tomcat 9. Enable compression in the Tomcat connector or reverse proxy.
 
