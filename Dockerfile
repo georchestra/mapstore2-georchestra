@@ -4,7 +4,7 @@ WORKDIR /tmp
 COPY docker/MapStore-*.war mapstore.war
 RUN unzip mapstore.war -d mapstore
 
-FROM tomcat:10.1.55-jdk17-temurin
+FROM tomcat:11.0-jdk17-temurin-resolute
 LABEL maintainer="geosolutions<info@geo-solutions.it>"
 
 RUN mkdir -p /docker-entrypoint.d
