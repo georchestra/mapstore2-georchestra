@@ -766,6 +766,7 @@
                         <groupId>jakarta.servlet</groupId>
                         <artifactId>jakarta.servlet-api</artifactId>
                         <version>${jakarta.servlet-api.version}</version>
+                        <scope>provided</scope>
                     </dependency>
 
 
@@ -825,6 +826,7 @@
                         <groupId>jakarta.servlet</groupId>
                         <artifactId>jakarta.servlet-api</artifactId>
                         <version>${jakarta.servlet-api.version}</version>
+                        <scope>provided</scope>
                     </dependency>
 
 
@@ -866,6 +868,15 @@
                             <groupId>org.springframework</groupId>
                             <artifactId>spring-context</artifactId>
                         </exclusion>
+                        <!-- JAXB is already shipped by GeoStore -->
+                        <exclusion>
+                            <groupId>org.glassfish.jaxb</groupId>
+                            <artifactId>jaxb-runtime</artifactId>
+                        </exclusion>
+                        <exclusion>
+                            <groupId>jakarta.xml.bind</groupId>
+                            <artifactId>jakarta.xml.bind-api</artifactId>
+                        </exclusion>
                         <!-- drop the HTTP Client and Core jar -->
                         <exclusion>
                             <groupId>org.apache.httpcomponents</groupId>
@@ -874,6 +885,19 @@
                         <exclusion>
                             <groupId>org.apache.httpcomponents</groupId>
                             <artifactId>httpcore</artifactId>
+                        </exclusion>
+                        <!-- HTTP Client 5 is declared in the main dependencies of this module -->
+                        <exclusion>
+                            <groupId>org.apache.httpcomponents.client5</groupId>
+                            <artifactId>httpclient5</artifactId>
+                        </exclusion>
+                        <exclusion>
+                            <groupId>org.apache.httpcomponents.core5</groupId>
+                            <artifactId>httpcore5</artifactId>
+                        </exclusion>
+                        <exclusion>
+                            <groupId>org.apache.httpcomponents.core5</groupId>
+                            <artifactId>httpcore5-h2</artifactId>
                         </exclusion>
                     </exclusions>
                 </dependency>
