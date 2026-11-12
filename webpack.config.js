@@ -14,6 +14,7 @@ const paths = {
 
 module.exports = require("./MapStore2/build/buildConfig")({
     bundles: {
+        "ms2-api": path.join(__dirname, "MapStore2", "web", "client", "product", "api"),
         geOrchestra: path.join(__dirname, "js", "app"),
         embedded: path.join( __dirname, "js", "embedded" ),
         "dashboard-embedded": path.join( __dirname, "js", "dashboardEmbedded" ),
@@ -31,5 +32,5 @@ module.exports = require("./MapStore2/build/buildConfig")({
         "@mapstore": path.resolve(__dirname, "MapStore2", "web", "client"),
         "@js": path.resolve(__dirname, "js")
     },
-    proxy: devServer.proxy
+    devServer
 });

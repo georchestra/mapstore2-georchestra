@@ -32,14 +32,6 @@
         <artifactId>mapstore-services</artifactId>
         <version>${mapstore-services.version}</version>
     </dependency>
-     <!-- Jackson BOM (for to receive same version of jackson from print-lib)-->
-    <dependency>
-        <groupId>com.fasterxml.jackson</groupId>
-        <artifactId>jackson-bom</artifactId>
-        <version>${jackson.version}</version>
-        <type>pom</type>
-        <scope>import</scope>
-    </dependency>
     <!-- ================================================================ -->
     <!-- GeoStore modules -->
     <!-- ================================================================ -->
@@ -73,21 +65,82 @@
     </dependency>
     <!-- servlet -->
     <dependency>
-        <groupId>javax.servlet</groupId>
-        <artifactId>javax.servlet-api</artifactId>
-        <version>${javax.servlet-api.version}</version>
+        <groupId>jakarta.servlet</groupId>
+        <artifactId>jakarta.servlet-api</artifactId>
+        <version>${jakarta.servlet-api.version}</version>
+        <scope>provided</scope>
     </dependency>
-    <!-- gzip compression filter -->
+
+
+    <!-- Replace overlay Jackson 2 jars with the root BOM versions. -->
     <dependency>
-        <groupId>net.sf.ehcache</groupId>
-        <artifactId>ehcache-web</artifactId>
-        <version>${ehcache-web.version}</version>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-core</artifactId>
     </dependency>
-    <!-- misc -->
     <dependency>
-        <groupId>commons-pool</groupId>
-        <artifactId>commons-pool</artifactId>
-        <version>${commons-pool.version}</version>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-databind</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-annotations</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.dataformat</groupId>
+      <artifactId>jackson-dataformat-xml</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.dataformat</groupId>
+      <artifactId>jackson-dataformat-yaml</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.fasterxml.jackson.datatype</groupId>
+      <artifactId>jackson-datatype-jakarta-jsonp</artifactId>
+    </dependency>
+    <!-- Explicit versions replace conflicting prebundled overlay jars. -->
+    <dependency>
+      <groupId>commons-io</groupId>
+      <artifactId>commons-io</artifactId>
+      <version>2.22.0</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-codec</groupId>
+      <artifactId>commons-codec</artifactId>
+      <version>1.22.0</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.httpcomponents.client5</groupId>
+      <artifactId>httpclient5</artifactId>
+      <version>5.6.3</version>
+    </dependency>
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>2.0.17</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-slf4j2-impl</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-1.2-api</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>jakarta.el</groupId>
+      <artifactId>jakarta.el-api</artifactId>
+      <version>6.0.1</version>
+    </dependency>
+    <!-- Tomcat provides Servlet/JSP; JSTL is part of the application. -->
+    <dependency>
+      <groupId>jakarta.servlet.jsp.jstl</groupId>
+      <artifactId>jakarta.servlet.jsp.jstl-api</artifactId>
+      <version>3.0.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.glassfish.web</groupId>
+      <artifactId>jakarta.servlet.jsp.jstl</artifactId>
+      <version>3.0.1</version>
     </dependency>
   </dependencies>
   <build>
@@ -133,6 +186,7 @@
                                     <include>index.html</include>
                                 </includes>
                                 <excludes>
+
                                     <exclude>MapStore2/*</exclude>
                                     <exclude>MapStore2/**/*</exclude>
                                 </excludes>
@@ -156,6 +210,7 @@
                                     <include>embedded.html</include>
                                 </includes>
                                 <excludes>
+
                                     <exclude>MapStore2/*</exclude>
                                     <exclude>MapStore2/**/*</exclude>
                                 </excludes>
@@ -179,6 +234,7 @@
                                     <include>dashboard-embedded.html</include>
                                 </includes>
                                 <excludes>
+
                                     <exclude>MapStore2/*</exclude>
                                     <exclude>MapStore2/**/*</exclude>
                                 </excludes>
@@ -202,6 +258,7 @@
                                     <include>geostory-embedded.html</include>
                                 </includes>
                                 <excludes>
+
                                     <exclude>MapStore2/*</exclude>
                                     <exclude>MapStore2/**/*</exclude>
                                 </excludes>
@@ -225,6 +282,7 @@
                                     <include>api.html</include>
                                 </includes>
                                 <excludes>
+
                                     <exclude>MapStore2/*</exclude>
                                     <exclude>MapStore2/**/*</exclude>
                                 </excludes>
@@ -251,11 +309,14 @@
                                     <include>**/*.less</include>
                                 </includes>
                                 <excludes>
+
                                     <exclude>node_modules/*</exclude>
                                     <exclude>node_modules/**/*</exclude>
                                     <exclude>MapStore2/*</exclude>
                                     <exclude>MapStore2/**/*</exclude>
                                     <exclude>**/test-resources/*</exclude>
+                                    <exclude>**/target/**</exclude>
+                                    <exclude>dist/**</exclude>
                                 </excludes>
                             </resource>
                         </resources>
@@ -394,6 +455,26 @@
                         </resources>
                     </configuration>
                 </execution>
+                <execution>
+                    <id>privacy template pages</id>
+                    <phase>process-classes</phase>
+                    <goals>
+                        <goal>copy-resources</goal>
+                    </goals>
+                    <configuration>
+                        <outputDirectory>${resources.output.dir}/product/assets</outputDirectory>
+                        <encoding>UTF-8</encoding>
+                        <resources>
+                            <resource>
+                                <directory>${basedir}/../MapStore2/web/client/product/assets</directory>
+                                <includes>
+                                    <include>privacy/*</include>
+                                    <include>img/logo.png</include>
+                                </includes>
+                            </resource>
+                        </resources>
+                    </configuration>
+                </execution>
             </executions>
         </plugin>
 
@@ -403,7 +484,12 @@
             <version>${maven-war-plugin.version}</version>
             <configuration>
                 <packagingExcludes>
-                    WEB-INF/lib/*spring*5.3.18*.jar,
+                    WEB-INF/lib/log4j-slf4j-impl-*.jar,
+                    WEB-INF/lib/asm-2.2.3.jar,
+                    WEB-INF/lib/spring-*-5.*.jar,
+                    WEB-INF/lib/javax.servlet-api-*.jar,
+                    WEB-INF/lib/jstl-*.jar,
+                    WEB-INF/lib/standard-*.jar,
                     WEB-INF/lib/json-lib-2.4-jdk15.jar,
                     WEB-INF/lib/msg-simple-1.1.jar,
                     WEB-INF/lib/btf-1.2.jar,
@@ -420,10 +506,76 @@
                     <overlay>
                         <groupId>it.geosolutions.geostore</groupId>
                         <artifactId>geostore-webapp</artifactId>
+                        <excludes>
+                            <exclude>WEB-INF/lib/commons-io-*.jar</exclude>
+                            <exclude>WEB-INF/lib/commons-codec-*.jar</exclude>
+                            <exclude>WEB-INF/lib/httpclient5-*.jar</exclude>
+                            <exclude>WEB-INF/lib/httpcore5-*.jar</exclude>
+                            <exclude>WEB-INF/lib/httpcore5-h2-*.jar</exclude>
+                            <exclude>WEB-INF/lib/slf4j-api-*.jar</exclude>
+                            <exclude>WEB-INF/lib/log4j-core-*.jar</exclude>
+                            <exclude>WEB-INF/lib/log4j-api-*.jar</exclude>
+                            <exclude>WEB-INF/lib/log4j-slf4j-impl-*.jar</exclude>
+                            <exclude>WEB-INF/lib/log4j-slf4j2-impl-*.jar</exclude>
+                            <exclude>WEB-INF/lib/log4j-1.2-api-*.jar</exclude>
+                            <exclude>WEB-INF/lib/micrometer-observation-*.jar</exclude>
+                            <exclude>WEB-INF/lib/micrometer-commons-*.jar</exclude>
+                            <exclude>WEB-INF/lib/guava-*.jar</exclude>
+                            <exclude>WEB-INF/lib/failureaccess-*.jar</exclude>
+                            <exclude>WEB-INF/lib/j2objc-annotations-*.jar</exclude>
+                            <exclude>WEB-INF/lib/error_prone_annotations-*.jar</exclude>
+                            <exclude>WEB-INF/lib/jsr305-*.jar</exclude>
+                            <exclude>WEB-INF/lib/jakarta.el-api-*.jar</exclude>
+                            <exclude>WEB-INF/lib/stax2-api-*.jar</exclude>
+                            <exclude>WEB-INF/lib/woodstox-core-*.jar</exclude>
+                            <exclude>WEB-INF/lib/snakeyaml-*.jar</exclude>
+                            <exclude>WEB-INF/lib/jakarta.json-api-*.jar</exclude>
+
+
+                            <exclude>WEB-INF/lib/jackson-core-2.*.jar</exclude>
+                            <exclude>WEB-INF/lib/jackson-databind-2.*.jar</exclude>
+                            <exclude>WEB-INF/lib/jackson-annotations-2.*.jar</exclude>
+                            <exclude>WEB-INF/lib/jackson-dataformat-*.jar</exclude>
+                            <exclude>WEB-INF/lib/jackson-datatype-jakarta-jsonp-*.jar</exclude>
+                            <exclude>WEB-INF/lib/jakarta.servlet-api-*.jar</exclude>
+                        </excludes>
                     </overlay>
                     <overlay>
                         <groupId>proxy</groupId>
                         <artifactId>http_proxy</artifactId>
+                        <excludes>
+                            <exclude>WEB-INF/lib/commons-io-*.jar</exclude>
+                            <exclude>WEB-INF/lib/commons-codec-*.jar</exclude>
+                            <exclude>WEB-INF/lib/httpclient5-*.jar</exclude>
+                            <exclude>WEB-INF/lib/httpcore5-*.jar</exclude>
+                            <exclude>WEB-INF/lib/httpcore5-h2-*.jar</exclude>
+                            <exclude>WEB-INF/lib/slf4j-api-*.jar</exclude>
+                            <exclude>WEB-INF/lib/log4j-core-*.jar</exclude>
+                            <exclude>WEB-INF/lib/log4j-api-*.jar</exclude>
+                            <exclude>WEB-INF/lib/log4j-slf4j-impl-*.jar</exclude>
+                            <exclude>WEB-INF/lib/log4j-slf4j2-impl-*.jar</exclude>
+                            <exclude>WEB-INF/lib/log4j-1.2-api-*.jar</exclude>
+                            <exclude>WEB-INF/lib/micrometer-observation-*.jar</exclude>
+                            <exclude>WEB-INF/lib/micrometer-commons-*.jar</exclude>
+                            <exclude>WEB-INF/lib/guava-*.jar</exclude>
+                            <exclude>WEB-INF/lib/failureaccess-*.jar</exclude>
+                            <exclude>WEB-INF/lib/j2objc-annotations-*.jar</exclude>
+                            <exclude>WEB-INF/lib/error_prone_annotations-*.jar</exclude>
+                            <exclude>WEB-INF/lib/jsr305-*.jar</exclude>
+                            <exclude>WEB-INF/lib/jakarta.el-api-*.jar</exclude>
+                            <exclude>WEB-INF/lib/stax2-api-*.jar</exclude>
+                            <exclude>WEB-INF/lib/woodstox-core-*.jar</exclude>
+                            <exclude>WEB-INF/lib/snakeyaml-*.jar</exclude>
+                            <exclude>WEB-INF/lib/jakarta.json-api-*.jar</exclude>
+
+
+                            <exclude>WEB-INF/lib/jackson-core-2.*.jar</exclude>
+                            <exclude>WEB-INF/lib/jackson-databind-2.*.jar</exclude>
+                            <exclude>WEB-INF/lib/jackson-annotations-2.*.jar</exclude>
+                            <exclude>WEB-INF/lib/jackson-dataformat-*.jar</exclude>
+                            <exclude>WEB-INF/lib/jackson-datatype-jakarta-jsonp-*.jar</exclude>
+                            <exclude>WEB-INF/lib/jakarta.servlet-api-*.jar</exclude>
+                        </excludes>
                     </overlay>
                 </overlays>
             </configuration>
@@ -435,7 +587,7 @@
             <version>${cargo.version}</version>
             <configuration>
                 <container>
-                    <containerId>tomcat9x</containerId>
+                    <containerId>tomcat11x</containerId>
                     <zipUrlInstaller>
                         <url>
                             https://repo.maven.apache.org/maven2/org/apache/tomcat/tomcat/${tomcat.version}/tomcat-${tomcat.version}.zip
@@ -448,6 +600,13 @@
                         ${project.build.directory}/apache-tomcat-${tomcat.version}
                     </home>
                     <properties>
+                        <cargo.jvmargs>
+                            ${backend.debug.args}
+                            -Dgeorchestra.datadir=${georchestra.datadir}
+                            --add-opens=java.base/java.lang=ALL-UNNAMED
+                            --add-opens=java.base/java.io=ALL-UNNAMED
+                            -Djava.util.logging.config.file=${project.basedir}/cargo/logging.properties
+                        </cargo.jvmargs>
                         <cargo.servlet.port>${tomcat.port}</cargo.servlet.port>
                         <cargo.logging>low</cargo.logging>
                     </properties>
@@ -467,6 +626,11 @@
     </plugins>
   </build>
     <profiles>
+        <profile>
+            <id>dev-datadir</id>
+            <activation><property><name>env.GEORCHESTRA_DATADIR</name></property></activation>
+            <properties><georchestra.datadir>${env.GEORCHESTRA_DATADIR}</georchestra.datadir></properties>
+        </profile>
         <profile>
             <id>dev-custom-port</id>
             <activation>
@@ -604,11 +768,6 @@
             </build>
             <dependencyManagement>
                 <dependencies>
-                    <dependency>
-                        <groupId>org.apache.httpcomponents</groupId>
-                        <artifactId>httpclient</artifactId>
-                        <version>${httpclient.version}</version>
-                    </dependency>
                     <!-- JUnit -->
                     <dependency>
                         <groupId>junit</groupId>
@@ -624,25 +783,16 @@
                     </dependency>
                     <!-- servlet -->
                     <dependency>
-                        <groupId>javax.servlet</groupId>
-                        <artifactId>javax.servlet-api</artifactId>
-                        <version>${javax.servlet-api.version}</version>
+                        <groupId>jakarta.servlet</groupId>
+                        <artifactId>jakarta.servlet-api</artifactId>
+                        <version>${jakarta.servlet-api.version}</version>
+                        <scope>provided</scope>
                     </dependency>
-                    <!-- gzip compression filter -->
+
+
                     <dependency>
-                        <groupId>net.sf.ehcache</groupId>
-                        <artifactId>ehcache-web</artifactId>
-                        <version>${ehcache-web.version}</version>
-                    </dependency>
-                    <!-- misc -->
-                    <dependency>
-                        <groupId>commons-pool</groupId>
-                        <artifactId>commons-pool</artifactId>
-                        <version>${commons-pool.version}</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>javax.xml.ws</groupId>
-                        <artifactId>jaxws-api</artifactId>
+                        <groupId>jakarta.xml.ws</groupId>
+                        <artifactId>jakarta.xml.ws-api</artifactId>
                         <version>${jaxws-api.version}</version>
                     </dependency>
                 </dependencies>
@@ -678,11 +828,6 @@
             </build>
             <dependencyManagement>
                 <dependencies>
-                    <dependency>
-                        <groupId>org.apache.httpcomponents</groupId>
-                        <artifactId>httpclient</artifactId>
-                        <version>${httpclient.version}</version>
-                    </dependency>
                     <!-- JUnit -->
                     <dependency>
                         <groupId>junit</groupId>
@@ -698,25 +843,16 @@
                     </dependency>
                     <!-- servlet -->
                     <dependency>
-                        <groupId>javax.servlet</groupId>
-                        <artifactId>javax.servlet-api</artifactId>
-                        <version>${javax.servlet-api.version}</version>
+                        <groupId>jakarta.servlet</groupId>
+                        <artifactId>jakarta.servlet-api</artifactId>
+                        <version>${jakarta.servlet-api.version}</version>
+                        <scope>provided</scope>
                     </dependency>
-                    <!-- gzip compression filter -->
+
+
                     <dependency>
-                        <groupId>net.sf.ehcache</groupId>
-                        <artifactId>ehcache-web</artifactId>
-                        <version>${ehcache-web.version}</version>
-                    </dependency>
-                    <!-- misc -->
-                    <dependency>
-                        <groupId>commons-pool</groupId>
-                        <artifactId>commons-pool</artifactId>
-                        <version>${commons-pool.version}</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>javax.xml.ws</groupId>
-                        <artifactId>jaxws-api</artifactId>
+                        <groupId>jakarta.xml.ws</groupId>
+                        <artifactId>jakarta.xml.ws-api</artifactId>
                         <version>${jaxws-api.version}</version>
                     </dependency>
                 </dependencies>
@@ -752,6 +888,15 @@
                             <groupId>org.springframework</groupId>
                             <artifactId>spring-context</artifactId>
                         </exclusion>
+                        <!-- JAXB is already shipped by GeoStore -->
+                        <exclusion>
+                            <groupId>org.glassfish.jaxb</groupId>
+                            <artifactId>jaxb-runtime</artifactId>
+                        </exclusion>
+                        <exclusion>
+                            <groupId>jakarta.xml.bind</groupId>
+                            <artifactId>jakarta.xml.bind-api</artifactId>
+                        </exclusion>
                         <!-- drop the HTTP Client and Core jar -->
                         <exclusion>
                             <groupId>org.apache.httpcomponents</groupId>
@@ -760,6 +905,19 @@
                         <exclusion>
                             <groupId>org.apache.httpcomponents</groupId>
                             <artifactId>httpcore</artifactId>
+                        </exclusion>
+                        <!-- HTTP Client 5 is declared in the main dependencies of this module -->
+                        <exclusion>
+                            <groupId>org.apache.httpcomponents.client5</groupId>
+                            <artifactId>httpclient5</artifactId>
+                        </exclusion>
+                        <exclusion>
+                            <groupId>org.apache.httpcomponents.core5</groupId>
+                            <artifactId>httpcore5</artifactId>
+                        </exclusion>
+                        <exclusion>
+                            <groupId>org.apache.httpcomponents.core5</groupId>
+                            <artifactId>httpcore5-h2</artifactId>
                         </exclusion>
                     </exclusions>
                 </dependency>

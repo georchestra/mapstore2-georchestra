@@ -38,11 +38,11 @@ const Version = connect((state) => ({
             urlSubmodule: "https://github.com/geosolutions-it/MapStore2"
         };
 
-        renderUrl = (baseUrl, hash, type = "commit") => {
+        renderUrl = (baseUrl, hash, type = "commit", label = hash) => {
             const parse = type === "commits";
             return (<span style={{ paddingLeft: 4 }}>
                 <a target="_blank" href={`${baseUrl?.replace(".git", "")}/${type}/${hash}`}>
-                    {parse ? hash : `(${hash?.substr(0, 8)})`}
+                    {parse ? label : `(${hash?.substr(0, 8)})`}
                 </a>
             </span>);
         };
@@ -86,7 +86,7 @@ const Version = connect((state) => ({
                         </td>
                         <td>
                             <span>:
-                                {this.renderUrl(urlSubmodule, versionSubmodule, "commits")}
+                                {this.renderUrl(urlSubmodule, versionSubmodule.replace(/-preview$/, ""), "commits", versionSubmodule)}
                                 {this.renderUrl(urlSubmodule, _hashSubmodule)}
                             </span>
                         </td>

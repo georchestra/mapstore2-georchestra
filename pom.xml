@@ -10,34 +10,57 @@
     <url>https://github.com/georchestra/mapstore2-georchestra</url>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <!-- platform BOM versions -->
         <tomcat.port>8080</tomcat.port>
-        <tomcat.version>9.0.108</tomcat.version>
-        <jackson.version>2.16.1</jackson.version>
+        <tomcat.version>11.0.27</tomcat.version>
+        <jackson.version>2.22.3</jackson.version>
+        <guava.version>32.0.0-jre</guava.version>
+        <jsr305.version>3.0.2</jsr305.version>
+        <log4j.version>2.26.1</log4j.version>
+        <georchestra.datadir>/etc/georchestra</georchestra.datadir>
+        <backend.debug.args>-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=localhost:8989</backend.debug.args>
         <maven-resources-plugin.version>2.6</maven-resources-plugin.version>
         <maven-war-plugin.version>3.4.0</maven-war-plugin.version>
         <!-- Spring Framework & Security (aligned) -->
-        <spring.security.version>5.7.13</spring.security.version>
-        <spring.version>5.3.39</spring.version>
+        <spring.security.version>7.1.1</spring.security.version>
+        <spring.version>7.0.9</spring.version>
         <!-- other dependencies (aligned where applicable) -->
-        <commons-pool.version>1.5.4</commons-pool.version>
-        <ehcache-web.version>2.0.4</ehcache-web.version>
-        <httpclient.version>4.5.13</httpclient.version>
-        <javax.servlet-api.version>3.0.1</javax.servlet-api.version>
-        <jaxws-api.version>2.3.1</jaxws-api.version>
+        <jakarta.servlet-api.version>6.0.0</jakarta.servlet-api.version>
+        <jaxws-api.version>4.0.3</jaxws-api.version>
         <junit.version>4.13.2</junit.version>
         <mockito-core.version>4.0.0</mockito-core.version>
-        <cargo.version>1.10.2</cargo.version>
+        <cargo.version>1.10.27</cargo.version>
         <!-- MapStore‑specific -->
-        <mapstore-services.version>1.10-SNAPSHOT</mapstore-services.version>
-        <geostore-webapp.version>2.4.1</geostore-webapp.version>
-        <http_proxy.version>1.5.0</http_proxy.version>
-        <print-lib.version>2.3.4</print-lib.version>
+        <mapstore-services.version>1.13.0</mapstore-services.version>
+        <geostore-webapp.version>2.7.0</geostore-webapp.version>
+        <http_proxy.version>1.7.0</http_proxy.version>
+        <print-lib.version>2.5.2</print-lib.version>
     </properties>
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-bom</artifactId>
+                <version>${log4j.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-framework-bom</artifactId>
+                <version>${spring.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.security</groupId>
+                <artifactId>spring-security-bom</artifactId>
+                <version>${spring.security.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
             <!-- Jackson BOM (for to receive same version of jackson from print-lib. Fixes https://github.com/geosolutions-it/MapStore2/issues/11856 temporary)-->
             <dependency>
                 <groupId>com.fasterxml.jackson</groupId>
@@ -45,6 +68,17 @@
                 <version>${jackson.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+            <!-- same versions GeoStore ships, so print-lib and json-patch do not add a second one -->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.code.findbugs</groupId>
+                <artifactId>jsr305</artifactId>
+                <version>${jsr305.version}</version>
             </dependency>
             </dependencies>
     </dependencyManagement>

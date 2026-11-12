@@ -11,7 +11,7 @@ setConfigProp("translationsPath", [
     "./translations"
 ]);
 setConfigProp("geoStoreUrl", "rest/geostore/");
-setConfigProp("configurationFolder", "rest/config/load/");
+setConfigProp("configurationFolder", "configs/");
 
 
 // __PROJECTNAME__ is the name of the project used in the creation process

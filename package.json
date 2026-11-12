@@ -1,6 +1,6 @@
 {
   "name": "georchestra",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "geOrchestra",
   "repository": "https://github.com/georchestra/mapstore2-georchestra",
   "main": "index.js",
@@ -32,7 +32,7 @@
     ]
   },
   "devDependencies": {
-    "@babel/core": "7.28.4",
+    "@babel/core": "7.29.6",
     "@babel/preset-env": "7.28.3",
     "@babel/preset-react": "7.27.1",
     "@geosolutions/acorn-jsx": "4.0.2",
@@ -55,7 +55,6 @@
     "eslint-plugin-react": "3.16.1",
     "expect": "1.20.1",
     "file-loader": "2.0.0",
-    "glob": "7.1.1",
     "html-loader": "2.0.0",
     "html-webpack-plugin": "5.2.0",
     "karma": "6.4.0",
@@ -75,27 +74,26 @@
     "mini-css-extract-plugin": "1.3.9",
     "mkdirp": "0.5.1",
     "ncp": "2.0.0",
-    "postcss": "8.3.5",
+    "postcss": "8.5.23",
     "postcss-loader": "6.1.0",
     "postcss-prefix-selector": "1.10.0",
     "premove": "4.0.0",
     "prettier": "3.5.1",
     "process": "0.11.10",
     "raw-loader": "0.5.1",
-    "react-transition-group": "1.1.3",
     "readline-promise": "1.0.4",
     "redux-devtools": "3.4.0",
     "redux-devtools-dock-monitor": "1.1.2",
     "redux-devtools-log-monitor": "1.3.0",
     "redux-mock-store": "1.2.2",
-    "simple-git": "2.20.1",
+    "simple-git": "4.0.1",
     "style-loader": "2.0.0",
     "terser": "5.18.1",
     "url-loader": "0.5.7",
-    "webpack": "5.94.0",
+    "webpack": "5.104.1",
     "webpack-bundle-size-analyzer": "2.0.2",
-    "webpack-cli": "4.10.0",
-    "webpack-dev-server": "3.11.0"
+    "webpack-cli": "5.1.4",
+    "webpack-dev-server": "5.2.6"
   },
   "dependencies": {
     "mapstore": "file:MapStore2"
@@ -103,20 +101,27 @@
   "scripts": {
     "start": "npm run app:start",
     "app:start": "concurrently -n frontend,backend -c green,blue \"npm:fe:start\" \"npm:be:start\"",
-    "fe:start": "webpack serve --progress --color --port 8081 --hot --inline --content-base .",
-    "fe:build": "npm run clean && mkdirp ./dist && node ./node_modules/webpack/bin/webpack.js --config prod-webpack.config.js",
+    "fe:start": "webpack serve --progress --color --port 8081 --hot --config webpack.config.js",
+    "fe:build": "npm run clean && mkdirp ./dist && webpack build --progress --color --config prod-webpack.config.js",
     "compile": "npm run fe:build",
-    "backend:build": "mvn clean install -Pprinting",
-    "be:start": "npm run backend:build -Pprinting && mvn cargo:run -f ./web/pom.xml -Pprinting",
-    "clean": "rimraf dist",
+    "backend:build": "npm run be:build",
+    "be:start": "npm run be:build && mvn cargo:run -f ./web/pom.xml -Pprinting",
+    "clean": "premove dist",
     "postinstall": "node MapStore2/utility/build/postInstall.js",
-    "test": "karma start ./karma.conf.single-run.js",
-    "continuoustest": "karma start ./karma.conf.continuous-test.js",
+    "test": "karma start ./karma.conf.single-run.js --color",
+    "continuoustest": "npm run test:watch",
     "mvntest": "karma start ./karma.conf.single-run.js --reporters junit,dots,coverage",
     "backend:dev": "npm run be:start",
     "lint": "eslint js --ext .jsx,.js",
-    "updateDevDeps": "node updateDevDependencies.js"
+    "updateDevDeps": "node updateDevDependencies.js",
+    "fe:start-prod": "webpack serve --progress --color --port 8081 --hot --config prod-webpack.config.js",
+    "be:build": "mvn clean install -Pprinting",
+    "pretest": "npm run lint",
+    "test:watch": "karma start ./karma.conf.continuous-test.js --color"
   },
   "author": "GeoSolutions",
-  "license": "BSD-2-Clause"
+  "license": "BSD-2-Clause",
+  "engines": {
+    "node": ">=22"
+  }
 }

@@ -1,20 +1,17 @@
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 var path = require("path");
-const glob = require('glob');
+const { readdirSync } = require('fs');
 const extractThemesPlugin = new MiniCssExtractPlugin({
     filename: '[name].css'
 });
 
 
 const themeEntries = (() => {
-    const globPath = path.join(__dirname, "themes", "*");
-    var files = glob.sync(globPath, {mark: true});
-    return files.filter((f) => f.lastIndexOf('/') === f.length - 1).reduce((res, curr) => {
-        var finalRes = res || {};
-        var themeName = path.basename(curr, path.extname(curr));
-        finalRes["themes/" + themeName] = path.join(__dirname, "themes", `${themeName}`, "theme.less");
-        return finalRes;
-    }, {});
+    return readdirSync(path.join(__dirname, 'themes'), { withFileTypes: true })
+        .filter(entry => entry.isDirectory()).reduce((entries, entry) => ({
+            ...entries,
+            [`themes/${entry.name}`]: path.join(__dirname, 'themes', entry.name, 'theme.less')
+        }), {});
 
 })();
 module.exports = {

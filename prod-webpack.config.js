@@ -6,6 +6,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const moduleFederationPlugin = require('./MapStore2/build/moduleFederation.js').plugin;
 const gitRevisionPlugin = require('./revision');
 
+const { devServer } = require("./devServer");
+
 const paths = {
     base: path.join(__dirname),
     dist: path.join(__dirname, "dist"),
@@ -14,6 +16,7 @@ const paths = {
 };
 module.exports = require('./MapStore2/build/buildConfig')({
     bundles: {
+        "ms2-api": path.join(__dirname, "MapStore2", "web", "client", "product", "api"),
         'geOrchestra': path.join(__dirname, "js", "app"),
         embedded: path.join(__dirname, "js", "embedded"),
         "dashboard-embedded": path.join( __dirname, "js", "dashboardEmbedded" ),
@@ -23,6 +26,7 @@ module.exports = require('./MapStore2/build/buildConfig')({
     paths,
     plugins: [extractThemesPlugin, moduleFederationPlugin, gitRevisionPlugin],
     prod: true,
+    devServer,
     publicPath: undefined,
     cssPrefix: '.geOrchestra',
     prodPlugins: [
@@ -42,10 +46,11 @@ module.exports = require('./MapStore2/build/buildConfig')({
             filename: 'embedded.html'
         }),
         new HtmlWebpackPlugin({
-            template: path.join(paths.framework, 'dashboard-embedded-template.html'),
+            // Keep the API's script id: the runtime uses it to resolve local theme assets.
+            templateContent: require('fs').readFileSync(path.join(__dirname, 'api.html'), 'utf8'),
             publicPath: 'dist/',
             chunks: ['ms2-api'],
-            inject: "body",
+            inject: false,
             hash: true,
             filename: 'api.html'
         }),

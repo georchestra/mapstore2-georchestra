@@ -9,8 +9,9 @@ var matches = MAPSTORE_BACKEND_URL.match(/^https?\:\/\/([^\/?#]+)(?:[\/?#]|$)/i)
 var domain = matches && matches[1];
 
 const devServer = {
-    proxy: {
-        "/rest": {
+    proxy: [
+        {
+            context: ["/rest", "/extensions.json", "/dist/extensions"],
             target: `${MAPSTORE_BACKEND_URL}`,
             secure: false,
             headers: {
@@ -20,17 +21,16 @@ const devServer = {
                 "sec-roles": 'ADMIN'
             }
         },
-        "/?login": {
-
-        },
-        "/favicon.ico": {
+        {
+            context: ["/favicon.ico"],
             target: `${GEORCHESTRA_BACKEND_BASE_URL}`
         },
-        "/login": {
+        {
+            context: ["/login"],
             target: `${GEORCHESTRA_BACKEND_BASE_URL}`,
             secure: false,
+            changeOrigin: true,
             headers: {
-                changeOrigin: true,
                 host: `${domain}`
             },
             // This handles the redirects
@@ -44,21 +44,24 @@ const devServer = {
                 }
             }
         },
-        "/pdf": {
+        {
+            context: ["/pdf"],
             target: `${MAPSTORE_BACKEND_URL}`,
             secure: false,
             headers: {
                 host: `${domain}`
             }
         },
-        "/mapstore/pdf": {
+        {
+            context: ["/mapstore/pdf"],
             target: `${MAPSTORE_BACKEND_BASE_URL}`,
             secure: false,
             headers: {
                 host: `${domain}`
             }
         },
-        "/proxy": {
+        {
+            context: ["/proxy"],
             // proxy of geOrchestra is already configured
             target: `${MAPSTORE_BACKEND_URL}`,
             secure: false,
@@ -66,28 +69,32 @@ const devServer = {
                 host: `${domain}`
             }
         },
-        "/geonetwork": {
+        {
+            context: ["/geonetwork"],
             target: `${GEORCHESTRA_BACKEND_BASE_URL}/geonetwork`,
             secure: false,
             headers: {
                 host: `${domain}`
             }
         },
-        "/header": {
+        {
+            context: ["/header"],
             target: `${MAPSTORE_BACKEND_BASE_URL}`,
             secure: false,
             headers: {
                 host: `${domain}`
             }
         },
-        "/cas": {
+        {
+            context: ["/cas"],
             target: `${MAPSTORE_BACKEND_BASE_URL}`,
             secure: false,
             headers: {
                 host: `${domain}`
             }
         },
-        "/whoami": {
+        {
+            context: ["/whoami"],
             target: `${GEORCHESTRA_BACKEND_BASE_URL}`,
             secure: false,
             headers: {
@@ -97,7 +104,12 @@ const devServer = {
                 "sec-roles": 'ROLE_MAPSTORE_ADMIN'
             }
         }
-    }
+    ],
+    devMiddleware: { publicPath: "/dist/" },
+    static: [{
+        directory: __dirname,
+        watch: { ignored: ["**/web/target/**", "**/MapStore2/**/target/**", "**/logs/**", "**/*.log", "**/node_modules/**", "**/.git/**"] }
+    }]
 };
 module.exports = {
     devServer,

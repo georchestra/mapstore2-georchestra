@@ -8,75 +8,53 @@
 import expect from 'expect';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Header} from "../Header";
-
+import {act} from 'react-dom/test-utils';
+import {Header} from '../Header';
 
 describe('Header', () => {
-    beforeEach((done) => {
-        document.body.innerHTML = '<div id="wrapper"><iframe id="georchestra-header"></iframe><div id="container"></div></div>';
-        setTimeout(done);
+    let container;
+    beforeEach(() => {
+        // The deployed header owns rendering/layout inside this custom element.
+        // Register a local element so tests never fetch the production CDN script.
+        if (!customElements.get('geor-header')) {
+            customElements.define('geor-header', class extends HTMLElement {});
+        }
+        container = document.createElement('div');
+        document.body.appendChild(container);
     });
-
-    afterEach((done) => {
-        ReactDOM.unmountComponentAtNode(document.getElementById("wrapper"));
-        document.body.innerHTML = '';
-        setTimeout(done);
+    afterEach(() => {
+        act(() => ReactDOM.unmountComponentAtNode(container));
+        container.remove();
     });
+    const render = props => {
+        act(() => ReactDOM.render(<Header {...props}/>, container));
+        return container.querySelector('geor-header');
+    };
 
-    it('Header does not render', () => {
-        const header = ReactDOM.render(<Header />, document.getElementById("container"));
-        expect(header).toNotExist();
+    it('renders the geOrchestra header with its default application', () => {
+        const header = render({});
+        expect(header.getAttribute('active-app')).toBe('mapstore');
+        expect(header.getAttribute('legacy-url')).toBe('/header/');
+        expect(container.querySelectorAll('#georchestra-header').length).toBe(1);
     });
-
-    it('Header changes the header heignt', (done) => {
-        const header = ReactDOM.render(<Header ignoreIFrame height={200} />, document.getElementById("container"));
-        expect(header).toNotExist();
-        setTimeout(() => {
-            try {
-                expect(document.getElementById("georchestra-header").style.height).toBe("200px");
-            } catch (e) {
-                done(e);
-            }
-            done();
-        });
+    it('passes height changes to the header component', () => {
+        render({height: 90});
+        expect(render({height: 200}).getAttribute('height')).toBe('200');
     });
-
-    it('Header changes the container position', (done) => {
-        const header = ReactDOM.render(<Header ignoreIFrame height={200} />, document.getElementById("container"));
-        expect(header).toNotExist();
-        setTimeout(() => {
-            try {
-                expect(document.getElementById("container").style.top).toBe("200px");
-            } catch (e) {
-                done(e);
-            }
-            done();
-        });
+    it('retains the legacy header URL and mode', () => {
+        const header = render({url: '/custom-header/', legacy: true});
+        expect(header.getAttribute('legacy-url')).toBe('/custom-header/');
+        expect(header.getAttribute('legacy-header')).toBe('true');
     });
-
-    it('Header changes the header src', (done) => {
-        const header = ReactDOM.render(<Header ignoreIFrame url="http://testurl" />, document.getElementById("container"));
-        expect(header).toNotExist();
-        setTimeout(() => {
-            try {
-                expect(document.getElementById("georchestra-header").src).toContain("testurl");
-            } catch (e) {
-                done(e);
-            }
-            done();
-        });
+    it('selects the current application without rewriting the legacy URL', () => {
+        const header = render({page: 'currentpage', url: '/header/'});
+        expect(header.getAttribute('active-app')).toBe('currentpage');
+        expect(header.getAttribute('legacy-url')).toBe('/header/');
     });
-
-    it('Header appends the current page id to src', (done) => {
-        const header = ReactDOM.render(<Header ignoreIFrame page="currentpage" />, document.getElementById("container"));
-        expect(header).toNotExist();
-        setTimeout(() => {
-            try {
-                expect(document.getElementById("georchestra-header").src).toContain("currentpage");
-            } catch (e) {
-                done(e);
-            }
-            done();
-        });
+    it('forwards branding and configuration from the deployment', () => {
+        const header = render({logoUrl: '/logo.svg', stylesheet: '/brand.css', configFile: '/header.json'});
+        expect(header.getAttribute('logo-url')).toBe('/logo.svg');
+        expect(header.getAttribute('stylesheet')).toBe('/brand.css');
+        expect(header.getAttribute('config-file')).toBe('/header.json');
     });
 });
