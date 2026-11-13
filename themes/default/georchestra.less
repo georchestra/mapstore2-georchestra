@@ -68,3 +68,8 @@ geor-header {
     top: auto !important;
     bottom: 0;
 }
+// in the map viewer the layout body is a stacking context (z-index: 0) below the header,
+// so the resource details panel opened inside it is raised above the header while visible
+#viewer .ms-map-viewer-layout-body:has(.ms-resources-panel-wrapper) {
+    z-index: 2001;
+}
