@@ -14,7 +14,6 @@ coverage/
 .vscode
 backend/.classpath
 backend/.project
-package-lock.json
 .idea/
 *.iml
 .nvmrc
